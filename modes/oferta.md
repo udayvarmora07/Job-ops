@@ -15,6 +15,19 @@ When the candidate pastes a **URL** (not JD text), confirm the posting is still 
 
 Do not continue to Block A until this gate is resolved. The snapshot captured here is reused by Block G's freshness signals.
 
+## Bounded Research Budget
+
+Company, compensation, and hiring-signal research must be a single-pass lookup, not an open-ended investigation. This mode is an evaluation workflow, not deep company research.
+
+Hard limits for Blocks D and G combined:
+- hard cap: 5 total WebSearch queries
+- Prefer targeted queries that answer more than one question; stop early when enough evidence exists.
+- Do not invoke `deep-research`, `deep`, or any other research skill.
+- Do not spawn subagents or delegate research to another agent.
+- Do not continue researching after the query cap is reached; summarize the evidence found and explicitly mark missing data as unavailable.
+
+If deeper company research is useful, recommend running `/jobops deep` separately after the evaluation.
+
 ## Step 0 — Archetype Detection
 
 Classify the job into one of the 6 archetypes (see `_shared.md`). If it is a hybrid, indicate the 2 closest ones. This determines:
@@ -59,7 +72,7 @@ Read `cv.md`. Create a table with each JD requirement mapped to exact lines in t
 
 ## Block D — Comp and Demand
 
-Use WebSearch for:
+Use the bounded research budget above for:
 - Current salaries for the role (Glassdoor, Levels.fyi, Blind)
 - Company's compensation reputation
 - Demand trend for the role
@@ -120,7 +133,7 @@ Analyze the job posting for signals that indicate whether this is a real, active
 - What ratio of the JD is role-specific vs generic boilerplate?
 - Any internal contradictions? (entry-level title + staff requirements, etc.)
 
-**3. Company Hiring Signals** (2-3 WebSearch queries, combine with Block D research):
+**3. Company Hiring Signals** (use remaining queries from the bounded research budget, combine with Block D research):
 - Search: `"{company}" layoffs {year}` -- note date, scale, departments
 - Search: `"{company}" hiring freeze {year}` -- note any announcements
 - If layoffs found: are they in the same department as this role?
@@ -157,7 +170,7 @@ Analyze the job posting for signals that indicate whether this is a real, active
 
 ## Cover Letter Draft (auto-generated after Block G)
 
-After saving the report and recording in the tracker, append a cover letter draft to the report file under `## Cover Letter Draft`. This is a starting point — not the final letter. The user completes it via `/career-ops cover {slug}`.
+After saving the report and recording in the tracker, append a cover letter draft to the report file under `## Cover Letter Draft`. This is a starting point — not the final letter. The user completes it via `/jobops cover {slug}`.
 
 **How to generate the draft:**
 
@@ -173,7 +186,7 @@ After saving the report and recording in the tracker, append a cover letter draf
 ```markdown
 ## Cover Letter Draft
 
-> Draft generated at evaluation time. Complete via `/career-ops cover {slug}` to fill in angles, confirm research, and generate the PDF.
+> Draft generated at evaluation time. Complete via `/jobops cover {slug}` to fill in angles, confirm research, and generate the PDF.
 > Gaps flagged below — address them during the cover flow.
 
 ---
@@ -205,7 +218,7 @@ I am happy to discuss further at your convenience.
 {8-10 exact phrases from the JD}
 
 ---
-*Run `/career-ops cover {slug}` to complete angles, confirm company research, and generate the PDF.*
+*Run `/jobops cover {slug}` to complete angles, confirm company research, and generate the PDF.*
 ```
 
 Apply all language rules from `_shared.md` Professional Writing section to the draft content. No em dashes, no buzzwords, active voice, concrete claims only.

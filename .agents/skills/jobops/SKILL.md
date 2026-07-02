@@ -1,5 +1,5 @@
 ---
-name: career-ops
+name: jobops
 description: AI job search command center -- evaluate offers, generate CVs, scan portals, track applications
 arguments: mode
 user_invocable: true
@@ -8,7 +8,7 @@ argument-hint: "[scan | deep | pdf | latex | cover | oferta | ofertas | apply | 
 license: MIT
 ---
 
-# career-ops -- Router
+# jobops -- Router
 
 ## Mode Routing
 
@@ -49,31 +49,31 @@ If `$mode` is not a sub-command AND doesn't look like a JD, show discovery.
 Show this menu:
 
 ```
-career-ops -- Command Center
+jobops -- Command Center
 
 Available commands:
-  /career-ops {JD}      → AUTO-PIPELINE: evaluate + report + PDF + tracker (paste text or URL)
-  /career-ops pipeline  → Process pending URLs from inbox (data/pipeline.md)
-  /career-ops oferta    → Evaluation only A-F (no auto PDF)
-  /career-ops ofertas   → Compare and rank multiple offers
-  /career-ops contacto  → LinkedIn power move: find contacts + draft message
-  /career-ops deep      → Deep research prompt about company
-  /career-ops interview-prep → Generate company-specific interview prep doc
-  /career-ops interview    → Interactive profile/CV onboarding interview
-  /career-ops pdf       → PDF only, ATS-optimized CV
-  /career-ops latex     → Export CV as LaTeX/Overleaf .tex
-  /career-ops cover     → Cover letter: standalone JD paste or /career-ops cover {slug}
-  /career-ops training  → Evaluate course/cert against North Star
-  /career-ops project   → Evaluate portfolio project idea
-  /career-ops tracker   → Application status overview
-  /career-ops apply     → Live application assistant (reads form + generates answers)
-  /career-ops scan      → Scan portals and discover new offers
-  /career-ops batch     → Batch processing with parallel workers
-  /career-ops patterns  → Analyze rejection patterns and improve targeting
-  /career-ops followup  → Follow-up cadence tracker: flag overdue, generate drafts
-  /career-ops update    → Update career-ops system files with diff preview + compat check
+  /jobops {JD}      → AUTO-PIPELINE: evaluate + report + PDF + tracker (paste text or URL)
+  /jobops pipeline  → Process pending URLs from inbox (data/pipeline.md)
+  /jobops oferta    → Evaluation only A-F (no auto PDF)
+  /jobops ofertas   → Compare and rank multiple offers
+  /jobops contacto  → LinkedIn power move: find contacts + draft message
+  /jobops deep      → Deep research prompt about company
+  /jobops interview-prep → Generate company-specific interview prep doc
+  /jobops interview    → Interactive profile/CV onboarding interview
+  /jobops pdf       → PDF only, ATS-optimized CV
+  /jobops latex     → Export CV as LaTeX/Overleaf .tex
+  /jobops cover     → Cover letter: standalone JD paste or /jobops cover {slug}
+  /jobops training  → Evaluate course/cert against North Star
+  /jobops project   → Evaluate portfolio project idea
+  /jobops tracker   → Application status overview
+  /jobops apply     → Live application assistant (reads form + generates answers)
+  /jobops scan      → Scan portals and discover new offers
+  /jobops batch     → Batch processing with parallel workers
+  /jobops patterns  → Analyze rejection patterns and improve targeting
+  /jobops followup  → Follow-up cadence tracker: flag overdue, generate drafts
+  /jobops update    → Update jobops system files with diff preview + compat check
 
-Inbox: add URLs to data/pipeline.md → /career-ops pipeline
+Inbox: add URLs to data/pipeline.md → /jobops pipeline
 Or paste a JD directly to run the full pipeline.
 ```
 
@@ -100,7 +100,7 @@ For `scan`, `apply` (with Playwright), and `pipeline` (3+ URLs): launch as Agent
 Agent(
   subagent_type="general-purpose",
   prompt="[content of modes/_shared.md]\n\n[content of modes/{mode}.md]\n\n[invocation-specific data]",
-  description="career-ops {mode}"
+  description="jobops {mode}"
 )
 ```
 

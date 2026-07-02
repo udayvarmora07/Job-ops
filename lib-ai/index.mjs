@@ -1,5 +1,5 @@
 /**
- * lib-ai — career-ops shared AI engine (multi-provider, task-routed).
+ * lib-ai — jobops shared AI engine (multi-provider, task-routed).
  *
  * One engine, consumed by every surface: CLI scripts, the MCP server, and the
  * web dashboard. Provider/model selection lives in config/ai.yml; this module

@@ -8,14 +8,14 @@ import { dataDir } from "./paths";
  * Purpose: when you close and reopen a job, results come back instantly without
  * re-calling the LLM / Apify. The canonical pipeline data (tracker, reports)
  * stays in its markdown/JSON files — this DB only holds derived, recomputable
- * results, so it's safe to delete (data/career-ops.db).
+ * results, so it's safe to delete (data/jobops.db).
  */
 
 let _db: Database.Database | null = null;
 
 function db(): Database.Database {
   if (_db) return _db;
-  _db = new Database(path.join(dataDir(), "career-ops.db"));
+  _db = new Database(path.join(dataDir(), "jobops.db"));
   _db.pragma("journal_mode = WAL");
   _db.exec(`
     CREATE TABLE IF NOT EXISTS ai_cache (

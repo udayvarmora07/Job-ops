@@ -1,9 +1,9 @@
 import path from "path";
 
-// The web app lives in <career-ops>/web. Data lives one level up.
-// Allow an explicit override via CAREER_OPS_ROOT for flexibility.
+// The web app lives in <jobops>/web. Data lives one level up.
+// Allow an explicit override via JOBOPS_ROOT for flexibility.
 export function projectRoot(): string {
-  if (process.env.CAREER_OPS_ROOT) return process.env.CAREER_OPS_ROOT;
+  if (process.env.JOBOPS_ROOT) return process.env.JOBOPS_ROOT;
   return path.resolve(process.cwd(), "..");
 }
 

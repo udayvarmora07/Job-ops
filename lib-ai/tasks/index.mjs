@@ -3,7 +3,7 @@
  *
  * Maps a task name → a builder (input) => { system, prompt }. The CLI and the
  * MCP server look a task up here; if a builder exists it assembles the full
- * career-ops context, otherwise the raw input is sent as a plain prompt.
+ * jobops context, otherwise the raw input is sent as a plain prompt.
  *
  * Model selection for every task lives in config/ai.yml — independent of this.
  */

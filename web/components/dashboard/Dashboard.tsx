@@ -201,7 +201,7 @@ export default function Dashboard() {
             </div>
             <div>
               <h1 className="text-xl font-semibold tracking-tight">
-                Career-Ops
+                Jobops
               </h1>
               <p className="text-xs text-muted-foreground">
                 Job search command center

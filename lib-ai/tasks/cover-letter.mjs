@@ -12,7 +12,7 @@ export function buildCoverLetter(jdText) {
     throw new Error('buildCoverLetter: empty job description / brief.');
   }
 
-  const system = `You write tailored, concise cover letters for career-ops. Today is ${today()}.
+  const system = `You write tailored, concise cover letters for jobops. Today is ${today()}.
 
 Follow the cover-letter methodology below. Keep it under ~300 words, specific, and
 honest — every claim must trace to the candidate's CV. No generic filler, no clichés.

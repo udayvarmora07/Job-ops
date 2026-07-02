@@ -14,7 +14,7 @@ export function buildEvaluateJob(jdText) {
     throw new Error('buildEvaluateJob: empty job description.');
   }
 
-  const system = `You are career-ops, an AI-powered job search assistant.
+  const system = `You are jobops, an AI-powered job search assistant.
 You evaluate job offers against the user's CV using a structured A-G scoring system.
 Today's date is ${today()} — use it for any report date; never guess the date.
 

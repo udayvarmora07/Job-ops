@@ -2,7 +2,7 @@
  * lib-outreach/scan-posts.mjs — discover LinkedIn "we're hiring" posts.
  *
  * Recruiters constantly post "Hiring a DevOps Engineer — send your CV to x@y.com".
- * The career-ops job scanner can't see LinkedIn, and the email-discovery engine
+ * The jobops job scanner can't see LinkedIn, and the email-discovery engine
  * assumes you must *find* an address. These posts are the opposite: the address
  * is right there (usually in the FIRST COMMENT). This module finds those posts
  * via the off-account Apify actor `harvestapi/linkedin-post-search` (no cookies,

@@ -1,9 +1,9 @@
-# Career-Ops
+# Jobops
 
 [English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [简体中文](README.cn.md) | [繁體中文](README.zh-TW.md) | [Українська](README.ua.md) | [Русский](README.ru.md) | [Polski](README.pl.md) | [العربية](README.ar.md)
 
 <p align="center">
-  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Career-Ops Sistema Multi-Agente de Busqueda de Empleo" width="800"></a>
+  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Jobops Sistema Multi-Agente de Busqueda de Empleo" width="800"></a>
 </p>
 
 <p align="center">
@@ -13,9 +13,9 @@
 </p>
 
 <p align="center">
-  <a href="https://trendshift.io/repositories/25195" target="_blank"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fcareer-ops | Trendshift" style="width: 245px; height: 54px; vertical-align: middle;" width="245" height="54"/></a>
+  <a href="https://trendshift.io/repositories/25195" target="_blank"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fjobops | Trendshift" style="width: 245px; height: 54px; vertical-align: middle;" width="245" height="54"/></a>
   &nbsp;&nbsp;
-  <a href="https://www.producthunt.com/products/santifer-io?utm_source=badge-featured&utm_medium=badge" target="_blank"><img src="docs/press/producthunt.svg" alt="Career-Ops on Claude | Product Hunt" style="width: 206px; height: 54px; vertical-align: middle;" width="206" height="54"/></a>
+  <a href="https://www.producthunt.com/products/santifer-io?utm_source=badge-featured&utm_medium=badge" target="_blank"><img src="docs/press/producthunt.svg" alt="Jobops on Claude | Product Hunt" style="width: 206px; height: 54px; vertical-align: middle;" width="206" height="54"/></a>
 </p>
 
 <p align="center"><sub>APARECE EN</sub></p>
@@ -29,7 +29,7 @@
 ---
 
 <p align="center">
-  <img src="docs/demo.gif" alt="Career-Ops Demo" width="800">
+  <img src="docs/demo.gif" alt="Jobops Demo" width="800">
 </p>
 
 <p align="center"><strong>740+ ofertas evaluadas · 100+ CVs personalizados · 1 trabajo soñado conseguido</strong></p>
@@ -38,7 +38,7 @@
   <a href="https://warpchart.dev/hq">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://warpchart.dev/api/chart?theme=dark&v=3">
-      <img alt="Live star telemetry of santifer/career-ops" src="https://warpchart.dev/api/chart?theme=light&v=3" loading="lazy">
+      <img alt="Live star telemetry of santifer/jobops" src="https://warpchart.dev/api/chart?theme=light&v=3" loading="lazy">
     </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 <p align="center">
   <a href="https://discord.gg/8pRpHETxa4"><img src="https://img.shields.io/badge/Unete_a_la_comunidad-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
   &nbsp;
-  <a href="https://www.npmjs.com/package/@santifer/career-ops"><img src="https://img.shields.io/npm/dt/@santifer/career-ops?style=for-the-badge&logo=npm&color=CB3837&label=npx%20installs" alt="npm installs"></a>
+  <a href="https://www.npmjs.com/package/@santifer/jobops"><img src="https://img.shields.io/npm/dt/@santifer/jobops?style=for-the-badge&logo=npm&color=CB3837&label=npx%20installs" alt="npm installs"></a>
 </p>
 
 <p align="center">
@@ -68,7 +68,7 @@
 
 ## Que es esto
 
-Career-Ops convierte cualquier CLI de IA en un centro de mando de busqueda de empleo. En vez de trackear aplicaciones en un spreadsheet, tienes un pipeline AI que:
+Jobops convierte cualquier CLI de IA en un centro de mando de busqueda de empleo. En vez de trackear aplicaciones en un spreadsheet, tienes un pipeline AI que:
 
 - **Evalua ofertas** con scoring estructurado A-F (10 dimensiones ponderadas)
 - **Genera PDFs personalizados** -- CVs ATS-optimizados por oferta
@@ -80,7 +80,7 @@ Career-Ops convierte cualquier CLI de IA en un centro de mando de busqueda de em
 
 > **Aviso: las primeras evaluaciones no seran buenas.** El sistema no te conoce todavia. Dale contexto -- tu CV, tu historia profesional, tus proof points, tus preferencias, en que eres bueno, que quieres evitar. Cuanto mas lo nutras, mejor filtra. Piensa en ello como hacer onboarding a un recruiter nuevo: la primera semana necesita conocerte, luego se vuelve invaluable.
 
-Construido por alguien que lo uso para evaluar 740+ ofertas, generar 100+ CVs personalizados, y conseguir un rol de Head of Applied AI. [Lee el case study completo](https://santifer.io/career-ops).
+Construido por alguien que lo uso para evaluar 740+ ofertas, generar 100+ CVs personalizados, y conseguir un rol de Head of Applied AI. [Lee el case study completo](https://santifer.io/jobops).
 
 ## Features
 
@@ -102,26 +102,26 @@ Construido por alguien que lo uso para evaluar 740+ ofertas, generar 100+ CVs pe
 **La forma mas rapida — un solo comando:**
 
 ```bash
-npx @santifer/career-ops init
+npx @santifer/jobops init
 ```
 
 > 💡 `npx` viene incluido con [Node.js](https://nodejs.org) — ejecuta el instalador una vez, sin instalar nada de forma global. ¿No tienes Node? Instalalo primero. (¿Ya usas un CLI como Claude Code / Gemini / Codex? Entonces ya lo tienes.)
 
-Esto clona la ultima release en `./career-ops` e instala las dependencias. Despues:
+Esto clona la ultima release en `./jobops` e instala las dependencias. Despues:
 
 ```bash
-cd career-ops
+cd jobops
 claude   # o gemini / codex / qwen / opencode — abre tu CLI de IA aqui
 ```
 
-**En el primer arranque, career-ops te guia en la configuracion — tu CV, tu perfil y los roles que buscas — simplemente conversando. No hay nada que editar a mano.**
+**En el primer arranque, jobops te guia en la configuracion — tu CV, tu perfil y los roles que buscas — simplemente conversando. No hay nada que editar a mano.**
 
 <details>
 <summary><b>¿Prefieres instalarlo manualmente? (git clone)</b></summary>
 
 ```bash
-git clone https://github.com/santifer/career-ops.git
-cd career-ops && npm install
+git clone https://github.com/santifer/jobops.git
+cd jobops && npm install
 npx playwright install chromium   # solo para generar PDFs
 claude   # abre tu CLI de IA — te guiara en el primer arranque
 ```
@@ -137,19 +137,19 @@ Guia completa en [docs/SETUP.md](docs/SETUP.md).
 Career-ops es un unico slash command con multiples modos:
 
 ```
-/career-ops                → Mostrar todos los comandos
-/career-ops {pega un JD}   → Pipeline completo (evaluar + PDF + tracker)
-/career-ops scan           → Escanear portales
-/career-ops pdf            → Generar CV ATS-optimizado
-/career-ops batch          → Evaluar ofertas en batch
-/career-ops tracker        → Ver estado de aplicaciones
-/career-ops apply          → Rellenar formularios con IA
-/career-ops pipeline       → Procesar URLs pendientes
-/career-ops contacto       → Mensaje LinkedIn outreach
-/career-ops deep           → Research profundo de empresa
+/jobops                → Mostrar todos los comandos
+/jobops {pega un JD}   → Pipeline completo (evaluar + PDF + tracker)
+/jobops scan           → Escanear portales
+/jobops pdf            → Generar CV ATS-optimizado
+/jobops batch          → Evaluar ofertas en batch
+/jobops tracker        → Ver estado de aplicaciones
+/jobops apply          → Rellenar formularios con IA
+/jobops pipeline       → Procesar URLs pendientes
+/jobops contacto       → Mensaje LinkedIn outreach
+/jobops deep           → Research profundo de empresa
 ```
 
-O simplemente pega una URL o descripcion de oferta -- career-ops la detecta y ejecuta el pipeline completo.
+O simplemente pega una URL o descripcion de oferta -- jobops la detecta y ejecuta el pipeline completo.
 
 ## Como funciona
 
@@ -203,7 +203,7 @@ Features: 6 pestañas de filtro, 4 modos de ordenacion, vista agrupada/plana, pr
 ## Estructura del proyecto
 
 ```
-career-ops/
+jobops/
 ├── AGENTS.md                    # Instrucciones canónicas del agente (todos los CLIs)
 ├── CLAUDE.md                    # Wrapper Claude Code (importa AGENTS.md)
 ├── cv.md                        # Tu CV (crealo tu)
@@ -249,7 +249,7 @@ career-ops/
 
 ## Sobre el autor
 
-Soy Santiago -- Head of Applied AI, ex-fundador (monte y vendi un negocio que sigue funcionando con mi nombre). Construi career-ops para gestionar mi propia busqueda de empleo. Funciono: lo use para conseguir mi puesto actual.
+Soy Santiago -- Head of Applied AI, ex-fundador (monte y vendi un negocio que sigue funcionando con mi nombre). Construi jobops para gestionar mi propia busqueda de empleo. Funciono: lo use para conseguir mi puesto actual.
 
 Mi portfolio y otros proyectos open source → [santifer.io](https://santifer.io)
 
@@ -266,7 +266,7 @@ Mi portfolio y otros proyectos open source → [santifer.io](https://santifer.io
 
 ## Aviso legal
 
-**career-ops es una herramienta local y open source — NO un servicio alojado.** Al usar este software, aceptas que:
+**jobops es una herramienta local y open source — NO un servicio alojado.** Al usar este software, aceptas que:
 
 1. **Tu controlas tus datos.** Tu CV, datos de contacto e informacion personal se quedan en tu maquina y se envian directamente al proveedor de IA que elijas (Anthropic, OpenAI, etc.). No recopilamos, almacenamos ni tenemos acceso a tus datos.
 2. **Tu controlas la IA.** Los prompts por defecto instruyen a la IA a no enviar aplicaciones automaticamente, pero los modelos pueden comportarse de forma impredecible. Si modificas los prompts o usas otros modelos, lo haces bajo tu responsabilidad. **Revisa siempre el contenido generado antes de enviarlo.**

@@ -9,7 +9,7 @@ const geist = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Career-Ops Dashboard",
+  title: "Jobops Dashboard",
   description: "Job search command center — fetched jobs, applications, referrals, progress",
 };
 

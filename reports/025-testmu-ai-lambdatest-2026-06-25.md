@@ -174,7 +174,7 @@
 
 ## Cover Letter Draft
 
-> Draft generated at evaluation time. Complete via `/career-ops cover {slug}` to fill in angles, confirm research, and generate the PDF.
+> Draft generated at evaluation time. Complete via `/jobops cover {slug}` to fill in angles, confirm research, and generate the PDF.
 > Gaps flagged below — address them during the cover flow.
 
 ---
@@ -217,7 +217,7 @@ I am happy to discuss further at your convenience and can relocate to Noida with
 - Security & secrets management
 
 ---
-*Run `/career-ops cover {slug}` to complete angles, confirm company research, and generate the PDF.*
+*Run `/jobops cover {slug}` to complete angles, confirm company research, and generate the PDF.*
 
 ---
 

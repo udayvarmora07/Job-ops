@@ -44,7 +44,7 @@ process.chdir(ROOT);
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 
-const PORTALS_PATH = process.env.CAREER_OPS_PORTALS || 'portals.yml';
+const PORTALS_PATH = process.env.JOBOPS_PORTALS || 'portals.yml';
 const cfg = existsSync(PORTALS_PATH) ? (yaml.load(readFileSync(PORTALS_PATH, 'utf-8')) || {}) : {};
 const yc = (cfg.yc && typeof cfg.yc === 'object') ? cfg.yc : {};
 const REGIONS = Array.isArray(yc.regions) && yc.regions.length ? yc.regions : ['India'];

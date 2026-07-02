@@ -5,7 +5,7 @@
 ### Directory Map
 
 ```
-career-ops/
+jobops/
 ├── uday-data/                          ← Your resume tailoring system
 │   ├── 01_MASTER_BRIEF.md              ← SINGLE SOURCE OF TRUTH. All facts, metrics, tiers
 │   ├── 02_JD_TAILORING_PROMPT.md       ← Workflow prompt for AI (5-step JD→resume process)

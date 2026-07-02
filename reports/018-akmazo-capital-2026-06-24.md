@@ -183,7 +183,7 @@ version": "0.1.0"
 
 ## Cover Letter Draft
 
-> Draft generated at evaluation time. Complete via `/career-ops cover akmazo-capital` to fill in angles, confirm research, and generate the PDF.
+> Draft generated at evaluation time. Complete via `/jobops cover akmazo-capital` to fill in angles, confirm research, and generate the PDF.
 > Gaps flagged below — address them during the cover flow.
 
 ---
@@ -230,7 +230,7 @@ I am happy to discuss further at your convenience.
 - Automation
 
 ---
-*Run `/career-ops cover akmazo-capital` to complete angles, confirm company research, and generate the PDF.*
+*Run `/jobops cover akmazo-capital` to complete angles, confirm company research, and generate the PDF.*
 
 ---
 

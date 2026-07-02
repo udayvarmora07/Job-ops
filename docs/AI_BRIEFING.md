@@ -1,4 +1,4 @@
-# Career-Ops — AI Briefing Document
+# Jobops — AI Briefing Document
 
 > **Purpose:** Read this file at the start of any session to get complete project knowledge without exploring the codebase. Everything an AI needs to understand, modify, or extend this project is here.
 
@@ -6,12 +6,12 @@
 
 ## 1. What This Project Is
 
-**Career-Ops** is a full-stack AI job-search automation system built for **Uday Varmora** (DevOps engineer, Ahmedabad, India, 1+ year experience). It has two layers:
+**Jobops** is a full-stack AI job-search automation system built for **Uday Varmora** (DevOps engineer, Ahmedabad, India, 1+ year experience). It has two layers:
 
 - **CLI layer** (`modes/`, `*.mjs` scripts) — AI-powered job evaluation, CV generation, portal scanning. Driven via Claude Code / Gemini CLI slash commands. Originally built by santifer; customized for Uday.
 - **Web dashboard** (`web/`) — A custom Next.js 14 app at port **4317** that provides a GUI for everything: browsing 350+ scanned jobs, generating/managing tailored PDFs, tracking applications, referral outreach, AI Studio.
 
-The web dashboard is **100% Uday's custom build** — it is NOT part of the upstream career-ops open-source repo and will never be overwritten by `node update-system.mjs`.
+The web dashboard is **100% Uday's custom build** — it is NOT part of the upstream jobops open-source repo and will never be overwritten by `node update-system.mjs`.
 
 ---
 
@@ -32,7 +32,7 @@ The web dashboard is **100% Uday's custom build** — it is NOT part of the upst
 ## 3. Directory Map
 
 ```
-career-ops/
+jobops/
 ├── web/                     ← Next.js dashboard (PORT 4317)
 │   ├── app/
 │   │   ├── api/             ← All API routes (see §6)
@@ -158,7 +158,7 @@ Opens when a job row is clicked. Sections:
 |------|---------|
 | `web/lib/types.ts` | All shared TypeScript interfaces (Job, Application, Referral, ReportMeta, etc.) |
 | `web/lib/parsers.ts` | Reads raw data files → typed objects (parseJobs, parseApplications, listReports) |
-| `web/lib/paths.ts` | `projectRoot()` → resolves career-ops root; `FILES.*` → canonical file paths |
+| `web/lib/paths.ts` | `projectRoot()` → resolves jobops root; `FILES.*` → canonical file paths |
 | `web/lib/experience.ts` | `extractExp(title, jdSnippet)` → ExpInfo; `expBucket()` → entry/mid/senior/unknown |
 | `web/lib/suggest.ts` | Referral contact scoring engine (persona, warmth, draft messages) |
 | `web/lib/profile.ts` | Reads `config/profile.yml` → CandidateProfile (used by suggest.ts) |
@@ -377,7 +377,7 @@ Edit `data/applications.md` directly (only for updating existing rows). To ADD n
 - **`applications.md` column order**: `Score` comes BEFORE `Status` in the tracker table. The TSV format for additions has `Status` BEFORE `Score`; `merge-tracker.mjs` handles the swap.
 - **Report numbering**: sequential 3-digit zero-padded. Check max existing before creating a new report.
 - **Scan history** has no column 7 header — the location column (index 6) is the last named column. Extra columns are allowed.
-- **`projectRoot()`** in the web app resolves to the career-ops root (one level up from `web/`). Always use this — never hardcode paths.
+- **`projectRoot()`** in the web app resolves to the jobops root (one level up from `web/`). Always use this — never hardcode paths.
 - **`X-Saved-Version` header** on `/api/generate-cv-pdf` response — read BEFORE consuming the response body as a blob (headers are unavailable after `res.blob()`).
 - **Radix UI tabs** don't respond to programmatic `click()` in the preview tool — use `elementFromPoint` at the exact pixel coordinate of the tab button instead.
 - **PDF iframe screenshots** always time out in the preview tool — use DOM eval to verify iframe attributes instead of screenshots.

@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/santifer/career-ops/dashboard/internal/model"
+	"github.com/santifer/jobops/dashboard/internal/model"
 )
 
 // referralJSON mirrors one entry in data/referrals.json.
@@ -547,7 +547,7 @@ func ComputeMetrics(apps []model.CareerApplication) model.PipelineMetrics {
 }
 
 // NormalizeStatus normalizes raw status text to a canonical form.
-// Aliases match states.yml -- keep in sync with career-ops/states.yml
+// Aliases match states.yml -- keep in sync with jobops/states.yml
 func NormalizeStatus(raw string) string {
 	// Strip markdown bold and trailing dates
 	s := strings.ReplaceAll(raw, "**", "")

@@ -13,7 +13,7 @@ export function buildTailorCv(jdText) {
     throw new Error('buildTailorCv: empty job description.');
   }
 
-  const system = `You tailor a candidate's CV to a specific job description for career-ops.
+  const system = `You tailor a candidate's CV to a specific job description for jobops.
 
 HARD RULES (never violate):
 - No fabrication. Use ONLY facts, metrics, tools, and projects already present in

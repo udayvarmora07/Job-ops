@@ -1,4 +1,4 @@
-# Career-Ops Architecture Upgrade: PostgreSQL + Redis + BullMQ
+# Jobops Architecture Upgrade: PostgreSQL + Redis + BullMQ
 
 Use this prompt in a **fresh chat session** to implement the full architecture upgrade.
 
@@ -6,9 +6,9 @@ Use this prompt in a **fresh chat session** to implement the full architecture u
 
 ## Project Overview
 
-Career-Ops is an open-source AI job search pipeline. Current stack: Node.js/ESM scripts + Next.js 14 web dashboard + Playwright. Data is stored entirely in flat files (markdown, TSV, JSON) with a tiny SQLite cache (16 rows, no TTL). It's a CLI-first tool with an optional web dashboard.
+Jobops is an open-source AI job search pipeline. Current stack: Node.js/ESM scripts + Next.js 14 web dashboard + Playwright. Data is stored entirely in flat files (markdown, TSV, JSON) with a tiny SQLite cache (16 rows, no TTL). It's a CLI-first tool with an optional web dashboard.
 
-**Purpose of this upgrade:** Convert Career-Ops into a proper self-hosted platform that anyone can deploy. Replace the flat-file data layer with PostgreSQL + Redis + BullMQ for performance, scalability, and reliability.
+**Purpose of this upgrade:** Convert Jobops into a proper self-hosted platform that anyone can deploy. Replace the flat-file data layer with PostgreSQL + Redis + BullMQ for performance, scalability, and reliability.
 
 **Current data files to migrate:**
 - `data/applications.md` — Application tracker (markdown table, ~40 entries)
@@ -18,7 +18,7 @@ Career-Ops is an open-source AI job search pipeline. Current stack: Node.js/ESM 
 - `data/referrals.json` — Referral tracking (JSON array)
 - `reports/*.md` — 31 evaluation reports
 - `output/resumes/*.pdf + .meta.json` — Generated resumes
-- `data/career-ops.db` — SQLite ai_cache table (to be replaced by Redis)
+- `data/jobops.db` — SQLite ai_cache table (to be replaced by Redis)
 - `data/jd-cache/*.json` — JD cache (to be replaced)
 
 **Other project files (keep as-is):**
@@ -269,7 +269,7 @@ Create `scripts/migrate-from-files.mjs` that:
 5. Reads `data/referrals.json` → inserts into `Referral` table
 6. Reads `reports/*.md` → extracts metadata → inserts into `Report` table
 7. Reads `output/resumes/*.meta.json` → inserts into `Resume` table
-8. Reads SQLite `data/career-ops.db` ai_cache → imports into Redis via `AiCache` table or directly
+8. Reads SQLite `data/jobops.db` ai_cache → imports into Redis via `AiCache` table or directly
 
 ### Step 5: Update Web Dashboard API Routes
 
@@ -319,7 +319,7 @@ export async function cacheSet(key: string, value: unknown, ttlSeconds: number):
 }
 
 export function cacheKey(task: string, ...parts: string[]): string {
-  return `career-ops:${task}:${parts.join("|").toLowerCase().replace(/\s+/g, " ").trim()}`;
+  return `jobops:${task}:${parts.join("|").toLowerCase().replace(/\s+/g, " ").trim()}`;
 }
 ```
 
@@ -332,15 +332,15 @@ services:
   postgres:
     image: postgres:16-alpine
     environment:
-      POSTGRES_DB: careerops
-      POSTGRES_USER: careerops
-      POSTGRES_PASSWORD: careerops
+      POSTGRES_DB: jobops
+      POSTGRES_USER: jobops
+      POSTGRES_PASSWORD: jobops
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U careerops"]
+      test: ["CMD-SHELL", "pg_isready -U jobops"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -362,7 +362,7 @@ services:
     ports:
       - "4317:4317"
     environment:
-      DATABASE_URL: postgresql://careerops:careerops@postgres:5432/careerops
+      DATABASE_URL: postgresql://jobops:jobops@postgres:5432/jobops
       REDIS_URL: redis://redis:6379
     depends_on:
       postgres:
@@ -380,7 +380,7 @@ services:
       context: .
       dockerfile: worker/Dockerfile
     environment:
-      DATABASE_URL: postgresql://careerops:careerops@postgres:5432/careerops
+      DATABASE_URL: postgresql://jobops:jobops@postgres:5432/jobops
       REDIS_URL: redis://redis:6379
     depends_on:
       postgres:

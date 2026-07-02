@@ -1,4 +1,4 @@
-# Career-Ops -- AI Job Search Pipeline
+# Jobops -- AI Job Search Pipeline
 
 ## AI Quick-Start
 
@@ -37,17 +37,17 @@ node update-system.mjs check
 
 Parse the JSON output:
 - `{"status": "update-available", "local": "1.0.0", "remote": "1.1.0", "changelog": "..."}` → tell the user:
-  > "career-ops update available (v{local} → v{remote}). Your data (CV, profile, tracker, reports) will NOT be touched. Want me to update?"
+  > "jobops update available (v{local} → v{remote}). Your data (CV, profile, tracker, reports) will NOT be touched. Want me to update?"
   If yes → run `node update-system.mjs apply`. If no → run `node update-system.mjs dismiss`.
 - `{"status": "up-to-date"}` → say nothing
 - `{"status": "dismissed"}` → say nothing
 - `{"status": "offline"}` → say nothing
 - `{"status": "no-remote-version"}` → say nothing (checker reached GitHub but neither VERSION nor the latest release tag parsed as semver — treat as a silent non-failure, same as offline)
 
-The user can also say "check for updates" or "update career-ops" at any time to force a check.
+The user can also say "check for updates" or "update jobops" at any time to force a check.
 To rollback: `node update-system.mjs rollback`
 
-## What is career-ops
+## What is jobops
 
 AI-powered job search automation built on Claude Code: pipeline tracking, offer evaluation, CV generation, portal scanning, batch processing.
 
@@ -78,13 +78,13 @@ AI-powered job search automation built on Claude Code: pipeline tracking, offer 
 
 Both [OpenCode](https://opencode.ai) and [Gemini CLI](https://github.com/google-gemini/gemini-cli) natively support the open agent skill standard (`agentskills.io`). 
 
-Instead of registering individual `.toml` files for every slash command, all subcommands are routed through the single unified skill defined in `.agents/skills/career-ops/SKILL.md`.
+Instead of registering individual `.toml` files for every slash command, all subcommands are routed through the single unified skill defined in `.agents/skills/jobops/SKILL.md`.
 
 You can invoke the command center or any of its modes directly within your CLI:
 
-* `/career-ops` (Shows the Command Center menu)
-* `/career-ops {JD text or URL}` (Runs the auto-evaluation pipeline)
-* `/career-ops [subcommand]` (Runs a specific subcommand)
+* `/jobops` (Shows the Command Center menu)
+* `/jobops {JD text or URL}` (Runs the auto-evaluation pipeline)
+* `/jobops [subcommand]` (Runs a specific subcommand)
 
 #### Subcommands:
 * `pipeline` — Process pending URLs from inbox
@@ -179,8 +179,8 @@ Store any insights the user shares in `config/profile.yml` (under narrative), `m
 Once all files exist, confirm:
 > "You're all set! You can now:
 > - Paste a job URL to evaluate it
-> - Run `/career-ops scan` (or `/career-ops-scan` if using OpenCode) to search portals
-> - Run `/career-ops` to see all commands
+> - Run `/jobops scan` (or `/jobops-scan` if using OpenCode) to search portals
+> - Run `/jobops` to see all commands
 >
 > Everything is customizable — just ask me to change anything.
 >
@@ -189,7 +189,7 @@ Once all files exist, confirm:
 Then suggest automation:
 > "Want me to scan for new offers automatically? I can set up a recurring scan every few days so you don't miss anything. Just say 'scan every 3 days' and I'll configure it."
 
-If the user accepts, use the `/loop` or `/schedule` skill (if available) to set up a recurring `/career-ops scan` (or `/career-ops-scan` if using OpenCode). If those aren't available, suggest adding a cron job or remind them to run `/career-ops scan` (or `/career-ops-scan` if using OpenCode) periodically.
+If the user accepts, use the `/loop` or `/schedule` skill (if available) to set up a recurring `/jobops scan` (or `/jobops-scan` if using OpenCode). If those aren't available, suggest adding a cron job or remind them to run `/jobops scan` (or `/jobops-scan` if using OpenCode) periodically.
 
 ### Personalization
 

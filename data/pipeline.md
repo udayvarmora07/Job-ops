@@ -1,7 +1,7 @@
 # Pipeline — Pending URLs
 
 Inbox of job URLs to evaluate. The scanner appends new finds under
-`## Pendientes` as checkbox items. Run `/career-ops pipeline` to process them.
+`## Pendientes` as checkbox items. Run `/jobops pipeline` to process them.
 You can also paste URLs manually under that heading.
 
 - [ ] https://job-boards.greenhouse.io/phonepe/jobs/7762335003 | PhonePe | Service Delivery Engineer, SRE

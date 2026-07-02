@@ -47,7 +47,7 @@ const fitEnabled = !args.includes('--no-fit');
 const remoteAny = args.includes('--remote-any');
 
 // ── Config ──────────────────────────────────────────────────────────
-const PORTALS_PATH = process.env.CAREER_OPS_PORTALS || 'portals.yml';
+const PORTALS_PATH = process.env.JOBOPS_PORTALS || 'portals.yml';
 const cfg = existsSync(PORTALS_PATH) ? (yaml.load(readFileSync(PORTALS_PATH, 'utf-8')) || {}) : {};
 const hn = (cfg.hn && typeof cfg.hn === 'object') ? cfg.hn : {};
 const FIT = {
@@ -194,7 +194,7 @@ async function main() {
     for (const o of offers) console.log(`  + [${o.source}] ${o.company} | ${o.title} | ${o.location}`);
     console.log(dryRun ? '\n(dry run — run without --dry-run to save)' : '\nSaved to data/pipeline.md and data/scan-history.tsv');
   }
-  console.log('\n→ Run /career-ops pipeline to evaluate new offers.');
+  console.log('\n→ Run /jobops pipeline to evaluate new offers.');
 }
 
 main().catch((err) => { console.error('Fatal:', err.message); process.exit(1); });

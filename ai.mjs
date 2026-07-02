@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ai.mjs — career-ops multi-provider AI CLI.
+ * ai.mjs — jobops multi-provider AI CLI.
  *
  * One entry point for every AI task, routed through config/ai.yml. Models live
  * on NVIDIA NIM (DeepSeek V4 Pro, Kimi K2.6, GLM 5.1, MiniMax M3) behind a

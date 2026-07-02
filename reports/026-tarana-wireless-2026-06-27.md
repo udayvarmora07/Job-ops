@@ -18,7 +18,7 @@ Since I don't have access to Playwright or WebSearch in this session, I cannot f
 
 ## Step 0 — Archetype Detection
 
-The career-ops default archetypes (AI Platform, Agentic, etc.) do not apply here — this is a classic infrastructure role. Mapping to the user's own archetypes from `_profile.md`:
+The jobops default archetypes (AI Platform, Agentic, etc.) do not apply here — this is a classic infrastructure role. Mapping to the user's own archetypes from `_profile.md`:
 
 - **Primary:** Cloud Engineer (AWS) + DevOps Engineer (hybrid)
 - **Secondary:** Site Reliability Engineer

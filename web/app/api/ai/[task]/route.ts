@@ -9,7 +9,7 @@ export const maxDuration = 300; // heavy reasoning tasks can run minutes
 /**
  * POST /api/ai/:task   body: { input: string, model?: string }
  * Streams the model's output as plain text. For builder tasks (evaluate_job,
- * tailor_cv, cover_letter, draft_referral, interview_prep) the full career-ops
+ * tailor_cv, cover_letter, draft_referral, interview_prep) the full jobops
  * context is assembled from the user's files automatically.
  */
 export async function POST(

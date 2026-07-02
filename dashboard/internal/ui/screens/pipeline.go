@@ -10,9 +10,9 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/santifer/career-ops/dashboard/internal/data"
-	"github.com/santifer/career-ops/dashboard/internal/model"
-	"github.com/santifer/career-ops/dashboard/internal/theme"
+	"github.com/santifer/jobops/dashboard/internal/data"
+	"github.com/santifer/jobops/dashboard/internal/model"
+	"github.com/santifer/jobops/dashboard/internal/theme"
 )
 
 // PipelineClosedMsg is emitted when the pipeline screen is dismissed.
@@ -32,13 +32,13 @@ type PipelineOpenURLMsg struct {
 
 // PipelineLoadReportMsg requests lazy loading of a report summary.
 type PipelineLoadReportMsg struct {
-	CareerOpsPath string
+	JobopsPath string
 	ReportPath    string
 }
 
 // PipelineUpdateStatusMsg requests a status update for an application.
 type PipelineUpdateStatusMsg struct {
-	CareerOpsPath string
+	JobopsPath string
 	App           model.CareerApplication
 	NewStatus     string
 }
@@ -117,7 +117,7 @@ type PipelineModel struct {
 	viewMode      string // "grouped" or "flat"
 	width, height int
 	theme         theme.Theme
-	careerOpsPath string
+	jobopsPath string
 	reportCache   map[string]reportSummary
 	// Status picker sub-state
 	statusPicker bool
@@ -128,10 +128,10 @@ type PipelineModel struct {
 }
 
 // NewPipelineModel creates a new pipeline screen.
-func NewPipelineModel(t theme.Theme, apps []model.CareerApplication, metrics model.PipelineMetrics, careerOpsPath string, width, height int) PipelineModel {
+func NewPipelineModel(t theme.Theme, apps []model.CareerApplication, metrics model.PipelineMetrics, jobopsPath string, width, height int) PipelineModel {
 	m := PipelineModel{
 		apps:          apps,
-		referralApps:  data.ParseReferrals(careerOpsPath),
+		referralApps:  data.ParseReferrals(jobopsPath),
 		metrics:       metrics,
 		sortMode:      sortScore,
 		activeTab:     0,
@@ -139,7 +139,7 @@ func NewPipelineModel(t theme.Theme, apps []model.CareerApplication, metrics mod
 		width:         width,
 		height:        height,
 		theme:         t,
-		careerOpsPath: careerOpsPath,
+		jobopsPath: jobopsPath,
 		reportCache:   make(map[string]reportSummary),
 	}
 	m.applyFilterAndSort()
@@ -192,7 +192,7 @@ func (m PipelineModel) WithReloadedData(apps []model.CareerApplication, metrics 
 		selectedRole = app.Role
 	}
 
-	reloaded := NewPipelineModel(m.theme, apps, metrics, m.careerOpsPath, m.width, m.height)
+	reloaded := NewPipelineModel(m.theme, apps, metrics, m.jobopsPath, m.width, m.height)
 	reloaded.sortMode = m.sortMode
 	reloaded.activeTab = m.activeTab
 	reloaded.viewMode = m.viewMode
@@ -351,7 +351,7 @@ func (m PipelineModel) handleKey(msg tea.KeyMsg) (PipelineModel, tea.Cmd) {
 			return m, nil
 		}
 		if app, ok := m.CurrentApp(); ok && app.ReportPath != "" {
-			fullPath := filepath.Join(m.careerOpsPath, app.ReportPath)
+			fullPath := filepath.Join(m.jobopsPath, app.ReportPath)
 			title := fmt.Sprintf("%s — %s", app.Company, app.Role)
 			jobURL := app.JobURL
 			return m, func() tea.Msg {
@@ -508,7 +508,7 @@ func (m PipelineModel) handleStatusPicker(msg tea.KeyMsg) (PipelineModel, tea.Cm
 			newStatus := statusOptions[m.statusCursor]
 			return m, func() tea.Msg {
 				return PipelineUpdateStatusMsg{
-					CareerOpsPath: m.careerOpsPath,
+					JobopsPath: m.jobopsPath,
 					App:           app,
 					NewStatus:     newStatus,
 				}
@@ -526,10 +526,10 @@ func (m PipelineModel) loadCurrentReport() tea.Cmd {
 	if _, cached := m.reportCache[app.ReportPath]; cached {
 		return nil
 	}
-	path := m.careerOpsPath
+	path := m.jobopsPath
 	report := app.ReportPath
 	return func() tea.Msg {
-		return PipelineLoadReportMsg{CareerOpsPath: path, ReportPath: report}
+		return PipelineLoadReportMsg{JobopsPath: path, ReportPath: report}
 	}
 }
 
@@ -1345,7 +1345,7 @@ func (m PipelineModel) renderHelp() string {
 				keyStyle.Render("Esc") + descStyle.Render(" cancel"))
 	}
 
-	brand := lipgloss.NewStyle().Foreground(m.theme.Overlay).Render("career-ops by santifer.io")
+	brand := lipgloss.NewStyle().Foreground(m.theme.Overlay).Render("jobops by santifer.io")
 
 	keys := keyStyle.Render("↑↓/jk") + descStyle.Render(" nav  ") +
 		keyStyle.Render("←→/hl") + descStyle.Render(" tabs  ") +

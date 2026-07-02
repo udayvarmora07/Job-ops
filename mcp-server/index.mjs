@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * mcp-server/index.mjs — career-ops AI exposed over the Model Context Protocol.
+ * mcp-server/index.mjs — jobops AI exposed over the Model Context Protocol.
  *
  * This is the "use it from any app" surface. It wraps the shared lib-ai engine
  * as MCP tools so ANY MCP-capable client — Claude Code, Antigravity, Cursor,
- * Windsurf, etc. — can run career-ops AI tasks. One server, one NIM key, the
+ * Windsurf, etc. — can run jobops AI tasks. One server, one NIM key, the
  * four frontier models routed per task by config/ai.yml.
  *
  * Transport: stdio (the client spawns this process). Wire it up via .mcp.json:
- *   { "mcpServers": { "career-ops-ai": { "command": "node",
+ *   { "mcpServers": { "jobops-ai": { "command": "node",
  *       "args": ["mcp-server/index.mjs"], "cwd": "<repo>" } } }
  *
  * Run standalone for a sanity check:
@@ -42,7 +42,7 @@ function resolveInput({ text, file }) {
 }
 
 // --- server -----------------------------------------------------------------
-const server = new McpServer({ name: 'career-ops-ai', version: '1.0.0' });
+const server = new McpServer({ name: 'jobops-ai', version: '1.0.0' });
 
 // 1) evaluate_job — full A–G job evaluation (DeepSeek V4 Pro by default)
 server.registerTool(
@@ -88,7 +88,7 @@ server.registerTool(
     try {
       const input = resolveInput({ text, file });
       const r = await runTask('summarize_report', {
-        system: 'You summarize career-ops job-evaluation reports. Be concise and factual.',
+        system: 'You summarize jobops job-evaluation reports. Be concise and factual.',
         prompt:
           'Summarize this report in <=120 words: verdict, score, top 2 strengths, top 2 gaps, ' +
           'and the single recommended next step.\n\n' + input,
@@ -102,7 +102,7 @@ server.registerTool(
 
 // 3) ai_run — run ANY task in config/ai.yml. Tasks with a builder
 // (tailor_cv, cover_letter, draft_referral, interview_prep, evaluate_job) get
-// the full career-ops context auto-assembled from the user's files.
+// the full jobops context auto-assembled from the user's files.
 server.registerTool(
   'ai_run',
   {
@@ -157,4 +157,4 @@ server.registerTool(
 const transport = new StdioServerTransport();
 await server.connect(transport);
 // Logs go to stderr so they never corrupt the stdio JSON-RPC stream.
-console.error('career-ops-ai MCP server ready (stdio). Tools: evaluate_job, summarize_report, ai_run, list_ai_tasks');
+console.error('jobops-ai MCP server ready (stdio). Tools: evaluate_job, summarize_report, ai_run, list_ai_tasks');

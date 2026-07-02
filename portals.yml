@@ -1,5 +1,5 @@
 # Portal Scanner Configuration — Uday Varmora (India DevOps / SRE / Cloud)
-# Used by `/career-ops scan` to discover new offers automatically.
+# Used by `/jobops scan` to discover new offers automatically.
 #
 # Strategy (4 levels):
 #   0. Local parser → per-company `parser:` script for SSR/static career pages (zero-token)
@@ -12,7 +12,7 @@
 #   It CANNOT scrape LinkedIn, Naukri, Indeed, Foundit, Instahyre, Wellfound, etc.
 #   Those boards are reachable only via the WebSearch `search_queries` below
 #   (weaker, may be stale) or by pasting a specific JD/URL into data/pipeline.md
-#   and running `/career-ops pipeline`.
+#   and running `/jobops pipeline`.
 #
 # Every tracked company below was verified live against its ATS API on
 # 2026-06-17 with India-based DevOps/SRE/Cloud/Platform roles present. Boards

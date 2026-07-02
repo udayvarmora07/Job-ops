@@ -51,7 +51,7 @@ export function buildReferralTargets({ company, role, jd } = {}) {
     throw new Error('buildReferralTargets: company is required.');
   }
 
-  const system = `You are a referral strategist for career-ops. Your job: find the candidate the
+  const system = `You are a referral strategist for jobops. Your job: find the candidate the
 3 BEST people to ask for a referral for a specific role at a specific company.
 
 Think like a real, experienced human networker — prioritize WARM paths grounded in

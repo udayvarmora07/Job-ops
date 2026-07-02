@@ -18,7 +18,7 @@ This file covers web-specific rules and conventions only.
 
 | File | What it does |
 |------|--------------|
-| `web/lib/paths.ts` | `projectRoot()` resolves career-ops root. `FILES.*` — canonical paths for data files |
+| `web/lib/paths.ts` | `projectRoot()` resolves jobops root. `FILES.*` — canonical paths for data files |
 | `web/lib/types.ts` | All shared TS interfaces. **Always update this first** when adding new fields |
 | `web/lib/parsers.ts` | Reads raw `.tsv`/`.md` files → typed arrays. `parseJobs()` merges scan-history + pipeline |
 | `web/lib/experience.ts` | `extractExp(title, jdSnippet?)` → `{ label, minYears }`. Multi-level parser |

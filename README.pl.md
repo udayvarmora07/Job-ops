@@ -1,9 +1,9 @@
-# Career-Ops
+# Jobops
 
 [English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [简体中文](README.cn.md) | [繁體中文](README.zh-TW.md) | [Українська](README.ua.md) | [Русский](README.ru.md) | [Polski](README.pl.md) | [العربية](README.ar.md)
 
 <p align="center">
-  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Career-Ops — Wieloagentowy system poszukiwania pracy" width="800"></a>
+  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Jobops — Wieloagentowy system poszukiwania pracy" width="800"></a>
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://trendshift.io/repositories/25195" target="_blank"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fcareer-ops | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+  <a href="https://trendshift.io/repositories/25195" target="_blank"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fjobops | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
 
 <p align="center"><sub>OBECNY W MEDIACH</sub></p>
@@ -27,7 +27,7 @@
 ---
 
 <p align="center">
-  <img src="docs/demo.gif" alt="Career-Ops Demo" width="800">
+  <img src="docs/demo.gif" alt="Jobops Demo" width="800">
 </p>
 
 <p align="center"><strong>740+ ocenionych ofert · 100+ spersonalizowanych CV · 1 wymarzona rola zdobyta</strong></p>
@@ -53,7 +53,7 @@
 
 ## Co to jest
 
-Career-Ops ([career-ops.org](https://career-ops.org), znany też jako **careerops**) zamienia dowolne AI CLI w pełne centrum dowodzenia poszukiwaniem pracy. Zamiast ręcznego śledzenia aplikacji w arkuszu kalkulacyjnym, dostajesz pipeline zasilany AI, który:
+Jobops ([jobops.org](https://jobops.org), znany też jako **jobops**) zamienia dowolne AI CLI w pełne centrum dowodzenia poszukiwaniem pracy. Zamiast ręcznego śledzenia aplikacji w arkuszu kalkulacyjnym, dostajesz pipeline zasilany AI, który:
 
 - **Ocenia oferty** przy pomocy strukturyzowanego systemu A–F (10 ważonych wymiarów)
 - **Generuje spersonalizowane PDF** — CV zoptymalizowane pod ATS, dostosowane do każdej oferty
@@ -67,7 +67,7 @@ Career-ops działa agentowo: Claude Code nawiguje po stronach kariery z Playwrig
 
 > **Uwaga: pierwsze oceny nie będą idealne.** System jeszcze cię nie zna. Dostarcz mu kontekstu — swoje CV, historię kariery, przykłady osiągnięć, preferencje, mocne strony, czego chcesz unikać. Im więcej mu dasz, tym lepiej działa. Traktuj to jak wdrożenie nowego rekrutera: w pierwszym tygodniu musi się nauczyć, kim jesteś — potem staje się nieoceniony.
 
-Zbudowany przez kogoś, kto użył go do oceny 740+ ofert pracy, wygenerowania 100+ spersonalizowanych CV i zdobycia roli Head of Applied AI. [Przeczytaj pełne case study](https://santifer.io/career-ops-system).
+Zbudowany przez kogoś, kto użył go do oceny 740+ ofert pracy, wygenerowania 100+ spersonalizowanych CV i zdobycia roli Head of Applied AI. [Przeczytaj pełne case study](https://santifer.io/jobops-system).
 
 ## Funkcje
 
@@ -89,27 +89,27 @@ Zbudowany przez kogoś, kto użył go do oceny 740+ ofert pracy, wygenerowania 1
 **Najszybszy sposób — jedno polecenie:**
 
 ```bash
-npx @santifer/career-ops init
+npx @santifer/jobops init
 ```
 
 > 💡 `npx` jest dołączone do [Node.js](https://nodejs.org) — uruchamia instalator jednorazowo, bez instalowania czegokolwiek globalnie. Nie masz jeszcze Node.js? Najpierw go zainstaluj.
 > (Używasz już Claude Code / Gemini / Codex CLI? To już go masz.)
 
-To sklonuje najnowszą wersję do `./career-ops` i zainstaluje zależności. Następnie:
+To sklonuje najnowszą wersję do `./jobops` i zainstaluje zależności. Następnie:
 
 ```bash
-cd career-ops
+cd jobops
 claude   # lub gemini / codex / qwen / opencode — otwórz tutaj swój AI CLI
 ```
 
-**Przy pierwszym uruchomieniu career-ops przeprowadza Cię przez konfigurację — CV, profil i docelowe stanowiska — wyłącznie przez rozmowę. Nic nie trzeba edytować ręcznie.**
+**Przy pierwszym uruchomieniu jobops przeprowadza Cię przez konfigurację — CV, profil i docelowe stanowiska — wyłącznie przez rozmowę. Nic nie trzeba edytować ręcznie.**
 
 <details>
 <summary><b>Wolisz skonfigurować ręcznie? (git clone)</b></summary>
 
 ```bash
-git clone https://github.com/santifer/career-ops.git
-cd career-ops && npm install
+git clone https://github.com/santifer/jobops.git
+cd jobops && npm install
 npx playwright install chromium   # wymagane tylko do generowania PDF
 claude   # otwórz swój AI CLI — przy pierwszym uruchomieniu przeprowadzi Cię przez onboarding
 ```
@@ -125,21 +125,21 @@ Pełny przewodnik po konfiguracji: [docs/SETUP.md](docs/SETUP.md).
 Career-ops to jedna komenda slash z wieloma trybami:
 
 ```text
-/career-ops                    → Pokaż wszystkie dostępne komendy
-/career-ops {wklej ofertę}     → Pełny auto-pipeline (ocena + PDF + tracker)
-/career-ops scan               → Skanuj portale w poszukiwaniu nowych ofert
-/career-ops pdf                → Generuj CV zoptymalizowane pod ATS
-/career-ops batch              → Wsadowa ocena wielu ofert
-/career-ops tracker            → Podgląd statusu aplikacji
-/career-ops apply              → Wypełnianie formularzy aplikacyjnych z AI
-/career-ops pipeline           → Przetwarzanie kolejki URL
-/career-ops contacto           → Wiadomość na LinkedIn
-/career-ops deep               → Szczegółowe badanie firmy
-/career-ops training           → Ocena kursu/certyfikatu
-/career-ops project            → Ocena projektu portfolio
+/jobops                    → Pokaż wszystkie dostępne komendy
+/jobops {wklej ofertę}     → Pełny auto-pipeline (ocena + PDF + tracker)
+/jobops scan               → Skanuj portale w poszukiwaniu nowych ofert
+/jobops pdf                → Generuj CV zoptymalizowane pod ATS
+/jobops batch              → Wsadowa ocena wielu ofert
+/jobops tracker            → Podgląd statusu aplikacji
+/jobops apply              → Wypełnianie formularzy aplikacyjnych z AI
+/jobops pipeline           → Przetwarzanie kolejki URL
+/jobops contacto           → Wiadomość na LinkedIn
+/jobops deep               → Szczegółowe badanie firmy
+/jobops training           → Ocena kursu/certyfikatu
+/jobops project            → Ocena projektu portfolio
 ```
 
-Możesz też po prostu wkleić URL oferty lub jej treść — career-ops automatycznie to wykryje i uruchomi pełny pipeline.
+Możesz też po prostu wkleić URL oferty lub jej treść — jobops automatycznie to wykryje i uruchomi pełny pipeline.
 
 ## Jak to działa
 
@@ -226,7 +226,7 @@ Funkcje: 6 zakładek filtrowania, 4 tryby sortowania, widok grupowany/płaski, l
 ## Struktura projektu
 
 ```text
-career-ops/
+jobops/
 ├── AGENTS.md                    # Kanoniczne instrukcje dla agenta (wszystkie CLI)
 ├── CLAUDE.md                    # Wrapper Claude Code (importuje AGENTS.md)
 ├── cv.md                        # Twoje CV (utwórz ten plik)
@@ -276,23 +276,23 @@ career-ops/
 
 ## O autorze
 
-Jestem Santiago — Head of Applied AI, były founder (zbudowałem i sprzedałem firmę, która nadal działa z moim nazwiskiem). Zbudowałem career-ops do zarządzania własnym poszukiwaniem pracy. Zadziałało: użyłem go do zdobycia swojej obecnej roli.
+Jestem Santiago — Head of Applied AI, były founder (zbudowałem i sprzedałem firmę, która nadal działa z moim nazwiskiem). Zbudowałem jobops do zarządzania własnym poszukiwaniem pracy. Zadziałało: użyłem go do zdobycia swojej obecnej roli.
 
 Moje portfolio i inne projekty open source → [santifer.io](https://santifer.io)
 
 ## Historia gwiazdek
 
-<a href="https://www.star-history.com/?repos=santifer%2Fcareer-ops&type=timeline&legend=top-left">
+<a href="https://www.star-history.com/?repos=santifer%2Fjobops&type=timeline&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=santifer/career-ops&type=timeline&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=santifer/career-ops&type=timeline&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=santifer/career-ops&type=timeline&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=santifer/jobops&type=timeline&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=santifer/jobops&type=timeline&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=santifer/jobops&type=timeline&legend=top-left" />
  </picture>
 </a>
 
 ## Zastrzeżenie prawne
 
-**career-ops to lokalne narzędzie open source, NIE usługa hostingowa.** Korzystając z tego oprogramowania, potwierdzasz:
+**jobops to lokalne narzędzie open source, NIE usługa hostingowa.** Korzystając z tego oprogramowania, potwierdzasz:
 
 1. **Kontrolujesz swoje dane.** Twoje CV, dane kontaktowe i dane osobowe pozostają na twoim komputerze i są wysyłane bezpośrednio do wybranego dostawcy AI (Anthropic, OpenAI itd.). Nie zbieramy, nie przechowujemy ani nie mamy dostępu do twoich danych.
 2. **Kontrolujesz AI.** Domyślne prompty instruują AI, żeby nie wysyłało aplikacji automatycznie, ale modele AI mogą zachowywać się nieprzewidywalnie. Modyfikujesz prompty na własne ryzyko. **Zawsze sprawdzaj treści wygenerowane przez AI przed wysłaniem.**
@@ -303,15 +303,15 @@ Szczegóły: [LEGAL_DISCLAIMER.md](LEGAL_DISCLAIMER.md). Oprogramowanie jest udo
 
 ## Współtwórcy
 
-<a href="https://github.com/santifer/career-ops/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=santifer/career-ops" alt="Współtwórcy" />
+<a href="https://github.com/santifer/jobops/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=santifer/jobops" alt="Współtwórcy" />
 </a>
 
-Znalazłeś pracę dzięki career-ops? [Podziel się swoją historią!](https://github.com/santifer/career-ops/issues/new?template=i-got-hired.yml)
+Znalazłeś pracę dzięki jobops? [Podziel się swoją historią!](https://github.com/santifer/jobops/issues/new?template=i-got-hired.yml)
 
 ## Licencja i znak towarowy
 
-Kod jest licencjonowany na [MIT](LICENSE). Nazwa i marka „career-ops" są regulowane przez [Politykę Znaków Towarowych](TRADEMARK.md) — dozwolone dla użytku społecznościowego, zastrzeżone dla komercyjnego nazewnictwa produktów i endorsementu.
+Kod jest licencjonowany na [MIT](LICENSE). Nazwa i marka „jobops" są regulowane przez [Politykę Znaków Towarowych](TRADEMARK.md) — dozwolone dla użytku społecznościowego, zastrzeżone dla komercyjnego nazewnictwa produktów i endorsementu.
 
 ## Bądźmy w kontakcie
 

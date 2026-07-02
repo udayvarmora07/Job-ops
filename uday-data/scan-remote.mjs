@@ -47,7 +47,7 @@ const fitEnabled = !args.includes('--no-fit');
 const loose = args.includes('--loose'); // keep ambiguous-location roles
 
 // ── Config ──────────────────────────────────────────────────────────
-const PORTALS_PATH = process.env.CAREER_OPS_PORTALS || 'portals.yml';
+const PORTALS_PATH = process.env.JOBOPS_PORTALS || 'portals.yml';
 const cfg = existsSync(PORTALS_PATH) ? (yaml.load(readFileSync(PORTALS_PATH, 'utf-8')) || {}) : {};
 const rcfg = (cfg.remote && typeof cfg.remote === 'object') ? cfg.remote : {};
 const FIT = {
@@ -234,7 +234,7 @@ async function main() {
     console.log(`\nWarnings (${warnings.length}):`);
     for (const w of warnings) console.log(`  ⚠️  ${w}`);
   }
-  console.log('\n→ Run /career-ops pipeline to evaluate new offers.');
+  console.log('\n→ Run /jobops pipeline to evaluate new offers.');
 }
 
 main().catch((err) => { console.error('Fatal:', err.message); process.exit(1); });

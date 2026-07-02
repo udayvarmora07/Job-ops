@@ -1,5 +1,7 @@
 # Mode: followup -- Follow-up Cadence Tracker
 
+> **Read `voice-dna.md` (if present) and apply it to every generated email/LinkedIn draft.** This mode is standalone — it does NOT load `_shared.md`, so read `voice-dna.md` directly. Follow-up drafts are conversational, so apply the full guardrail: banned words/phrases/patterns, no em-dashes, no negative parallelisms (§3-4) AND conversational voice — contractions, varied rhythm, direct "I"/"you" (§1-2). Never drop or soften a real metric from `cv.md` for style.
+
 ## Purpose
 
 Track follow-up cadence for active applications. Flag overdue follow-ups, extract contacts from notes, and generate tailored follow-up email/LinkedIn drafts using report context.
@@ -29,7 +31,7 @@ Parse the JSON output. It contains:
 | `cadenceConfig` | Cadence rules (applied: 7 days, responded: 3 days, interview: 1 day) |
 
 If no actionable entries, tell the user:
-> "No active applications to follow up on. Apply to some roles first with `/career-ops` and come back when they're aging."
+> "No active applications to follow up on. Apply to some roles first with `/jobops` and come back when they're aging."
 
 ## Step 2 — Display Dashboard
 
@@ -90,7 +92,7 @@ Generate a 3-4 sentence email:
 
 Reuse the contacto framework: 3 sentences, 300 character max.
 - Hook specific to company → proof point → soft ask
-- Suggest the user run `/career-ops contacto {company}` to find the right person first
+- Suggest the user run `/jobops contacto {company}` to find the right person first
 
 ### Second Follow-up (followupCount == 1)
 
@@ -104,7 +106,7 @@ Shorter than first (2-3 sentences). Take a **new angle**:
 Do NOT generate another follow-up. Instead suggest:
 > "This application has had {N} follow-ups with no response. Consider:
 > - Updating status to `Discarded` if the role seems filled
-> - Trying a different contact via `/career-ops contacto`
+> - Trying a different contact via `/jobops contacto`
 > - Keeping in `Applied` status but deprioritizing"
 
 ## Step 4 — Present Drafts
@@ -114,7 +116,7 @@ For each draft, show:
 ```
 ## Follow-up: {Company} — {Role} (#{num})
 
-**To:** {email or "No contact found — run `/career-ops contacto` first"}
+**To:** {email or "No contact found — run `/jobops contacto` first"}
 **Subject:** {subject line}
 **Days since application:** {N}
 **Follow-ups sent:** {N}

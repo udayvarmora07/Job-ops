@@ -1,4 +1,4 @@
-# career-ops — AI model routing  (USER LAYER — never auto-updated)
+# jobops — AI model routing  (USER LAYER — never auto-updated)
 # ---------------------------------------------------------------------------
 # This file decides WHICH model runs WHICH task. Edit it freely: swap a model,
 # reorder the fallback chain, or add a whole new provider — no code changes.

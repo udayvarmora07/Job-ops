@@ -1,6 +1,6 @@
-# Contributing to Career-Ops
+# Contributing to Jobops
 
-Thanks for your interest in contributing! Career-Ops is built with Claude Code, and you can use it for development too.
+Thanks for your interest in contributing! Jobops is built with Claude Code, and you can use it for development too.
 
 ## Before Submitting a PR
 
@@ -31,7 +31,7 @@ PRs without a corresponding issue may be closed if they don't align with the pro
 - Translate modes to other languages
 - Improve documentation
 - Add example CVs for different roles (in `examples/`)
-- Report bugs via [Issues](https://github.com/santifer/career-ops/issues)
+- Report bugs via [Issues](https://github.com/santifer/jobops/issues)
 
 **Bigger contributions:**
 - New evaluation dimensions or scoring logic
@@ -41,7 +41,7 @@ PRs without a corresponding issue may be closed if they don't align with the pro
 
 ## Scope: the core vs. the shared layer
 
-career-ops core is **local-first and human-in-the-loop** by design — it runs on your machine and drafts applications for *you* to review and submit. Centralized infrastructure — hosted job aggregation, a shared matching service, proxies or Workers the project would operate — is **not part of the core**: it's heavier than a free local tool should carry, and it's where the project is headed as a *separate, opt-in service*. See the direction here: **[Where career-ops is going](https://github.com/santifer/career-ops/discussions/904)**.
+jobops core is **local-first and human-in-the-loop** by design — it runs on your machine and drafts applications for *you* to review and submit. Centralized infrastructure — hosted job aggregation, a shared matching service, proxies or Workers the project would operate — is **not part of the core**: it's heavier than a free local tool should carry, and it's where the project is headed as a *separate, opt-in service*. See the direction here: **[Where jobops is going](https://github.com/santifer/jobops/discussions/904)**.
 
 Rule of thumb before you build: **provider modules, languages, CLI support, modes, dashboard, docs and fixes → the core.** Bigger centralized or automation ideas (a hosted layer, auto-apply, scraping infrastructure) → **start in that discussion**, so we can route them together instead of a large PR that can't merge.
 
@@ -55,9 +55,9 @@ Rule of thumb before you build: **provider modules, languages, CLI support, mode
 ## What we do NOT accept
 
 - **PRs that scrape platforms prohibiting automated access** (LinkedIn, etc.). We actively reject these to respect third-party ToS.
-- **PRs that enable auto-submitting applications** without human review. career-ops is a decision-support tool, not a spam bot.
+- **PRs that enable auto-submitting applications** without human review. jobops is a decision-support tool, not a spam bot.
 - **PRs that add external API dependencies** without prior discussion in an issue.
-- **PRs that add centralized or hosted infrastructure to the core** (proxies, aggregation services, shared Workers). That's the separate opt-in service, not the open-core — bring it to the [direction discussion](https://github.com/santifer/career-ops/discussions/904) first.
+- **PRs that add centralized or hosted infrastructure to the core** (proxies, aggregation services, shared Workers). That's the separate opt-in service, not the open-core — bring it to the [direction discussion](https://github.com/santifer/jobops/discussions/904) first.
 - **PRs containing personal data** (real CVs, emails, phone numbers). Use `examples/` with fictional data instead.
 
 ## Development
@@ -76,7 +76,7 @@ cd dashboard && go build -o career-dashboard .
 ## Brand and Trademark
 
 Contributions to the codebase are governed by the MIT [LICENSE](LICENSE).
-The "career-ops" name itself is governed by [TRADEMARK.md](TRADEMARK.md).
+The "jobops" name itself is governed by [TRADEMARK.md](TRADEMARK.md).
 If you fork the project for commercial use, you're welcome to do so
 under MIT — please give it your own product name and follow the
 trademark policy regarding commercial naming and endorsement claims.
@@ -84,5 +84,5 @@ trademark policy regarding commercial naming and endorsement claims.
 ## Need Help?
 
 - [Join the Discord](https://discord.gg/8pRpHETxa4) — fastest way to get answers and connect with other contributors
-- [Open an issue](https://github.com/santifer/career-ops/issues)
+- [Open an issue](https://github.com/santifer/jobops/issues)
 - [Read the architecture docs](docs/ARCHITECTURE.md)

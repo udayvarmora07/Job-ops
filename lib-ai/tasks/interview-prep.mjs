@@ -12,7 +12,7 @@ export function buildInterviewPrep(brief) {
     throw new Error('buildInterviewPrep: empty brief (provide company/role/JD).');
   }
 
-  const system = `You produce focused interview-prep guides for career-ops. Today is ${today()}.
+  const system = `You produce focused interview-prep guides for jobops. Today is ${today()}.
 
 Follow the methodology below. Ground every STAR+R story in the candidate's real CV;
 never invent achievements. Be specific to the company/role in the brief.

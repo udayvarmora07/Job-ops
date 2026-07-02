@@ -11,17 +11,17 @@
 ### Recommended — one command
 
 ```bash
-npx @santifer/career-ops init
+npx @santifer/jobops init
 ```
 
-`npx` ships with Node.js — it runs the installer once without installing anything globally. This clones the latest release into `./career-ops` and installs dependencies. Then move into the workspace and open your AI CLI:
+`npx` ships with Node.js — it runs the installer once without installing anything globally. This clones the latest release into `./jobops` and installs dependencies. Then move into the workspace and open your AI CLI:
 
 ```bash
-cd career-ops
+cd jobops
 claude   # or gemini / codex / qwen / opencode
 ```
 
-**On first launch, career-ops walks you through setup by chatting** — it asks for your CV, your details (name, target roles, salary), and sets up the job scanner with pre-configured companies. Nothing to edit by hand: just answer its questions. Then paste a job offer URL or description and it evaluates it, writes a report, generates a tailored PDF, and tracks it.
+**On first launch, jobops walks you through setup by chatting** — it asks for your CV, your details (name, target roles, salary), and sets up the job scanner with pre-configured companies. Nothing to edit by hand: just answer its questions. Then paste a job offer URL or description and it evaluates it, writes a report, generates a tailored PDF, and tracks it.
 
 ### Advanced — clone manually
 
@@ -29,8 +29,8 @@ claude   # or gemini / codex / qwen / opencode
 <summary>Prefer to clone the repo yourself?</summary>
 
 ```bash
-git clone https://github.com/santifer/career-ops.git
-cd career-ops
+git clone https://github.com/santifer/jobops.git
+cd jobops
 npm install
 ```
 
@@ -51,12 +51,12 @@ npx playwright install chromium
 | Action | How |
 |--------|-----|
 | Evaluate an offer | Paste a URL or JD text |
-| Search for offers | `/career-ops scan` |
-| Process pending URLs | `/career-ops pipeline` |
-| Generate a PDF | `/career-ops pdf` |
-| Batch evaluate | `/career-ops batch` |
-| Check tracker status | `/career-ops tracker` |
-| Fill application form | `/career-ops apply` |
+| Search for offers | `/jobops scan` |
+| Process pending URLs | `/jobops pipeline` |
+| Generate a PDF | `/jobops pdf` |
+| Batch evaluate | `/jobops batch` |
+| Check tracker status | `/jobops tracker` |
+| Fill application form | `/jobops apply` |
 
 ## Verify Setup
 

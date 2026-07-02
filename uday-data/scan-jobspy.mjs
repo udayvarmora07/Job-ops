@@ -3,7 +3,7 @@
 /**
  * scan-jobspy.mjs — non-ATS job scanner (Indeed + LinkedIn) via jobspy-node.
  *
- * career-ops' scan.mjs only reads structured ATS boards (Greenhouse/Ashby/
+ * jobops' scan.mjs only reads structured ATS boards (Greenhouse/Ashby/
  * Lever/Workday/...). It CANNOT see LinkedIn / Indeed / Naukri — which is where
  * most India DevOps roles actually post. This script fills that gap and feeds
  * results into the SAME pipeline (data/pipeline.md + data/scan-history.tsv),
@@ -57,7 +57,7 @@ const sitesFlagIdx = args.indexOf('--sites');
 const sitesOverride = sitesFlagIdx !== -1 ? args[sitesFlagIdx + 1]?.split(',') : null;
 
 // ── Config ──────────────────────────────────────────────────────────
-const PORTALS_PATH = process.env.CAREER_OPS_PORTALS || 'portals.yml';
+const PORTALS_PATH = process.env.JOBOPS_PORTALS || 'portals.yml';
 const cfg = existsSync(PORTALS_PATH) ? (yaml.load(readFileSync(PORTALS_PATH, 'utf-8')) || {}) : {};
 const js = (cfg.jobspy && typeof cfg.jobspy === 'object') ? cfg.jobspy : {};
 
@@ -200,7 +200,7 @@ async function main() {
     for (const w of warnings) console.log(`  ⚠️  ${w}`);
   }
 
-  console.log('\n→ Run /career-ops pipeline to evaluate new offers.');
+  console.log('\n→ Run /jobops pipeline to evaluate new offers.');
 }
 
 main().catch(err => { console.error('Fatal:', err.message); process.exit(1); });

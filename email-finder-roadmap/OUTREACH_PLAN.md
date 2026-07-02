@@ -118,7 +118,7 @@ composer + a Gmail-draft step*. The "who to contact" brain already exists.
 ```
 
 New code lives in a new `lib-outreach/` module + a few `web/app/api/outreach/*` routes +
-one new `lib-ai` task. No changes to the upstream career-ops system layer.
+one new `lib-ai` task. No changes to the upstream jobops system layer.
 
 ---
 
@@ -262,7 +262,7 @@ sub-panel (preferred over a whole new tab for v1):
 - Manual-assist accordion: Google X-ray links, permutation list, LinkedIn People-tab link.
 
 **CLI** — new mode `outreach` (alias `coldmail`): `modes/outreach.md`, registered in the
-career-ops skill subcommands. Same engine, terminal flow, ends by writing a draft + a
+jobops skill subcommands. Same engine, terminal flow, ends by writing a draft + a
 copy-paste email block.
 
 **API routes** (`web/app/api/outreach/`):

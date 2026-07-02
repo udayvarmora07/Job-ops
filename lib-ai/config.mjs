@@ -12,13 +12,13 @@ import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
 
 /**
- * Find the career-ops repo root robustly. Works from the CLI, the MCP server,
+ * Find the jobops repo root robustly. Works from the CLI, the MCP server,
  * and inside a Next.js bundle (where import.meta.url / cwd may differ) by
  * walking up from several candidate bases until a marker file is found.
  */
 function findRoot() {
-  if (process.env.CAREER_OPS_ROOT && existsSync(process.env.CAREER_OPS_ROOT)) {
-    return process.env.CAREER_OPS_ROOT;
+  if (process.env.JOBOPS_ROOT && existsSync(process.env.JOBOPS_ROOT)) {
+    return process.env.JOBOPS_ROOT;
   }
   const markers = ['modes/_shared.md', 'config/ai.yml', 'cv.md'];
   const bases = [];

@@ -170,7 +170,7 @@
 
 ## Cover Letter Draft
 
-> Draft generated at evaluation time. Complete via `/career-ops cover akmazo-devops-2026-06-25` to fill in angles, confirm research, and generate the PDF.
+> Draft generated at evaluation time. Complete via `/jobops cover akmazo-devops-2026-06-25` to fill in angles, confirm research, and generate the PDF.
 > Gaps flagged below — address them during the cover flow.
 
 ---
@@ -210,7 +210,7 @@ CI/CD pipelines, Docker, Kubernetes, Terraform, AWS, Azure, GCP, Linux, Python, 
 
 ---
 
-*Run `/career-ops cover akmazo-devops-2026-06-25` to complete angles, confirm company research, and generate the PDF.*
+*Run `/jobops cover akmazo-devops-2026-06-25` to complete angles, confirm company research, and generate the PDF.*
 
 ---
 

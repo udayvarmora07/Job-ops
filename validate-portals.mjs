@@ -17,7 +17,7 @@ import yaml from 'js-yaml';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const PROVIDERS_DIR = join(ROOT, 'providers');
-const DEFAULT_PORTALS_PATH = process.env.CAREER_OPS_PORTALS || 'portals.yml';
+const DEFAULT_PORTALS_PATH = process.env.JOBOPS_PORTALS || 'portals.yml';
 
 function add(list, path, message) {
   list.push({ path, message });
@@ -128,6 +128,15 @@ export async function validatePortalsConfig(config, { providerIds = new Set() } 
     }
   }
 
+  if (config.content_filter !== undefined) {
+    if (!isObject(config.content_filter)) {
+      add(errors, 'content_filter', 'content_filter must be an object');
+    } else {
+      validateKeywordList(config.content_filter.positive, 'content_filter.positive', errors);
+      validateKeywordList(config.content_filter.negative, 'content_filter.negative', errors);
+    }
+  }
+
   if (config.search_queries !== undefined && !Array.isArray(config.search_queries)) {
     add(errors, 'search_queries', 'search_queries must be an array when set');
   }
@@ -190,7 +199,7 @@ async function validateFile(filePath) {
 }
 
 async function runSelfTest() {
-  const tmp = mkdtempSync(join(tmpdir(), 'career-ops-validate-portals-self-test-'));
+  const tmp = mkdtempSync(join(tmpdir(), 'jobops-validate-portals-self-test-'));
   try {
     const file = join(tmp, 'bad.yml');
     writeFileSync(file, `

@@ -210,7 +210,7 @@ For ATS optimization — mirror these in your CV and cover letter:
 
 ## Cover Letter Draft
 
-> Draft generated at evaluation time. Complete via `/career-ops cover {slug}` to fill in angles, confirm research, and generate the PDF.
+> Draft generated at evaluation time. Complete via `/jobops cover {slug}` to fill in angles, confirm research, and generate the PDF.
 > Gaps flagged below — address them during the cover flow.
 
 ---
@@ -244,7 +244,7 @@ I am happy to discuss further at your convenience.
 SRE Operations, production operations, incident management, monitoring, automation, on-call rotation, Identity & Access Management, Okta, SaaS platform, mission-critical systems
 
 ---
-*Run `/career-ops cover {slug}` to complete angles, confirm company research, and generate the PDF.*
+*Run `/jobops cover {slug}` to complete angles, confirm company research, and generate the PDF.*
 
 ---
 

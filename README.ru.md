@@ -1,9 +1,9 @@
-# Career-Ops
+# Jobops
 
 [English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [简体中文](README.cn.md) | [繁體中文](README.zh-TW.md) | [Українська](README.ua.md) | [Русский](README.ru.md) | [Polski](README.pl.md) | [العربية](README.ar.md)
 
 <p align="center">
-  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Career-Ops Мультиагентная система поиска работы" width="800"></a>
+  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Jobops Мультиагентная система поиска работы" width="800"></a>
 </p>
 
 <p align="center">
@@ -13,9 +13,9 @@
 </p>
 
 <p align="center">
-  <a href="https://trendshift.io/repositories/25195" target="_blank"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fcareer-ops | Trendshift" style="width: 245px; height: 54px; vertical-align: middle;" width="245" height="54"/></a>
+  <a href="https://trendshift.io/repositories/25195" target="_blank"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fjobops | Trendshift" style="width: 245px; height: 54px; vertical-align: middle;" width="245" height="54"/></a>
   &nbsp;&nbsp;
-  <a href="https://www.producthunt.com/products/santifer-io?utm_source=badge-featured&utm_medium=badge" target="_blank"><img src="docs/press/producthunt.svg" alt="Career-Ops on Claude | Product Hunt" style="width: 206px; height: 54px; vertical-align: middle;" width="206" height="54"/></a>
+  <a href="https://www.producthunt.com/products/santifer-io?utm_source=badge-featured&utm_medium=badge" target="_blank"><img src="docs/press/producthunt.svg" alt="Jobops on Claude | Product Hunt" style="width: 206px; height: 54px; vertical-align: middle;" width="206" height="54"/></a>
 </p>
 
 <p align="center"><sub>УПОМИНАНИЯ В СМИ</sub></p>
@@ -29,7 +29,7 @@
 ---
 
 <p align="center">
-  <img src="docs/demo.gif" alt="Career-Ops Демо" width="800">
+  <img src="docs/demo.gif" alt="Jobops Демо" width="800">
 </p>
 
 <p align="center"><strong>740+ вакансий оценено · 100+ персонализированных резюме · 1 позиция мечты получена</strong></p>
@@ -37,7 +37,7 @@
 <p align="center">
   <a href="https://discord.gg/8pRpHETxa4"><img src="https://img.shields.io/badge/Присоединиться_к_сообществу-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
   &nbsp;
-  <a href="https://www.npmjs.com/package/@santifer/career-ops"><img src="https://img.shields.io/npm/dt/@santifer/career-ops?style=for-the-badge&logo=npm&color=CB3837&label=npx%20installs" alt="npm installs"></a>
+  <a href="https://www.npmjs.com/package/@santifer/jobops"><img src="https://img.shields.io/npm/dt/@santifer/jobops?style=for-the-badge&logo=npm&color=CB3837&label=npx%20installs" alt="npm installs"></a>
 </p>
 
 <p align="center">
@@ -59,7 +59,7 @@
 
 ## Что это
 
-Career-Ops превращает любой AI-CLI в полноценный командный центр для поиска работы. Вместо ручного ведения таблиц с откликами вы получаете ИИ-пайплайн, который:
+Jobops превращает любой AI-CLI в полноценный командный центр для поиска работы. Вместо ручного ведения таблиц с откликами вы получаете ИИ-пайплайн, который:
 
 - **Оценивает вакансии** по структурированной системе A–F (10 взвешенных параметров)
 - **Генерирует персонализированные PDF-резюме** — оптимизированные под ATS, адаптированные под каждую вакансию
@@ -89,28 +89,28 @@ Career-Ops превращает любой AI-CLI в полноценный ко
 **Самый быстрый способ — одна команда:**
 
 ```bash
-npx @santifer/career-ops init
+npx @santifer/jobops init
 ```
 
 > 💡 `npx` поставляется вместе с [Node.js](https://nodejs.org) — он один раз запускает
 > установщик, ничего не устанавливая глобально. Ещё нет Node? Установи его сначала.
 > (Уже используешь Claude Code / Gemini / Codex CLI? Значит, он у тебя уже есть.)
 
-Это клонирует последний релиз в `./career-ops` и устанавливает зависимости. Затем:
+Это клонирует последний релиз в `./jobops` и устанавливает зависимости. Затем:
 
 ```bash
-cd career-ops
+cd jobops
 claude   # или gemini / codex / qwen / opencode — открой здесь свой AI-CLI
 ```
 
-**При первом запуске career-ops проведёт тебя через настройку — твоё CV, профиль и целевые роли — просто через диалог. Ничего не нужно править вручную.**
+**При первом запуске jobops проведёт тебя через настройку — твоё CV, профиль и целевые роли — просто через диалог. Ничего не нужно править вручную.**
 
 <details>
 <summary><b>Предпочитаешь настроить вручную? (git clone)</b></summary>
 
 ```bash
-git clone https://github.com/santifer/career-ops.git
-cd career-ops && npm install
+git clone https://github.com/santifer/jobops.git
+cd jobops && npm install
 npx playwright install chromium   # нужно только для генерации PDF
 claude   # открой свой AI-CLI — он проведёт онбординг при первом запуске
 ```
@@ -122,21 +122,21 @@ claude   # открой свой AI-CLI — он проведёт онборди
 Career-ops — одна slash-команда с множеством режимов:
 
 ```
-/career-ops                       → Показать все доступные команды
-/career-ops {вставь описание JD}  → Полный авто-пайплайн (оценка + PDF + трекер)
-/career-ops scan                  → Сканирование порталов
-/career-ops pdf                   → Генерация ATS-резюме
-/career-ops batch                 → Пакетная оценка вакансий
-/career-ops tracker               → Статус откликов
-/career-ops apply                 → Заполнение форм отклика с ИИ
-/career-ops pipeline              → Обработка очереди URL
-/career-ops contacto              → Сообщение в LinkedIn
-/career-ops deep                  → Глубокий анализ компании
-/career-ops training              → Оценка курса/сертификации
-/career-ops project               → Оценка портфолио-проекта
+/jobops                       → Показать все доступные команды
+/jobops {вставь описание JD}  → Полный авто-пайплайн (оценка + PDF + трекер)
+/jobops scan                  → Сканирование порталов
+/jobops pdf                   → Генерация ATS-резюме
+/jobops batch                 → Пакетная оценка вакансий
+/jobops tracker               → Статус откликов
+/jobops apply                 → Заполнение форм отклика с ИИ
+/jobops pipeline              → Обработка очереди URL
+/jobops contacto              → Сообщение в LinkedIn
+/jobops deep                  → Глубокий анализ компании
+/jobops training              → Оценка курса/сертификации
+/jobops project               → Оценка портфолио-проекта
 ```
 
-Или просто вставь URL вакансии — career-ops автоматически определит его и запустит полный пайплайн.
+Или просто вставь URL вакансии — jobops автоматически определит его и запустит полный пайплайн.
 
 ## Как это работает
 
@@ -212,7 +212,7 @@ go build -o career-dashboard .
 ## Структура проекта
 
 ```
-career-ops/
+jobops/
 ├── CLAUDE.md                    # Инструкции для агента
 ├── cv.md                        # Ваше CV (создайте)
 ├── config/
@@ -249,7 +249,7 @@ career-ops/
 
 ## Дисклеймер
 
-**career-ops — локальный open-source инструмент, НЕ хостинг-сервис.** Используя это ПО, вы подтверждаете:
+**jobops — локальный open-source инструмент, НЕ хостинг-сервис.** Используя это ПО, вы подтверждаете:
 
 1. **Вы контролируете свои данные.** CV, контакты и персональные данные остаются на вашей машине и отправляются напрямую выбранному AI-провайдеру (Anthropic, OpenAI и др.). Мы не собираем и не храним ваши данные.
 2. **Вы контролируете ИИ.** Промты по умолчанию запрещают ИИ автоматически отправлять отклики, но модели могут вести себя непредсказуемо. Модификация промтов — на ваш риск. **Всегда проверяйте сгенерированный контент перед отправкой.**

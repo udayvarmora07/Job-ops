@@ -202,7 +202,7 @@ Proceed with the application. The JD is specific and realistic. The main risk is
 
 ## Cover Letter Draft
 
-> Draft generated at evaluation time. Complete via `/career-ops cover bluestone-devops` to fill in angles, confirm research, and generate the PDF.
+> Draft generated at evaluation time. Complete via `/jobops cover bluestone-devops` to fill in angles, confirm research, and generate the PDF.
 > Gaps flagged below — address them during the cover flow.
 
 ---
@@ -236,7 +236,7 @@ I am happy to discuss further at your convenience.
 CI/CD pipelines, AWS cloud infrastructure, Kubernetes, Docker, Terraform, Jenkins, Prometheus, Grafana, ELK Stack, Python, Bash, Linux, automation, monitoring, logging, high availability, zero-downtime deployments, infrastructure as code, Git, cloud-native
 
 ---
-*Run `/career-ops cover bluestone-devops` to complete angles, confirm company research, and generate the PDF.*
+*Run `/jobops cover bluestone-devops` to complete angles, confirm company research, and generate the PDF.*
 
 ---
 

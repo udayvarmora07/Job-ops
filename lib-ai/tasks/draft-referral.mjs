@@ -12,7 +12,7 @@ export function buildDraftReferral(brief) {
     throw new Error('buildDraftReferral: empty brief (provide JD/company/role/contact type).');
   }
 
-  const system = `You draft short, high-signal LinkedIn outreach messages for career-ops.
+  const system = `You draft short, high-signal LinkedIn outreach messages for jobops.
 
 Follow the outreach framework below. Messages must be concise (LinkedIn-length),
 specific to the role/company, and honest. Produce TWO variants:

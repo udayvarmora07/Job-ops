@@ -11,7 +11,7 @@
  * If duplicate with higher score → update in-place, update report link
  * Validates status against states.yml (rejects non-canonical, logs warning)
  *
- * Run: node career-ops/merge-tracker.mjs [--dry-run] [--verify]
+ * Run: node jobops/merge-tracker.mjs [--dry-run] [--verify]
  */
 
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, renameSync, existsSync, rmSync, statSync, realpathSync } from 'fs';
@@ -22,30 +22,31 @@ import { createHash, randomUUID } from 'crypto';
 import { tmpdir } from 'os';
 import { normalizeReportLink as normalizeLink } from './tracker-links.mjs';
 import { roleFuzzyMatch } from './role-matcher.mjs';
+import { LEGACY_COLMAP, detectColumns } from './tracker-parse.mjs';
 
-const CAREER_OPS = dirname(fileURLToPath(import.meta.url));
+const JOBOPS = dirname(fileURLToPath(import.meta.url));
 // Support both layouts: data/applications.md (boilerplate) and applications.md (original).
-// CAREER_OPS_TRACKER overrides the path (used by tests and non-standard layouts).
-const APPS_FILE_RAW = process.env.CAREER_OPS_TRACKER
-  ? process.env.CAREER_OPS_TRACKER
-  : existsSync(join(CAREER_OPS, 'data/applications.md'))
-    ? join(CAREER_OPS, 'data/applications.md')
-    : join(CAREER_OPS, 'applications.md');
+// JOBOPS_TRACKER overrides the path (used by tests and non-standard layouts).
+const APPS_FILE_RAW = process.env.JOBOPS_TRACKER
+  ? process.env.JOBOPS_TRACKER
+  : existsSync(join(JOBOPS, 'data/applications.md'))
+    ? join(JOBOPS, 'data/applications.md')
+    : join(JOBOPS, 'applications.md');
 const APPS_FILE = canonicalizeTrackerPath(APPS_FILE_RAW);
 const TRACKER_DIR = dirname(APPS_FILE);
-// CAREER_OPS_ADDITIONS overrides the additions dir (used by tests, mirrors CAREER_OPS_TRACKER).
-const ADDITIONS_DIR = process.env.CAREER_OPS_ADDITIONS
-  ? process.env.CAREER_OPS_ADDITIONS
-  : join(CAREER_OPS, 'batch/tracker-additions');
+// JOBOPS_ADDITIONS overrides the additions dir (used by tests, mirrors JOBOPS_TRACKER).
+const ADDITIONS_DIR = process.env.JOBOPS_ADDITIONS
+  ? process.env.JOBOPS_ADDITIONS
+  : join(JOBOPS, 'batch/tracker-additions');
 const MERGED_DIR = join(ADDITIONS_DIR, 'merged');
 const DRY_RUN = process.argv.includes('--dry-run');
 const VERIFY = process.argv.includes('--verify');
 const MIGRATE = process.argv.includes('--migrate');
-const MERGE_HOLD_MS = Number(process.env.CAREER_OPS_MERGE_HOLD_MS) || 0;
-const MERGE_READY_IPC = process.env.CAREER_OPS_MERGE_READY_IPC === '1';
+const MERGE_HOLD_MS = Number(process.env.JOBOPS_MERGE_HOLD_MS) || 0;
+const MERGE_READY_IPC = process.env.JOBOPS_MERGE_READY_IPC === '1';
 
 const trackerLockKey = createHash('sha256').update(APPS_FILE).digest('hex').slice(0, 16);
-const TRACKER_LOCK_DIR = resolveTrackerLockDir(process.env.CAREER_OPS_TRACKER_LOCK, trackerLockKey);
+const TRACKER_LOCK_DIR = resolveTrackerLockDir(process.env.JOBOPS_TRACKER_LOCK, trackerLockKey);
 
 // The reports/ dir sits at the repo root, which is the tracker's parent in the
 // data/ layout (data/applications.md) and the tracker's own dir at root layout.
@@ -65,7 +66,7 @@ const REPORTS_ROOT = basename(TRACKER_DIR) === 'data' ? dirname(TRACKER_DIR) : T
 const normalizeReportLink = (reportField) => normalizeLink(reportField, TRACKER_DIR, REPORTS_ROOT);
 
 // Ensure required directories exist (fresh setup)
-mkdirSync(join(CAREER_OPS, 'data'), { recursive: true });
+mkdirSync(join(JOBOPS, 'data'), { recursive: true });
 mkdirSync(ADDITIONS_DIR, { recursive: true });
 
 /**
@@ -106,10 +107,10 @@ function pathIsInside(childPath, parentDir) {
 /**
  * Validate and resolve the tracker lock directory.
  *
- * `CAREER_OPS_TRACKER_LOCK` exists for tests and unusual local layouts, but the
+ * `JOBOPS_TRACKER_LOCK` exists for tests and unusual local layouts, but the
  * merge script later removes the lock directory recursively. To keep that safe,
  * env-provided lock paths must be absolute, live under the OS temp directory,
- * and use the career-ops lock-name prefix. Invalid values are ignored and the
+ * and use the jobops lock-name prefix. Invalid values are ignored and the
  * deterministic temp-dir default is used instead.
  *
  * @param {string|undefined} envValue - Optional lock path override.
@@ -118,14 +119,14 @@ function pathIsInside(childPath, parentDir) {
  */
 function resolveTrackerLockDir(envValue, lockKey) {
   const tmpRoot = realpathSync(tmpdir());
-  const fallback = join(tmpRoot, `career-ops-merge-tracker-${lockKey}.lock`);
+  const fallback = join(tmpRoot, `jobops-merge-tracker-${lockKey}.lock`);
   if (!envValue || !isAbsolute(envValue)) return fallback;
 
   const candidate = resolve(envValue);
   const parentDir = dirname(candidate);
   const canonicalParent = existsSync(parentDir) ? realpathSync(parentDir) : resolve(parentDir);
   if (!pathIsInside(canonicalParent, tmpRoot)) return fallback;
-  if (!basename(candidate).startsWith('career-ops-merge-tracker-')) return fallback;
+  if (!basename(candidate).startsWith('jobops-merge-tracker-')) return fallback;
   return candidate;
 }
 
@@ -135,7 +136,7 @@ function resolveTrackerLockDir(envValue, lockKey) {
  * This is used in two places:
  * - the lock retry loop, where waiting briefly avoids a tight CPU spin while
  *   another `merge-tracker.mjs` process owns the tracker lock;
- * - the regression test hook (`CAREER_OPS_MERGE_HOLD_MS`), which deliberately
+ * - the regression test hook (`JOBOPS_MERGE_HOLD_MS`), which deliberately
  *   holds the first merge after it reads `applications.md` so a second merge can
  *   try to enter the same critical section.
  *
@@ -318,9 +319,9 @@ function writeFileAtomic(path, content) {
 let trackerLock;
 try {
   trackerLock = await acquireTrackerLock(TRACKER_LOCK_DIR, {
-    timeoutMs: Number(process.env.CAREER_OPS_TRACKER_LOCK_TIMEOUT_MS) || 60_000,
-    retryMs: Number(process.env.CAREER_OPS_TRACKER_LOCK_RETRY_MS) || 75,
-    staleMs: Number(process.env.CAREER_OPS_TRACKER_LOCK_STALE_MS) || 10 * 60_000,
+    timeoutMs: Number(process.env.JOBOPS_TRACKER_LOCK_TIMEOUT_MS) || 60_000,
+    retryMs: Number(process.env.JOBOPS_TRACKER_LOCK_RETRY_MS) || 75,
+    staleMs: Number(process.env.JOBOPS_TRACKER_LOCK_STALE_MS) || 10 * 60_000,
   });
   process.once('exit', () => trackerLock?.release());
   if (trackerLock.waitMs > 0 || trackerLock.staleRecovered) {
@@ -427,39 +428,29 @@ function parseScore(s) {
 // position so both work — fixed-position indexing would otherwise read, say,
 // Location where it expects Score. Falls back to the legacy layout when no
 // recognizable header row is found.
-const LEGACY_COLMAP = { num: 1, date: 2, company: 3, role: 4, score: 5, status: 6, pdf: 7, report: 8, notes: 9 };
+// LEGACY_COLMAP, HEADER_ALIASES and detectColumns are the shared header-name
+// mapping, now sourced from tracker-parse.mjs so every tracker reader stays in
+// lockstep (see imports above). COLMAP stays mutable here — it is reassigned to
+// the detected layout once the table is read (below).
 let COLMAP = LEGACY_COLMAP;
 
-const HEADER_ALIASES = {
-  '#': 'num', 'num': 'num', 'date': 'date', 'company': 'company', 'empresa': 'company',
-  'role': 'role', 'puesto': 'role', 'location': 'location', 'score': 'score',
-  'status': 'status', 'pdf': 'pdf', 'report': 'report', 'notes': 'notes',
-};
-
-// Scan the table for a header row and build a header-name → column-index map.
-// Indexing matches `line.split('|')` (leading empty cell before the first pipe),
-// the same split parseAppLine uses. Returns null — caller keeps the legacy
-// layout — unless the essential columns are all present, so a stray pipe line
-// can't yield a bogus mapping.
-function detectColumns(lines) {
-  for (const line of lines) {
-    if (!line.startsWith('|')) continue;
-    const cells = line.split('|').map(s => s.trim().toLowerCase());
-    if (!cells.includes('company') || !cells.includes('role')) continue;
-    const map = {};
-    cells.forEach((c, i) => { if (HEADER_ALIASES[c] != null) map[HEADER_ALIASES[c]] = i; });
-    if (['num', 'company', 'role', 'score', 'status'].every(k => map[k] != null)) return map;
-  }
-  return null;
+// Neutralize characters that would corrupt the applications.md table. Both this
+// file and tracker-parse.mjs read rows with a raw `line.split('|')`, so a literal
+// pipe or a newline in a free-text value (company/role/location/notes) would shift
+// every later column. Replace rather than backslash-escape: `\|` would still split
+// on the inner pipe. This is additive — normal cells are unchanged; only values
+// that would already break the table get sanitized (also keeps the web reader safe).
+function cell(v) {
+  return String(v ?? '').replace(/[\r\n]+/g, ' ').replace(/\s*\|\s*/g, ' / ').trim();
 }
 
 // Build a tracker row string matching the detected layout (with or without the
 // optional Location column) so writes round-trip through the same schema.
 function buildRow(o) {
   if (COLMAP.location != null) {
-    return `| ${o.num} | ${o.date} | ${o.company} | ${o.role} | ${o.location || '—'} | ${o.score} | ${o.status} | ${o.pdf} | ${o.report} | ${o.notes} |`;
+    return `| ${o.num} | ${o.date} | ${cell(o.company)} | ${cell(o.role)} | ${cell(o.location) || '—'} | ${o.score} | ${o.status} | ${o.pdf} | ${o.report} | ${cell(o.notes)} |`;
   }
-  return `| ${o.num} | ${o.date} | ${o.company} | ${o.role} | ${o.score} | ${o.status} | ${o.pdf} | ${o.report} | ${o.notes} |`;
+  return `| ${o.num} | ${o.date} | ${cell(o.company)} | ${cell(o.role)} | ${o.score} | ${o.status} | ${o.pdf} | ${o.report} | ${cell(o.notes)} |`;
 }
 
 /**
@@ -618,7 +609,7 @@ if (MIGRATE) {
     console.log(`🔎 Migration (dry-run): ${changed} row(s) would be rewritten in ${basename(APPS_FILE)}`);
   } else {
     writeFileAtomic(APPS_FILE, migrated.join('\n'));
-    console.log(`✅ Migration: rewrote ${changed} report link(s) in ${basename(APPS_FILE)} relative to ${TRACKER_DIR === CAREER_OPS ? 'repo root' : 'data/'}`);
+    console.log(`✅ Migration: rewrote ${changed} report link(s) in ${basename(APPS_FILE)} relative to ${TRACKER_DIR === ROOT ? 'repo root' : 'data/'}`);
   }
   process.exit(0);
 }
@@ -687,10 +678,15 @@ for (const file of tsvFiles) {
   let duplicate = null;
 
   if (reportNum) {
-    // Check if this report number already exists
+    // Report-number match must also confirm company (#912). Report-file
+    // sequence and tracker-row sequence are independent, so the same number
+    // appearing for two different companies is sequence drift, not a duplicate.
+    // Without the company guard, a NewCo TSV with report [1] silently overwrites
+    // the existing tracker row [1] belonging to an unrelated company.
+    const normCompany = normalizeCompany(addition.company);
     duplicate = existingApps.find(app => {
       const existingReportNum = extractReportNum(app.report);
-      return existingReportNum === reportNum;
+      return existingReportNum === reportNum && normalizeCompany(app.company) === normCompany;
     });
   }
 
@@ -790,7 +786,7 @@ trackerLock.release();
 if (VERIFY && !DRY_RUN) {
   console.log('\n--- Running verification ---');
   try {
-    execFileSync('node', [join(CAREER_OPS, 'verify-pipeline.mjs')], { stdio: 'inherit' });
+    execFileSync('node', [join(JOBOPS, 'verify-pipeline.mjs')], { stdio: 'inherit' });
   } catch (e) {
     process.exit(1);
   }

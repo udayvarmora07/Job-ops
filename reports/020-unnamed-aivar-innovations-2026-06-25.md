@@ -184,7 +184,7 @@
 
 ## Cover Letter Draft
 
-> Draft generated at evaluation time. Complete via `/career-ops cover aivar-innovations` to fill in angles, confirm research, and generate the PDF.
+> Draft generated at evaluation time. Complete via `/jobops cover aivar-innovations` to fill in angles, confirm research, and generate the PDF.
 > Gaps flagged below — address them during the cover flow.
 
 ---
@@ -225,7 +225,7 @@ AWS, GCP, Docker, Kubernetes, Terraform, CI/CD, Jenkins, GitHub Actions, GitLab,
 
 ---
 
-*Run `/career-ops cover aivar-innovations` to complete angles, confirm company research, and generate the PDF.*
+*Run `/jobops cover aivar-innovations` to complete angles, confirm company research, and generate the PDF.*
 
 ---
 

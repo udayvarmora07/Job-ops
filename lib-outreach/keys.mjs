@@ -12,8 +12,8 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 function findRoot() {
-  if (process.env.CAREER_OPS_ROOT && existsSync(process.env.CAREER_OPS_ROOT)) {
-    return process.env.CAREER_OPS_ROOT;
+  if (process.env.JOBOPS_ROOT && existsSync(process.env.JOBOPS_ROOT)) {
+    return process.env.JOBOPS_ROOT;
   }
   const markers = ['config/ai.yml', 'cv.md', '.env'];
   const bases = [];

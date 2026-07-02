@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// career-ops scaffolder — one-command install.
+// jobops scaffolder — one-command install.
 // Clones the repo at the latest release tag and installs dependencies.
 // It deliberately does NOT create cv.md / config/profile.yml / portals.yml:
 // the agent runs a conversational onboarding on first launch (see AGENTS.md
@@ -9,12 +9,13 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readdirSync } from "node:fs";
 import { join, delimiter } from "node:path";
+import { ensureSkillEntrypoints } from "./skill-entrypoints.mjs";
 
-const REPO = "https://github.com/santifer/career-ops.git";
-const LATEST_RELEASE = "https://api.github.com/repos/santifer/career-ops/releases/latest";
+const REPO = "https://github.com/santifer/jobops.git";
+const LATEST_RELEASE = "https://api.github.com/repos/santifer/jobops/releases/latest";
 const NPM = process.platform === "win32" ? "npm.cmd" : "npm";
 
-// career-ops is AI-agnostic: every one of these CLIs reads AGENTS.md and works
+// jobops is AI-agnostic: every one of these CLIs reads AGENTS.md and works
 // out of the box. We only detect them to tailor the final message — we never
 // install, configure, or remove anything per-CLI.
 const SUPPORTED_CLIS = [
@@ -24,15 +25,17 @@ const SUPPORTED_CLIS = [
   { name: "Qwen Code", cmd: "qwen" },
   { name: "OpenCode", cmd: "opencode" },
   { name: "GitHub Copilot CLI", cmd: "copilot" },
+  { name: "Antigravity CLI", cmd: "agy" },
+  { name: "Grok Build CLI", cmd: "grok" },
 ];
 
-const USAGE = `career-ops — set up an AI job search workspace.
+const USAGE = `jobops — set up an AI job search workspace.
 
 Usage:
-  npx career-ops init [folder]    Create a new workspace (default: ./career-ops)
+  npx jobops init [folder]    Create a new workspace (default: ./jobops)
 
 After setup, open your AI coding tool inside the folder and paste a job offer.
-Docs: https://github.com/santifer/career-ops`;
+Docs: https://github.com/santifer/jobops`;
 
 function die(msg) {
   console.error(`\n✗ ${msg}\n`);
@@ -70,7 +73,7 @@ function detectClis() {
 async function latestTag() {
   try {
     const res = await fetch(LATEST_RELEASE, {
-      headers: { "User-Agent": "career-ops-cli", Accept: "application/vnd.github+json" },
+      headers: { "User-Agent": "jobops-cli", Accept: "application/vnd.github+json" },
     });
     if (!res.ok) return null;
     const data = await res.json();
@@ -89,19 +92,19 @@ async function main() {
   }
   if (cmd !== "init") die(`Unknown command "${cmd}".\n${USAGE}`);
 
-  const target = dirArg || "career-ops";
+  const target = dirArg || "jobops";
   if (existsSync(target) && readdirSync(target).length > 0) {
     die(`Target folder "${target}" already exists and is not empty. Pick another name.`);
   }
   if (!has("git")) die("git is required but was not found on PATH. Install git and try again.");
 
-  // Pretty path for messages: "./career-ops" for relative, as-is for absolute.
+  // Pretty path for messages: "./jobops" for relative, as-is for absolute.
   const isAbsolute = target.startsWith("/") || /^[A-Za-z]:/.test(target);
   const display = isAbsolute ? target : `./${target}`;
 
   // 1. Clone at the latest stable release (fall back to the default branch).
   const tag = await latestTag();
-  console.log(`\n→ Cloning career-ops${tag ? ` @ ${tag}` : ""} into ${display} ...`);
+  console.log(`\n→ Cloning jobops${tag ? ` @ ${tag}` : ""} into ${display} ...`);
   const cloneArgs = ["clone", "--depth=1"];
   if (tag) cloneArgs.push("--branch", tag);
   cloneArgs.push(REPO, target);
@@ -119,10 +122,16 @@ async function main() {
     console.warn('\n! npm install failed — you can re-run it manually later with "npm install".');
   }
 
+  // 2b. Bootstrap CLI skill entrypoints (covers CLIs added after the cloned release).
+  const bootstrapped = ensureSkillEntrypoints(target);
+  if (bootstrapped.length > 0) {
+    console.log(`\n→ Bootstrapped ${bootstrapped.length} CLI skill entrypoint(s) for this workspace`);
+  }
+
   // 3. Next steps. We do NOT scaffold cv.md / profile.yml / portals.yml here:
   // their absence is what triggers the agent's conversational onboarding on
   // first launch, which sets them up far better than copying placeholders.
-  console.log(`\n✓ career-ops is ready in ${display}\n`);
+  console.log(`\n✓ jobops is ready in ${display}\n`);
   console.log("Next steps:");
   console.log(`  1. cd ${target}`);
 
@@ -138,7 +147,7 @@ async function main() {
 
   console.log("\nOn first launch it walks you through setup — your CV, profile and target");
   console.log("roles — just by chatting. Nothing to configure by hand.");
-  console.log("\ncareer-ops is AI-agnostic — Claude Code, Gemini, Codex, Qwen, OpenCode and Copilot all work.");
+  console.log("\njobops is AI-agnostic — Claude Code, Codex, Qwen, OpenCode, Copilot, Antigravity and Grok all work.");
   console.log("\nOptional (for PDF generation):");
   console.log("  npx playwright install chromium\n");
 }

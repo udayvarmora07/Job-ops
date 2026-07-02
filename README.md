@@ -1,9 +1,9 @@
-# Career-Ops
+# Jobops
 
 [English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [简体中文](README.cn.md) | [繁體中文](README.zh-TW.md) | [Українська](README.ua.md) | [Русский](README.ru.md) | [Polski](README.pl.md) | [العربية](README.ar.md)
 
 <p align="center">
-  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Career-Ops Multi-Agent Job Search System" width="800"></a>
+  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Jobops Multi-Agent Job Search System" width="800"></a>
 </p>
 
 <p align="center">
@@ -37,11 +37,11 @@
 </p>
 
 <p align="center">
-  <a href="https://trendshift.io/repositories/25195" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fcareer-ops | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+  <a href="https://trendshift.io/repositories/25195" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fjobops | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
 
 <p align="center">
-  <a href="https://www.producthunt.com/products/santifer-io?utm_source=badge-featured&utm_medium=badge" target="_blank" rel="noopener noreferrer"><img src="docs/press/producthunt.svg" alt="Career-Ops on Claude | Product Hunt" style="width: 206px; height: 54px; vertical-align: middle;" width="206" height="54"/></a>
+  <a href="https://www.producthunt.com/products/santifer-io?utm_source=badge-featured&utm_medium=badge" target="_blank" rel="noopener noreferrer"><img src="docs/press/producthunt.svg" alt="Jobops on Claude | Product Hunt" style="width: 206px; height: 54px; vertical-align: middle;" width="206" height="54"/></a>
 </p>
 
 <p align="center"><sub>FEATURED IN</sub></p>
@@ -55,7 +55,7 @@
 ---
 
 <p align="center">
-  <img src="docs/demo.gif" alt="Career-Ops Demo" width="800">
+  <img src="docs/demo.gif" alt="Jobops Demo" width="800">
 </p>
 
 <p align="center"><strong>740+ job listings evaluated · 100+ personalized CVs · 1 dream role landed</strong></p>
@@ -64,7 +64,7 @@
   <a href="https://warpchart.dev/hq">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://warpchart.dev/api/chart?theme=dark&v=3">
-      <img alt="Live star telemetry of santifer/career-ops" src="https://warpchart.dev/api/chart?theme=light&v=3" loading="lazy">
+      <img alt="Live star telemetry of santifer/jobops" src="https://warpchart.dev/api/chart?theme=light&v=3" loading="lazy">
     </picture>
   </a>
 </p>
@@ -74,7 +74,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/santifer/career-ops/releases/latest"><img src="https://img.shields.io/npm/v/%40santifer%2Fcareer-ops?style=for-the-badge&labelColor=2b3137&color=2ea44f&label=release" alt="Latest release"></a>
+  <a href="https://github.com/santifer/jobops/releases/latest"><img src="https://img.shields.io/npm/v/%40santifer%2Fjobops?style=for-the-badge&labelColor=2b3137&color=2ea44f&label=release" alt="Latest release"></a>
 </p>
 
 <p align="center">
@@ -96,7 +96,7 @@
 
 ## What Is This
 
-Career-Ops ([career-ops.org](https://career-ops.org), also known as **careerops**) turns any AI coding CLI into a full job search command center. Instead of manually tracking applications in a spreadsheet, you get an AI-powered pipeline that:
+Jobops ([jobops.org](https://jobops.org), also known as **jobops**) turns any AI coding CLI into a full job search command center. Instead of manually tracking applications in a spreadsheet, you get an AI-powered pipeline that:
 
 - **Evaluates offers** with a structured A-F scoring system (10 weighted dimensions)
 - **Generates tailored PDFs** -- ATS-optimized CVs customized per job description
@@ -104,13 +104,13 @@ Career-Ops ([career-ops.org](https://career-ops.org), also known as **careerops*
 - **Processes in batch** -- evaluate 10+ offers in parallel with sub-agents
 - **Tracks everything** in a single source of truth with integrity checks
 
-> **Important: This is NOT a spray-and-pray tool.** Career-ops is a filter -- it helps you find the few offers worth your time out of hundreds. The system strongly recommends against applying to anything scoring below 4.0/5. Your time is valuable, and so is the recruiter's. Always review before submitting.
+> **Important: This is NOT a spray-and-pray tool.** Jobops is a filter -- it helps you find the few offers worth your time out of hundreds. The system strongly recommends against applying to anything scoring below 4.0/5. Your time is valuable, and so is the recruiter's. Always review before submitting.
 
-Career-ops is agentic: whichever AI coding CLI you choose navigates career pages with Playwright, evaluates fit by reasoning about your CV vs the job description (not keyword matching), and adapts your resume per listing.
+Jobops is agentic: whichever AI coding CLI you choose navigates career pages with Playwright, evaluates fit by reasoning about your CV vs the job description (not keyword matching), and adapts your resume per listing.
 
 > **Heads up: the first evaluations won't be great.** The system doesn't know you yet. Feed it context -- your CV, your career story, your proof points, your preferences, what you're good at, what you want to avoid. The more you nurture it, the better it gets. Think of it as onboarding a new recruiter: the first week they need to learn about you, then they become invaluable.
 
-Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. [Read the full case study](https://santifer.io/career-ops-system).
+Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. [Read the full case study](https://santifer.io/jobops-system).
 
 ## Features
 
@@ -121,7 +121,7 @@ Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored
 | **Interview Story Bank** | Accumulates STAR+Reflection stories across evaluations -- 5-10 master stories that answer any behavioral question                        |
 | **Negotiation Scripts**  | Salary negotiation frameworks, geographic discount pushback, competing offer leverage                                                    |
 | **ATS PDF Generation**   | Keyword-injected CVs with Space Grotesk + DM Sans design                                                                                 |
-| **Cover Letter Generator** | Research-backed cover letters with keyword mirroring, four interactive angle prompts (why/problems/approach/tone), draft-in-chat approval gate, and A4 PDF via the same HTML + Playwright pipeline as CVs. Auto-drafts on every evaluation; complete and generate on demand via `/career-ops cover` |
+| **Cover Letter Generator** | Research-backed cover letters with keyword mirroring, four interactive angle prompts (why/problems/approach/tone), draft-in-chat approval gate, and A4 PDF via the same HTML + Playwright pipeline as CVs. Auto-drafts on every evaluation; complete and generate on demand via `/jobops cover` |
 | **Portal Scanner**       | 45+ companies pre-configured (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + custom queries across Ashby, Greenhouse, Lever, Wellfound |
 | **Batch Processing**     | Parallel evaluation with headless CLI workers (`claude -p` / `opencode run`)                                                             |
 | **Dashboard TUI**        | Terminal UI to browse, filter, and sort your pipeline                                                                                    |
@@ -133,28 +133,28 @@ Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored
 **Fastest way — one command:**
 
 ```bash
-npx @santifer/career-ops init
+npx @santifer/jobops init
 ```
 
 > 💡 `npx` ships with [Node.js](https://nodejs.org) — it runs the installer once,
 > without installing anything globally. No Node yet? Install it first.
 > (Already using a Claude Code / Gemini / Codex CLI? Then you already have it.)
 
-This clones the latest release into `./career-ops` and installs dependencies. Then:
+This clones the latest release into `./jobops` and installs dependencies. Then:
 
 ```bash
-cd career-ops
+cd jobops
 claude   # or gemini / codex / qwen / opencode — open your AI CLI here
 ```
 
-**On first launch, career-ops walks you through setup — your CV, profile and target roles — just by chatting. Nothing to edit by hand.**
+**On first launch, jobops walks you through setup — your CV, profile and target roles — just by chatting. Nothing to edit by hand.**
 
 <details>
 <summary><b>Prefer to set it up manually? (git clone)</b></summary>
 
 ```bash
-git clone https://github.com/santifer/career-ops.git
-cd career-ops && npm install
+git clone https://github.com/santifer/jobops.git
+cd jobops && npm install
 npx playwright install chromium   # only needed for PDF generation
 
 # 2. Check setup
@@ -178,7 +178,7 @@ opencode # Or use OpenCode
 # "Update my profile with this CV I'm pasting"
 
 # 6. Start using
-# Paste a job URL or run /career-ops
+# Paste a job URL or run /jobops
 ```
 
 </details>
@@ -198,20 +198,20 @@ Career-ops supports [Gemini CLI](https://github.com/google-gemini/gemini-cli) na
 npm install -g @google/gemini-cli
 # or: npx @google/gemini-cli --version
 
-# 2. Run in the career-ops directory — on first launch, sign in with your
+# 2. Run in the jobops directory — on first launch, sign in with your
 #    Google account (free) to authenticate
-cd career-ops
+cd jobops
 gemini
 
-# 3. Use the unified /career-ops command with subcommands:
-/career-ops "Senior AI Engineer at Anthropic..."
-/career-ops pipeline
-/career-ops scan
-/career-ops pdf
-/career-ops tracker
+# 3. Use the unified /jobops command with subcommands:
+/jobops "Senior AI Engineer at Anthropic..."
+/jobops pipeline
+/jobops scan
+/jobops pdf
+/jobops tracker
 ```
 
-The `GEMINI.md` file is auto-loaded as context. All subcommands are routed via the unified `.agents/skills/career-ops/SKILL.md` definition.
+The `GEMINI.md` file is auto-loaded as context. All subcommands are routed via the unified `.agents/skills/jobops/SKILL.md` definition.
 
 ### Option B: Standalone API Script (No CLI install needed)
 
@@ -236,22 +236,22 @@ npm run gemini:eval -- "JD text here"
 Career-ops is a single slash command with multiple modes:
 
 ```
-/career-ops                → Show all available commands
-/career-ops {paste a JD}   → Full auto-pipeline (evaluate + PDF + tracker)
-/career-ops scan           → Scan portals for new offers
-/career-ops pdf            → Generate ATS-optimized CV
-/career-ops cover          → Cover letter generator (paste JD or /career-ops cover {slug})
-/career-ops batch          → Batch evaluate multiple offers
-/career-ops tracker        → View application status
-/career-ops apply          → Fill application forms with AI
-/career-ops pipeline       → Process pending URLs
-/career-ops contacto       → LinkedIn outreach message
-/career-ops deep           → Deep company research
-/career-ops training       → Evaluate a course/cert
-/career-ops project        → Evaluate a portfolio project
+/jobops                → Show all available commands
+/jobops {paste a JD}   → Full auto-pipeline (evaluate + PDF + tracker)
+/jobops scan           → Scan portals for new offers
+/jobops pdf            → Generate ATS-optimized CV
+/jobops cover          → Cover letter generator (paste JD or /jobops cover {slug})
+/jobops batch          → Batch evaluate multiple offers
+/jobops tracker        → View application status
+/jobops apply          → Fill application forms with AI
+/jobops pipeline       → Process pending URLs
+/jobops contacto       → LinkedIn outreach message
+/jobops deep           → Deep company research
+/jobops training       → Evaluate a course/cert
+/jobops project        → Evaluate a portfolio project
 ```
 
-Or just paste a job URL or description directly -- career-ops auto-detects it and runs the full pipeline.
+Or just paste a job URL or description directly -- jobops auto-detects it and runs the full pipeline.
 
 ## How It Works
 
@@ -313,7 +313,7 @@ Features: 6 filter tabs, 4 sort modes, grouped/flat view, lazy-loaded previews, 
 ## Project Structure
 
 ```
-career-ops/
+jobops/
 ├── AGENTS.md                    # Canonical agent instructions (all CLIs)
 ├── CLAUDE.md                    # Claude Code wrapper (imports AGENTS.md)
 ├── OPENCODE.md                  # OpenCode wrapper (imports AGENTS.md)
@@ -366,13 +366,13 @@ career-ops/
 
 ## About the Author
 
-I'm Santiago -- Head of Applied AI, former founder (built and sold a business that still runs with my name on it). I built career-ops to manage my own job search. It worked: I used it to land my current role.
+I'm Santiago -- Head of Applied AI, former founder (built and sold a business that still runs with my name on it). I built jobops to manage my own job search. It worked: I used it to land my current role.
 
 My portfolio and other open source projects → [santifer.io](https://santifer.io)
 
 ## Disclaimer
 
-**career-ops is a local, open-source tool, NOT a hosted service.** By using this software, you acknowledge:
+**jobops is a local, open-source tool, NOT a hosted service.** By using this software, you acknowledge:
 
 1. **You control your data.** Your CV, contact info, and personal data stay on your machine and are sent directly to the AI provider you choose (Anthropic, OpenAI, etc.). We do not collect, store, or have access to any of your data.
 2. **You control the AI.** The default prompts instruct the AI not to auto-submit applications, but AI models can behave unpredictably. If you modify the prompts or use different models, you do so at your own risk. **Always review AI-generated content for accuracy before submitting.**
@@ -383,15 +383,15 @@ See [LEGAL_DISCLAIMER.md](LEGAL_DISCLAIMER.md) for full details. This software i
 
 ## Contributors
 
-<a href="https://github.com/santifer/career-ops/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=santifer/career-ops" />
+<a href="https://github.com/santifer/jobops/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=santifer/jobops" />
 </a>
 
-Got hired using career-ops? [Share your story!](https://github.com/santifer/career-ops/issues/new?template=i-got-hired.yml)
+Got hired using jobops? [Share your story!](https://github.com/santifer/jobops/issues/new?template=i-got-hired.yml)
 
 ## License & Trademark
 
-The code is licensed under [MIT](LICENSE). The "career-ops" name and
+The code is licensed under [MIT](LICENSE). The "jobops" name and
 brand are governed by the [Trademark Policy](TRADEMARK.md), permissive
 for community use, reserved for commercial product naming and
 endorsement.
