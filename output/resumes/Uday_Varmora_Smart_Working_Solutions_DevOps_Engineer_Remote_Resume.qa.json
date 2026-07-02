@@ -1,0 +1,8 @@
+{
+  "verdict": "unknown",
+  "score": null,
+  "summary": "QA model returned unparseable output.",
+  "perspectivesChecked": [],
+  "issues": [],
+  "raw": " ```json\n{\n  \"verdict\": \"needs_fixes\",\n  \"score\": 68,\n  \"summary\": \"Resume contains a critical typo in skills, fabricated future employment dates, and several unsupported claims that violate truthfulness constraints from the master brief.\",\n  \"perspectivesChecked\": [\"spelling\",\"grammar\",\"consistency\",\"completeness\",\"truthfulness\",\"jd_ats\",\"impact\",\"formatting\",\"red_flags\"],\n  \"issues\": [\n    {\n      \"perspective\": \"spelling\",\n      \"severity\": \"high\",\n      \"issue\": \"Critical typo in skills sect"
+}

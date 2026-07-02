@@ -1,0 +1,103 @@
+{
+  "verdict": "needs_fixes",
+  "score": 68,
+  "summary": "Resume contains a critical typo in skills ('AWS1 CodeBuild'), fabricated role title, unsupported OpenShift/Istio claims, and missing contact info block that would break ATS parsing.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "spelling",
+      "severity": "high",
+      "issue": "Critical typo: 'AWS1 CodeBuild' instead of 'AWS CodeBuild' in skills section",
+      "where": "CI/CD & GitOps: 'Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS1 CodeBuild, ArgoCD'",
+      "suggestion": "Change 'AWS1 CodeBuild' to 'AWS CodeBuild'"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Role title changed from 'DevOps Engineer' to 'Cloud / DevOps Engineer' — this is a fabricated title not supported by candidate facts",
+      "where": "Experience section: 'Cloud / DevOps Engineer | eSparkBiz · Ahmedabad, India | Jun 2025 – Apr 2026'",
+      "suggestion": "Revert to actual title: 'DevOps Engineer' — do not inflate titles to match JD"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "OpenShift and Istio are listed in experience bullet but candidate only has 'used in environment, not lead operator' and 'installed and configured, not deep traffic engineering' per master brief — yet presented as production operational experience",
+      "where": "Experience bullet: 'Operated Kubernetes (EKS, OpenShift) clusters with ArgoCD GitOps, Helm, Istio service mesh...'",
+      "suggestion": "Remove OpenShift and Istio from this bullet, or reframe to 'exposure to OpenShift and Istio' in skills section only; do not claim operational ownership"
+    },
+    {
+      "perspective": "completeness",
+      "severity": "high",
+      "issue": "Contact information block (name, email, phone, location, LinkedIn, GitHub) is completely missing from the generated resume JSON — only present in original cv.md",
+      "where": "Entire resume header — no contact info in generated content",
+      "suggestion": "Add complete contact header: Uday Varmora, +91 96623 85170, varmorauday1045@gmail.com, Ahmedabad, India, linkedin.com/in/udayvarmora, github.com/udayvarmora07"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Bullet B6 (security posture) is used but not in the approved 5-6 bullet selection for this resume context; more critically, 'IRSA and Pod Identity' are specific technical mechanisms not verified in master brief as claimed achievements",
+      "where": "Experience bullet: 'enforced least-privilege IAM via IRSA and Pod Identity'",
+      "suggestion": "Simplify to 'enforced least-privilege IAM policies' or verify candidate actually implemented IRSA and Pod Identity specifically; if uncertain, remove specific mechanisms"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Bullet B7 (AWS architecture breadth) is used but this was designated as 'Cloud Engineer variant' in master brief — mixing variant bullets without role alignment may create inconsistency",
+      "where": "First experience bullet: 'Architected and operated production AWS infrastructure spanning EC2, EKS, Lambda, S3, RDS, VPC, IAM, and CloudWatch...'",
+      "suggestion": "Either commit to Cloud Engineer framing throughout, or replace with standard DevOps bullet B1 or B3"
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing several high-value keywords from typical Cloud/DevOps JDs: 'GitOps' (only in skills, not bullets), 'microservices' (present but could be stronger), 'infrastructure as code' (only 'IaC' abbreviation), 'monitoring' vs 'observability', 'automation', 'scripting'",
+      "where": "Summary and skills sections",
+      "suggestion": "Add 'GitOps' to summary; spell out 'Infrastructure as Code' at least once; ensure 'automation' and 'scripting' appear in summary"
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Date format inconsistency: experience uses 'Jun 2025 – Apr 2026' but education uses '2021 – 2025' (no month abbreviations)",
+      "where": "Education: '2021 – 2025' vs Experience: 'Jun 2025 – Apr 2026'",
+      "suggestion": "Standardize to consistent format: either both with months or both without; recommend 'Jun 2021 – May 2025' for education"
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Number formatting inconsistency: '30% ($500+/month)' vs '~30% reduced image pull latency' — one uses tilde, one doesn't; '60%+' vs '82% (45 → 8 min)'",
+      "where": "Various bullets across experience and projects",
+      "suggestion": "Standardize: use either '~30%' or '30%' consistently; use '60%' or '60%+' consistently throughout"
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "Summary is metric-heavy but lacks narrative cohesion — reads as list of percentages rather than story; '1+ year' is repeated but no progression shown",
+      "where": "Professional Summary paragraph",
+      "suggestion": "Restructure to: 'DevOps Engineer with 1+ year architecting AWS cloud-native infrastructure and CI/CD pipelines for 20+ services. Delivered 82% faster releases, 80% faster provisioning, and 30% compute cost reduction through Terraform IaC, Kubernetes automation, and Linux-based production operations.'"
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Skills section uses nested arrays with category headers — may not parse correctly in plain text or some ATS systems",
+      "where": "Technical Skills section structure",
+      "suggestion": "Consider flattening to standard bullet or comma-separated format for ATS safety, or ensure PDF rendering produces clean text"
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "low",
+      "issue": "Color scheme 'teal' is specified but no indication this matches target company branding or JD tone; master brief specifies navy/gold as default for enterprise/cloud roles",
+      "where": "JSON metadata: 'colorScheme': 'teal'",
+      "suggestion": "Consider switching to 'navy' per master brief default for Cloud/SRE roles unless targeting startup specifically"
+    }
+  ],
+  "checkedAt": "2026-06-25T10:27:36.420Z"
+}

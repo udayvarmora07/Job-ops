@@ -1,0 +1,54 @@
+{
+  "verdict": "pass",
+  "score": 93,
+  "summary": "A clean, truthful, well-aligned DevOps resume that correctly applies the master-brief honesty rules (no fabricated 82%/80% claims) and surfaces the right AWS/CI-CD/Kubernetes keywords for the Lucidity DevOps role.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Healthcare project bullets are included in this resume, but the master brief flags Healthcare production-scale outcomes as prototype-only and hard to defend. The generated bullets here avoid the risky metrics (500+ users, 5+ IAM roles, 30% latency) — good — but keep an eye on this; the current phrasing is defensible. No fabricated metric detected, flagging only because this project is the brief's designated risk zone.",
+      "where": "Healthcare Management System project bullets: 'demonstrating zero-downtime redeployment for client review'",
+      "suggestion": "No change required; current bullets correctly avoid production-scale claims. Confirm 'zero-downtime redeployment' is defensible for a prototype in interview."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "colorScheme is 'teal' (startup/SaaS default per format rules), which is acceptable for a product company like Lucidity, but the brief's DEFAULT is Navy for Cloud/SRE/enterprise. Lucidity is a cloud cost-optimization SaaS startup, so teal is a reasonable fit — noting only for awareness.",
+      "where": "\"colorScheme\": \"teal\"",
+      "suggestion": "Keep teal for this SaaS/product target; no fix needed."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Lucidity's core business is cloud storage/cost optimization and autoscaling. The resume has strong cost-optimization material (Karpenter/KEDA, 30%/$500+/mo, non-prod CronJob) but it lives only in the CRM project section, not surfaced in the Summary or as a standalone experience bullet where recruiters/ATS scan first.",
+      "where": "Summary line lists uptime, deploys, toil but omits the 30% cost reduction; cost work is buried in project bullet 2.",
+      "suggestion": "Add the '30% ($500+/month) compute cost reduction via Karpenter/KEDA' to the Summary or as a dedicated Professional Experience bullet (B8) — it directly maps to Lucidity's cost-optimization mission and is a defensible metric."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Skills 'Cloud Platforms' row lists AWS only and Azure is (correctly) omitted per the Azure gate for AWS-first product startups. Verify the JD does not mention multi-cloud; if it does, revisit. Currently consistent with brief guidance.",
+      "where": "\"Cloud Platforms\", \"AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, IAM, CloudWatch, EFS, DynamoDB\"",
+      "suggestion": "No change unless the Lucidity JD mentions Azure/multi-cloud."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact block (email, phone, LinkedIn, GitHub, location) is present in cv.md but the generated JSON payload does not include a contact field — assuming the rendering template injects it from profile.yml. If the template does not, contact info would be missing.",
+      "where": "Generated JSON has title/summary/skills/experience but no explicit contact object.",
+      "suggestion": "Confirm the HTML render pulls name/email/phone/LinkedIn/GitHub/location from profile.yml so the header is not blank."
+    }
+  ],
+  "checkedAt": "2026-07-01T18:33:18.672Z"
+}

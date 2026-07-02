@@ -1,0 +1,68 @@
+{
+  "verdict": "pass",
+  "score": 93,
+  "summary": "A clean, factually-disciplined DevOps resume that correctly uses only defensible metrics from the brief and aligns well with the Ahmedabad DevOps role; only minor polish and one JD-alignment note remain.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "The GENERATED resume content is clean, but note the SOURCE cv.md (not this generation) still contains forbidden claims like '82% (45 → 8 min)', '80%' provisioning and '95%' drift reduction. The generated JSON correctly replaced these with '~8-minute deployments' and 'reproducible provisioning' — confirming the generation fixed the source. Flagging only so the underlying cv.md gets corrected too.",
+      "where": "cv.md summary: 'cutting release cycles 82% (45 → 8 min), provisioning 80%, and toil 70%'",
+      "suggestion": "Update cv.md to match the corrected generated language; the generated resume itself is compliant."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Date range formatting is consistent across roles, but the education 'right' field uses spaced en-dash '2021 – 2025' while the left field uses a double-space separator before CGPA. Minor spacing inconsistency.",
+      "where": "\"left\": \"...Gujarat, India  |  CGPA: 7.25 / 10\"",
+      "suggestion": "Normalize to a single space around the pipe: 'Gujarat, India | CGPA: 7.25 / 10'."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "The JD is sparse (only role/company/location given), but for a generic DevOps role the resume is strong. However, common DevOps JD keywords not surfaced include 'monitoring/alerting' as a named skill category emphasis and 'Docker' appears but 'containerization' as a keyword is only implicit. Given no detailed JD text, alignment cannot be fully verified.",
+      "where": "Skills section and summary",
+      "suggestion": "If the actual Metasphere JD text becomes available, re-tailor keywords; as-is the core DevOps stack (CI/CD, Docker, K8s, Terraform, AWS) is well covered."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "colorScheme is set to 'teal', which per format rules maps to startup/SaaS. Metasphere is a mid-size product/services company in Ahmedabad; navy (enterprise/Cloud default) may be equally valid, but teal is acceptable for a DevOps role at a smaller shop.",
+      "where": "\"colorScheme\": \"teal\"",
+      "suggestion": "Acceptable; no change required unless targeting an enterprise/BFSI employer."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "The generated JSON structure does not include an explicit contact line (phone/email/LinkedIn/GitHub/location), presumably rendered from profile.yml by the template. Confirm the renderer injects these — otherwise contact info would be missing.",
+      "where": "Top of generated content (no header/contact object present)",
+      "suggestion": "Verify the HTML template pulls name, phone, email, LinkedIn, GitHub, and location from profile.yml; all values exist and match cv.md."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Healthcare project bullets correctly keep prototype framing and omit the flagged production-scale metrics ('500+ users', '5+ IAM roles removed', '30% latency reduction') — this is compliant with the brief. No fabrication found.",
+      "where": "Healthcare Management System bullets",
+      "suggestion": "No action needed; confirms adherence to prototype-scale honesty rule."
+    },
+    {
+      "perspective": "impact",
+      "severity": "low",
+      "issue": "Two experience bullets ('Maintained and extended...' Terraform, and the Linux RCA bullet) lack a quantified outcome after the honest removal of unsupported metrics. This is correct per the brief but slightly reduces impact.",
+      "where": "'Maintained and extended multi-environment AWS infrastructure... delivering consistent, reproducible provisioning'",
+      "suggestion": "Optionally add a defensible non-fabricated qualifier (e.g., 'across 3 environments' or 'via 34 reusable modules') to strengthen without inventing metrics — the module count is already there, so this is acceptable as-is."
+    }
+  ],
+  "checkedAt": "2026-07-01T14:38:02.636Z"
+}

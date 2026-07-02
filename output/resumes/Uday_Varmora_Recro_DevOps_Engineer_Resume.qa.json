@@ -1,0 +1,52 @@
+{
+  "verdict": "pass",
+  "score": 92,
+  "summary": "A clean, truthful, well-targeted DevOps resume for Recro — every metric traces to the source brief, structure is parallel, and no fabrications or typos surfaced.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Location mismatch with target job. The JD is for Bengaluru, Karnataka, and the candidate lists availability for Bangalore, but the resume header only reflects Ahmedabad (from source facts). Not an error, but a recruiter may flag location. Consider noting relocation/onsite availability for Bengaluru if the ATS parses location strictly.",
+      "where": "Header: 'Ahmedabad, India' (JD: Bengaluru, Karnataka, India)",
+      "suggestion": "Optionally add 'Open to Bengaluru (onsite/hybrid)' near the header or in a one-line note, since profile.yml lists Bangalore as an onsite target city."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "Generic DevOps JD (title only, no detailed requirements provided). Resume covers all standard DevOps keywords well (CI/CD, Docker, Kubernetes, Terraform, AWS, Prometheus/Grafana). No high-value keyword gaps detectable without a fuller JD text.",
+      "where": "Overall keyword coverage vs. 'DevOps Engineer' at Recro",
+      "suggestion": "No change needed; if the actual Recro JD surfaces specific tools (e.g., Azure, GCP, specific monitoring), reconcile against the Tier-2 gates in the brief before adding."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Brief's Format Rules specify British -ise spelling (Dockerised, containerised) — resume correctly uses 'Dockerised' throughout, which is consistent. No fix needed; noting as verified.",
+      "where": "'20+ Dockerised microservices'",
+      "suggestion": "None — spelling convention is applied consistently."
+    }
+  ],
+  "checkedAt": "2026-07-02T14:33:07.156Z",
+  "ats": {
+    "score": null,
+    "basis": "keyword-match",
+    "reason": "JD yielded only 1 recognizable keyword(s) — too sparse for a reliable ATS score",
+    "coverage": 0,
+    "requiredHit": 0,
+    "requiredTotal": 0,
+    "matched": [],
+    "missing": [],
+    "penalties": 0,
+    "keywordCount": 1
+  }
+}

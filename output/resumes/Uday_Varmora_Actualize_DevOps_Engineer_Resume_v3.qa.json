@@ -1,0 +1,247 @@
+{
+  "verdict": "needs_fixes",
+  "score": 94,
+  "summary": "Strong JD alignment and formatting, but the resume is riddled with fabricated metrics explicitly forbidden by the source brief plus a hallucinated tool (Gerrit/Bitbucket), making it factually indefensible.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Brief explicitly forbids the '82% (45→8 min)' release-cycle-reduction claim — that improvement predates the candidate; he may only claim he sustains ~8-minute deploys.",
+      "where": "Summary: 'delivering **82% faster release cycles**' AND experience bullet: 'cutting release cycles by **82% (45 → 8 min)**'",
+      "suggestion": "Replace with 'sustained fast, automated (~8-minute) deployments' — no percentage reduction."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Brief forbids '80% faster provisioning' and '95% drift reduction' — these belong to the original build, not the candidate's work.",
+      "where": "Summary: '**80% faster provisioning**' AND experience bullet: 'reducing provisioning time **80%** and configuration drift **95%**'",
+      "suggestion": "Reframe to 'consistent, reproducible provisioning across Dev, Staging, and Production' with no reduction metrics."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Bitbucket and 'Gerrit' appear as CI/CD / code-review tools not in the inventory. Bitbucket is listed only as a VCS in the brief; 'Bitbucket workflows' as a CI/CD pipeline tool and 'Gerrit' entirely are fabrications.",
+      "where": "Skills 'Bitbucket Workflows'; experience 'Bitbucket workflows'; 'integrated SonarQube quality gates and **Git/Gerrit** code-review workflows'",
+      "suggestion": "Remove 'Bitbucket Workflows' and 'Gerrit'; use 'Git' code-review workflows only. Keep Bitbucket in VCS row only."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Healthcare project production-scale metrics are flagged prototype-only and must be omitted by default: '500+ concurrent users', '5+ overly permissive roles', '~30% reduced image pull latency'.",
+      "where": "Healthcare bullets: 'removed **5+ overly permissive roles**', '**~30% reduced image pull latency** while serving **500+ concurrent users**'",
+      "suggestion": "Remove all three; frame as prototype/PoC for client review per brief section 5."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "'Architected serverless build/deploy system' and 'Designed multi-environment AWS architecture' violate the origination rule — candidate maintained/extended existing systems, not architected them.",
+      "where": "Salon: 'Architected serverless build/deploy system'; CRM: 'Designed multi-environment AWS architecture'",
+      "suggestion": "Use 'Maintained and extended a serverless build/deploy system' and 'Operated and extended a multi-environment AWS/EKS platform'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "OpenShift, Istio, ELK Stack, and Datadog are Tier-2 tools to include only if the JD asks. JD lists Istio/service mesh and Datadog as 'nice to have' (OK), but OpenShift and ELK Stack are not requested and appear in bullets.",
+      "where": "Experience bullet 3: 'Kubernetes (EKS, OpenShift)'; bullet 4: 'Prometheus, Grafana, Loki, ELK Stack, and Datadog'",
+      "suggestion": "Drop 'OpenShift' and 'ELK Stack' (not in JD). Keep Istio and Datadog since JD lists them as nice-to-have; note skills section omits Istio entirely — add it there for consistency."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Istio is claimed in an experience bullet but absent from the Skills section; conversely OpenShift appears in a bullet but not in Skills. Tool listing is inconsistent between sections.",
+      "where": "Experience bullet 3 'Istio service mesh' vs Skills 'Containers & Kubernetes: Docker, Kubernetes (EKS), Helm, Karpenter, KEDA, Ingress-NGINX Controller' (no Istio, no OpenShift)",
+      "suggestion": "Since JD lists Istio as nice-to-have, add Istio to the Containers skill row; remove OpenShift from bullets."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "colorScheme is 'teal' (startup/SaaS) but brief default for Cloud/SRE/DevOps enterprise-leaning is Navy; JD is a generic Senior DevOps role. Minor — acceptable but flag.",
+      "where": "\"colorScheme\": \"teal\"",
+      "suggestion": "Confirm teal is intended; navy is the brief's default for DevOps/Cloud roles."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "JD requires Vault (nice-to-have) and it is in the brief's Tier-1 security stack, but HashiCorp Vault is missing from the Security & Secrets skill row.",
+      "where": "Skills 'Security & Secrets: AWS Secrets Manager, IAM, KMS, Sealed Secrets, Trivy Operator'",
+      "suggestion": "Add 'HashiCorp Vault' to the Security & Secrets row — it's JD-requested and defensible."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "GitOps and ArgoCD are JD nice-to-haves; ArgoCD appears in bullets/projects but is missing from the CI/CD or Containers skill rows.",
+      "where": "Skills rows lack 'ArgoCD' and 'GitOps'",
+      "suggestion": "Add ArgoCD/GitOps to CI/CD or Containers skill row for ATS keyword match."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "medium",
+      "issue": "Title mismatch: JD is 'Senior DevOps Engineer' and candidate has 1+ year — resume title is 'DevOps Engineer' (correct, honest), but ensure no 'Senior' framing creeps in. Also Azure (Fundamentals) included though JD is AWS-only with no multi-cloud mention — brief's Azure gate says skip.",
+      "where": "Skills: 'AWS — ...; Azure (Fundamentals)'",
+      "suggestion": "Remove 'Azure (Fundamentals)' per the Azure inclusion gate (AWS-only JD, no multi-cloud signal)."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact line (phone, email, LinkedIn, GitHub, location) is present in cv.md but the generated JSON payload omits header contact fields — verify the renderer injects them.",
+      "where": "Generated resume JSON has no explicit contact/header block",
+      "suggestion": "Confirm header with name/phone/email/LinkedIn/GitHub/location renders in the final output."
+    },
+    {
+      "perspective": "impact",
+      "severity": "low",
+      "issue": "Once fabricated metrics are removed, several bullets lose their quantified hook; ensure remaining defensible metrics (99.9% uptime, 30% cost, 60%+ build time, RPO<1hr, ~70% toil) carry the impact.",
+      "where": "Experience bullets 1 and 2 after removing 82%/80%/95%",
+      "suggestion": "Lead bullet 1 with '~8-minute automated deploys across 20+ services' and bullet 2 with the 34-module reproducible IaC framing."
+    },
+    {
+      "perspective": "spelling",
+      "severity": "low",
+      "issue": "No spelling errors found; 'Dockerised' correctly uses British -ise per brief.",
+      "where": "N/A",
+      "suggestion": "None — spelling is clean."
+    },
+    {
+      "perspective": "grammar",
+      "severity": "low",
+      "issue": "Grammar and punctuation are consistent (all bullets end with periods, parallel action-verb openings). Clean.",
+      "where": "N/A",
+      "suggestion": "None."
+    }
+  ],
+  "checkedAt": "2026-07-01T20:26:07.215Z",
+  "ats": {
+    "score": 94,
+    "basis": "keyword-match",
+    "coverage": 99,
+    "requiredHit": 22,
+    "requiredTotal": 22,
+    "matched": [
+      {
+        "term": "AWS",
+        "weight": 3
+      },
+      {
+        "term": "EC2",
+        "weight": 3
+      },
+      {
+        "term": "S3",
+        "weight": 3
+      },
+      {
+        "term": "EKS",
+        "weight": 3
+      },
+      {
+        "term": "Docker",
+        "weight": 3
+      },
+      {
+        "term": "Kubernetes",
+        "weight": 3
+      },
+      {
+        "term": "Helm",
+        "weight": 3
+      },
+      {
+        "term": "Istio",
+        "weight": 3
+      },
+      {
+        "term": "service mesh",
+        "weight": 3
+      },
+      {
+        "term": "Terraform",
+        "weight": 3
+      },
+      {
+        "term": "Jenkins",
+        "weight": 3
+      },
+      {
+        "term": "GitHub Actions",
+        "weight": 3
+      },
+      {
+        "term": "ArgoCD",
+        "weight": 3
+      },
+      {
+        "term": "CI/CD",
+        "weight": 3
+      },
+      {
+        "term": "GitOps",
+        "weight": 3
+      },
+      {
+        "term": "Prometheus",
+        "weight": 3
+      },
+      {
+        "term": "Grafana",
+        "weight": 3
+      },
+      {
+        "term": "Python",
+        "weight": 3
+      },
+      {
+        "term": "Linux",
+        "weight": 3
+      },
+      {
+        "term": "GitHub",
+        "weight": 3
+      },
+      {
+        "term": "DevOps",
+        "weight": 3
+      },
+      {
+        "term": "Infrastructure as Code",
+        "weight": 3
+      },
+      {
+        "term": "Datadog",
+        "weight": 1
+      }
+    ],
+    "missing": [
+      {
+        "term": "Vault",
+        "weight": 1
+      }
+    ],
+    "penalties": 5,
+    "stuffed": [
+      "AWS",
+      "S3",
+      "EKS",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "GitHub Actions",
+      "CI/CD",
+      "Python",
+      "Linux",
+      "GitHub"
+    ],
+    "keywordCount": 24
+  },
+  "modelScore": 42
+}

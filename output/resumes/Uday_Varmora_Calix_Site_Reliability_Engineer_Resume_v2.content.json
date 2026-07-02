@@ -1,0 +1,102 @@
+{
+  "content": {
+    "filenameSuffix": "Calix_Site_Reliability_Engineer",
+    "title": "Uday Varmora - Site Reliability Engineer I Resume",
+    "colorScheme": "navy",
+    "summary": "**Site Reliability Engineer** with **1+ year** sustaining **99.9% uptime SLA** across multi-AZ Kubernetes (EKS) clusters serving **10+ microservices** — driving incident response, **SLO monitoring**, and **~70% toil reduction** through Python/Bash automation. Hands-on with **Kubernetes (EKS), Prometheus, Grafana, Loki, Terraform, CI/CD, AWS, and Linux** — authoring runbooks and blameless post-mortems to harden production reliability.",
+    "skills": [
+      [
+        "Observability & Monitoring",
+        "Prometheus, Grafana, Loki, Grafana Alloy, ELK Stack, Datadog, CloudWatch, AWS X-Ray"
+      ],
+      [
+        "Containers & Orchestration",
+        "Docker, Kubernetes (EKS, OpenShift), Helm, ArgoCD, Karpenter, KEDA, Ingress-NGINX"
+      ],
+      [
+        "Scripting & OS",
+        "Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration"
+      ],
+      [
+        "Cloud Platforms",
+        "AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, CloudWatch; Azure (Fundamentals)"
+      ],
+      [
+        "Reliability & Incident Response",
+        "SLO/SLA monitoring, Runbooks, Post-mortems, Root-Cause Analysis, Multi-region DR"
+      ],
+      [
+        "CI/CD & GitOps",
+        "Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD"
+      ],
+      [
+        "Infrastructure as Code",
+        "Terraform, AWS CloudFormation, AWS SAM, Ansible"
+      ],
+      [
+        "Security & Secrets",
+        "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM, KMS"
+      ]
+    ],
+    "experience": [
+      {
+        "role": "Site Reliability Engineer (DevOps Engineer)",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jun 2025 – Apr 2026",
+        "bullets": [
+          "Sustained **99.9% uptime SLA** for **Kubernetes (EKS, OpenShift)** clusters serving **10+ microservices** across multi-AZ deployments — managing zero-downtime rollouts, Karpenter node autoscaling, KEDA event-driven scaling, and continuous **SLO monitoring**.",
+          "Drove **incident response and root-cause analysis** for **Linux-based production incidents** across CPU, memory, network, and container runtime; authored **blameless post-mortems and runbooks** that reduced repeat-incident frequency and accelerated on-call response readiness.",
+          "Eliminated **~70% of recurring operational toil** with **Python and Bash** automation — cluster operations, log triage, secret rotation, scheduled scaling (non-prod CronJob), and pipeline scripting; integrated SonarQube quality gates into CI/CD.",
+          "Built observability with **Prometheus, Grafana, Loki, and Grafana Alloy** — dashboards, metrics, and log pipelines across the platform's microservices; executed a zero-downtime **EKS upgrade (v1.33 → v1.34)** managing add-on compatibility and API deprecation remediation.",
+          "Provisioned multi-environment AWS infrastructure on **Linux** using **Terraform IaC** (34 reusable modules, S3 remote state, DynamoDB locking) — reducing provisioning time **80%** and configuration drift **95%** across Dev, Staging, and Production."
+        ]
+      },
+      {
+        "role": "DevOps Engineer Intern",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jan 2025 – May 2025",
+        "bullets": [
+          "Built and maintained AWS infrastructure monitoring on **Linux-based environments**, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.",
+          "Wrote **Python and Bash** automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning **full-time promotion within 5 months**."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Reliability & Operations",
+        "tech": "Terraform · AWS EKS · Docker · GitHub Actions · AWS CodeBuild · ArgoCD · Ingress-NGINX · Prometheus · Grafana · Loki",
+        "bullets": [
+          "Set up and maintained monitoring with **Prometheus, Grafana, Loki, and Grafana Alloy** across the platform's microservices; executed a zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation while sustaining **99.9% uptime**.",
+          "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads.",
+          "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification, KEDA off-hours scale-down, and a non-prod scheduling CronJob — preserving production availability and cluster resource utilization."
+        ]
+      },
+      {
+        "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+        "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+        "bullets": [
+          "Maintained and extended a serverless build/deploy system of **6 nested SAM/CloudFormation templates** and **30+ Python Lambda functions** — handling deployments, reproducible packaging, and per-function least-privilege IAM.",
+          "Solved Lambda layer size constraints by engineering a shared **EFS-mounted Python dependency layer** across 30+ functions — eliminating packaging bottlenecks and cutting build times by **60%+**."
+        ]
+      },
+      {
+        "title": "Healthcare Management System — Cloud Infrastructure Prototype",
+        "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · GHCR · Secrets Manager · IAM",
+        "bullets": [
+          "Co-built a split-hosting prototype (S3/CloudFront frontend, Dockerised App Runner backend) with a **dual-registry GHCR/ECR strategy** — demonstrating zero-downtime redeployment for client review.",
+          "Built the release workflow via **GitHub Actions** — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy — with least-privilege IAM scoping."
+        ]
+      }
+    ],
+    "education": {
+      "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+      "right": "2021 – 2025"
+    },
+    "achievements": [
+      "Awarded **“Student of the Year”** in Class 10 for outstanding academic performance and leadership contributions."
+    ]
+  },
+  "jd": "Role: Site Reliability Engineer - I\nCompany: Calix\nLocation: Bangalore, Karnataka",
+  "company": "Calix",
+  "role": "Site Reliability Engineer - I"
+}

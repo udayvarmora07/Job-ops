@@ -1,0 +1,96 @@
+{
+  "verdict": "needs_fixes",
+  "score": 62,
+  "summary": "Resume contains a critical truthfulness violation by fabricating a job title change from 'DevOps Engineer' to 'Site Reliability Engineer' that is not supported by candidate facts, plus several consistency and formatting issues.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Fabricated job title: Candidate's actual title is 'DevOps Engineer' per master brief, but resume changes it to 'Site Reliability Engineer' and 'SRE Intern'. The master brief explicitly states 'Current role: DevOps Engineer at eSparkBiz Technologies' and provides no SRE title. This is a material misrepresentation that could fail background verification.",
+      "where": "\"role\": \"Site Reliability Engineer\" and \"role\": \"SRE Intern\"",
+      "suggestion": "Revert to actual titles: 'DevOps Engineer' and 'DevOps Engineer Intern'. Frame content with SRE-aligned verbs and metrics without changing the employer-given title."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "The summary claims 'Sustained production reliability for Kubernetes (EKS, OpenShift) clusters serving 20+ microservices at 99.9% uptime SLA' and 'Drove incident response, authored blameless post-mortems' — but the master brief shows the candidate's actual role is DevOps Engineer with these as project/team contributions, not an SRE function. The title fabrication creates a cascading truthfulness risk where SRE-specific framing implies a different job function than held.",
+      "where": "Professional Summary and Experience bullets",
+      "suggestion": ""
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Verb tense inconsistency: Current role uses present tense ('Sustained', 'Drove', 'Eliminated') but mixes with past achievements ('reduced', 'cutting'). The role spans Jun 2025 – Apr 2026, which appears to be future-dated or incorrectly formatted. If this is a current role, present tense for ongoing duties is correct, but past-tense achievements need consistent framing.",
+      "where": "Experience bulletsippo bullets: 'Sustained...', 'Drove...', 'Eliminated...', 'reducing...', 'maintaining...'",
+      "suggestion": "Use present tense for ongoing responsibilities ('Sustain', 'Drive', 'Eliminate', 'Operate') and past tense for completed, quantifiable achievements ('Reduced', 'Cut', 'Integrated')."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Date format inconsistency: Experience uses 'Jun 2025 – Apr 2026' (abbreviated month) but education uses '2021 –  rendering mixed formats. Also, the end date 'Apr 2026' suggests this is a future or projected end date, which is unusual for a current role and may confuse recruiters.",
+      "where": "Experience dates: 'Jun 2025 – Apr 2026' and 'Jan 2025 – May 2025'; Education: '2021 – 2025'",
+      "suggestion": "Standardize to abbreviated months throughout. If 'Apr 2026' is a projected end date, consider 'Jun 2025 – Present' for current role. If employment ended, verify actual end date against master brief."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing high-value SRE keywords from typical JDs: 'MTTR', 'error budgets', 'SLI', 'on-call rotation', 'capacity planning', 'performance tuning', 'chaos engineering' (even as gap), 'incident management', 'PagerDuty' (listed in Tier 2 but omitted from resume). The JD is sparse but SRE roles typically seek these.",
+      "where": "Skills and experience sections",
+      "suggestion": "Add 'MTTR reduction', 'error budgets', 'SLI/SLO' explicitly in skills or bullets. Include 'PagerDuty' if used (Tier 2 per brief). Note gap on 'chaos engineering' if JD asks."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "First project bullet is weak on quantification: 'Sustained production reliability...executed zero-downtime EKS cluster upgrade' lacks a metric for the upgrade itself (time taken, services affected, downtime avoided). Compare to other bullets with strong metrics.",
+      "where": "Project 1 bullet 1: 'Sustained production reliability for multi-environment build/deploy architecture...executed zero-downtime EKS cluster upgrade (v1.33 → v1.34)'",
+      "suggestion": "Add quantification if available: 'zero-downtime EKS cluster upgrade (v1.33 → v1.34) for 20+ services with zero failed deployments' or similar. If no metric, keep as-is but it's weaker than other bullets."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Skills section uses multi-word category headers that may not parse well in ATS. Some systems prefer single-line comma-separated skills. The nested array format with long strings may cause parsing issues.",
+      "where": "Skills array: 'Observability & Reliability', 'SRE & Incident Response'",
+      "suggestion": "Consider flattening to single-line format or ensure ATS can parse the JSON structure. If this renders as a table or complex layout, simplify for text extraction."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Project titles are excessively long, causing potential wrapping issues in PDF rendering. First project title spans 94 characters.",
+      "where": "Project 1 title: 'Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure'",
+      "suggestion": "Shorten to: 'Cloud-Native SaaS CRM Platform' or 'Multi-Tenant AWS/EKS Infrastructure' with full context in bullets."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "medium",
+      "issue": "The title change from DevOps Engineer to SRE without employer change is a significant red flag for recruiters and background checks. Even if duties overlap, misaligned titles are a common rejection reason.",
+      "where": "Role titles throughout experience section",
+      "suggestion": "Use actual employer title 'DevOps Engineer' with SRE-framed bullets. Add 'SRE-aligned responsibilities' or similar in summary if needed, but never fabricate title."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "British spelling 'Dockerised' used in master brief and projects, but resume uses 'Dockerised' in project 3 and 'Dockerized' in experience bullet 1. Inconsistent within same document.",
+      "where": "Experience: '20+ Dockerised microservices' vs Project 3: 'Dockerised App Runner backend'",
+      "suggestion": "Standardize to 'Dockerised' (British -ise per brief rules) throughout."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact information is present in JSON structure but not visible in the provided content block. Assuming it renders as header per template, but verify phone, email, LinkedIn, GitHub, location are all present in final output.",
+      "where": "Header section (not shown in JSON content)",
+      "suggestion": "Confirm all contact fields from profile are rendered: +91 96623 85170, varmorauday1045@gmail.com, linkedin.com/in/udayvarmora, github.com/udayvarmora07, Ahmedabad, India."
+    }
+  ],
+  "checkedAt": "2026-06-25T10:03:47.978Z"
+}

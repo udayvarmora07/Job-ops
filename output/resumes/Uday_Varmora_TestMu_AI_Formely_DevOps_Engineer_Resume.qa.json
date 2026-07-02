@@ -1,0 +1,8 @@
+{
+  "verdict": "unknown",
+  "score": null,
+  "summary": "QA model returned unparseable output.",
+  "perspectivesChecked": [],
+  "issues": [],
+  "raw": " ```json\n{\n  \"verdict\": \"needs_fixes\",\n  \"score\": 68,\n  \"summary\": \"Resume contains a critical broken bullet with malformed HTML/tag syntax, several truthfulness overclaims, missing JD-aligned keywords, and formatting inconsistencies that would fail ATS parsing and human review.\",\n  \"perspectivesChecked\": [\"spelling\",\"grammar\",\"consistency\",\"completeness\",\"truthfulness\",\"jd_ats\",\"impact\",\"formatting\",\"red_flags\"],\n  \"issues\": [\n    {\n      \"perspective\": \"spelling\",\n      \"severity\": \"low\",\n    "
+}

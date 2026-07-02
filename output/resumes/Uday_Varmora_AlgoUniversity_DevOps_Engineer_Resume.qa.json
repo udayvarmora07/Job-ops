@@ -1,0 +1,47 @@
+{
+  "verdict": "pass",
+  "score": 92,
+  "summary": "A clean, well-aligned DevOps resume whose every metric and claim is fully supported by the source-of-truth brief; only minor polish items remain.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Release-cycle figure is formatted differently between the summary and the experience bullet. The summary uses '45 → 8 min' while the bullet uses '45 min → 8 min'. Minor, but parallel formatting reads cleaner.",
+      "where": "Summary: \"cutting release cycles **82% (45 → 8 min)**\" vs bullet: \"cutting release cycles by **82% (45 min → 8 min)**\"",
+      "suggestion": "Pick one form (e.g. '45 min → 8 min') and use it in both places."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "The brief specifies British -ise spelling for 'Dockerised/containerised', which the resume follows ('Dockerised'). However 'optimization' / 'autoscaling' style words use US spelling elsewhere; not wrong, just note the deliberate mixed convention is acceptable since the brief only mandates -ise for Dockerised.",
+      "where": "\"10+ Dockerised microservices\" and \"Karpenter node autoscaling\"",
+      "suggestion": "No change required; flagging only to confirm -ise rule is correctly applied to 'Dockerised'. Clean."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "The JD provides no detail beyond role/company/location, so keyword alignment cannot be deepened. Resume already surfaces core DevOps keywords (CI/CD, Kubernetes, Terraform, AWS, Docker, observability). No actionable gap given the sparse JD.",
+      "where": "Target JD: 'Role: DevOps Engineer, Company: AlgoUniversity, Location: Hyderabad'",
+      "suggestion": "If a fuller JD becomes available, re-check for specific stack/keywords; as-is the resume is well aligned for a generic DevOps Engineer posting."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Location targeting note: candidate is Ahmedabad-based and the role is in Hyderabad (an onsite-availability city per profile), so no relocation flag is needed — but the resume does not state availability/relocation. Optional given the brief says 'Immediate joiner' only if JD asks.",
+      "where": "Header location: \"Ahmedabad, India\" vs JD location \"Hyderabad, Telangana\"",
+      "suggestion": "Optional: no action needed per format rules; Hyderabad is in the candidate's stated onsite-availability list."
+    }
+  ],
+  "checkedAt": "2026-06-29T18:52:13.730Z"
+}

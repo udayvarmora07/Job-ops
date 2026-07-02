@@ -1,0 +1,54 @@
+{
+  "verdict": "pass",
+  "score": 92,
+  "summary": "Clean, well-aligned DevOps resume that correctly honors the master-brief honesty rules (no fabricated 82% release or 80% provisioning claims) and surfaces the right AWS/K8s/CI-CD keywords for the Lucidity role.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "The Healthcare project bullet uses 'zero-downtime redeployment' phrasing for what the master brief flags as a prototype/PoC handed off after client review. The brief warns against attaching production-scale outcomes to this project. While 'demonstrating zero-downtime redeployment for client review' matches the approved defensible bullet, 'zero-downtime' is a production reliability claim that is softer here but still borders on overstatement for a PoC. It does match the sanctioned bullet text, so this is low-risk.",
+      "where": "Healthcare project: \"demonstrating zero-downtime redeployment for client review\"",
+      "suggestion": "Acceptable as-is since it matches the approved brief bullet and is qualified with 'for client review'; optionally soften to 'demonstrating a zero-downtime redeployment approach' to further signal prototype scope."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Lucidity is a cloud cost-optimization / storage orchestration company (AutoScaler for block storage). The resume leads well with the 30% cost reduction, but does not surface storage-cost or block-storage/EBS optimization keywords that would resonate strongly with this specific employer's product domain. The Velero/EBS snapshot content exists but cost-of-storage framing is absent.",
+      "where": "Summary and experience bullets emphasize compute cost only: \"cutting compute cost 30% ($500+/month)\"",
+      "suggestion": "If defensible, add a phrase around storage/EBS cost or utilization awareness (e.g., resource utilization, EBS/volume management) to align with Lucidity's storage-cost-optimization product without fabricating new metrics."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "colorScheme is set to 'teal' (startup/SaaS scheme). Master brief format rules mark Navy+gold enterprise/Cloud/SRE as DEFAULT, but teal is explicitly the startup/SaaS choice — Lucidity is a product startup, so teal is defensible. Noted only for awareness.",
+      "where": "\"colorScheme\": \"teal\"",
+      "suggestion": "Teal is appropriate for a SaaS startup like Lucidity; no change required."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "The last experience bullet is long and packs three distinct themes (RCA, observability, and security hardening) into one bullet, slightly breaking the parallel single-theme structure of the other bullets.",
+      "where": "\"Drove root-cause analysis ... built observability ... hardened security with least-privilege IAM, Vault/Secrets Manager rotation, Sealed Secrets, and Trivy image scanning for audit-ready access controls.\"",
+      "suggestion": "Consider splitting into two bullets (RCA+observability, then security) if space allows, or trim the security clause for tighter one-to-two-line length."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact details (phone, email, LinkedIn, GitHub, location) are present in the source cv.md but not in the generated JSON payload — assuming the renderer injects the header from profile.yml, this is fine; flagging only to confirm the header is not dropped.",
+      "where": "Generated JSON has no header/contact block",
+      "suggestion": "Verify the rendered HTML includes name + phone + email + LinkedIn + GitHub + location from profile.yml."
+    }
+  ],
+  "checkedAt": "2026-07-01T18:51:46.101Z"
+}

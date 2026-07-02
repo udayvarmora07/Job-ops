@@ -1,0 +1,117 @@
+{
+  "verdict": "needs_fixes",
+  "score": 72,
+  "summary": "Strong SRE-aligned content with good metric usage, but contains critical truthfulness violations including fabricated job titles, unsupported SLO/error budget claims, and an unprofessional project title typo.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Job title fabricated: candidate's actual title is 'DevOps Engineer' per master brief, not 'Site Reliability Engineer'. The master brief explicitly lists 'DevOps Engineer' as current role and never mentions SRE title. This is a material misrepresentation that could fail background verification.",
+      "where": "\"role\": \"Site Reliability Engineer\" in experience[0]",
+      "suggestion": "Change to 'DevOps Engineer' or 'DevOps Engineer (SRE-Aligned)' if framing for SRE roles. Never fabricate title."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Intern title fabricated: actual title was 'DevOps Engineer Intern' per master brief, not 'SRE Intern'.",
+      "where": "\"role\": \"SRE Intern\" in experience[1]",
+      "suggestion": "Change to 'DevOps Engineer Intern'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "SLO monitoring claim is fabricated. Master brief states candidate 'sustained 99.9% uptime SLA' but explicitly prohibits claiming 'formal SRE governance', 'error budget policy management', and 'Production Readiness Reviews'. The phrase 'continuous SLO monitoring' implies formal SLO/SLI practice not in inventory.",
+      "where": "\"continuous SLO monitoring\" in experience[0] bullet 1",
+      "suggestion": "Remove 'SLO monitoring' entirely. Replace with 'uptime monitoring and alerting' or similar defensible phrasing."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Error budget language fabricated. 'Pod disruption budgets' is mentioned but master brief does not list this as a claimed skill or experience. While PBDs are a K8s feature, the candidate has not explicitly claimed experience with them; including without verification risks embellishment.",
+      "where": "\"pod disruption budgets\" in experience[0] bullet 3",
+      "suggestion": "Remove 'pod disruption budgets' or verify with candidate. Replace with 'cluster health monitoring'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Summary claims 'strong focus on SLOs, reliability, and on-call readiness' but master brief explicitly prohibits 'formal SRE governance', 'error budget policy management', and lists PagerDuty as only 'alerts routing, not on-call rotation owner'. The 'on-call readiness' framing overstates actual on-call responsibility.",
+      "where": "\"strong focus on SLOs, reliability, and on-call readiness\" in summary",
+      "suggestion": "Replace with 'strong focus on uptime reliability, incident response, and operational automation' — all defensible from master brief."
+    },
+    {
+      "perspective": "spelling",
+      "severity": "high",
+      "issue": "Critical typo in project title: 'CI:CI/CD' instead of 'CI/CD'. This appears unprofessional and could be parsed incorrectly by ATS.",
+      "where": "\"Healthcare Management System — Cloud Infrastructure & CI:CI/CD\" in projects[2].title",
+      "suggestion": "Change to 'Cloud Infrastructure & CI/CD'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Summary claims 'SRE with 1+ year' but actual experience is 1+ year total as DevOps Engineer, with only portion in SRE-aligned work. The title 'Site Reliability Engineer' in resume title misrepresents career level.",
+      "where": "\"title\": \"Uday Varmora - Site Reliability Engineer Resume\"",
+      "suggestion": "Change title to 'Uday Varmora - DevOps & SRE-Aligned Engineer' or similar that doesn't claim SRE title."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "'Blameless post-mortems' is SRE-specific terminology not confirmed in master brief. Candidate 'authored runbooks and post-incident reviews' but 'blameless post-mortems' implies formal Google-style SRE practice not verified.",
+      "where": "\"blameless post-mortems\" in experience[0] bullet 2",
+      "suggestion": "Change to 'post-incident reviews' to match master brief language exactly."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing key SRE keywords from typical JDs: MTTR, MTTD, latency/availability SLOs, capacity planning (mentioned but not as keyword), canary deployments, blue-green deployments, chaos engineering (explicitly prohibited), incident command. Also missing: Python version specifics, observability beyond listed tools.",
+      "where": "Skills and experience sections",
+      "suggestion": "Add 'capacity planning', 'performance tuning', 'incident management' if defensible. Do NOT add chaos engineering or canary/blue-green without verification."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Date format inconsistency: experience uses 'Jun 2025 – Apr 2026' (abbreviated month, en-dash) but education uses '2021 – 2025' (no months). While not critical, standardizing would improve polish.",
+      "where": "experience dates vs education dates",
+      "suggestion": "Standardize to consistent format or note as acceptable variation."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Verb tense: current role uses present tense ('sustained', 'drove', 'operated') but some bullets mix past tense ('reduced', 'developed'). For current role, present tense is preferred for ongoing duties, past for completed achievements. However, this is stylistically acceptable if consistent within bullet intent.",
+      "where": "experience[0] bullets mixing 'sustained' (present) with 'reduced' (past)",
+      "suggestion": "Review for intentional distinction: present for ongoing responsibilities, past for completed quantifiable achievements. Current mix is acceptable but verify intent."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "SRE experience bullet 3 largely duplicates bullet 1 (both discuss K8s operations, ArgoCD, Helm, Karpenter, KEDA). This wastes space and reduces perceived depth.",
+      "where": "experience[0] bullet 3 vs bullet 1",
+      "suggestion": "Consolidate or replace bullet 3 with distinct content: security (Vault, Trivy), cost optimization, or DR strategy from project inventory."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Skills section uses 8 rows which may cause density issues in single-page layout. Master brief specifies 8 rows but also emphasizes one-page fit.",
+      "where": "Technical Skills section",
+      "suggestion": "Verify final rendering fits single page; consider condensing 'Automation & Toil Reduction' into 'Scripting & OS' if space-critical."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "low",
+      "issue": "Resume title includes target company role ('Site Reliability Engineer') rather than candidate's actual title, which is a tailoring technique but risks confusion if submitted for multiple roles.",
+      "where": "Document title metadata",
+      "suggestion": "Acceptable for targeted submission but ensure file naming indicates target role, not claimed role."
+    }
+  ],
+  "checkedAt": "2026-06-24T17:54:25.032Z"
+}

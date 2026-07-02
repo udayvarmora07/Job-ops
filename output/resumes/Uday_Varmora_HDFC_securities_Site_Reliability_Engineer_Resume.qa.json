@@ -1,0 +1,131 @@
+{
+  "verdict": "needs_fixes",
+  "score": 62,
+  "summary": "Resume contains critical truthfulness violations: fabricated job titles (SRE vs actual DevOps Engineer), unsupported SLO/error budget claims, and misrepresented role responsibilities that could fail background verification at HDFC Securities.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Job title fabricated: resume shows 'Site Reliability Engineer' and 'Site Reliability Engineer Intern' but candidate's actual title is 'DevOps Engineer' and 'DevOps Engineer Intern' per master brief section 2",
+      "where": "\"role\": \"Site Reliability Engineer\" and \"role\": \"Site Reliability Engineer Intern\"",
+      "suggestion": "Change to 'DevOps Engineer' and 'DevOps Engineer Intern' — or if applying to SRE roles, use 'DevOps Engineer (SRE-aligned)' with explanation, but never fabricate title"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "SLO monitoring claim is fabricated — master brief states 'continuous SLO monitoring' is NOT in inventory; candidate has '99.9% uptime SLA' but no SLOs, error budgets, or formal SRE governance per section 4 NEVER CLAIM list",
+      "where": "\"sustained 99.9% uptime SLA across multi-AZ deployments with continuous SLO monitoring\" and summary \"deep focus on SLO monitoring, reliability engineering\"",
+      "suggestion": "Remove 'SLO monitoring' and 'error budgets' entirely; replace with 'uptime monitoring and proactive capacity management' or similar language defensible from master brief"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "'blameless post-mortems' claim is fabricated — master brief B10 says 'authored blameless post-mortems' is a suggested reframe for SRE roles, but section 4 NEVER CLAIM list explicitly prohibits 'Production Readiness Reviews (formal Google-style)' and section 6 B10 is labeled 'SRE-framed' as tone guidance, not fact; actual bullets I1/B4 mention 'post-incident reviews' and 'root-cause analyses' only",
+      "where": "\"authored blameless post-mortems and runbooks that reduced repeat-incident frequency\"",
+      "suggestion": "Replace with 'authored runbooks and post-incident reviews' — matching actual candidate experience in I1/B4"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "'on-call response readiness' claim is fabricated — candidate has no on-call rotation ownership per master brief section 4: 'PagerDuty — alerts routing, not on-call rotation owner'",
+      "where": "\"accelerated on-call response readiness\"",
+      "suggestion": "Remove 'on-call response readiness'; replace with 'accelerated incident response readiness' or similar"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "'production readiness' in summary is fabricated — master brief section 4 NEVER CLAIM list explicitly prohibits 'Production Readiness Reviews (formal Google-style)'",
+      "where": "summary: \"with deep focus on SLO monitoring, reliability engineering, and production readiness\"",
+      "suggestion": "Remove 'production readiness'; replace with 'infrastructure reliability and automation'"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Gerrit listed in skills but candidate only has 'used for code review at Qualcomm-style shops' — light exposure per Tier 2, not active current skill",
+      "where": "Version Control & Collaboration: \"Gerrit\"",
+      "suggestion": "Remove Gerrit or downgrade to 'Gerrit (exposure)' if space permits; not needed for HDFC Securities SRE role"
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Summary claims 'deep focus on... reliability engineering' but candidate has 1+ year experience and master brief frames this as aspirational SRE tone, not established expertise",
+      "where": "Professional Summary: \"with deep focus on SLO monitoring, reliability engineering, and production readiness\"",
+      "suggestion": "Reframe to 'building toward reliability engineering expertise' or remove 'deep focus' claim"
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing key BFSI/enterprise keywords: compliance, audit, RBI guidelines, SOX, ITIL, change management, disaster recovery testing (DR drills), business continuity planning, SLA management, capacity planning, performance tuning, database administration (Oracle/PostgreSQL production DBA), middleware (WebSphere, Tomcat), networking (firewalls, load balancers), or any financial services domain terms",
+      "where": "Entire resume — no BFSI-specific terminology",
+      "suggestion": "Add relevant transferable terms: 'least-privilege IAM' → 'governance and audit-compliant access control'; 'disaster recovery' → 'disaster recovery and business continuity planning'; 'runbooks' → 'standard operating procedures (SOPs) and runbooks'"
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "HDFC Securities likely uses on-prem or hybrid infrastructure; resume is 100% AWS cloud-native with no mention of VMware, physical servers, data center operations, or hybrid cloud",
+      "where": "Technical Skills and Experience sections",
+      "suggestion": "Add 'hybrid cloud exposure' or 'datacenter fundamentals' if any; otherwise acknowledge gap in cover letter"
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Date format inconsistency: education uses '2021 – 2025' (en dash) but experience uses 'Jun 2025 – Apr 2026' (spelled months with en dash); also future dates (Apr 2026) suggest this is speculative/projected, not actual end date",
+      "where": "Education: '2021 – 2025' vs Experience: 'Jun 2025 – Apr 2026'",
+      "suggestion": "Clarify if Apr 2026 is projected end date; if currently employed, use 'Jun 2025 – Present'. Standardize date format to either all numeric or all spelled-out months"
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Verb tense: current role uses past tense ('sustained', 'drove', 'authored') but should use present tense for current employment per standard convention",
+      "where": "Experience bullets: 'sustained', 'drove', 'authored', 'developed'",
+      "suggestion": "Change to present tense for current role: 'sustains', 'drives', 'authors', 'develops' — or use 'ing' forms: 'sustaining', 'driving', 'authoring', 'developing'"
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "British spelling 'Dockerised' used but 'containerized' not present; master brief specifies '-ise' spelling but this is inconsistent with American job market (HDFC Securities uses Indian English which mixes both)",
+      "where": "Projects: 'Dockerised App Runner backend'",
+      "suggestion": "Acceptable for Indian market; no change needed unless targeting US roles"
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "SRE role at BFS | HDFC Securities requires database reliability (Oracle/PostgreSQL), middleware, and application performance management — candidate has minimal database depth (only RDS PostgreSQL in one project) and no Oracle, SQL Server, or DB2 experience mentioned",
+      "where": "Technical Skills and Projects — database mentions limited to 'RDS PostgreSQL' and 'RDS (Aurora PostgreSQL)'",
+      "suggestion": "Emphasize PostgreSQL DBA activities if any (backup, replication, performance tuning); otherwise acknowledge gap"
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "Duplicate uptime claim: 99.9% appears twice in same role (bullet 1 and bullet 4), wasting space and suggesting padding",
+      "where": "Bullet 1: 'sustained 99.9% uptime SLA' and Bullet 4: 'sustained 99.9% uptime'",
+      "suggestion": "Remove from bullet 4; replace with different metric or merge bullets"
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Resume will likely exceed one page with 8 skill rows, 7 experience bullets, 3 projects, education, and achievements — master brief specifies single page",
+      "where": "Overall document structure",
+      "suggestion": "Trim to 5-6 experience bullets, 2 projects, or reduce skills to 6 rows to fit single page"
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "medium",
+      "issue": "Future end date 'Apr 2026' without 'Present' or 'Expected' qualifier may confuse recruiters or trigger ATS parsing errors",
+      "where": "Experience dates: 'Jun 2025 – Apr 2026'",
+      "suggestion": "Change to 'Jun 2025 – Present (Expected Apr 2026)' or clarify employment status"
+    }
+  ],
+  "checkedAt": "2026-06-25T10:30:51.478Z"
+}

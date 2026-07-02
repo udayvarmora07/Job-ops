@@ -1,0 +1,110 @@
+{
+  "verdict": "needs_fixes",
+  "score": 72,
+  "summary": "Resume contains fabricated job titles ('Cloud Engineer' vs actual 'DevOps Engineer'), inflated experience dates extending into the future, and multiple truthfulness violations that would fail background verification at IQVIA.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Job title fabricated: resume shows 'Cloud Engineer' and 'Cloud Engineer Intern' but candidate's actual title is 'DevOps Engineer' and 'DevOps Engineer Intern' at eSparkBiz Technologies. Changing titles to match target role is resume fraud.",
+      "where": "\"role\": \"Cloud Engineer\" / \"role\": \"Cloud Engineer Intern\"",
+      "suggestion": "Restore actual titles: 'DevOps Engineer' and 'DevOps Engineer Intern'. Frame content with Cloud Engineer-relevant bullets without falsifying the title."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Employment end date 'Apr 2026' is in the future. Candidate's actual tenure is Jan 2025 – present (as of knowledge cutoff). Listing a future end date implies pre-planned departure or falsified timeline.",
+      "where": "\"dates\": \"Jun 2025 – Apr 2026\"",
+      "suggestion": "Change to 'Jun 2025 – Present' or actual end date if employment has ended. Never list future dates for current role."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Summary claims '1+ year' but fabricated dates create ~1.5 years. The master brief explicitly states: 'NEVER state as 1.5 years or specific months'.",
+      "where": "\"Cloud Engineer with **1+ year**\" combined with dates Jun 2025 – Apr 2026",
+      "suggestion": "Keep '1+ year' and use accurate dates: 'Jun 2025 – Present' or actual end date."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Bullet claims 'Architected and operated production AWS infrastructure spanning EC2, EKS, Lambda, S3, RDS, VPC, IAM, and CloudWatch' — this conflates three separate projects into one role-wide claim. The Lambda/SAM work was Project 2 (Salon SaaS), not the current role. The master brief separates these deliberately.",
+      "where": "First experience bullet: 'Architected and operated production **AWS infrastructure** spanning **EC2, EKS, Lambda, S3, RDS, VPC, IAM, and CloudWatch**'",
+      "suggestion": "Scope this bullet to the CRM project (EKS focus) or use B7 from master brief which correctly frames breadth without claiming all services were in one role."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Bullet B3 from master brief includes 'Istio service mesh' which is Tier 2 exposure ('installed and configured, not deep traffic engineering'). The generated resume removed Istio from experience bullets but left it in skills. However, the Cloud Engineer framing overstates depth by omitting this caveat entirely.",
+      "where": "Skills row: 'Docker, Kubernetes (EKS, OpenShift), Helm, ArgoCD, Karpenter, KEDA, Ingress-NGINX'",
+      "suggestion": "Add Istio to skills if included in experience, or remove if not used. Per master brief, if included, frame as 'Istio service mesh — installed and configured' to avoid depth misrepresentation."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "OpenShift is listed in skills and experience but master brief states 'used in environment, not lead operator'. The resume states 'Operated Kubernetes (EKS, OpenShift) clusters' implying equal operational depth.",
+      "where": "'Operated **Kubernetes (EKS, OpenShift)** clusters with **ArgoCD GitOps, Helm, and Ingress-NGINX Controller**'",
+      "suggestion": "Change to 'Operated EKS clusters; exposure to OpenShift environment' or similar to match actual depth."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Datadog and ELK Stack listed in skills and experience bullet B4, but master brief states 'ELK Stack — installed and queried, not architected' and 'Datadog — basic monitoring setup, not deep deep instrumentation'. The resume presents both as production-built observability stacks.",
+      "where": "Bullet: 'built observability with Prometheus, Grafana, Loki, ELK Stack, and Datadog'",
+      "suggestion": "Change to 'built observability with Prometheus, Grafana, Loki; exposure to ELK Stack and Datadog' to match actual depth."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Job title changed from 'DevOps Engineer' to 'Cloud Engineer' but organization name format is inconsistent: master brief uses 'eSparkBiz Technologies' while resume uses 'eSparkBiz'.",
+      "where": "\"org\": \"eSparkBiz · Ahmedabad, India\"",
+      "suggestion": "Use full legal name: 'eSparkBiz Technologies · Ahmedabad, India'"
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "IQVIA is a life sciences/healthcare technology company. The resume's Healthcare Management System project is buried third and not emphasized for healthcare domain relevance. The JD title 'Cloud Engineer 1' at IQVIA likely values healthcare/regulatory exposure (HIPAA, GxP, 21 CFR Part 11).",
+      "where": "Project section ordering and framing",
+      "suggestion": "Move Healthcare project to first position, add healthcare-relevant framing (patient data, compliance awareness), and research if IQVIA roles require HIPAA/GxP knowledge."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing common IQVIA/enterprise cloud keywords: 'HIPAA', 'GxP', 'compliance', 'governance', 'infrastructure security', 'network security', 'backup and recovery' (explicit DR mention weak), 'scripting' (only 'Python/Bash' in skills).",
+      "where": "Overall skills and experience sections",
+      "suggestion": "Add 'HIPAA-aware infrastructure design' if any exposure; emphasize 'disaster recovery', 'backup and recovery', 'infrastructure security' in bullets. Ensure 'scripting' appears as keyword."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "First experience bullet is overloaded with 5 services and tries to cover too much ground. It lacks a clear single metric and reads as a duty list rather than achievement.",
+      "where": "'Architected and operated production **AWS infrastructure** spanning **EC2, EKS, Lambda, S3, RDS, VPC, IAM, and CloudWatch** across multi-AZ deployments — supporting **20+ Dockerised microservices** with **99.9% uptime** and automated failover.'",
+      "suggestion": "Split into two bullets: one for architecture breadth (use B7), one for uptime/SLA achievement (use B9). Remove Lambda from this bullet as it's project 2."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Skills section uses 8 rows which may cause space issues for single-page format. Master brief specifies 'Technical Skills (8 rows)' but this is at the limit.",
+      "where": "Technical Skills section",
+      "suggestion": "Verify single-page fit; consider condensing 'Version Control & Collaboration' into 'Scripting & OS' row if space needed."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "high",
+      "issue": "Title inflation from 'DevOps Engineer' to 'Cloud Engineer' is a red flag for background checks. IQVIA will verify employment titles via HR records at eSparkBiz Technologies.",
+      "where": "Experience role titles",
+      "suggestion": "Use actual title 'DevOps Engineer' with Cloud Engineer framing in summary and bullet content."
+    }
+  ],
+  "checkedAt": "2026-06-25T10:56:22.922Z"
+}

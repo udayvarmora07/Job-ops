@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UDAY VARMORA — DevOps Engineer</title>
+<style>
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('./fonts/space-grotesk-latin.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('./fonts/space-grotesk-latin-ext.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin-ext.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'DM Sans', sans-serif; font-size: 11px; line-height: 1.5; color: #1a1a2e; background: #ffffff; padding: 0; margin: 0; }
+  .page { width: 100%; max-width: 210mm; margin: 0 auto; padding: 2px 0; }
+  .header { margin-bottom: 20px; }
+  .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.1; }
+  .header-gradient { height: 2px; background: linear-gradient(to right, hsl(187, 74%, 32%), hsl(270, 70%, 45%)); border-radius: 1px; margin-bottom: 10px; }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-family: 'DM Sans', sans-serif; font-size: 10.5px; line-height: 1.4; color: #555; }
+  .contact-row a { color: #555; text-decoration: none; }
+  .contact-row .separator { color: #ccc; }
+  .section { margin-bottom: 18px; }
+  .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: hsl(187, 74%, 32%); border-bottom: 1.5px solid #e2e2e2; padding-bottom: 4px; margin-bottom: 10px; line-height: 1.2; }
+  .summary-text { font-size: 11px; line-height: 1.7; color: #2f2f2f; }
+  a { white-space: nowrap; }
+  .competencies-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .competency-tag { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; color: hsl(187, 74%, 28%); background: hsl(187, 40%, 95%); padding: 4px 10px; border-radius: 3px; border: 1px solid hsl(187, 40%, 88%); }
+  .job { margin-bottom: 14px; }
+  .job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+  .job-company { font-family: 'Space Grotesk', sans-serif; font-size: 12.5px; font-weight: 600; color: hsl(270, 70%, 45%); }
+  .job-period { font-size: 10.5px; color: #777; white-space: nowrap; }
+  .job-role { font-size: 11px; font-weight: 600; color: #333; margin-bottom: 6px; }
+  .job-location { font-size: 10px; color: #888; }
+  .job ul { padding-left: 18px; margin-top: 6px; }
+  .job li { font-size: 10.5px; line-height: 1.6; color: #333; margin-bottom: 4px; }
+  .job li strong { font-weight: 600; }
+  .project { margin-bottom: 12px; }
+  .project-title { font-family: 'Space Grotesk', sans-serif; font-size: 11.5px; font-weight: 600; color: hsl(270, 70%, 45%); }
+  .project-badge { font-size: 9px; font-weight: 500; color: hsl(187, 74%, 32%); background: hsl(187, 40%, 95%); padding: 1px 6px; border-radius: 2px; margin-left: 6px; }
+  .project-desc { font-size: 10.5px; color: #444; margin-top: 3px; line-height: 1.55; }
+  .project-tech { font-size: 9.5px; color: #888; margin-top: 3px; }
+  .edu-item { margin-bottom: 8px; }
+  .edu-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .edu-title { font-weight: 600; font-size: 11px; color: #333; }
+  .edu-org { color: hsl(270, 70%, 45%); font-weight: 500; }
+  .edu-year { font-size: 10px; color: #777; white-space: nowrap; }
+  .edu-desc { font-size: 10px; color: #666; margin-top: 2px; line-height: 1.5; }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .skill-item { font-size: 10.5px; color: #444; }
+  .skill-category { font-weight: 600; color: #333; font-size: 10.5px; }
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .page { padding: 0; } }
+  .avoid-break, .job, .project, .edu-item { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header avoid-break">
+    <h1>UDAY VARMORA</h1>
+    <div class="header-gradient"></div>
+    <div class="contact-row">
+      <span>+91 96623 85170</span>
+      <span class="separator">|</span>
+      <span>varmorauday1045@gmail.com</span>
+      <span class="separator">|</span>
+      <a href="https://linkedin.com/in/udayvarmora">linkedin.com/in/udayvarmora</a>
+      <span class="separator">|</span>
+      <a href="https://github.com/udayvarmora07">github.com/udayvarmora07</a>
+      <span class="separator">|</span>
+      <span>Ahmedabad, India</span>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section avoid-break">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">
+      DevOps Engineer with <strong>1.4 years of hands-on experience</strong> designing and maintaining CI/CD pipelines, container orchestration, and cloud infrastructure at scale. Promoted from Intern to full-time DevOps Engineer within 5 months. Built and owns <strong>40+ pipelines</strong> (Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline) delivering <strong>82% faster release cycles</strong> across 20+ Dockerised microservices. Strong practitioner of Infrastructure-as-Code (Terraform), Kubernetes (EKS/OpenShift), and Python/Bash automation — proven through three production projects reducing toil by 70% and compute costs by 30%.
+    </div>
+  </div>
+
+  <!-- CORE COMPETENCIES -->
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="competencies-grid">
+      <span class="competency-tag">CI/CD Pipeline Design</span>
+      <span class="competency-tag">Release Automation</span>
+      <span class="competency-tag">Jenkins · GitLab CI/CD · GitHub Actions</span>
+      <span class="competency-tag">AWS CodePipeline · CodeBuild</span>
+      <span class="competency-tag">Docker · Kubernetes (EKS, OpenShift)</span>
+      <span class="competency-tag">Terraform IaC</span>
+      <span class="competency-tag">Python · Bash Scripting</span>
+      <span class="competency-tag">Linux System Administration</span>
+      <span class="competency-tag">ArgoCD GitOps</span>
+      <span class="competency-tag">Helm Charts</span>
+      <span class="competency-tag">SonarQube Quality Gates</span>
+      <span class="competency-tag">Observability (Prometheus · Grafana · ELK)</span>
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">eSparkBiz Technologies</span>
+        <span class="job-period">Jun 2025 – Apr 2026</span>
+      </div>
+      <div class="job-role">DevOps Engineer <span class="job-location">· Ahmedabad, India</span></div>
+      <ul>
+        <li>Designed and maintained <strong>40+ CI/CD pipelines</strong> (Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, CodeBuild) automating build-test-deploy workflows across <strong>20+ Dockerised microservices</strong> — cutting release cycles by <strong>82% (45 min → under 8 min)</strong> with zero manual intervention.</li>
+        <li>Provisioned multi-environment AWS infrastructure on Linux using <strong>Terraform IaC</strong> (34 reusable modules, S3 remote state, DynamoDB locking) — reducing provisioning time by <strong>80%</strong> and configuration drift by <strong>95%</strong> across Dev, Staging, and Production.</li>
+        <li>Operated <strong>Kubernetes (EKS, OpenShift)</strong> clusters with ArgoCD GitOps, Helm, Istio service mesh, and Ingress-NGINX Controller — managing zero-downtime rollouts, Karpenter autoscaling, and KEDA event-driven scaling; sustained <strong>99.9% uptime</strong> across multi-AZ clusters.</li>
+        <li>Drove <strong>root-cause analysis</strong> for Linux-based production incidents (CPU, memory, network, container runtime); built observability stack with Prometheus, Grafana, Loki, ELK, and Datadog; authored runbooks and post-incident reviews.</li>
+        <li>Developed <strong>Python and Bash</strong> automation eliminating <strong>~70% of recurring operational toil</strong> — covering cluster operations, log triage, secret rotation, and pipeline scripting; integrated SonarQube quality gates into CI/CD.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">eSparkBiz Technologies</span>
+        <span class="job-period">Jan 2025 – May 2025</span>
+      </div>
+      <div class="job-role">DevOps Engineer Intern <span class="job-location">· Ahmedabad, India</span></div>
+      <ul>
+        <li>Built and maintained AWS infrastructure monitoring on Linux-based environments — configured CloudWatch dashboards, triaged production incidents across Kubernetes workloads, and authored operational runbooks for recurring issue patterns and root-cause analyses.</li>
+        <li>Wrote <strong>Python and Bash</strong> automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning <strong>full-time promotion within 5 months</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section avoid-break">
+    <div class="section-title">Key Projects</div>
+
+    <div class="project">
+      <span class="project-title">Cloud-Native SaaS CRM — Multi-Tenant CI/CD & AWS EKS Infrastructure</span>
+      <span class="project-badge">Production</span>
+      <div class="project-tech">Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana</div>
+      <div class="project-desc">
+        Built multi-environment CI/CD architecture with per-environment VPC isolation and S3/DynamoDB remote state — enabling reproducible Dev/Production infrastructure on EKS with zero-downtime cluster upgrades (v1.33 → v1.34). Reduced compute costs by <strong>30% ($500+/month)</strong> via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down. Implemented multi-region disaster recovery (Velero, S3/ECR cross-region replication, AWS Backup) achieving <strong>RPO &lt; 1 hour</strong> for production workloads.
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-title">Serverless Backend — Multi-Tenant Salon Management SaaS</span>
+      <span class="project-badge">Production</span>
+      <div class="project-tech">AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python</div>
+      <div class="project-desc">
+        Architected serverless build/deploy system using <strong>6 nested SAM/CloudFormation templates</strong> with independent deployment of <strong>30+ Python Lambda functions</strong> with per-function least-privilege IAM. Engineered a shared <strong>EFS-mounted Python dependency layer</strong> eliminating packaging bottlenecks and cutting build times by <strong>60%+</strong>.
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-title">Healthcare Management System — CI/CD & Cloud Infrastructure</span>
+      <span class="project-badge">Production</span>
+      <div class="project-tech">AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM</div>
+      <div class="project-desc">
+        Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with <strong>dual-registry GHCR/ECR strategy</strong> enabling zero-downtime redeployments and <strong>~30% reduced image pull latency</strong> serving 500+ concurrent users. Automated full release workflow via GitHub Actions with least-privilege IAM scoping removing 5+ overly permissive roles.
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section avoid-break">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">B.Tech, Information Technology — <span class="edu-org">Dharmsinh Desai University, Gujarat</span></span>
+        <span class="edu-year">2021 – 2025</span>
+      </div>
+      <div class="edu-desc">CGPA: 7.25 / 10</div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section avoid-break">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <span class="skill-item"><span class="skill-category">CI/CD &amp; GitOps:</span> Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD</span>
+      <span class="skill-item"><span class="skill-category">Containers &amp; Orchestration:</span> Docker, Kubernetes (EKS, OpenShift), Helm, Istio, Karpenter, KEDA, Ingress-NGINX</span>
+      <span class="skill-item"><span class="skill-category">IaC:</span> Terraform (34 reusable modules), AWS CloudFormation, AWS SAM, Ansible</span>
+      <span class="skill-item"><span class="skill-category">Cloud:</span> AWS (EKS, EC2, Lambda, S3, ECR, RDS, VPC, CloudWatch, CodePipeline), Azure (Fundamentals)</span>
+      <span class="skill-item"><span class="skill-category">Scripting &amp; OS:</span> Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration</span>
+      <span class="skill-item"><span class="skill-category">Observability:</span> Prometheus, Grafana, Loki, ELK Stack, Datadog, CloudWatch</span>
+      <span class="skill-item"><span class="skill-category">Security:</span> HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy, IAM, KMS, TLS/SSL</span>
+      <span class="skill-item"><span class="skill-category">Version Control:</span> Git, GitHub, Bitbucket, Branching Strategies</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

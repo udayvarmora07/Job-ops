@@ -1,0 +1,679 @@
+# Pipeline — Pending URLs
+
+Inbox of job URLs to evaluate. The scanner appends new finds under
+`## Pendientes` as checkbox items. Run `/career-ops pipeline` to process them.
+You can also paste URLs manually under that heading.
+
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/7762335003 | PhonePe | Service Delivery Engineer, SRE
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/7766868003 | PhonePe | Site Reliability Engineer
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/7731736003 | PhonePe | Site Reliability Engineer 2
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/5854614003 | PhonePe | Site Reliability Engineer 3 
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/7752457003 | PhonePe | Site Reliability Engineer 3 - (on-prem) 
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/6589348003 | PhonePe | Site Reliability Engineer - Azure (4-8yrs)
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/6574130003 | PhonePe | Site Reliability Engineer - Big Data (7 to 11 years)
+- [ ] https://www.rubrik.com/company/careers/departments/job.7439521?gh_jid=7439521 | Rubrik | Production Engineer/Site Reliability Engineer (Shift Basis)
+- [ ] https://www.rubrik.com/company/careers/departments/job.7849409?gh_jid=7849409 | Rubrik | Senior Manager - Platform Engineering
+- [ ] https://job-boards.greenhouse.io/gitlab/jobs/8490453002 | GitLab | Senior Site Reliability Engineer, Tenant Services: Geo
+- [ ] https://job-boards.greenhouse.io/zscaler/jobs/4959860007 | Zscaler | Principal DevSecOps Engineer (Design/Architecture)
+- [ ] https://job-boards.greenhouse.io/zscaler/jobs/5089209007 | Zscaler | Principal Site Reliability Engineer (Linux/Networking/Automation)
+- [ ] https://job-boards.greenhouse.io/zscaler/jobs/5130736007 | Zscaler | Senior Staff DevSecOps Engineer (Agentic AI & CI/CD Platform)
+- [ ] https://job-boards.greenhouse.io/zscaler/jobs/5060438007 | Zscaler | Staff Software Development Engineer - DevOps
+- [ ] https://www.netskope.com/company/careers/open-positions/?gh_jid=7730556 | Netskope | Staff SRE, DNS Specialist, Platform Engineering
+- [ ] https://www.netskope.com/company/careers/open-positions/?gh_jid=7748523 | Netskope | Systems Engineer 
+- [ ] https://www.mongodb.com/careers/job/?gh_jid=7924987 | MongoDB | Senior Platform Engineer
+- [ ] https://jobs.ashbyhq.com/signoz/c479d148-691d-4dc2-9201-bbeb21540a6a | SigNoz | DevOps Engineer - Support
+- [ ] https://jobs.ashbyhq.com/sarvam/64776762-9f78-4c13-83d7-435c593aa48b | Sarvam AI | DevOps Engineer - Studio Platform
+- [ ] https://jobs.ashbyhq.com/kong/0af5a4e7-7a5f-4ece-82d1-3aeb47d53403 | Kong | SRE 2, Managed Gateways
+- [ ] https://jobs.lever.co/netomi/78ceaf47-c13a-4735-a2c6-d7301af7f3fc | Netomi | Devops Engineer - I
+- [ ] https://jobs.lever.co/zeta/a21f18a4-c899-4743-9264-e506990bcdcb | Zeta | Lead Site Reliability Engineer
+- [ ] https://jobs.lever.co/zeta/32ea9654-98a8-445b-98ef-e6ada520d35a | Zeta | Manager Data Reliability Engineering
+- [ ] https://jobs.lever.co/zeta/cac1b9e2-b9fd-4450-8d20-16d3c4f37a10 | Zeta | Manager Site Reliability Engineer
+- [ ] https://jobs.lever.co/zeta/6c5a8ebc-94b9-41f7-9a49-1659956343eb | Zeta | Senior Site Reliability Engineer
+- [ ] https://jobs.lever.co/zeta/ffb2ba62-1678-49d7-896b-36d808d946b4 | Zeta | Site Reliability Engineer II
+- [ ] https://jobs.lever.co/meesho/60e0d986-abe8-42ee-b172-0d9aecb307b7 | Meesho | Software Development Engineer III DevOps
+
+- [ ] https://jobs.lever.co/zeta/fa57ed15-3784-410c-b039-4001ded764cc | Zeta | Lead Site Reliability Engineer
+- [ ] https://fis.wd5.myworkdayjobs.com/SearchJobs/job/IND-PUNE-FL7/Senior-Site-Reliability-Engineer---Support_JR0307435 | FIS | Senior Site Reliability Engineer - Support
+- [ ] https://fis.wd5.myworkdayjobs.com/SearchJobs/job/IND-PUNE-FL2/Analyst-Senior--DevOps_JR0304385 | FIS | Analyst Senior, DevOps
+- [ ] https://mcafee.wd1.myworkdayjobs.com/External/job/India-Bengaluru/DevSecOps-Engineer---Product-Security_JR0032575 | Micro Focus / McAfee | DevSecOps Engineer - Product Security
+- [ ] https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/India---Bangalore---Karnataka/Sr-Specialist---Release-Manager_R0025416 | Nasdaq | DevOps Engineer - Sr. Specialist
+- [ ] https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site/job/India---Mumbai---Maharashtra/DevOps-Engineer-Specialist--AWS---Java-_R0023554 | Nasdaq | DevOps Engineer Specialist (AWS & Java)
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Cloud-Engineer_2013368 | Cisco | Cloud Engineer
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Site-Reliability-Engineer_2013998-1 | Cisco | Site Reliability Engineer
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Senior-Site-Reliability-Engineer--MCN_2005539 | Cisco | Senior Site Reliability Engineer, MCN
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Gen-AI-Software-Engineer---Python--DevOps--Frontend--5--Years-_2015216 | Cisco | Gen AI Software Engineer | Python, DevOps, Frontend (5+ Years)
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Site-Reliability-Engineer---4--7-years--Work-Location---Bangalore_2015553 | Cisco | Site Reliability Engineer- (4- 7 years) Work Location - Bangalore
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Lead-Site-Reliability-Engineer--Network-Assurance-Data-Platform_1440127 | Cisco | Lead Site Reliability Engineer, Network Assurance Data Platform - Cisco ThousandEyes
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Kubernetes-Platform-Engineer---AI-Infrastructure---Golang-Python-----8--Years-_2013536-1 | Cisco | Kubernetes Platform Engineer - AI Infrastructure ( Golang/Python) - (8+ Years)
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Kubernetes-Platform-Engineer---AI-Infrastructure--8--Years-_2013538-1 | Cisco | Kubernetes Platform Engineer - AI Infrastructure (8+ Years)
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/AI-Infrastructure-Engineer---GoLang--Kubernetes--Dockers--Linux---8-12-years_2011045 | Cisco | AI Infrastructure Engineer - GoLang, Kubernetes, Dockers, Linux - 8-12 years
+- [ ] https://autodesk.wd1.myworkdayjobs.com/Ext/job/Bengaluru-IND/Senior-DevSecOps-Engineer--AI-ML-Systems-_26WD98448-1 | Autodesk | Senior DevSecOps Engineer (AI/ML Systems)
+- [ ] https://autodesk.wd1.myworkdayjobs.com/Ext/job/Bengaluru-IND/Senior-Enterprise-Systems-Engineer_26WD96724-1 | Autodesk | Senior Enterprise Systems Engineer
+- [ ] https://vanguard.wd5.myworkdayjobs.com/vanguard_external/job/Hyderabad-India/Senior-Manager--Platform-Engineering_176975 | Vanguard | Senior Manager, Platform Engineering
+- [ ] https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/India---Hyderabad/Zuora-Revenue-Systems-Engineer_JR335226-1 | Salesforce | Zuora Revenue Systems Engineer
+- [ ] https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/Virginia---Washington-DC-Metro---Remote/Sr-Software-Engineer--Cloud-Infrastructure---Slack_JR341726-1 | Salesforce | Sr. Software Engineer, Cloud Infrastructure - Slack
+- [ ] https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site/job/United-States-of-America-Eagan-Minnesota/Senior-Site-Reliability-Engineer_JREQ201277 | Thomson Reuters | Senior Site Reliability Engineer
+- [ ] https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site/job/Mexico-Mexico-City/Senior-Security-Platform-Engineer_JREQ200734-1 | Thomson Reuters | Senior Security Platform Engineer
+- [ ] https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site/job/India-Bengaluru-Karnataka/Staff-Software-Engineer-II_JREQ198100 | Thomson Reuters | Full Stack AI Engineer - 8+ years in Python/Devops/Cloud
+- [ ] https://broadcom.wd1.myworkdayjobs.com/External_Career/job/IND-Bangalore-Kalyani-Vista-II/Software-Systems-Engineer_R025953 | Broadcom | Software Systems Engineer
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Senior-Systems-Engineer_REF081210W | Visa | Senior Systems Engineer (4 - 7 years of experience in Hadoop DevOps, Python, SQL, Shell scripting)
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Staff-Site-Reliability-Engineer--AWS--Terraform--Distributed-Systems-_REF083000W | Visa | Staff Site Reliability Engineer (AWS, Terraform, Distributed Systems)
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Sr-Site-Reliability-Engineer_REF082185W | Visa | Sr. Site Reliability Engineer (Azure, IaC, Distributed Systems)
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Systems-Engineer_REF078954W | Visa | Systems Engineer
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Software-Developer---Senior-Consultant-level--Middleware-Reliability-Engineering_REF059465W | Visa | Software Developer - Senior Consultant level, Middleware Reliability Engineering
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Senior-Site-Reliability-Engineer_REF082141W | Visa | Senior Site Reliability Engineer (Datacenter, Network, Cloud)
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Sr-Site-Reliability-Engineer---Middleware--DevOps---Cloud_REF073160W | Visa | Sr Site Reliability Engineer - Middleware, DevOps & Cloud
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Lead-Systems-Engineer--Microsoft-Teams_REF080723W | Visa | Lead Systems Engineer, Microsoft Teams
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Sr-Systems-Engineer_REF079953W | Visa | Sr. Systems Engineer (3 - 6 years, Kafka, IBM MQ, DevOps, Cloud, Gen AI, Automation)
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Lead-Software-Engineer_REF077434W | Visa | Lead Software Engineer - (14-18 years - Java, Cloud, Shared Services, Infra, Security, Platform Engineering)
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Senior-SW-Engineer---SRE--Production-Support--Linux--Networking--CI-CD_REF076295W-1 | Visa | Senior SW Engineer - SRE, Production Support, Linux, Networking, CI/CD
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Site-Reliability-Engineer_REF079311W | Visa | Site Reliability Engineer
+- [ ] https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/India-Pune/Senior-DevOps-Engineer_JR2019008 | NVIDIA | Senior DevOps Engineer
+- [ ] https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/India-Pune/Senior-System-Software-Engineer---Windows-DevOps-and-Test-Labs_JR2018854 | NVIDIA | Senior System Software Engineer - Windows DevOps and Test Labs
+- [ ] https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Saudi-Arabia-Remote/Senior-Solutions-Architect--Cloud-Infrastructure-and-DevOps_JR2016420 | NVIDIA | Senior Solutions Architect, Cloud Infrastructure and DevOps
+- [ ] https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/India-Bengaluru/Senior-Site-Reliability-Engineering---Storage_JR2018610 | NVIDIA | Senior Site Reliability Engineering - Storage
+- [ ] https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Bangalore/Site-Reliability-Engineer-5_R162489 | Adobe | Site Reliability Engineer 5
+- [ ] https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Bangalore/Sr-Computer-Scientist--Data-Platform-Engineer-_R166812 | Adobe | Sr. Computer Scientist (Data Platform Engineer)
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Principal-BizOps-Engineer_R-273203 | Mastercard | Principal Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Manager--Site-Reliability-Engineering_R-274255-1 | Mastercard | Manager, Site Reliability Engineering
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Director--Site-Reliability-Engineering_R-276770 | Mastercard | Director, Site Reliability Engineering
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Lead-Software-Engineer_R-273023 | Mastercard | Lead Software Engineer(Release Management, CI/CD)
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Remote---Utah/Senior-Site-Reliability-Engineer_R-278771-1 | Mastercard | Senior Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Lead-Site-Reliability-Engineer_R-274117 | Mastercard | Lead Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Director---Platform-Engineering_R-276684-1 | Mastercard | Director – Platform Engineering
+
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Site-Reliability-Engineer_2013339-1 | Cisco | Site Reliability Engineer
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/AI-Infrastructure-Engineer---GoLang--Kubernetes--Dockers--Linux---8-12-years_2011044 | Cisco | AI Infrastructure Engineer - GoLang, Kubernetes, Dockers, Linux - 8-12 years
+- [ ] https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site/job/India-Bengaluru-Karnataka/Senior-Site-Reliability-Engineer_JREQ200783-1 | Thomson Reuters | Senior Site Reliability Engineer
+- [ ] https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/India-Pune/Senior-DevOps-Engineer_JR2017356 | NVIDIA | Senior DevOps Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Senior-Site-Reliability-Engineer_R-278288 | Mastercard | Senior Site Reliability Engineer
+
+- [ ] https://www.okta.com/company/careers/opportunity/7247309?gh_jid=7247309 | Okta | Manager Site Reliability Engineer
+- [ ] https://www.okta.com/company/careers/opportunity/7845385?gh_jid=7845385 | Okta | Manager- Site Reliability Engineering
+- [ ] https://www.okta.com/company/careers/opportunity/7648974?gh_jid=7648974 | Okta | Principal Data Platform Engineer (Bengaluru)
+- [ ] https://www.okta.com/company/careers/opportunity/8002576?gh_jid=8002576 | Okta | Principal Site Reliability Engineer
+- [ ] https://www.okta.com/company/careers/opportunity/7648977?gh_jid=7648977 | Okta | Senior Data Platform Engineer (Bengaluru)
+- [ ] https://www.okta.com/company/careers/opportunity/7839826?gh_jid=7839826 | Okta | Staff Site Reliability Engineer
+- [ ] https://www.okta.com/company/careers/opportunity/6671260?gh_jid=6671260 | Okta | Staff Site Reliability Engineer, Security- GCP
+- [ ] https://www.okta.com/company/careers/opportunity/6874616?gh_jid=6874616 | Okta | Staff Site Reliability Engineer- Splunk Expert
+- [ ] https://www.okta.com/company/careers/opportunity/6866775?gh_jid=6866775 | Okta | Systems Engineer - Productivity Engineering
+- [ ] https://job-boards.greenhouse.io/newrelic/jobs/5116768008 | New Relic | Senior Software Engineer - GoLang & Kubernetes Orchestration - (R0000335) Bangalore
+- [ ] https://www.fivetran.com/careers/job?gh_jid=7723267003 | Fivetran | Staff Site Reliability Engineer
+- [ ] https://job-boards.greenhouse.io/clickhouse/jobs/5717944004 | ClickHouse | Senior Infrastructure Engineer - Postgres
+- [ ] https://job-boards.greenhouse.io/clickhouse/jobs/5819678004 | ClickHouse | Senior Software Engineer - Cloud Infrastructure
+- [ ] https://job-boards.greenhouse.io/yugabyte/jobs/4688005006 | Yugabyte | Sr DevOps Engineer
+- [ ] https://jobs.ashbyhq.com/snowflake/cbc2087c-f5fc-48b7-8d23-114836a42e3e | Snowflake | Cloud Infrastructure Engineer
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/AI-Infrastructure-Engineer---GoLang--Kubernetes--Dockers--Linux---8-12-years_2011042 | Cisco | AI Infrastructure Engineer - GoLang, Kubernetes, Dockers, Linux - 8-12 years
+- [ ] https://jobs.smartrecruiters.com/Freshworks/postings/744000132336509 | Freshworks | Senior Software Engineer - Site Reliability
+- [ ] https://jobs.smartrecruiters.com/Freshworks/postings/744000131683549 | Freshworks | Engineering Manager - Platform Engineering
+- [ ] https://jobs.smartrecruiters.com/Experian/postings/744000131892180 | Experian | DevOps and Automation Engineer
+- [ ] https://jobs.smartrecruiters.com/Experian/postings/744000131870821 | Experian | Cloud Engineer
+- [ ] https://jobs.smartrecruiters.com/Experian/postings/744000131383129 | Experian | Site Reliability Engineering Lead
+- [ ] https://jobs.smartrecruiters.com/Experian/postings/744000127759719 | Experian | Senior DevOps Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Senior-BizOps-Engineer_R-268252 | Mastercard | Senior Site Reliability Engineer
+
+- [ ] https://job-boards.greenhouse.io/zscaler/jobs/5128594007 | Zscaler | Sr. Software Development Engineer - Python Automation / Kubernetes / Networking
+- [ ] https://www.okta.com/company/careers/opportunity/8003315?gh_jid=8003315 | Okta | SRE Operations Engineer
+- [ ] https://www.okta.com/company/careers/opportunity/7840544?gh_jid=7840544 | Okta | Staff Site Reliability Engineer
+- [ ] https://www.okta.com/company/careers/opportunity/8015032?gh_jid=8015032 | Okta | Staff Site Reliability Engineer - (Infra)
+- [ ] https://jobs.smartrecruiters.com/Freshworks/postings/744000132768109 | Freshworks | Senior Software Engineer - Site Reliability
+- [ ] https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site/job/United-States-of-America-Frisco-Texas/Staff-Platform-Engineer---Materia-AI_JREQ201491 | Thomson Reuters | Staff Platform Engineer - Materia AI
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Lead--Platform-Engineering_R-274016-1 | Mastercard | Lead, Platform Engineering
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Senior-Site-Reliability-Engineer_R-279351 | Mastercard | Senior Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Manager--Site-Reliability-Engineering_R-277525 | Mastercard | Manager, Site Reliability Engineering
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Sr-Systems-Engineer--Mac-_REF083203W | Visa | Sr. Systems Engineer (Mac)
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Sr-Systems-Engineer--Windows-_REF083205W | Visa | Sr. Systems Engineer (Windows)
+
+- [ ] https://in.indeed.com/viewjob?jk=fe8148ae1f39032a | Stacwell Rubber | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=f6e1360147aa70da | Probill RCM | Full Stack Developer & Devops Engineer
+- [ ] https://in.indeed.com/viewjob?jk=293b2fc3ae85c1d9 | Clock Edge Technologies Pvt Lt | Application Developer – DevOps Ref No: 26-38090
+- [ ] https://in.indeed.com/viewjob?jk=a320c323cadc21d1 | Intellion Technologies Pvt Ltd | DevOps Engineer – Job Support (Freelance | Part-Time | Remote)
+- [ ] https://in.indeed.com/viewjob?jk=5cd02bb224b9a440 | JPMorganChase | Infrastructure Engineer III-DevOps
+- [ ] https://www.linkedin.com/jobs/view/4402266454 | Thales | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4418220024 | Infosys | AWS SRE Hiring
+- [ ] https://www.linkedin.com/jobs/view/4428466583 | Gravitix Tech | Fresher -  Cloud DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4408658245 | Endava | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4428811656 | Zopper | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4414096538 | HARMAN India | Associate Engineer- AWS Devops
+- [ ] https://www.linkedin.com/jobs/view/4406232550 | hackajob | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4425268248 | PwC India | Site Reliability Engineer
+- [ ] https://www.linkedin.com/jobs/view/4392840761 | Infosys | Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4384192963 | Illumina | DevOps Engineer 2
+- [ ] https://in.indeed.com/viewjob?jk=739c69bab591311e | Codevian Technologies Pvt Ltd | SRE (Site Reliability Engineer) / Platform Engineer
+- [ ] https://www.linkedin.com/jobs/view/4426856476 | algoleap | AWS Cloud Engineer
+- [ ] https://www.linkedin.com/jobs/view/4429249418 | Kamakhya Analytics Private Limited | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4428088257 | Cashfree Payments | DevOps Engineer 2
+- [ ] https://www.linkedin.com/jobs/view/4428068446 | BairesDev | DevOps/SRE Engineer - Remote Work
+- [ ] https://www.linkedin.com/jobs/view/4429228290 | Whirlpool Corporation | Senior Software Engineer, DevSecOps Engineering
+- [ ] https://www.linkedin.com/jobs/view/4426828997 | Virtusa | SRE+AWS Devops
+- [ ] https://www.linkedin.com/jobs/view/4429511048 | Visa | Staff Site Reliability Engineer (AWS, Terraform, Distributed Systems)
+- [ ] https://www.linkedin.com/jobs/view/4394414906 | Infosys | AWS & SRE
+- [ ] https://www.linkedin.com/jobs/view/4426801959 | FactSet | Cloud Engineer
+- [ ] https://www.linkedin.com/jobs/view/4408618771 | EY | TechOps-CloudOps-DevOps-Staff
+- [ ] https://www.linkedin.com/jobs/view/4427042095 | Netrix Global | Cloud Engineer - Microsoft Azure and M365
+- [ ] https://www.linkedin.com/jobs/view/4421940723 | HDFC Bank | Senior DevOps Engineer
+
+- [ ] https://weworkremotely.com/remote-jobs/intelmatix-mid-senior-devops-engineer-egypt | Intelmatix | Mid/Senior DevOps Engineer (Egypt)
+- [ ] https://weworkremotely.com/remote-jobs/hyundai-motors-devops-virtual-development-engineer | HYUNDAI MOTORS | DevOps Virtual Development Engineer
+- [ ] https://weworkremotely.com/remote-jobs/lemon-io-senior-platform-site-reliability-engineer | Lemon.io | Senior Platform/Site Reliability Engineer
+- [ ] https://weworkremotely.com/remote-jobs/alice-devops-engineer | Alice | DevOps Engineer
+
+- [ ] https://www.instahyre.com/job-427744-azure-devops-engineer-at-wissen-technology-bangalore/ | Wissen Technology | Azure DevOps Engineer
+- [ ] https://www.instahyre.com/job-425946-devops-engineer-at-deutsche-telekom-digital-labs-gurgaon/ | Deutsche Telekom Digital Labs | DevOps Engineer
+- [ ] https://www.instahyre.com/job-427834-devops-engineer-ii-at-deutsche-telekom-digital-labs-gurgaon/ | Deutsche Telekom Digital Labs | DevOps Engineer II
+- [ ] https://www.instahyre.com/job-429668-site-reliability-engineer-at-prorigo-pune/ | Prorigo | Site Reliability Engineer
+- [ ] https://www.instahyre.com/job-428970-devops-engineer-at-bluestone-bangalore/ | BlueStone.com | DevOps Engineer
+- [ ] https://www.instahyre.com/job-423372-devops-engineer-at-lumiq-noida/ | Lumiq.ai | DevOps Engineer
+- [ ] https://www.instahyre.com/job-424930-cloud-devops-engineer-at-rakuten-2-bangalore/ | Rakuten | Cloud DevOps Engineer
+- [ ] https://www.instahyre.com/job-425750-devops-engineer-at-oolka-bangalore/ | Oolka | DevOps Engineer
+- [ ] https://www.instahyre.com/job-428210-devops-engineer-at-urban-harvest-noida/ | Urban Harvest | DevOps Engineer
+- [ ] https://www.instahyre.com/job-428985-devops-networking-engineer-at-walmart-global-tech-india-bangalore/ | Walmart Global Tech India | DevOps Networking Engineer
+- [ ] https://www.instahyre.com/job-395099-devops-engineer-3-at-pop-bangalore/ | POP | DevOps Engineer - 3
+- [ ] https://www.instahyre.com/job-418630-devops-engineer-cloud-at-tarana-wireless-pune/ | Tarana Wireless | DevOps Engineer - Cloud
+- [ ] https://www.instahyre.com/job-425901-devops-engineer-at-credflow-ai-gurgaon/ | CredFlow AI | DevOps Engineer
+- [ ] https://www.instahyre.com/job-420596-site-reliability-engineer-at-manifest-2-bangalore/ | Manifest | Site Reliability Engineer
+- [ ] https://www.instahyre.com/job-429466-devops-engineer-at-delta-air-lines-bangalore/ | Delta Air Lines | DevOps Engineer
+- [ ] https://www.instahyre.com/job-429557-platform-engineer-data-storage-at-brevo-noida/ | Brevo | Platform Engineer - Data Storage
+- [ ] https://www.instahyre.com/job-429230-infrastructure-engineer-at-decoverai-bangalore/ | DecoverAI | Infrastructure Engineer
+- [ ] https://www.instahyre.com/job-386815-devops-engineer-at-squareops-gurgaon/ | SquareOps | DevOps Engineer
+- [ ] https://www.instahyre.com/job-425915-site-reliability-engineer-at-snapmint-gurgaon/ | Snapmint | Site Reliability Engineer
+- [ ] https://www.instahyre.com/job-394495-platform-software-engineer-sre-at-nexthink-bangalore/ | Nexthink | Platform Software Engineer - SRE
+- [ ] https://www.instahyre.com/job-417871-devops-engineer-at-appviewx-bangalore-coimbatore/ | AppViewX | DevOps Engineer
+- [ ] https://www.instahyre.com/job-427410-devops-engineer-at-neuralgarage-bangalore/ | NeuralGarage | DevOps Engineer
+- [ ] https://www.instahyre.com/job-428497-site-reliability-engineer-1-2-at-super-bangalore/ | super.money | Site Reliability Engineer 1 / 2
+- [ ] https://www.instahyre.com/job-428451-devops-engineer-at-gokiwi-bangalore/ | GoKiwi | DevOps Engineer
+- [ ] https://www.instahyre.com/job-428740-devops-engineer-at-piramal-finance-limited-bangalore/ | Piramal Finance Limited | DevOps Engineer
+- [ ] https://www.instahyre.com/job-414311-devops-engineer-at-commotion-work-from-home/ | Commotion | DevOps Engineer
+- [ ] https://www.instahyre.com/job-418375-devops-engineer-azure-at-kodo-mumbai/ | Kodo | DevOps Engineer (Azure)
+- [ ] https://www.instahyre.com/job-427177-devops-engineer-at-mvprockets-3-bangalore/ | MVPRockets | DevOps Engineer
+- [ ] https://www.instahyre.com/job-421446-devops-engineer-mlops-at-oneshot-ai-work-from-home/ | OneShot AI | DevOps Engineer - MLOps
+- [ ] https://www.instahyre.com/job-409262-site-reliability-engineer-at-swimlane-work-from-home/ | Swimlane | Site Reliability Engineer
+- [ ] https://www.instahyre.com/job-428777-devops-engineer-at-usefulbi-bangalore-lucknow-pune/ | UsefulBI | DevOps Engineer
+- [ ] https://www.instahyre.com/job-425494-it-infrastructure-engineer-at-cognite-bangalore/ | Cognite | IT Infrastructure Engineer
+- [ ] https://www.instahyre.com/job-414997-infrastructure-platform-engineer-at-big-assets-infra-bangalore/ | Big Assets Infra | Infrastructure / Platform Engineer
+- [ ] https://www.instahyre.com/job-429261-devops-engineer-at-hdip-work-from-home/ | HDIP | DevOps Engineer
+- [ ] https://www.instahyre.com/job-429073-devops-engineer-azure-at-siemens-2-bangalore/ | Siemens | DevOps Engineer (Azure)
+- [ ] https://www.instahyre.com/job-414773-devops-engineer-at-truefoundry-bangalore/ | TrueFoundry | DevOps Engineer
+- [ ] https://www.instahyre.com/job-420466-platform-engineer-at-snabbit-bangalore/ | Snabbit | Platform Engineer
+- [ ] https://www.instahyre.com/job-421969-devops-engineer-at-nihilent-2-work-from-home/ | Nihilent | DevOps Engineer
+- [ ] https://www.instahyre.com/job-371002-devops-engineer-ai-at-infosys-4-bangalore/ | Infosys | DevOps Engineer - AI
+- [ ] https://www.instahyre.com/job-429118-devops-engineer-at-riyom-technologies-bangalore/ | Riyom Technologies | DevOps Engineer
+- [ ] https://www.instahyre.com/job-425144-aws-devops-engineer-at-techify-solutions-ahmedabad/ | Techify Solutions | AWS DevOps Engineer
+- [ ] https://www.instahyre.com/job-427574-site-reliability-ai-engineer-at-atos-2-bangalore-chennai-mumbai/ | Atos | Site Reliability AI Engineer
+- [ ] https://www.instahyre.com/job-428432-site-reliability-engineer-hyd-wfo-at-improving-hyderabad/ | Improving | Site Reliability Engineer (HYD - WFO)
+- [ ] https://www.instahyre.com/job-428140-platform-engineer-1-at-observe-bangalore/ | Observe.AI | Platform Engineer - 1
+- [ ] https://www.instahyre.com/job-426017-devops-engineer-at-cashfree-bangalore/ | Cashfree | DevOps Engineer
+- [ ] https://www.instahyre.com/job-423148-devops-engineer-at-rakuten-2-bangalore/ | Rakuten | DevOps Engineer
+- [ ] https://www.instahyre.com/job-378334-devops-engineer-at-stable-money-bangalore/ | Stable Money | DevOps Engineer
+- [ ] https://www.instahyre.com/job-427873-site-reliability-engineer-at-redwood-software-hyderabad/ | Redwood Software | Site Reliability Engineer
+
+- [ ] https://return.energy | Return | DevOps / Infrastructure role
+- [ ] https://news.ycombinator.com/item?id=48404229 | Sequent Tech | DevOps / Infrastructure role
+- [ ] https://news.ycombinator.com/item?id=48400263 | Tech Mahindra | DevOps / Infrastructure role
+- [ ] https://www.deepcoretech.com | Deep Core Technology | DevOps / Infrastructure role
+- [ ] https://airtable.com/app9YxL1UZCYKvch4/pagDhaV7mZGvB5v5e/for | Maryland Digital Service (MDDS) | DevOps / Infrastructure role
+- [ ] https://jobs.ashbyhq.com/kong/51d67676-a475-4f1e-a598-85f7ca | Kong | DevOps / Infrastructure role
+- [ ] https://getlago.com/ | Lago ( https://getlago.com/ ) | Infrastructure Engineer
+- [ ] https://clickhouse.com/blog/building-a-distributed-cache-for | ClickHouse | Infrastructure Engineer
+- [ ] https://forms.gle/vjdnjrnDVxcsCWM76 | RealEstateU | DevOps / Infrastructure role
+- [ ] https://news.ycombinator.com/item?id=48368363 | Stpkr Technologies | Systems Engineer
+- [ ] https://virtasant.teamtailor.com/jobs/7563920-senior-data-en | Virtasant (virtasant.com) | DevOps / Infrastructure role
+- [ ] https://news.ycombinator.com/item?id=48365334 | Inferra | DevOps / Infrastructure role
+- [ ] https://seeq.com | Seeq | Systems Engineer
+- [ ] https://news.ycombinator.com/item?id=48362294 | Forward Deployed Engineer - backend - python | DevOps / Infrastructure role
+- [ ] https://news.ycombinator.com/item?id=48362073 | Laminar Engineering | Systems Engineer
+- [ ] https://rootly.com/careers#open-roles | Rootly | DevOps / Infrastructure role
+- [ ] https://zulip.com/ | Zulip | Infrastructure Engineer
+- [ ] https://www.category.xyz/ | Category Labs | DevOps / Infrastructure role
+- [ ] https://railway.com/careers | Railway | Infrastructure Engineer
+- [ ] https://paradedb.com | ParadeDB (YC S23, https://paradedb.com ) | DevOps / Infrastructure role
+- [ ] https://jobs.ashbyhq.com/ScribdInc/ff2680ea-9a6d-436d-bdb0-3 | *Scribd | DevOps / Infrastructure role
+- [ ] https://jobs.eu.lever.co/blackshark/17fbf310-ea37-435f-a198- | Blackshark AI | DevSecOps Engineer
+- [ ] https://www.treasure.ai/ | Treasure AI | systems engineer
+- [ ] https://www.ycombinator.com/companies/mixrank/jobs/Fnwsojk-j | MixRank (YC S11) | DevOps / Infrastructure role
+- [ ] https://news.ycombinator.com/item?id=48357963 | CHEERS.FAN #1 | DevOps / Infrastructure role
+
+- [ ] https://www.adzuna.in/land/ad/5760052230?se=mpmcWhZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=8D264EE53BB699BD70F30EE4A6AC1472CE8D0297 | Tata Consultancy Services | DevOps Automation Engineer
+- [ ] https://www.adzuna.in/land/ad/5762609101?se=mpmcWhZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=E82CC6F24E2D52E3B23ADEC8EF5FDD3854B07F84 | Neurealm | DevOps / SRE Engineer
+- [ ] https://www.adzuna.in/land/ad/5753857338?se=mpmcWhZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=7AC498BB6F3236F120188EE6C734BA2EED321B16 | Cloud Raptor | Devops with Python (Kubernetes expert)
+- [ ] https://www.adzuna.in/land/ad/5763490967?se=mpmcWhZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=EEB581F1D4624EEAD60DDF7E173657CB0181A5ED | Thinkcloudly | DevOps Trainer | Part-Time | Remote
+- [ ] https://www.adzuna.in/land/ad/5762136422?se=mpmcWhZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=A12C5CD1DA20B6030F739760C4A6915D707CFCDE | Astra Security | Devops Engineer- Cloud & Infra Automation
+- [ ] https://www.adzuna.in/land/ad/5753857339?se=mpmcWhZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=371EBAD8D16A54256C33A719A27AE524589CA6D7 | Avigna AB | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765771411?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=92D5C1F4982876F9F9B34FF76A80CE527549ADFA | Snapmint | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5763490530?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768229516?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=F9861C13E24772EB9FEADB25CDDE416660994383 | Insight Global | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050303?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=05508F70EA8890B3937776DDDD585E535B2BBB80 | Enterpret | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050002?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=00D16C10A3B9B48A8D1427F7B4A781232B3D8F98 | Cisco | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768219171?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 | HDFC securities | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5758517451?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=12FE99C522D763B57867B3D1C594758CABBE55B8 | PwC India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052431?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=FF0A9BC4A6031D1794FC12CBE0651569B950F6B1 | Recro | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052236?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=C98F59F59CDEC9BAA67797EF1896D0FB1F3E7D14 | Delta Electronics India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768223199?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=60D284CD963AF2BA0634E3F96A4BADAB7EC0A203 | World Wide Technology | Site Reliability Engineer - Banglore - Hybrid (Contract Opportunity)
+- [ ] https://www.adzuna.in/land/ad/5760052266?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=8667DA681BFBA5BDDA08DA8E394C320E8696DB6E | TekWissen India | Site Reliability Engineer (SRE) | Golang | GCP | Dynatrace
+- [ ] https://www.adzuna.in/land/ad/5760051561?se=dAShXBZs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=61384570E12E8B4D77C9FE1CC4DD5D65C6076687 | Synechron | We are looking for OpenShift Site Reliability Engineer (SRE
+- [ ] https://www.adzuna.in/details/5756753175?utm_medium=api&utm_source=091434ce | Kyndryl Solutions Private Limited | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5752326264?utm_medium=api&utm_source=091434ce | Billtrust India Careers | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5753771421?utm_medium=api&utm_source=091434ce | UNITED CARGO LOGISTIC | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5759079081?utm_medium=api&utm_source=091434ce | MM Staffing & Career Consultants | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5759289367?utm_medium=api&utm_source=091434ce | NatWest Markets | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5762956960?utm_medium=api&utm_source=091434ce | SingleStore | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5754691113?utm_medium=api&utm_source=091434ce | Maersk | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5760431544?utm_medium=api&utm_source=091434ce | Lloyds Bank | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5759012840?utm_medium=api&utm_source=091434ce | Fortive | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5761811133?utm_medium=api&utm_source=091434ce | Barclays | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5756759119?utm_medium=api&utm_source=091434ce | Peoplefy Infosolutions | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5753630920?utm_medium=api&utm_source=091434ce | Right Advisors | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5762954475?utm_medium=api&utm_source=091434ce | Diebold Nixdorf | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5752947019?utm_medium=api&utm_source=091434ce | Infosys | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5759285940?utm_medium=api&utm_source=091434ce | Visa | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5759748265?utm_medium=api&utm_source=091434ce | Optum | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5760370271?utm_medium=api&utm_source=091434ce | PhonePe | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5766299986?utm_medium=api&utm_source=091434ce | Kavi Software Technologies Private Limited | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5767846634?utm_medium=api&utm_source=091434ce | Weekday AI | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5769546572?utm_medium=api&utm_source=091434ce | Smiths Detection | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5767110537?utm_medium=api&utm_source=091434ce | PerkinElmer | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5767175178?utm_medium=api&utm_source=091434ce | EXL | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5767248712?utm_medium=api&utm_source=091434ce | TaskUs | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5755729912?utm_medium=api&utm_source=091434ce | FactSet | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5761722700?utm_medium=api&utm_source=091434ce | Zones. | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5768623951?utm_medium=api&utm_source=091434ce | Pythian | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5763836536?utm_medium=api&utm_source=091434ce | Apex Group | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5758416404?utm_medium=api&utm_source=091434ce | ScatterPie Analytics Private Limited | Azure Cloud Engineer
+- [ ] https://www.adzuna.in/details/5764507821?utm_medium=api&utm_source=091434ce | PineQ Lab | Cloud Engineer- Python
+- [ ] https://www.adzuna.in/details/5757773686?utm_medium=api&utm_source=091434ce | METRO Global Solution Center IN | M365 Cloud Engineer
+- [ ] https://www.adzuna.in/details/5760333191?utm_medium=api&utm_source=091434ce | Itineris | Azure Cloud Engineer
+- [ ] https://www.adzuna.in/details/5759287616?utm_medium=api&utm_source=091434ce | ParamInfo | Azure Cloud Engineer
+- [ ] https://www.adzuna.in/details/5758256679?utm_medium=api&utm_source=091434ce | IDX | Associate Cloud Engineer
+- [ ] https://www.adzuna.in/details/5758256486?utm_medium=api&utm_source=091434ce | Schlumberger | IT Cloud Engineer
+- [ ] https://www.adzuna.in/details/5768046854?utm_medium=api&utm_source=091434ce | Portainer.io | Platform Engineer
+- [ ] https://www.adzuna.in/details/5768362852?utm_medium=api&utm_source=091434ce | Platform9 Systems | Platform Engineer
+- [ ] https://www.adzuna.in/details/5752404967?utm_medium=api&utm_source=091434ce | Billtrust India Careers | Platform Engineer
+- [ ] https://www.adzuna.in/details/5760752772?utm_medium=api&utm_source=091434ce | Walking Tree | Platform Engineer
+- [ ] https://www.adzuna.in/details/5768364164?utm_medium=api&utm_source=091434ce | Arango | Database and Platform Engineer
+- [ ] https://www.adzuna.in/details/5765742538?utm_medium=api&utm_source=091434ce | Orangepeople | Data Platform Engineer
+- [ ] https://www.adzuna.in/details/5752342509?utm_medium=api&utm_source=091434ce | ID Medical | ServiceNow Platform Engineer
+- [ ] https://www.adzuna.in/details/5752643698?utm_medium=api&utm_source=091434ce | Advent Global Solutions INC | Cloud Platform Engineer
+- [ ] https://www.adzuna.in/details/5752353415?utm_medium=api&utm_source=091434ce | P&G | Data Platform Engineer
+- [ ] https://www.adzuna.in/details/5752831981?utm_medium=api&utm_source=091434ce | Procter & Gamble | Data Platform Engineer
+- [ ] https://www.adzuna.in/details/5763830916?utm_medium=api&utm_source=091434ce | Accenture | Cloud Platform Engineer
+
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/7771368003 | PhonePe | Site Reliability Engineer 2 - BigData
+- [ ] https://www.okta.com/company/careers/opportunity/7963271?gh_jid=7963271 | Okta | Senior Site Reliability Engineer
+- [ ] https://www.okta.com/company/careers/opportunity/7307866?gh_jid=7307866 | Okta | Staff Site Reliability Engineer
+- [ ] https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/India---Bangalore/Software-Engineering-SMTS---MTS----Platform-Engineering--Backend--Kubernetes---Cloud-_JR347341 | Salesforce | Software Engineering SMTS / MTS  | Platform Engineering (Backend, Kubernetes & Cloud)
+
+- [ ] https://www.adzuna.in/land/ad/5760052230?se=GlVDWBhs8RGl0MKcaJBBpg&utm_medium=api&utm_source=091434ce&v=8D264EE53BB699BD70F30EE4A6AC1472CE8D0297 | Tata Consultancy Services | DevOps Automation Engineer
+- [ ] https://www.adzuna.in/land/ad/5762609101?se=GlVDWBhs8RGl0MKcaJBBpg&utm_medium=api&utm_source=091434ce&v=E82CC6F24E2D52E3B23ADEC8EF5FDD3854B07F84 | Neurealm | DevOps / SRE Engineer
+- [ ] https://www.adzuna.in/land/ad/5753857338?se=GlVDWBhs8RGl0MKcaJBBpg&utm_medium=api&utm_source=091434ce&v=7AC498BB6F3236F120188EE6C734BA2EED321B16 | Cloud Raptor | Devops with Python (Kubernetes expert)
+- [ ] https://www.adzuna.in/land/ad/5763490967?se=GlVDWBhs8RGl0MKcaJBBpg&utm_medium=api&utm_source=091434ce&v=EEB581F1D4624EEAD60DDF7E173657CB0181A5ED | Thinkcloudly | DevOps Trainer | Part-Time | Remote
+- [ ] https://www.adzuna.in/land/ad/5762136422?se=GlVDWBhs8RGl0MKcaJBBpg&utm_medium=api&utm_source=091434ce&v=A12C5CD1DA20B6030F739760C4A6915D707CFCDE | Astra Security | Devops Engineer- Cloud & Infra Automation
+- [ ] https://www.adzuna.in/land/ad/5753857339?se=GlVDWBhs8RGl0MKcaJBBpg&utm_medium=api&utm_source=091434ce&v=371EBAD8D16A54256C33A719A27AE524589CA6D7 | Avigna AB | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765771411?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=92D5C1F4982876F9F9B34FF76A80CE527549ADFA | Snapmint | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5763490530?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768229516?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=F9861C13E24772EB9FEADB25CDDE416660994383 | Insight Global | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050303?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=05508F70EA8890B3937776DDDD585E535B2BBB80 | Enterpret | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050002?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=00D16C10A3B9B48A8D1427F7B4A781232B3D8F98 | Cisco | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768219171?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 | HDFC securities | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5758517451?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=12FE99C522D763B57867B3D1C594758CABBE55B8 | PwC India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052431?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=FF0A9BC4A6031D1794FC12CBE0651569B950F6B1 | Recro | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052236?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=C98F59F59CDEC9BAA67797EF1896D0FB1F3E7D14 | Delta Electronics India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768223199?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=60D284CD963AF2BA0634E3F96A4BADAB7EC0A203 | World Wide Technology | Site Reliability Engineer - Banglore - Hybrid (Contract Opportunity)
+- [ ] https://www.adzuna.in/land/ad/5760052266?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=8667DA681BFBA5BDDA08DA8E394C320E8696DB6E | TekWissen India | Site Reliability Engineer (SRE) | Golang | GCP | Dynatrace
+- [ ] https://www.adzuna.in/land/ad/5760051561?se=tqguWhhs8RGrKszqFbIEfQ&utm_medium=api&utm_source=091434ce&v=61384570E12E8B4D77C9FE1CC4DD5D65C6076687 | Synechron | We are looking for OpenShift Site Reliability Engineer (SRE
+- [ ] https://www.adzuna.in/details/5759289365?utm_medium=api&utm_source=091434ce | NatWest Markets | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5759287620?utm_medium=api&utm_source=091434ce | ParamInfo | Azure Cloud Engineer
+
+- [ ] https://www.instahyre.com/job-425804-devops-engineer-at-deutsche-telekom-digital-labs-gurgaon/ | Deutsche Telekom Digital Labs | DevOps Engineer
+- [ ] https://www.instahyre.com/job-424149-devops-engineer-at-oolka-bangalore/ | Oolka | DevOps Engineer
+- [ ] https://www.instahyre.com/job-429082-devops-engineer-at-bluestone-bangalore/ | BlueStone.com | DevOps Engineer
+
+- [ ] https://in.indeed.com/viewjob?jk=38e9b76195e8a227 | MindWare | Full-Stack Lead Developer & DevOps
+- [ ] https://in.indeed.com/viewjob?jk=d677f40d86492fa4 | LN webworks | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=6f8b5391661b71ee | NielsenIQ | DevOps Deployment Engineer with experience in Azure & Github Actions
+- [ ] https://in.indeed.com/viewjob?jk=4404cf843b6c9af1 | Groupe SII | DevOps Administrator (f/m/x)
+- [ ] https://in.indeed.com/viewjob?jk=2798b4d68749ba5d | TransUnion | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=d802508205c09a53 | Wipro | DEVOPS ENGINEER
+- [ ] https://in.indeed.com/viewjob?jk=7883320ef1f03e89 | BMW TechWorks India | DevOps/SRE Engineer - SWF
+- [ ] https://in.indeed.com/viewjob?jk=882a8e1722dbd5bc | BMW TechWorks India | Python DevOps Engineer - SWF
+- [ ] https://www.linkedin.com/jobs/view/4429667010 | Scoutit | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4406223695 | hackajob | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4430421349 | Comply | DevSecOps Engineer -Cloud [T500-25671]
+- [ ] https://www.linkedin.com/jobs/view/4412739659 | KeyValue | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4422237982 | Intelex Technologies ULC | Site Reliability Engineer
+- [ ] https://www.linkedin.com/jobs/view/4399960293 | algoleap | Application Platform Engineer
+
+- [ ] https://www.instahyre.com/job-421584-devops-engineer-at-hawk-martech-gurgaon/ | Hawk MarTech | DevOps Engineer
+- [ ] https://www.instahyre.com/job-425776-devops-engineer-at-deutsche-telekom-digital-labs-gurgaon/ | Deutsche Telekom Digital Labs | DevOps Engineer
+- [ ] https://www.instahyre.com/job-424542-devops-engineer-at-8byte-bangalore/ | 8byte | DevOps Engineer
+- [ ] https://www.instahyre.com/job-429880-devops-engineer-at-cognizant-chennai/ | Cognizant | DevOps Engineer
+
+- [ ] https://www.adzuna.in/land/ad/5760052230?se=XPShRgZu8RGwWrUJyGS3_A&utm_medium=api&utm_source=091434ce&v=8D264EE53BB699BD70F30EE4A6AC1472CE8D0297 | Tata Consultancy Services | DevOps Automation Engineer
+- [ ] https://www.adzuna.in/land/ad/5762609101?se=XPShRgZu8RGwWrUJyGS3_A&utm_medium=api&utm_source=091434ce&v=E82CC6F24E2D52E3B23ADEC8EF5FDD3854B07F84 | Neurealm | DevOps / SRE Engineer
+- [ ] https://www.adzuna.in/land/ad/5762136422?se=XPShRgZu8RGwWrUJyGS3_A&utm_medium=api&utm_source=091434ce&v=A12C5CD1DA20B6030F739760C4A6915D707CFCDE | Astra Security | Devops Engineer- Cloud & Infra Automation
+- [ ] https://www.adzuna.in/land/ad/5765771411?se=gAOkSAZu8RGJe8gKxAvXaw&utm_medium=api&utm_source=091434ce&v=92D5C1F4982876F9F9B34FF76A80CE527549ADFA | Snapmint | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5763490530?se=gAOkSAZu8RGJe8gKxAvXaw&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769649845?se=gAOkSAZu8RGJe8gKxAvXaw&utm_medium=api&utm_source=091434ce&v=4E753CC51D146D86EEF10FC191E14A2DA44729D8 | Avenue Code | Site Reliability Engineering
+- [ ] https://www.naukri.com/job-listings-associate-devops-engineer-bain-gurugram-1-to-4-years-230426010947 | Associate Devops Engineer Bain Gurugram 1 To 4 Years
+
+- [ ] https://www.okta.com/company/careers/opportunity/7994928?gh_jid=7994928 | Okta | Staff Site Reliability Engineer
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Site-Reliability-Engineer-Database-Admin--MongoDB-Postgres-Mysql-Vector---AI--Exp--7-12-Yrs_2015404-1 | Cisco | Site Reliability Engineer-Database Admin (MongoDB/Postgres/Mysql/Vector), AI, Exp: 7-12 Yrs
+- [ ] https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site/job/India-Bengaluru-Karnataka/Site-Reliability-Engineer_JREQ200793 | Thomson Reuters | Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Senior-BizOps-Engineer_R-268672 | Mastercard | Senior Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Lead--Platform-Engineering_R-276717-1 | Mastercard | Lead, Platform Engineering
+- [ ] https://www.naukri.com/job-listings-sre-operations-engineer-okta-identity-india-private-limited-bengaluru-1-to-6-years-030626930958 | Limited | Sre Operations Engineer Okta Identity India Private
+- [ ] https://www.naukri.com/job-listings-devsecops-engineer-ai-labs-adani-transmission-ahmedabad-1-to-10-years-120626501735 | Adani | Devsecops Engineer Ai Labs Adani
+- [ ] https://www.naukri.com/job-listings-devops-engineer-guenstiger-india-gurugram-1-to-6-years-110626503373 | guenstiger | Devops Engineer Guenstiger
+
+- [ ] https://jobs.ashbyhq.com/signoz/83d2c104-dde3-454d-bcc5-7cffdb816d55 | SigNoz | Sr Site Reliability Engineer
+- [ ] https://fis.wd5.myworkdayjobs.com/SearchJobs/job/IND-PUNE-FL7/Analyst-Senior--DevOps_JR0307468 | FIS | Analyst Senior, DevOps
+
+- [ ] https://weworkremotely.com/remote-jobs/aura-devops-engineer | Aura | DevOps Engineer
+- [ ] https://weworkremotely.com/remote-jobs/career-team-enterprises-devops-engineer | Career Team Enterprises | DevOps Engineer
+- [ ] https://weworkremotely.com/remote-jobs/covent-it-devops-engineer-contract | Covent IT | DevOps Engineer (contract)
+
+- [ ] https://www.instahyre.com/job-429011-devops-engineer-at-bluestone-bangalore/ | BlueStone.com | DevOps Engineer
+- [ ] https://www.instahyre.com/job-429721-devops-engineer-at-neurofin-ai-technologies-bangalore/ | Neurofin AI Technologies | DevOps Engineer
+- [ ] https://www.instahyre.com/job-426348-devops-engineer-at-deutsche-telekom-digital-labs-gurgaon/ | Deutsche Telekom Digital Labs | DevOps Engineer
+- [ ] https://www.instahyre.com/job-430236-site-reliability-engineer-at-redwood-software-hyderabad/ | Redwood Software | Site Reliability Engineer
+- [ ] https://www.instahyre.com/job-419411-site-reliability-engineer-at-manifest-bangalore/ | Manifest | Site Reliability Engineer
+- [ ] https://www.instahyre.com/job-416753-devops-engineer-at-apna-bangalore/ | apna | DevOps Engineer
+- [ ] https://www.instahyre.com/job-426247-devops-engineer-at-8byte-bangalore/ | 8byte | DevOps Engineer
+- [ ] https://www.instahyre.com/job-429998-devops-engineer-at-pidge-gurgaon/ | Pidge | DevOps Engineer
+- [ ] https://www.instahyre.com/job-413052-sre-engineer-at-proximity-labs-delhi/ | Proximity Labs | SRE Engineer
+- [ ] https://www.instahyre.com/job-428556-devops-engineer-at-commotion-work-from-home/ | Commotion | DevOps Engineer
+- [ ] https://www.instahyre.com/job-430040-azure-infrastructure-cloud-engineer-at-netscribes-bangalore/ | Netscribes | Azure Infrastructure Cloud Engineer
+- [ ] https://www.instahyre.com/job-429141-mlops-devops-engineer-at-navana-work-from-home/ | Navana.ai | MLOps / DevOps Engineer
+- [ ] https://www.instahyre.com/job-422315-devops-engineer-at-brysk-bangalore/ | Brysk | DevOps Engineer
+- [ ] https://www.instahyre.com/job-422401-devops-engineer-at-hawk-martech-gurgaon/ | Hawk MarTech | DevOps Engineer
+
+- [ ] https://grnh.se/wkmk2d0e7us | Baton | DevOps / Infrastructure role
+
+- [ ] https://www.adzuna.in/land/ad/5760052230?se=7AW79f9u8RGm64jE1nznUA&utm_medium=api&utm_source=091434ce&v=8D264EE53BB699BD70F30EE4A6AC1472CE8D0297 | Tata Consultancy Services | DevOps Automation Engineer
+- [ ] https://www.adzuna.in/land/ad/5762609101?se=7AW79f9u8RGm64jE1nznUA&utm_medium=api&utm_source=091434ce&v=E82CC6F24E2D52E3B23ADEC8EF5FDD3854B07F84 | Neurealm | DevOps / SRE Engineer
+- [ ] https://www.adzuna.in/land/ad/5762136422?se=7AW79f9u8RGm64jE1nznUA&utm_medium=api&utm_source=091434ce&v=A12C5CD1DA20B6030F739760C4A6915D707CFCDE | Astra Security | Devops Engineer- Cloud & Infra Automation
+- [ ] https://www.adzuna.in/land/ad/5773100644?se=7AW79f9u8RGm64jE1nznUA&utm_medium=api&utm_source=091434ce&v=A43C7A5BD1D152080CF8479D6A23A4DA8B080F19 | Megan Soft Inc | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765771411?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=92D5C1F4982876F9F9B34FF76A80CE527549ADFA | Snapmint | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5763490530?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769649845?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=4E753CC51D146D86EEF10FC191E14A2DA44729D8 | Avenue Code | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5768229516?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=F9861C13E24772EB9FEADB25CDDE416660994383 | Insight Global | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050303?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=05508F70EA8890B3937776DDDD585E535B2BBB80 | Enterpret | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050002?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=00D16C10A3B9B48A8D1427F7B4A781232B3D8F98 | Cisco | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765774330?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=343C2441F141AF528900168850677CC3B7A31833 | Gemini Solutions Pvt Ltd | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768219171?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 | HDFC securities | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769672656?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=EBA0475F49A021881CB841847FF6226017412626 | Innovapptive Inc | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5758517451?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=12FE99C522D763B57867B3D1C594758CABBE55B8 | PwC India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052236?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=C98F59F59CDEC9BAA67797EF1896D0FB1F3E7D14 | Delta Electronics India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052431?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=FF0A9BC4A6031D1794FC12CBE0651569B950F6B1 | Recro | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052266?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=8667DA681BFBA5BDDA08DA8E394C320E8696DB6E | TekWissen India | Site Reliability Engineer (SRE) | Golang | GCP | Dynatrace
+- [ ] https://www.adzuna.in/land/ad/5760051561?se=xs8e-P9u8RGOKKsruTd_7Q&utm_medium=api&utm_source=091434ce&v=61384570E12E8B4D77C9FE1CC4DD5D65C6076687 | Synechron | We are looking for OpenShift Site Reliability Engineer (SRE
+- [ ] https://www.adzuna.in/details/5769813448?utm_medium=api&utm_source=091434ce | Lloyds Bank | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5773094109?utm_medium=api&utm_source=091434ce | Infosys Limited | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5771984482?utm_medium=api&utm_source=091434ce | Trimble | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5769821707?utm_medium=api&utm_source=091434ce | ACI Worldwide | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5768766199?utm_medium=api&utm_source=091434ce | viraaj hr solutions | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5771991975?utm_medium=api&utm_source=091434ce | EXL | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5771063445?utm_medium=api&utm_source=091434ce | Hewlett Packard Enterprise | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5772985222?utm_medium=api&utm_source=091434ce | Sandisk | HPC & Cloud Engineer
+- [ ] https://www.adzuna.in/details/5773362750?utm_medium=api&utm_source=091434ce | Reliable Group | GCP Cloud Engineer
+- [ ] https://www.adzuna.in/details/5769959245?utm_medium=api&utm_source=091434ce | Taggd | Platform Engineer
+- [ ] https://www.adzuna.in/details/5770256875?utm_medium=api&utm_source=091434ce | Cargill | Platform Engineer
+- [ ] https://www.adzuna.in/details/5769826457?utm_medium=api&utm_source=091434ce | Jobgether | Platform Engineer
+- [ ] https://www.adzuna.in/details/5771055621?utm_medium=api&utm_source=091434ce | Ema | Platform Engineer
+- [ ] https://www.adzuna.in/details/5770968864?utm_medium=api&utm_source=091434ce | Sanofi | Container Platform Engineer
+- [ ] https://www.adzuna.in/details/5770256490?utm_medium=api&utm_source=091434ce | Sanofi Group | Container Platform Engineer
+- [ ] https://www.adzuna.in/details/5760325235?utm_medium=api&utm_source=091434ce | Accenture | Cloud Platform Engineer
+
+- [ ] https://www.instahyre.com/job-414542-devops-engineer-at-oolka-bangalore/ | Oolka | DevOps Engineer
+- [ ] https://www.instahyre.com/job-419149-devops-engineer-at-bluestone-bangalore/ | BlueStone.com | DevOps Engineer
+- [ ] https://www.instahyre.com/job-424848-devops-engineer-at-marriott-international-hyderabad/ | Marriott International | DevOps Engineer
+- [ ] https://www.instahyre.com/job-426634-devops-engineer-at-deutsche-telekom-digital-labs-gurgaon/ | Deutsche Telekom Digital Labs | DevOps Engineer
+- [ ] https://www.instahyre.com/job-428495-devops-engineer-at-scripbox-bangalore/ | Scripbox | DevOps Engineer
+- [ ] https://www.instahyre.com/job-416616-devops-engineer-at-akmazo-capital-work-from-home/ | Akmazo Capital | DevOps Engineer
+- [ ] https://www.instahyre.com/job-420038-site-reliability-engineer-at-manifest-bangalore/ | Manifest | Site Reliability Engineer
+
+- [ ] https://www.adzuna.in/land/ad/5760052230?se=IAbCKpRv8RGnWKOvUc-68A&utm_medium=api&utm_source=091434ce&v=8D264EE53BB699BD70F30EE4A6AC1472CE8D0297 | Tata Consultancy Services | DevOps Automation Engineer
+- [ ] https://www.adzuna.in/land/ad/5762609101?se=IAbCKpRv8RGnWKOvUc-68A&utm_medium=api&utm_source=091434ce&v=E82CC6F24E2D52E3B23ADEC8EF5FDD3854B07F84 | Neurealm | DevOps / SRE Engineer
+- [ ] https://www.adzuna.in/land/ad/5773100644?se=IAbCKpRv8RGnWKOvUc-68A&utm_medium=api&utm_source=091434ce&v=A43C7A5BD1D152080CF8479D6A23A4DA8B080F19 | Megan Soft Inc | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765771411?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=92D5C1F4982876F9F9B34FF76A80CE527549ADFA | Snapmint | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5763490530?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768229516?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=F9861C13E24772EB9FEADB25CDDE416660994383 | Insight Global | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050303?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=05508F70EA8890B3937776DDDD585E535B2BBB80 | Enterpret | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050002?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=00D16C10A3B9B48A8D1427F7B4A781232B3D8F98 | Cisco | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765774330?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=343C2441F141AF528900168850677CC3B7A31833 | Gemini Solutions Pvt Ltd | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768219171?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 | HDFC securities | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769672656?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=EBA0475F49A021881CB841847FF6226017412626 | Innovapptive Inc | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5758517451?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=12FE99C522D763B57867B3D1C594758CABBE55B8 | PwC India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052236?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=C98F59F59CDEC9BAA67797EF1896D0FB1F3E7D14 | Delta Electronics India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052431?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=FF0A9BC4A6031D1794FC12CBE0651569B950F6B1 | Recro | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052266?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=8667DA681BFBA5BDDA08DA8E394C320E8696DB6E | TekWissen India | Site Reliability Engineer (SRE) | Golang | GCP | Dynatrace
+- [ ] https://www.adzuna.in/land/ad/5760051561?se=DpTaLJRv8RGwp7JcOoKFsQ&utm_medium=api&utm_source=091434ce&v=61384570E12E8B4D77C9FE1CC4DD5D65C6076687 | Synechron | We are looking for OpenShift Site Reliability Engineer (SRE
+- [ ] https://www.adzuna.in/details/5769764706?utm_medium=api&utm_source=091434ce | Lloyds Bank | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5773093981?utm_medium=api&utm_source=091434ce | Infosys Limited | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5768793658?utm_medium=api&utm_source=091434ce | ascendion | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5774156591?utm_medium=api&utm_source=091434ce | Smiths Detection | Cloud Engineer
+
+- [ ] https://www.instahyre.com/job-415452-cloud-devops-engineer-at-aivar-innovations-coimbatore/ | Aivar Innovations | Cloud / DevOps Engineer
+- [ ] https://www.instahyre.com/job-430488-site-reliability-engineer-at-shuru-2-bangalore/ | Shuru | Site Reliability Engineer
+- [ ] https://www.instahyre.com/job-428056-devsecops-engineer-at-oolka-bangalore/ | Oolka | DevSecOps Engineer
+- [ ] https://www.instahyre.com/job-430394-devops-engineer-at-oolka-bangalore/ | Oolka | DevOps Engineer
+- [ ] https://www.instahyre.com/job-430368-devops-engineer-at-knowl-bangalore/ | Knowl | DevOps Engineer
+
+- [ ] https://www.adzuna.in/land/ad/5760052230?se=oheIm25w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=8D264EE53BB699BD70F30EE4A6AC1472CE8D0297 | Tata Consultancy Services | DevOps Automation Engineer
+- [ ] https://www.adzuna.in/land/ad/5762609101?se=oheIm25w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=E82CC6F24E2D52E3B23ADEC8EF5FDD3854B07F84 | Neurealm | DevOps / SRE Engineer
+- [ ] https://www.adzuna.in/land/ad/5773100644?se=oheIm25w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=A43C7A5BD1D152080CF8479D6A23A4DA8B080F19 | Megan Soft Inc | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5763490530?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769649845?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=4E753CC51D146D86EEF10FC191E14A2DA44729D8 | Avenue Code | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5768229516?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=F9861C13E24772EB9FEADB25CDDE416660994383 | Insight Global | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760050303?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=05508F70EA8890B3937776DDDD585E535B2BBB80 | Enterpret | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765774330?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=343C2441F141AF528900168850677CC3B7A31833 | Gemini Solutions Pvt Ltd | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768219171?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 | HDFC securities | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769672656?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=EBA0475F49A021881CB841847FF6226017412626 | Innovapptive Inc | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5760052236?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=C98F59F59CDEC9BAA67797EF1896D0FB1F3E7D14 | Delta Electronics India | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768229537?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=ED0661C33F6D12A58146AB002760EEBDE74BEF0C | super.money | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760052431?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=FF0A9BC4A6031D1794FC12CBE0651569B950F6B1 | Recro | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5760051561?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=61384570E12E8B4D77C9FE1CC4DD5D65C6076687 | Synechron | We are looking for OpenShift Site Reliability Engineer (SRE
+- [ ] https://www.adzuna.in/details/5775256610?utm_medium=api&utm_source=091434ce | NOV | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5774397730?utm_medium=api&utm_source=091434ce | IQVIA | Cloud Engineer 1
+- [ ] https://www.adzuna.in/details/5764181776?utm_medium=api&utm_source=091434ce | Orangemint Technologies Private Limited | Marketplace Platform Engineer
+- [ ] https://jobs.lever.co/smart-working-solutions/835cf041-d292-4b56-8a17-d51a6a361ee7?source=remote.com&utm_source=remote.com&ref=remote.com | Smart Working Solutions | DevOps Engineer (Remote, Full-Time) [HR118]
+- [ ] https://www.linkedin.com/jobs/view/site-reliability-engineer-1-at-super-money-4416220832/ | Super Money | Site Reliability Engineer 1
+- [ ] https://cutshort.io/job/DevOps-Engineer-Noida-TestMu-AI-Formely-LambdaTest--If5tUAfe | TestMu AI (Formely LambdaTest) is hiring DevOps Engineer job in Noida | DevOps Engineer
+
+- [ ] https://www.instahyre.com/job-426062-devops-engineer-at-apna-bangalore/ | apna | DevOps Engineer
+- [ ] https://www.instahyre.com/job-430755-devops-engineer-azure-at-utilidex-dehradun-noida/ | Utilidex | DevOps Engineer (Azure)
+- [ ] https://www.instahyre.com/job-426332-devops-engineer-ii-at-moonfrog-labs-bangalore/ | Moonfrog Labs | DevOps Engineer II
+- [ ] https://www.instahyre.com/job-429559-associate-platform-engineer-data-storage-at-brevo-noida/ | Brevo | Associate Platform Engineer - Data Storage
+- [ ] https://www.instahyre.com/job-319909-devops-engineer-at-skeps-gurgaon/ | Skeps | DevOps Engineer
+- [ ] https://www.instahyre.com/job-402444-devops-engineer-at-nexthink-bangalore/ | Nexthink | DevOps Engineer
+
+- [ ] https://job-boards.greenhouse.io/phonepe/jobs/7772955003 | PhonePe | Software Engineer - SRE (4-6 years)
+- [ ] https://jobs.ashbyhq.com/sarvam/e1dd678f-6e25-48b4-82d8-a1a7d10a78d6 | Sarvam AI | Infrastructure SRE - HPC
+- [ ] https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/Virginia---Washington-DC-Metro---Remote/Software-Engineer-II--Cloud-Infrastructure---Slack_JR341727-1 | Salesforce | Software Engineer II, Cloud Infrastructure - Slack
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/BizOps-Engineer-II_R-275023 | Mastercard | Site Reliability Engineer II
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Lead-BizOps-Engineer_R-275012 | Mastercard | Lead Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/BizOps-Engineer-I_R-266502 | Mastercard | Site Reliability Engineer I
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Director--BizOps_R-271670 | Mastercard | Director, Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Manager--BizOps_R-272137 | Mastercard | Manager, Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Principal-BizOps-Engineer_R-265326 | Mastercard | Principal Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Senior-BizOps-Engineer_R-268248 | Mastercard | Senior Site Reliability Engineer
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Lead-Software-Engineer---Development-in-Java--micro-services--RESTful-APIs--Angular--Cloud-Kubernetes-and-Docker_R-280848 | Mastercard | Lead Software Engineer - Development in Java, micro services, RESTful APIs, Angular, Cloud Kubernetes and Docker
+- [ ] https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Bangalore/Information-Systems-Engineer-4_R165174-1 | Adobe | Information Systems Engineer 4
+
+- [ ] https://in.indeed.com/viewjob?jk=e8585907a5a91ae8 | Wipro | DEVOPS ENGINEER L3
+- [ ] https://in.indeed.com/viewjob?jk=ee4a640bf00b6038 | Genpact | Engineer - DevOps 4A
+- [ ] https://in.indeed.com/viewjob?jk=df8a28bd69935587 | Fiftyfive technologies | GCP Devops Engineer
+- [ ] https://in.indeed.com/viewjob?jk=10d431499c601405 | Hindustan Recruitment Services Pvt. Ltd. | DevOps Engineer (Docker | Kubernetes | CI/CD | Linux)
+- [ ] https://in.indeed.com/viewjob?jk=f044b9f36dca9c8e | Suffescom Solutions Pvt. Ltd | AWS DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=e924930b1093d955 | ApplogiQ | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=cc944b4863d38b97 | Immverse Innovations | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=92a6ff55135c0f8f | Keysight Technologies | DevOps Engineer 5
+- [ ] https://www.linkedin.com/jobs/view/4433442819 | Scoutit | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432917629 | Infosys | AWS Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4414165737 | Persistent Systems | Site Reliability Engineer (SRE)/DevOps
+- [ ] https://www.linkedin.com/jobs/view/4392106338 | Infosys | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4413126969 | Persistent Systems | AWS DevOps Cloud Engineer
+- [ ] https://www.linkedin.com/jobs/view/4423226337 | Capgemini | AWS Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432456728 | CG-VAK Software & Exports Ltd. | Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4431205993 | Neurones IT Asia | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4431249072 | Actualize | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4431742409 | Capgemini | Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4433214807 | Techdome | Site Reliability Engineer (SRE)
+- [ ] https://www.linkedin.com/jobs/view/4413113174 | FNZ | Site Reliability Engineer
+- [ ] https://www.linkedin.com/jobs/view/4422437515 | Capgemini | Site Reliability Engineer
+- [ ] https://www.linkedin.com/jobs/view/4431226225 | Orion Innovation | DevOps engineer
+- [ ] https://www.linkedin.com/jobs/view/4431238768 | Pythian | Site Reliability Engineer
+- [ ] https://www.linkedin.com/jobs/view/4429026904 | Cisco | Site Reliability Engineer (SRE) – Kubernetes Platform (IRAP)
+- [ ] https://www.linkedin.com/jobs/view/4428718933 | Avenue Code | Site Reliability Engineering
+- [ ] https://www.linkedin.com/jobs/view/4392461577 | Infosys | Azure Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432215687 | mispa Technologies GmbH | Cloud Engineer / Cloud DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=f05e7aae225702c0 | HCLTech | SME - Microsoft Azure - IaaS, Azure Kubernetes Service
+- [ ] https://www.linkedin.com/jobs/view/4433841072 | SmartBear | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432970493 | Humyn Labs | Platform Engineer
+- [ ] https://www.linkedin.com/jobs/view/4429860165 | Oolio | Senior Platform Engineer (Product Engineering)
+
+- [ ] https://www.instahyre.com/job-430836-site-reliability-engineering-advisor-at-fedex-hyderabad/ | FedEx | Site Reliability Engineering Advisor
+
+- [ ] https://www.adzuna.in/land/ad/5762609101?se=gPs7eg5y8RG03p_b2NRIZw&utm_medium=api&utm_source=091434ce&v=E82CC6F24E2D52E3B23ADEC8EF5FDD3854B07F84 | Neurealm | DevOps / SRE Engineer
+- [ ] https://www.adzuna.in/land/ad/5773100644?se=gPs7eg5y8RG03p_b2NRIZw&utm_medium=api&utm_source=091434ce&v=A43C7A5BD1D152080CF8479D6A23A4DA8B080F19 | Megan Soft Inc | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5778927031?se=gPs7eg5y8RG03p_b2NRIZw&utm_medium=api&utm_source=091434ce&v=70AEA9DC9AB9297AB854EA13135FD65999ED85FE | Antino | DevSecOps Engineer
+- [ ] https://www.adzuna.in/land/ad/5763490530?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5772714679?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=2B6289DD8627E0C3E875F67C9A25F7F288C41487 | Tata Consultancy Services | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769649845?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=4E753CC51D146D86EEF10FC191E14A2DA44729D8 | Avenue Code | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5768229516?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=F9861C13E24772EB9FEADB25CDDE416660994383 | Insight Global | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765774330?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=343C2441F141AF528900168850677CC3B7A31833 | Gemini Solutions Pvt Ltd | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768219171?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 | HDFC securities | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769672656?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=EBA0475F49A021881CB841847FF6226017412626 | Innovapptive Inc | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5768229537?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=ED0661C33F6D12A58146AB002760EEBDE74BEF0C | super.money | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5778043164?se=-ixIfA5y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=A5660DDD28C9C8E27E4DB99C952AAF01C2553CB7 | slice | Site Reliability Engineer - 3
+- [ ] https://www.adzuna.in/details/5778178938?utm_medium=api&utm_source=091434ce | Clearwater Analytics | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5776697527?utm_medium=api&utm_source=091434ce | Pythian | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5778161368?utm_medium=api&utm_source=091434ce | Jobgether | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5770252036?utm_medium=api&utm_source=091434ce | Cisco | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5777073914?utm_medium=api&utm_source=091434ce | Webkit24 | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5776239998?utm_medium=api&utm_source=091434ce | Training Basket | Cloud Engineer
+- [ ] https://www.adzuna.in/details/5774369032?utm_medium=api&utm_source=091434ce | Hirestar job Bank | L2 Cloud Engineer
+- [ ] https://www.adzuna.in/details/5775279450?utm_medium=api&utm_source=091434ce | IQVIA | Cloud Engineer 1
+- [ ] https://www.linkedin.com/jobs/view/4429974168/ | Tarana Wireless | Cloud DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4422979490/ | Inception42 | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4424288336/ | HubSpot | DevOps Engineer
+
+- [ ] https://in.indeed.com/viewjob?jk=212ca75df3d2faf2 | Unknown | DevOps / Cloud Infrastructure Engineer (AWS) - (Onsite/Coimbatore only)
+- [ ] https://in.indeed.com/viewjob?jk=a81e87375e953e48 | Wipro | DEVOPS ENGINEER L3
+- [ ] https://in.indeed.com/viewjob?jk=415dce76864c2bb9 | Relinns Technologies | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=8481edbabb679ca9 | Golden hippo technology Pvt Ltd | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=7550ab1703098de9 | impex Softech | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=c979a14713ef1fa5 | Invoidea Technologies | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=f634ae1e21351132 | VodafoneThree | SOFTWARE ENGINEER - JAVA, MICROSERVICES & DEVOPS - VOIS
+- [ ] https://www.linkedin.com/jobs/view/4433617108 | Dreamcast | Cloud Engineer | AWS DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4433493975 | Scoutit | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432611074 | BMC Helix | Devops Engineer- INDIA
+- [ ] https://www.linkedin.com/jobs/view/4372724568 | Trimble Inc. | DevOps Engineer II
+- [ ] https://www.linkedin.com/jobs/view/4430580763 | BairesDev | DevOps/SRE Engineer - Remote Work
+- [ ] https://www.linkedin.com/jobs/view/4433494525 | Infosys | AWS Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4429268119 | Capgemini | Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432587283 | FM | Platform Engineer [T500-26959]
+
+- [ ] https://www.instahyre.com/job-430886-devops-engineer-at-hypernorm-ai-bangalore/ | HyperNorm AI | DevOps Engineer
+- [ ] https://www.instahyre.com/job-416619-sde-2-devops-at-purplle-mumbai/ | Purplle | SDE - 2 (DevOps)
+
+- [ ] https://www.adzuna.in/land/ad/5773100644?se=mqBqX-9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=A43C7A5BD1D152080CF8479D6A23A4DA8B080F19 | Megan Soft Inc | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5779300372?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=6DD896DA7E5B17EF13F6CD990C2D22FFCDA332EC | Insight Global | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5763490530?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5772714679?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=2B6289DD8627E0C3E875F67C9A25F7F288C41487 | Tata Consultancy Services | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769649845?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=4E753CC51D146D86EEF10FC191E14A2DA44729D8 | Avenue Code | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5765774330?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=343C2441F141AF528900168850677CC3B7A31833 | Gemini Solutions Pvt Ltd | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768219171?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 | HDFC securities | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769672656?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=EBA0475F49A021881CB841847FF6226017412626 | Innovapptive Inc | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5768229537?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=ED0661C33F6D12A58146AB002760EEBDE74BEF0C | super.money | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5778043164?se=qKAEYu9y8RGe4ZwL0wNS6w&utm_medium=api&utm_source=091434ce&v=A5660DDD28C9C8E27E4DB99C952AAF01C2553CB7 | slice | Site Reliability Engineer - 3
+- [ ] https://www.adzuna.in/details/5775043399?utm_medium=api&utm_source=091434ce | Trigent Software Private Limited | Site Reliability engineering
+- [ ] https://www.adzuna.in/details/5779828717?utm_medium=api&utm_source=091434ce | Intercontinental Exchange  | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5770252053?utm_medium=api&utm_source=091434ce | Cisco | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5779645127?utm_medium=api&utm_source=091434ce | XenonStack | Cloud Engineer - Azure
+- [ ] https://www.adzuna.in/details/5779645117?utm_medium=api&utm_source=091434ce | XenonStack | Cloud Engineer - AWS
+- [ ] https://www.adzuna.in/details/5778440946?utm_medium=api&utm_source=091434ce | CBTS Technology Solutions India LLP | Cloud Engineer II
+- [ ] https://www.adzuna.in/land/ad/5776591144?se=njC-Y-9y8RGiVqWJe_bADg&utm_medium=api&utm_source=091434ce&v=6BDF825225B81C34E03E6F773E9F894C66A0E46B | Antal International | Data SRE
+- [ ] https://www.adzuna.in/details/5775392628?utm_medium=api&utm_source=091434ce | Accenture | Cloud Platform Engineer
+- [ ] https://www.adzuna.in/details/5778225241?utm_medium=api&utm_source=091434ce | Accenture | Data Platform Engineer
+
+- [ ] https://in.indeed.com/viewjob?jk=f63ece5e6d94f7af | Tahr Tech Studio | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=fce4108e37fc20f1 | AlgoUniversity | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=204540ffb06a8cbe | Elfonze Technologies | Apigee & DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=3a444f6b028e97f8 | Airbus | Developer - DevOps
+- [ ] https://in.indeed.com/viewjob?jk=3459d8a9b9199f5f | Indmax IT Services | DevOps Engineer
+- [ ] https://in.indeed.com/viewjob?jk=bf57b095d82f5afa | Saxo Bank | Devops Engineer - Test Environment
+- [ ] https://in.indeed.com/viewjob?jk=eb50679a87eac113 | Wipro | DEVOPS ENGINEER L3
+- [ ] https://www.linkedin.com/jobs/view/4434117098 | Scoutit | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4433469852 | Infosys | Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4429264218 | Capgemini | Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432213031 | HealthEdge | Associate DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4430850751 | Infosys | AWS SRE Hiring
+- [ ] https://www.linkedin.com/jobs/view/4431208722 | ThreatXIntel | Cloud Devops Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432228351 | HiLabs | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432202350 | HealthEdge | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4431209092 | Saxo Bank | DevOps Engineer- JSS
+- [ ] https://www.linkedin.com/jobs/view/4414653020 | Prodege, LLC | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4433232492 | Suffescom Solutions Inc | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4410189820 | Transaction Network Services (TNS) | Cloud Infrastructure Engineer
+- [ ] https://www.linkedin.com/jobs/view/4426499812 | humaineeti.ai | Cloud Engineer
+- [ ] https://www.linkedin.com/jobs/view/4428899953 | Web Spiders | Cloud Infrastructure & DevOps Engineer
+
+- [ ] https://www.instahyre.com/job-426320-devops-engineer-at-skillz-bangalore/ | Skillz | DevOps Engineer
+
+- [ ] https://www.adzuna.in/land/ad/5779300372?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=6DD896DA7E5B17EF13F6CD990C2D22FFCDA332EC | Insight Global | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5772714679?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=2B6289DD8627E0C3E875F67C9A25F7F288C41487 | Tata Consultancy Services | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769649845?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=4E753CC51D146D86EEF10FC191E14A2DA44729D8 | Avenue Code | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5778043312?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=014AFEBE87727C60F688F21D0948DCAB23186ED9 | Karix | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5765774330?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=343C2441F141AF528900168850677CC3B7A31833 | Gemini Solutions Pvt Ltd | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5768219171?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 | HDFC securities | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5779300288?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=AEFE8549ADC1B7CDD9DC0166FDFFC7AA74DE8B16 | ACI Worldwide | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5769672656?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=EBA0475F49A021881CB841847FF6226017412626 | Innovapptive Inc | Site Reliability Engineering
+- [ ] https://www.adzuna.in/land/ad/5768229537?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=ED0661C33F6D12A58146AB002760EEBDE74BEF0C | super.money | Site Reliability Engineer
+- [ ] https://www.adzuna.in/land/ad/5778043164?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=A5660DDD28C9C8E27E4DB99C952AAF01C2553CB7 | slice | Site Reliability Engineer - 3
+- [ ] https://www.adzuna.in/land/ad/5776591244?se=1JD4f7tz8RG5B_ZD6wKS8Q&utm_medium=api&utm_source=091434ce&v=C58543C58A946115D60CC0C42B98016BD547DF86 | slice | Site Reliability Engineer 3
+- [ ] https://www.adzuna.in/details/5779828716?utm_medium=api&utm_source=091434ce | Intercontinental Exchange  | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5779645129?utm_medium=api&utm_source=091434ce | XenonStack | Cloud Engineer - AWS
+- [ ] https://www.adzuna.in/details/5774397731?utm_medium=api&utm_source=091434ce | IQVIA | Cloud Engineer 2
+
+- [ ] https://www.adzuna.in/details/5768784803?utm_medium=api&utm_source=091434ce | Thales India Private Limited | Devops
+- [ ] https://www.adzuna.in/details/5770256041?utm_medium=api&utm_source=091434ce | NTT America, Inc. | DevOps
+- [ ] https://www.adzuna.in/details/5776924178?utm_medium=api&utm_source=091434ce | Staples India Business Innovation Hub Private Limited | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5774999797?utm_medium=api&utm_source=091434ce | DataCouch | Devops Engineer
+- [ ] https://www.adzuna.in/details/5773539686?utm_medium=api&utm_source=091434ce | IFS | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5766103370?utm_medium=api&utm_source=091434ce | Sia | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5772705801?utm_medium=api&utm_source=091434ce | Trigent Software Private Limited | Devops Engineer
+- [ ] https://www.adzuna.in/details/5778260983?utm_medium=api&utm_source=091434ce | Zensar Technologies | AES - DE - DevOps - AWS DevOps
+- [ ] https://www.adzuna.in/details/5776809964?utm_medium=api&utm_source=091434ce | Orion Innovation Naukri | DevOps engineer
+- [ ] https://www.adzuna.in/details/5780533869?utm_medium=api&utm_source=091434ce | TalentBridge | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5780540217?utm_medium=api&utm_source=091434ce | Hitachi | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5773094598?utm_medium=api&utm_source=091434ce | LTM | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5776697156?utm_medium=api&utm_source=091434ce | Orion Innovation | DevOps engineer
+- [ ] https://www.adzuna.in/details/5776804731?utm_medium=api&utm_source=091434ce | Systel | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5776805999?utm_medium=api&utm_source=091434ce | SAIGroup | Devops Engineer
+- [ ] https://www.adzuna.in/details/5774237753?utm_medium=api&utm_source=091434ce | Caratlane | Devops Engineer
+- [ ] https://www.adzuna.in/details/5780539126?utm_medium=api&utm_source=091434ce | Barclays | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5774584135?utm_medium=api&utm_source=091434ce | WITS Innovation Lab | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5777073672?utm_medium=api&utm_source=091434ce | Webkit24 | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5775994262?utm_medium=api&utm_source=091434ce | Unico Connect Private Limited | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5767427156?utm_medium=api&utm_source=091434ce | Easy Trip Planners Limited | DevOps Engineer
+- [ ] https://www.adzuna.in/details/5779498142?utm_medium=api&utm_source=091434ce | 3Clogic | Devops Engineer
+- [ ] https://www.adzuna.in/details/5780533955?utm_medium=api&utm_source=091434ce | Cisco Systems | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5770252073?utm_medium=api&utm_source=091434ce | Cisco | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5780540596?utm_medium=api&utm_source=091434ce | London Stock Exchange Group | Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5763835464?utm_medium=api&utm_source=091434ce | The Walt Disney Company | Site Reliability Engineer II
+- [ ] https://www.adzuna.in/details/5764667403?utm_medium=api&utm_source=091434ce | Philips | Site Reliability Engineer (SRE)
+- [ ] https://www.adzuna.in/details/5774223871?utm_medium=api&utm_source=091434ce | Ashra Technologies Private Limited | Senior Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5767140447?utm_medium=api&utm_source=091434ce | JLL | Site Reliability Engineer 2
+- [ ] https://www.adzuna.in/details/5780528540?utm_medium=api&utm_source=091434ce | eBay | Site Reliability Engineer 3
+- [ ] https://www.adzuna.in/details/5779475495?utm_medium=api&utm_source=091434ce | Calix | Site Reliability Engineer - I
+- [ ] https://www.adzuna.in/details/5775401298?utm_medium=api&utm_source=091434ce | NICE | Cloud Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5780684096?utm_medium=api&utm_source=091434ce | Altera Digital Health  LLP | Expert Site Reliability Engineer
+- [ ] https://www.adzuna.in/details/5775338636?utm_medium=api&utm_source=091434ce | IQVIA | Cloud Engineer 2
+- [ ] https://www.adzuna.in/details/5767231426?utm_medium=api&utm_source=091434ce | Google | Strategic Cloud Engineer, Appdev (English)
+- [ ] https://www.adzuna.in/details/5772705819?utm_medium=api&utm_source=091434ce | Trigent Software Private Limited | Cloud Engineer / DevOps Engineer (IaC Focus)
+- [ ] https://www.adzuna.in/details/5778255050?utm_medium=api&utm_source=091434ce | Mancraft Consulting | Azure Cloud Engineer Full Stack With Angular
+- [ ] https://www.adzuna.in/details/5780527716?utm_medium=api&utm_source=091434ce | Cisco Systems | Cloud Engineer | 8 years, infra support & monitoring
+- [ ] https://www.adzuna.in/details/5767591292?utm_medium=api&utm_source=091434ce | Cisco | Cloud Engineer | 8 years, infra support & monitoring
+- [ ] https://msphere.io/careers/devops-engineer/ | Metasphere | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4434435615/ | Lucidity | DevOps Engineer
+- [ ] https://www.linkedin.com/jobs/view/4432320161/ | Recro | DevOps Engineer

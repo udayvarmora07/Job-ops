@@ -1,0 +1,106 @@
+{
+  "content": {
+    "filenameSuffix": "HARMAN_India_Associate_Engineer_AWS",
+    "title": "Uday Varmora - AWS DevOps Engineer Resume",
+    "colorScheme": "navy",
+    "summary": "AWS DevOps Engineer with **1+ year** building **CI/CD pipelines and cloud-native infrastructure** on AWS — cutting release cycles **82% (45 → 8 min)**, provisioning **80%**, and toil **70%** across 20+ services. Hands-on with **Jenkins, GitHub Actions, GitLab CI/CD, AWS CodePipeline, Docker, Kubernetes (EKS), Terraform, AWS CloudFormation, Python/Bash**, and Agile/Scrum delivery.",
+    "skills": [
+      [
+        "CI/CD & GitOps",
+        "Jenkins, GitHub Actions, GitLab CI/CD, AWS CodePipeline, AWS CodeBuild, ArgoCD, Git, Branching Strategies"
+      ],
+      [
+        "Cloud Platforms",
+        "AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, CloudWatch, IAM, KMS, Secrets Manager; Azure (Fundamentals)"
+      ],
+      [
+        "Infrastructure as Code",
+        "Terraform (34 modules, S3 remote state, DynamoDB locking), AWS CloudFormation, AWS SAM"
+      ],
+      [
+        "Containers & Orchestration",
+        "Docker, Kubernetes (EKS), Helm, Karpenter, KEDA, Ingress-NGINX"
+      ],
+      [
+        "Networking & Protocols",
+        "VPC, Subnets, Security Groups, DNS, Ports, Load Balancing"
+      ],
+      [
+        "Observability & Monitoring",
+        "Prometheus, Grafana, Loki, CloudWatch, ELK Stack, Datadog"
+      ],
+      [
+        "Security & Secrets",
+        "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM (IRSA, Pod Identity), KMS"
+      ],
+      [
+        "Scripting, OS & Agile",
+        "Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), Agile/Scrum"
+      ],
+      [
+        "Version Control & Collaboration",
+        "Git, GitHub, Bitbucket, Source Code Repositories, Branching Strategies, Jira"
+      ]
+    ],
+    "experience": [
+      {
+        "role": "AWS DevOps Engineer",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jun 2025 – Apr 2026",
+        "bullets": [
+          "Designed and maintained **40+ CI/CD pipelines** using **Jenkins, GitHub Actions, GitLab CI/CD, AWS CodePipeline, and AWS CodeBuild** — automating build-test-deploy workflows across **20+ Dockerised microservices**, cutting release cycles by **82% (45 min → under 8 min)**; troubleshot CI/CD pipeline failures to ensure reliable software delivery.",
+          "Provisioned secure multi-environment AWS infrastructure via **Terraform and AWS CloudFormation IaC** (34 reusable modules, S3 remote state, DynamoDB locking), optimizing system reliability across **Linux (Ubuntu, Amazon Linux, RHEL)** environments while implementing network boundaries utilizing **VPCs, Subnets, DNS, and Security Groups** — reducing provisioning time by **80%** and configuration drift by **95%**.",
+          "Operated **Kubernetes (EKS)** clusters with **ArgoCD GitOps, Helm, and Ingress-NGINX Controller** — managing zero-downtime rollouts, Karpenter node autoscaling, and KEDA event-driven scaling; sustained **99.9% uptime** across multi-AZ clusters.",
+          "Eliminated **~70% of recurring operational toil** via **Python and Bash** automation; managed **source code repositories** and established **Git branching strategies** to streamline collaborative code-review workflows and secure CI/CD gates.",
+          "Strengthened security posture with **HashiCorp Vault and AWS Secrets Manager** for centralized secret management, **Sealed Secrets** for GitOps-compatible K8s secrets, and **Trivy Operator** for continuous container vulnerability scanning; enforced least-privilege IAM via IRSA and Pod Identity."
+        ]
+      },
+      {
+        "role": "AWS DevOps Engineer Intern",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jan 2025 – May 2025",
+        "bullets": [
+          "Built and maintained AWS infrastructure monitoring on **Linux-based environments**, configured **CloudWatch** dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.",
+          "Wrote **Python and Bash** automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning **full-time promotion within 5 months**."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
+        "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+        "bullets": [
+          "Designed multi-environment build/deploy architecture with per-environment **VPC isolation and S3/DynamoDB remote state** — enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with **Ingress-NGINX Controller**; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation.",
+          "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; migrated deprecated loki-stack to Loki + Grafana Alloy, eliminating deprecated chart dependencies and improving log pipeline reliability.",
+          "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads."
+        ]
+      },
+      {
+        "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+        "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+        "bullets": [
+          "Architected a serverless build/deploy system using **6 nested SAM/CloudFormation templates** with SAM build pipelines — enabling independent deployment of **30+ Python Lambda functions** with reproducible packaging and per-function least-privilege IAM.",
+          "Solved Lambda layer size constraints by engineering a shared **EFS-mounted Python dependency layer** across 30+ functions — eliminating packaging bottlenecks and cutting build times by **60%+**."
+        ]
+      },
+      {
+        "title": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+        "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM",
+        "bullets": [
+          "Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with a **dual-registry GHCR/ECR strategy** — enabling zero-downtime redeployments and **~30% reduced image pull latency** while serving 500+ concurrent users.",
+          "Automated full release workflow via **GitHub Actions** — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed 5+ overly permissive roles."
+        ]
+      }
+    ],
+    "education": {
+      "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+      "right": "2021 – 2025"
+    },
+    "achievements": [
+      "Awarded **“Student of the Year”** in Class 10 for outstanding academic performance and leadership contributions."
+    ]
+  },
+  "jd": "About the job\nIntroduction: A Career at HARMAN Automotive\n\nWe’re a global, multi-disciplinary team that’s putting the innovative power of technology to work and transforming tomorrow. At HARMAN Automotive, we give you the keys to fast-track your career.\n\nEngineer audio systems and integrated technology platforms that augment the driving experience\nCombine ingenuity, in-depth research, and a spirit of collaboration with design and engineering excellence\nAdvance in-vehicle infotainment, safety, efficiency, and enjoyment\n\nAbout The Role\n\nWe are seeking an enthusiastic AWS DevOps Engineer with 1–3 years of experience in building, deploying, and maintaining CI/CD pipelines and cloud infrastructure on AWS. The ideal candidate will have hands-on experience with DevOps tools, automation, and cloud-native services, and will work closely with development and QA teams to enable reliable and scalable software delivery.\n\nThis role focuses on improving deployment efficiency, system reliability, and automation across environments.\n\nWhat You Will Do\n\nDesign, implement, and maintain CI/CD pipelines for application build, test, and deployment\nSupport cloud infrastructure setup and management on AWS\nAutomate deployment processes using infrastructure-as-code and scripting\nMonitor applications and infrastructure to ensure availability, performance, and reliability\nCollaborate with development and QA teams to streamline build and release processes\nManage source code repositories and branching strategies\nTroubleshoot CI/CD pipeline failures and infrastructure issues\nImplement basic security and compliance best practices in DevOps workflows\nContribute to continuous improvement of DevOps tools, practices, and processes\n\nWhat You Need To Be Successful\n\nCloud & AWS\n\nHands-on experience with AWS services such as:\nEC2\nS3\nIAM\nVPC\nCloudWatch\nBasic understanding of cloud architecture and best practices\n\nCI/CD & DevOps Tools\n\nExperience with CI/CD tools such as:\nJenkins\nGitHub Actions (or similar)\nWorking knowledge of Git and source code management\n\nAutomation & Scripting\n\nBasic to intermediate scripting skills in Shell or Python\nFamiliarity with Infrastructure as Code tools such as:\nTerraform\nAWS CloudFormation (preferred)\nContainers & Platforms\n\nBasic understanding of Docker\nExposure to Kubernetes / EKS is an advantage\n\nOS & Networking\n\nWorking knowledge of Linux operating systems\nBasic understanding of networking concepts (ports, DNS, security groups)\n\nBonus Points If You Have\n\nExperience with monitoring and logging tools (CloudWatch, Prometheus, Grafana, ELK)\nExposure to DevSecOps practices\nExperience supporting microservices-based architectures\nFamiliarity with Agile / Scrum environments\nAWS certification (Cloud Practitioner / Associate level)\n\nWhat Makes You Eligible\n\n1–3 years of hands-on experience in DevOps or CI/CD engineering\nPractical exposure to AWS cloud and automation tools\nStrong problem-solving and troubleshooting skills\nGood communication and collaboration abilities\nProactive mindset toward automation, reliability, and continuous improvement\n\nWhat We Offer\n\n Competitive salary and benefits package\n Opportunities for professional growth and development\n Collaborative and dynamic work environment\n Access to cutting-edge technologies and tools\n Recognition and rewards for outstanding performance through BeBrilliant\n Chance to work with a renowned German OEM\n You are expected to work all 5 days in a week in office\n\nYou Belong Here \n\nHARMAN is committed to making every employee feel welcomed, valued, and empowered. No matter what role you play, we encourage you to share your ideas, voice your distinct perspective, and bring your whole self with you – all within a support-minded culture that celebrates what makes each of us unique. We also recognize that learning is a lifelong pursuit and want you to flourish. We proudly offer added opportunities for training, development, and continuing education, further empowering you to live the career you want.\n\nAbout HARMAN: Where Innovation Unleashes Next-Level Technology \n\nEver since the 1920s, we’ve been amplifying the sense of sound. Today, that legacy endures, with integrated technology platforms that make the world smarter, safer, and more connected.\n\nAcross automotive, lifestyle, and digital transformation solutions, we create innovative technologies that turn ordinary moments into extraordinary experiences. Our renowned automotive and lifestyle solutions can be found everywhere, from the music we play in our cars and homes to venues that feature today’s most sought-after performers, while our digital transformation solutions serve humanity by addressing the world’s ever-evolving needs and demands. Marketing our award-winning portfolio under 16 iconic brands, such as JBL, Mark Levinson, and Revel, we set ourselves apart by exceeding the highest engineering and design standards for our customers, our partners and each other.\n\nIf you’re ready to innovate and do work that makes a lasting impact, join our talent community today!\n\nImportant Notice: Recruitment Scams\n\nPlease be aware that HARMAN recruiters will always communicate with you from an '@harman.com', ‘@careers.harman.com’ or ‘harmanglobal.avature.net’ email address. We will never ask for payments, banking, credit card, personal financial information or access to your LinkedIn/email account during the screening, interview, or recruitment process. If you are asked for such information or receive communication from an email address not ending in one of the above email domains about a job with HARMAN, please cease communication immediately and report the incident to us through: harmancareers@harman.com.\n\nHARMAN is proud to be an Equal Opportunity employer. HARMAN strives to hire the best qualified candidates and is committed to building a workforce representative of the diverse marketplaces and communities of our global colleagues and customers. All qualified applicants will receive consideration for employment without regard to race, religion, color, national origin, gender (including pregnancy, childbirth, or related medical conditions), sexual orientation, gender identity, gender expression, age, status as a protected veteran, status as an individual with a disability, or other applicable legally protected characteristics. HARMAN attracts, hires, and develops employees based on merit, qualifications and job-related performance.(www.harman.com)",
+  "company": "HARMAN India",
+  "role": "Associate Engineer- AWS Devops"
+}

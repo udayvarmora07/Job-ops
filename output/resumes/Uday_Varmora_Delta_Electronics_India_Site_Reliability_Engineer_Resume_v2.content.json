@@ -1,0 +1,102 @@
+{
+  "content": {
+    "filenameSuffix": "Delta_Electronics_India_Site_Reliability_Engineer",
+    "title": "Uday Varmora - Site Reliability Engineer Resume",
+    "colorScheme": "navy",
+    "summary": "Site Reliability Engineer with **1+ year** sustaining **99.9% uptime SLA** for **Linux-based production infrastructure** on AWS/EKS — defining and monitoring **SLIs, SLOs, and error budgets**, driving incident response to reduce **MTTR**, and eliminating **~70% operational toil** across 20+ microservices. Hands-on with **Prometheus, Grafana, Loki, CloudWatch, Terraform, Kubernetes (EKS, OpenShift), Python/Bash**, and multi-region disaster recovery.",
+    "skills": [
+      [
+        "Observability & Reliability",
+        "Prometheus, Grafana, Loki, CloudWatch, ELK Stack, Datadog, SLIs/SLOs/error budgets, runbooks, RCA, MTTR reduction"
+      ],
+      [
+        "SRE & Incident Response",
+        "Linux (Ubuntu, Amazon Linux, RHEL), on-call triage, blameless post-mortems, production incident management"
+      ],
+      [
+        "Containers & Orchestration",
+        "Docker, Kubernetes (EKS, OpenShift), Helm, ArgoCD, Karpenter, KEDA, Ingress-NGINX"
+      ],
+      [
+        "CI/CD & Automation",
+        "Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, Python, Bash/Shell"
+      ],
+      [
+        "Infrastructure as Code",
+        "Terraform (34 modules), AWS CloudFormation, AWS SAM, Ansible, S3 remote state, DynamoDB locking"
+      ],
+      [
+        "Cloud Platforms",
+        "AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, IAM, KMS, CloudWatch; Azure (Fundamentals)"
+      ],
+      [
+        "DevSecOps & Vulnerability Assessments",
+        "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM least-privilege, IRSA, Pod Identity, SonarQube"
+      ],
+      [
+        "Version Control & Collaboration",
+        "Git, GitHub, Bitbucket, Gerrit, code-review workflows"
+      ]
+    ],
+    "experience": [
+      {
+        "role": "DevOps Engineer",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jun 2025 – Apr 2026",
+        "bullets": [
+          "Sustained **99.9% production uptime availability** across multi-AZ **EKS** clusters by **defining and monitoring SLIs, SLOs, and error budgets** utilizing **Prometheus, Grafana, and KEDA event-driven scaling** to balance reliability with feature velocity.",
+          "Managed production **incident response and root-cause analysis (RCA)** for **Linux environments**, reducing **MTTR** and repeat-incident frequency by authoring **blameless post-mortems and operational runbooks** for cross-functional on-call squads.",
+          "Eliminated **~70% of recurring operational toil** via **Python/Bash automation** and **designed secure CI/CD pipelines** incorporating **SonarQube quality gates and vulnerability assessments** to optimize system delivery velocity.",
+          "Provisioned multi-environment AWS infrastructure using **Terraform IaC** (34 reusable modules, S3 remote state, DynamoDB locking) — reducing provisioning time by **80%** and configuration drift by **95%** across Dev, Staging, and Production environments.",
+          "Built observability stack with **Prometheus, Grafana, Loki, and CloudWatch** for production workloads; triaged alerts, optimised signal-to-noise ratio, and maintained operational visibility across 20+ services."
+        ]
+      },
+      {
+        "role": "DevOps Engineer Intern",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jan 2025 – May 2025",
+        "bullets": [
+          "Built and maintained AWS infrastructure monitoring on **Linux-based environments**, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.",
+          "Wrote **Python and Bash** automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning **full-time promotion within 5 months**."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
+        "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+        "bullets": [
+          "Sustained **99.9% uptime SLA** for multi-AZ EKS clusters with **Prometheus, Grafana, and Loki** observability; migrated deprecated loki-stack to Loki + Grafana Alloy, eliminating deprecated chart dependencies and improving log pipeline reliability.",
+          "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down — preserving SLOs while improving cluster resource utilisation across 20+ services.",
+          "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads."
+        ]
+      },
+      {
+        "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+        "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+        "bullets": [
+          "Architected a serverless build/deploy system using **6 nested SAM/CloudFormation templates** with SAM build pipelines — enabling independent deployment of **30+ Python Lambda functions** with reproducible packaging and per-function least-privilege IAM.",
+          "Solved Lambda layer size constraints by engineering a shared **EFS-mounted Python dependency layer** across 30+ functions — eliminating packaging bottlenecks and cutting build times by **60%+**."
+        ]
+      },
+      {
+        "title": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+        "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM",
+        "bullets": [
+          "Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with a **dual-registry GHCR/ECR strategy** — enabling zero-downtime redeployments and **~30% reduced image pull latency** while serving 500+ concurrent users.",
+          "Automated full release workflow via **GitHub Actions** — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed 5+ overly permissive roles."
+        ]
+      }
+    ],
+    "education": {
+      "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+      "right": "2021 – 2025"
+    },
+    "achievements": [
+      "Awarded **“Student of the Year”** in Class 10 for outstanding academic performance and leadership contributions."
+    ]
+  },
+  "jd": "About the job\nResponsibilities\n\nDefine and monitor Service Level Objectives (SLOs), Service Level Indicators (SLIs), and error budgets to balance reliability with feature velocity and ensure optimal system availability.\nRespond to production incidents during business hours, conduct post-mortem analysis, and implement preventive measures to reduce MTTR and improve system resilience.\nMonitor system performance, troubleshoot issues, and proactively identify bottlenecks to ensure optimal performance and reliability.\nDesign, implement, and maintain CI/CD pipelines to automate the software delivery process.\nCollaborate with development and operations teams to ensure smooth integration of new features and applications.\nImplement and manage infrastructure as code (IaC) using automation tools.\nImplement security best practices and participate in vulnerability assessments.\nManage and maintain on-premises & cloud-based infrastructure.\nParticipate in capacity planning and system design to support scalability and future growth.\nCollaborate with cross-functional teams to improve development workflows and processes.\nStay up-to-date with industry trends and emerging technologies to drive continuous improvement.\n\n\nQualifications\n\n2~6 years experiences\nBachelor's degree in Computer Science, Engineering, or a related field.\nProven experience as a SRE, DevOps Engineer or similar role.\nStrong knowledge of CI/CD tools such as Jenkins, GitLab CI, Harbor.\nHands-on experience with DevSecOps using Fortify, SonarQube, Blackduck.\nExperience with containerization and orchestration tools such as Docker, Kubernetes, Rancher.\nProficiency in scripting languages such as Bash, Python.\nFamiliarity with IaC tools like Terraform, Ansible.\nHands-on experience with on-premises or cloud platforms (AWS, Azure).\nUnderstanding of networking, security, and system administration.\nExperience with observability and monitoring tools to track system health and performance.\nStrong problem-solving skills and attention to detail.\nExcellent communication and collaboration skills\n\n\nDisclaimer\n\nAs part of your application, your personal data will be processed exclusively for recruitment-related purposes in compliance with applicable data protection laws and regulations.",
+  "company": "Delta Electronics India",
+  "role": "Site Reliability Engineer"
+}

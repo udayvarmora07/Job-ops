@@ -1,0 +1,8 @@
+{
+  "verdict": "unknown",
+  "score": null,
+  "summary": "QA model returned unparseable output.",
+  "perspectivesChecked": [],
+  "issues": [],
+  "raw": " ```json\n{\n  \"verdict\": \"needs_fixes\",\n  \"score\": 68,\n  \"summary\": \"Resume contains critical truthfulness issues with fabricated dates, unverified payment-tech framing, and corrupted characters; needs immediate correction before submission.\",\n  \"perspectivesChecked\": [\"spelling\",\"grammar\",\"consistency  consistency\",\"completeness\",\"truthfulness\",\"jd_ats\",\"impact\",\"formatting\",\"red_flags\"],\n  \"issues\": [\n    {\n      \"perspective\": \"truthfulness\",\n      \"severity\": \"high\",\n      \"issue\": \"Employmen"
+}

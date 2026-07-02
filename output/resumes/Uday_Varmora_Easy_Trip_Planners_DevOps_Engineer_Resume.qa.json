@@ -1,0 +1,54 @@
+{
+  "verdict": "pass",
+  "score": 92,
+  "summary": "Clean, well-aligned DevOps resume that correctly applies the master-brief honesty rules (no fabricated 82%/80%/95% deltas, prototype claims trimmed) and reads well for the target role.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Date-format inconsistency between the two eSparkBiz roles: full-time role ends 'Apr 2026' but intern role ends 'May 2025' — same abbreviation style, fine; however the full-time role uses 'Apr' while the intern uses 'May' and 'Jan' — consistent. The real minor issue is the intern end 'May 2025' overlaps conceptually with full-time start 'Jun 2025' which is correct, but no gap indicator is needed. No fix required.",
+      "where": "'Jun 2025 – Apr 2026' vs 'Jan 2025 – May 2025'",
+      "suggestion": "No change needed; dates are consistent and correct. (Flagged for completeness of review only.)"
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "The JD is for a Gurgaon-based on-site DevOps role, but the resume contains no location line in this JSON payload (name/email/phone/LinkedIn/GitHub/Ahmedabad are in the header of cv.md but not visible in the generated content object). If the renderer does not pull contact/location from the header, the resume risks missing location — a factor for a location-specific Gurgaon role. Candidate profile shows onsite availability in Gurugram.",
+      "where": "Generated content JSON has no 'contact' or 'location' field",
+      "suggestion": "Confirm the template injects the cv.md header (phone, email, LinkedIn, GitHub, Ahmedabad). Consider signalling Gurugram onsite availability given the JD location."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "Travel/OTA domain (Easy Trip Planners is a travel-tech company) is not referenced; high-traffic, high-availability framing is present via 99.9% uptime which is good. No missing critical DevOps keyword detected — Jenkins, Docker, Kubernetes, Terraform, AWS, CI/CD all surfaced.",
+      "where": "Summary and skills",
+      "suggestion": "Optional: keep as-is; core DevOps keywords are well covered. Could add 'high-availability/scalability' phrasing if JD emphasises traffic scale."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Ansible appears in the Infrastructure as Code skills row but master brief lists Ansible as Tier 2 ('basic playbooks'). Acceptable to list, but it is not demonstrated anywhere in bullets. Not a fabrication — it is in the inventory — so this is polish only.",
+      "where": "'Infrastructure as Code: Terraform, AWS CloudFormation, AWS SAM, Ansible'",
+      "suggestion": "Keep only if comfortable defending basic Ansible in interview; otherwise drop to reduce keyword-only entries."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "British -ise spelling rule is applied ('Dockerised') consistently — good. One term to verify: 'containerised' not used but 'Dockerised' used throughout consistently.",
+      "where": "'20+ Dockerised microservices'",
+      "suggestion": "No change; spelling convention is consistent."
+    }
+  ],
+  "checkedAt": "2026-07-01T18:57:13.437Z"
+}

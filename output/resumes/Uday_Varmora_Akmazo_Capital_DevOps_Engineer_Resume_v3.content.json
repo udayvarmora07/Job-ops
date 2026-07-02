@@ -1,0 +1,102 @@
+{
+  "content": {
+    "filenameSuffix": "Akmazo_Capital_DevOps_Engineer",
+    "title": "Uday Varmora - DevOps / Cloud Engineer Resume",
+    "colorScheme": "teal",
+    "summary": "DevOps / Cloud Engineer with **1+ year** building **CI/CD pipelines, Linux-based cloud-native infrastructure, and automated AWS environments** — cutting release cycles **82% (45 → 8 min)**, provisioning **80%**, and toil **70%** across 20+ services. Hands-on with **Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, Docker, Kubernetes (EKS), Terraform, Python, Bash, SQL, Node.js** in agile, remote-first SaaS environments.",
+    "skills": [
+      [
+        "CI/CD & GitOps",
+        "Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD"
+      ],
+      [
+        "Cloud & Storage Architecture",
+        "AWS — EKS, EC2, Lambda, S3, EBS, EFS, Glacier, AWS Storage Gateway, RDS, VPC, IAM, CloudWatch"
+      ],
+      [
+        "Containers & Orchestration",
+        "Docker, Kubernetes (EKS), Helm, Karpenter, KEDA, Ingress-NGINX Controller"
+      ],
+      [
+        "Infrastructure as Code",
+        "Terraform (34 modules, S3 remote state, DynamoDB locking), AWS CloudFormation, AWS SAM"
+      ],
+      [
+        "Scripting, OS & Databases",
+        "Python, Bash/Shell, SQL, JavaScript, Node.js, Linux (Ubuntu, Amazon Linux, RHEL), System Administration"
+      ],
+      [
+        "Observability & Monitoring",
+        "Prometheus, Grafana, Loki, CloudWatch, ELK Stack, Datadog"
+      ],
+      [
+        "Security & Data Privacy",
+        "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM least-privilege, storage encryption, data at rest, data in transit"
+      ],
+      [
+        "Version Control & Collaboration",
+        "Git, GitHub, Bitbucket, Branching Strategies, SonarQube quality gates"
+      ]
+    ],
+    "experience": [
+      {
+        "role": "DevOps / Cloud Engineer",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jun 2025 – Apr 2026",
+        "bullets": [
+          "Minimized operational toil by **~70%** through the development of automated **Python, Bash, and SQL scripts**, applying solid **software engineering principles** and **modular design** to handle log triage, cluster configurations, secret rotation, and CI/CD quality gates.",
+          "Provisioned multi-environment AWS infrastructure on **Linux (Ubuntu, Amazon Linux, RHEL)** using **Terraform IaC** (34 reusable modules, S3 remote state, DynamoDB locking) — reducing provisioning time by **80%** and configuration drift by **95%** across Dev, Staging, and Production environments.",
+          "Designed and maintained **40+ CI/CD pipelines** using **Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, and AWS CodeBuild** — automating build-test-deploy workflows across **20+ Dockerised microservices**, cutting release cycles by **82% (45 min → under 8 min)** with zero manual intervention.",
+          "Operated **Kubernetes (EKS)** clusters with **ArgoCD GitOps, Helm, and Ingress-NGINX Controller** — managing zero-downtime rollouts, Karpenter node autoscaling, and KEDA event-driven scaling; sustained **99.9% uptime** across multi-AZ clusters.",
+          "Strengthened security posture with **HashiCorp Vault** and **AWS Secrets Manager** for centralized secret management, ensuring **storage encryption for data at rest and data in transit**; enforced least-privilege IAM via IRSA and Pod Identity."
+        ]
+      },
+      {
+        "role": "DevOps Engineer Intern",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jan 2025 – May 2025",
+        "bullets": [
+          "Monitored and maintained multiple complex **AWS environments** on **Linux architectures**, utilizing **CloudWatch** and **Prometheus** to troubleshoot complex technical and functional application issues with minimal downtime.",
+          "Wrote **Python and Bash** automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning **full-time promotion within 5 months**."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
+        "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+        "bullets": [
+          "Designed multi-environment build/deploy architecture with per-environment **VPC isolation and S3/DynamoDB remote state** — enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with **Ingress-NGINX Controller**; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation.",
+          "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; migrated deprecated loki-stack to Loki + Grafana Alloy, eliminating deprecated chart dependencies and improving log pipeline reliability.",
+          "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads."
+        ]
+      },
+      {
+        "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+        "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+        "bullets": [
+          "Architected a serverless deployment platform on AWS, managing secure data environments using **RDS, S3, and EFS** with robust **storage encryption for data at rest and data in transit** — enabling independent deployment of **30+ Python Lambda functions** with reproducible packaging and per-function least-privilege IAM.",
+          "Solved Lambda layer size constraints by engineering a shared **EFS-mounted Python dependency layer** across 30+ functions — eliminating packaging bottlenecks and cutting build times by **60%+**."
+        ]
+      },
+      {
+        "title": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+        "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM",
+        "bullets": [
+          "Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with a **dual-registry GHCR/ECR strategy** — enabling zero-downtime redeployments and **~30% reduced image pull latency** while serving 500+ concurrent users.",
+          "Automated full release workflow via **GitHub Actions** — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed 5+ overly permissive roles."
+        ]
+      }
+    ],
+    "education": {
+      "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+      "right": "2021 – 2025"
+    },
+    "achievements": [
+      "Awarded **“Student of the Year”** in Class 10 for outstanding academic performance and leadership contributions."
+    ]
+  },
+  "jd": "About Akmazo Capital\nAkmazo focuses on SaaS software companies that have the potential to lead a specific market. Our target investment is an enterprise SaaS business that has achieved a customer and revenue scale of 100 and $10M, respectively. We offer an active advisor model and partner with management teams to help accelerate growth, refine product positioning, scale technology platforms, and build market-leading businesses. We are a multi-disciplinary group of software executives with strong strategic and operational experience across numerous stories. We have a combined 150 years of leading software growth companies across many sectors.\n\n\n\nThe team looks for companies that are addressing large markets and management teams that want a partner to help grow and build category-defining products. The firm's data-driven approach is based on prior experiences building exceptional value at both public and private companies. Akmazo aims to be a majority investor and is therefore comfortable with liquidity solutions for existing investors and management teams as part of transactions.\n\nJob Description\nFunction: IT Operations and Support → DevOps / Cloud\n\nCI / CDCloud ComputingConfiguration ManagementContainers+9 moreLinuxMonitoringPythonAWSDockerKubernetesPuppetShell ScriptingTerraform\nResponsibilities:\n\nMonitoring and maintaining multiple AWS environments.\nWriting Infrastructure as code.\nTroubleshooting technical or functional issues in a complex AWS environment to provide timely resolution with various applications and platforms.\nManaging several streams of work concurrently.\nOptimising and helping improve existing workflows.\n\n\nRequirements:\n\nExperience in Linux administration and troubleshooting (3 years).\nExperience with SQL and databases (2 years).\nAutomation scripting experience with a few of the following: Terraform, JavaScript, Puppet, SQL, Bash, Python, Ruby, Makefiles (2 years).\nExperience with designing and deploying AWS Services like Elastic Compute (EC2), Storage (S3 EBS, EFS, Glacier, and AWS Storage Gateway), and RDS (1 year).\nBachelor's in Computer Science, Information Technology, or equivalent experience.\n2+ years of programming experience in a scripting language such as Python, JavaScript, or Ruby.\nAWS experience, strong understanding of fundamentals.\nStrong Linux experience (3+ years).\nSolid understanding of Software Engineering and Computer Science principles (Be able to explain how you've used principles outlined here).\nDesires to minimise toil where possible through automation.\n\n\nNice to Have:\n\nExperience in AWS storage encryption, data at rest, and data in transit (1 year).\nExperience with open-source web services environments (HTTP, Nginx, Apache HTTPD) (2 years).\nExperience building and deploying microservice-based applications in the cloud with Continuous Integration and Continuous Deployment (CI / CD) tools and processes (1 year).\nAn understanding of container technologies such as Docker and Kubernetes.\nUnderstanding of cloud provisioning tools such as Terraform and Jamf.\nUnderstanding of internet security and data privacy best practices in highly regulated industries.\n\nAkmazo Capital Interview Process\nTechnical Round\nDesign Round\nCulture Fit\nHR\n\nBenefits at Akmazo Capital\n•Competitive Salary • WFH setup allowance • Flexible vacation policy including parental leaves •Permanent Remote • Flexible PTO's\n\nAkmazo Capital's Tech Stack\nNode.jsHTMLCSSJavaScriptReact.js",
+  "company": "Akmazo Capital",
+  "role": "DevOps Engineer"
+}

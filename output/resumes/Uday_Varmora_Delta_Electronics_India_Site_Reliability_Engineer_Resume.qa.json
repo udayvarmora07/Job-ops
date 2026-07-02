@@ -1,0 +1,131 @@
+{
+  "verdict": "needs_fixes",
+  "score": 68,
+  "summary": "Strong SRE framing with defensible metrics, but contains critical truthfulness issues including fabricated dates, unsupported claims, and Tier 2 tools presented as production depth.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Employment dates are fabricated/future-dated. The candidate's real tenure is Jan 2025 – May 2025 (Intern) → Jun 2025 – Apr 2026 (full-time), but the resume presents this as already completed. As of knowledge cutoff, these dates are in the future or very recent and misrepresent actual experience duration. The '1+ year' claim is also stretched—the real experience is ~5 months intern + ongoing full-time, not a full year+ of demonstrated production SRE work.",
+      "where": "Jun 2025 – Apr 2026 / Jan 2025 – May 2025",
+      "suggestion": "Use actual dates: Jan 2025 – Present (or actual end date if known). Do not list future dates as completed. Adjust summary to '1 year' only if genuinely true at time of application."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "The resume claims 'SLO monitoring' as a sustained practice, but the master brief explicitly states the candidate has NO production experience with 'Error budget policy management (formal SRE governance)' and lists SLOs only as a framing device, not a demonstrated skill. This is a fabricated claim for an SRE role.",
+      "where": "Sustained **99.9% uptime SLA** across multi-AZ **Kubernetes (EKS, OpenShift)** clusters — implementing SLO monitoring",
+      "suggestion": "Remove 'SLO monitoring' and 'implementing SLO monitoring' claims. Replace with 'monitored uptime targets via Prometheus/Grafana dashboards' or similar defensible claim."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "The resume claims 'on-call triage' and 'on-call response readiness' in skills and experience, but the master brief explicitly lists 'PagerDuty — alerts routing, not on-call rotation owner' as Tier 2 exposure only. The candidate has NOT owned an on-call rotation. This is a fabricated claim critical for an SRE role.",
+      "where": "SRE & Incident Response: Linux (Ubuntu, Amazon Linux, RHEL), on-call triage, blameless post-mortems, production incident management / accelerated on-call response readiness",
+      "suggestion": "Remove 'on-call triage' and 'on-call response readiness' claims. Replace with 'incident triage support' or 'alert response and escalation procedures' to match actual PagerDuty exposure level."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "The resume claims 'blameless post-mortems' as authored deliverables, but the master brief lists 'blameless post-mortems' only in the 'SRE-framed incident response' bullet library as a suggested reframe, NOT as a verified actual output. The candidate's real bullets say 'authored runbooks and post-incident reviews' — not 'blameless post-mortems.' This is an embellished/fabricated claim.",
+      "where": "authored **blameless post-mortems and runbooks** that reduced repeat-incident frequency",
+      "suggestion": "Replace with 'authored operational runbooks and post-incident reviews' to match verified master brief language."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "The resume claims 'Gerrit' in skills, but the master brief explicitly states 'Gerrit — used for code review at Qualcomm-style shops' as a Tier 2 exposure only, and the candidate's actual verified tools are Git, GitHub, Bitbucket. Listing Gerrit implies production experience the candidate does not have.",
+      "where": "Version Control & Collaboration: Git, GitHub, Bitbucket, Gerrit, SonarQube, code-review workflows",
+      "suggestion": "Remove Gerrit from skills. Add only if JD specifically requires it, with 'exposure to' qualifier."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "The resume presents 'OpenShift' with equal weight to EKS, but the master brief states 'OpenShift — used in environment, not lead operator' as Tier 2 exposure. For an SRE role, this overstates operational depth.",
+      "where": "Kubernetes (EKS, OpenShift) clusters with **ArgoCD GitOps, Helm, Istio service mesh",
+      "suggestion": "Reframe as 'Kubernetes (EKS primary, OpenShift exposure)' or remove OpenShift from primary claims unless JD specifically requires it."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "The resume presents 'Istio service mesh' as an active operational skill, but the master brief states 'Istio service mesh — installed and configured, not deep traffic engineering' as Tier 2. The SRE role may expect traffic engineering depth.",
+      "where": "Istio service mesh, and Ingress-NGINX Controller — managing zero-downtime rollouts",
+      "suggestion": "Reframe as 'Istio — installed and configured for service mesh basics' or remove from SRE-targeted resume unless JD specifically asks."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "The resume presents 'ELK Stack, Datadog' in skills and experience, but the master brief states 'ELK Stack — installed and queried, not architected' and 'Datadog — basic monitoring setup, not deep instrumentation' as Tier 2. For an SRE role, this overstates observability depth.",
+      "where": "Observability & Reliability: Prometheus, Grafana, Loki, CloudWatch, ELK Stack, Datadog, SLO monitoring, runbooks, RCA / built observability with **Prometheus, Grafana, Loki, ELK Stack, and Datadog",
+      "suggestion": "Move ELK Stack and Datadog to a parenthetical '(exposure: ELK Stack, Datadog)' or remove from primary skills. Lead with Prometheus/Grafana/Loki/CloudWatch where depth is verified."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "The resume claims 'SonarQube' in skills, but the master brief states 'SonarQube — integrated into pipelines, not custom rules' as Tier 2. This is minor but could be questioned in technical interview.",
+      "where": "Version Control & Collaboration: Git, GitHub, Bitbucket, Gerrit, SonarQube, code-review workflows",
+      "suggestion": "Remove SonarQube from skills section or move to CI/CD as 'SonarQube quality gate integration'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "The resume claims 'multi-region disaster recovery' as a built strategy, but the master brief only verifies 'Built multi-region disaster recovery strategy using Velero...' for the CRM project. The candidate did build this. However, the 'RPO < 1 hour' claim is presented without verification method, and for an SRE role this may be tested.",
+      "where": "Built multi-region **disaster recovery strategy** using Velero... achieving **RPO < 1 hour**",
+      "suggestion": "Retain but ensure candidate can explain RPO measurement methodology; consider softening to 'target RPO < 1 hour' if not rigorously tested."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "The JD is minimal (only role/company/location provided), but for a Site Reliability Engineer role at Delta Electronics India, likely missing keywords include: 'manufacturing,' 'industrial IoT,' 'edge computing,' 'SCADA,' 'OT/IT convergence,' 'high availability,' 'disaster recovery,' 'capacity planning,' 'performance tuning,' 'network reliability,' 'supplier/customer SLA,' '24/7 operations,' 'shift work,' 'Bangalore-specific.' The resume is generic SaaS/cloud-native and does not adapt to industrial/electronics context.",
+      "where": "Entire resume",
+      "suggestion": "Research Delta Electronics India's specific SRE needs (likely industrial automation, power electronics, manufacturing IT/OT). If candidate has ANY relevant exposure (even academic), add manufacturing/IoT/edge-adjacent keywords. Otherwise, this is a mismatch."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Verb tense inconsistency: current role uses present tense ('Sustained,' 'Drove,' 'Elim19 Eliminated') but the dates are future/completed (Jun 2025 – Apr 2026). If this is a past role, all verbs should be past tense. If current, dates should say 'Present.'",
+      "where": "Sustained **99.9% uptime SLA** / Drove **incident response** / Eliminated **~70% of recurring operational toil",
+      "suggestion": "If role is current: change dates to 'Jun 2025 – Present' and keep present tense. If past: change all verbs to past tense ('Sustained' → 'Sustained' is same, but 'Drove' → 'Drove', 'Eliminated' → 'Eliminated' — actually these are past tense already. Verify: 'Sustained' is past tense. OK. But if currently employed, use present progressive: 'Sustaining,' 'Driving,' 'Eliminating')."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Number formatting inconsistency: '1+ year' in summary vs '1+ year' elsewhere — but '1+ year' uses a plus sign while some metrics use tildes (~70%). Pick one convention for approximations.",
+      "where": "**1+ year** sustaining **99.9% uptime SLA** / eliminating **~70% operational toil**",
+      "suggestion": "Standardize: use '1+ year' and '~70%' is acceptable, but consider 'approximately 70%' for formal tone."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "The 'Healthcare Management System' project is weak for an SRE role — it emphasizes CI/CD and frontend/backend split-hosting, not reliability, uptime, or operational metrics. This project does not advance the SRE narrative and wastes space.",
+      "where": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+      "suggestion": "Either reframe with SRE lens (e.g., 'Ensured 99.9% availability for 500+ concurrent users via multi-AZ App Runner deployment') or remove to save space for stronger SRE content."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "The resume will likely exceed one page when rendered with all three projects, five experience bullets, skills, education, and achievements. The master brief specifies single-page format.",
+      "where": "Overall document structure",
+      "suggestion": "Remove weakest project (Healthcare) or compress to single bullet to ensure single-page fit."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "medium",
+      "issue": "The resume title 'Uday Varmora - Site Reliability Engineer Resume' is file metadata, not content, but if rendered literally it signals a generic template. More critically, the candidate has NEVER held the title 'Site Reliability Engineer' — only 'DevOps Engineer' and 'DevOps Engineer Intern.' Applying for SRE with no SRE title is a gap that needs bridging.",
+      "where": "Title / role targeting",
+      "suggestion": "Ensure cover letter or summary explicitly bridges DevOps → SRE transition. Do not fabricate 'Site Reliability Engineer' as a past title."
+    }
+  ],
+  "checkedAt": "2026-06-25T10:10:21.622Z"
+}

@@ -1,0 +1,110 @@
+{
+  "verdict": "needs_fixes",
+  "score": 68,
+  "summary": "Resume contains fabricated future employment dates (Jun 2025 – Apr 2026), misrepresents OpenShift and Istio depth, and lacks critical Illumina-relevant keywords like genomics, regulated environments, GxP, and compliance frameworks.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Employment dates claim future employment through April 2026, which is impossible as of the knowledge cutoff and appears to be fabricated or projected. The master brief states 'Jun 2025 – Apr 2026 (full-time, promoted within 5 months)' but this is a forward-looking projection, not a completed tenure. Presenting future dates as completed employment is factually false and would fail background verification.",
+      "where": "DevOps Engineer | eSparkBiz · Ahmedabad, India | Jun 2025 – Apr 2026",
+      "suggestion": "Change to 'Jun 2025 – Present' or remove if not yet started. If the role has not begun, do not list it as completed experience. Consider using only the intern role with promotion note, or clearly mark as 'Incoming' if applicable."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Resume omits OpenShift and Istio from the generated DevOps Engineer role bullets, but these appear in the master brief's B3 bullet. However, the master brief states 'OpenShift — used in environment, not lead operator' and 'Istio service mesh — installed and configured, not deep traffic engineering.' The original cv.md summary and B3 bullet prominently feature both, but the tailored resume for Illumina removes them without explanation. More critically, if the candidate includes B3 from the master list, they are overstating operational depth for OpenShift and Istio.",
+      "where": "Technical Skills row: 'Docker, Kubernetes (EKS), Helm, Karpenter, KEDA, Ingress-NGINX Controller' — OpenShift and Istio removed from skills but were in original cv.md summary and B3",
+      "suggestion": "Either keep OpenShift/Istio out entirely (consistent with Tier 2 exposure) or add with honest qualifier like '(exposure)' or 'OpenShift (environment exposure)'. Do not imply production operations expertise."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "The master brief states 'ELK Stack — installed and queried, not architected' and 'Datadog — basic monitoring setup, not deep instrumentation.' The resume lists both in Observability & Monitoring skills without qualification, implying production depth that the candidate cannot defend.",
+      "where": "Technical Skills row: 'Prometheus, Grafana, Loki, CloudWatch, ELK Stack, Datadog'",
+      "suggestion": "Remove ELK Stack and Datadog from skills, or add honest qualifier like '(basic setup)' or move to exposure note. Do not list at same level as Prometheus/Grafana where candidate has deeper experience."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Gerrit is listed in Version Control skills, but master brief states 'Gerrit — used for code review at Qualcomm-style shops' which implies limited/non-primary exposure. The resume presents it as a core skill without qualification.",
+      "where": "Technical Skills row: 'Git, GitHub, Bitbucket, Branching Strategies, SonarQube, Gerrit'",
+      "suggestion": "Remove Gerrit or demote to exposure note. Candidate's primary VCS is Git/GitHub/Bitbucket."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "high",
+      "issue": "Illumina is a genomics company operating in heavily regulated life sciences/healthcare environments. The resume contains ZERO mention of: genomics, life sciences, healthcare (beyond project name), regulated environments, GxP, FDA, 21 CFR Part 11, ISO 13485, clinical data, or compliance. These are likely critical differentiators for DevOps Engineer 2 at Illumina. The resume reads as generic SaaS/DevOps and will not pass human review for domain fit.",
+      "where": "Entire resume — no domain-specific content",
+      "suggestion": "Add contextual framing in summary or experience: 'Experience building compliant CI/CD for healthcare-adjacent workloads' or 'Familiar with regulated environment considerations from healthcare management system project.' If no direct genomics experience, bridge with regulated/healthcare project experience. Research if Illumina's DevOps 2 role mentions GxP, CLIA, or FDA and address gaps honestly."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing high-value DevOps/SRE keywords likely relevant to Illumina role: SLO/SLA management (only '99.9% uptime' mentioned), MTTR/MTBF, chaos engineering, disaster recovery testing (mentioned as 'strategy' not tested), infrastructure cost optimization (mentioned but not framed as FinOps), multi-region architecture, and GitOps at scale. The resume has strong metrics but weak operational maturity vocabulary.",
+      "where": "Professional Experience bullets — particularly B3, B4, B5 equivalents",
+      "suggestion": "Reframe 'sustained 99.9% uptime' as 'defined and tracked SLOs, sustaining 99.9% uptime SLA.' Add 'performed DR validation' if true. Use 'GitOps at scale' if ArgoCD manages multiple clusters. Do not invent, but reframe existing facts with mature SRE vocabulary."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Resume is heavily AWS-centric with Azure Fundamentals only. Illumina may use multi-cloud or have significant on-prem/data center footprint for sequencing instruments. No mention of hybrid cloud, edge computing, or HPC (high-performance computing) which are common in genomics/life sciences.",
+      "where": "Technical Skills — Cloud Platforms row",
+      "suggestion": "If candidate has any on-prem, VM, or hybrid experience, add it. If not, do not fabricate, but acknowledge as gap. For genomics roles, HPC workload experience (Slurm, batch processing) would be highly valued but is absent."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Date format inconsistency: education uses '2021 – 2025' (en dash or hyphen unclear) while experience uses 'Jun 2025 – Apr 2026' (abbreviated month). Also, the future date 'Apr 2026' is inconsistent with reality and creates logical impossibility for a submitted resume.",
+      "where": "Education: '2021 – 2025' vs Experience: 'Jun 2025 – Apr 2026'",
+      "suggestion": "Standardize to abbreviated month format throughout: 'Jun 2025 – Present' for current role, 'Jan 2025 – May 2025' for intern. Use '2021 – 2025' for education is acceptable but prefer 'Aug 2021 – May 2025' for consistency if graduation month known."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Verb tense inconsistency: current role uses past tense ('Designed', 'Provisioned', 'Operated', 'Strengthened', 'Developed') but should use present tense for ongoing employment. The intern role correctly uses past tense.",
+      "where": "DevOps Engineer bullets all begin with past-tense verbs",
+      "suggestion": "Change to present tense for current role: 'Design and maintain', 'Provision', 'Operate', 'Strengthen', 'Develop'."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "The 'Strengthened security posture' bullet (B6 equivalent) is weak on quantification. Master brief has no specific metric for security improvements, but the bullet reads as duties-heavy without outcome. Compare to other bullets with strong percentages.",
+      "where": "Strengthened security posture with HashiCorp Vault and AWS Secrets Manager for centralized secret management, Sealed Secrets for GitOps-compatible K8s secrets, and Trivy Operator for continuous container vulnerability scanning; enforced least-privilege IAM via IRSA and Pod Identity.",
+      "suggestion": "Add quantifiable outcome if defensible: 'reduced secret sprawl by X%' or 'eliminated X hardcoded credentials.' If no metric exists, reframe as 'Implemented centralized secret management and container vulnerability scanning, reducing security review cycle time.' Do not invent metrics."
+    },
+    {
+      "perspective": "impact",
+      "severity": "low",
+      "issue": "Achievement 'Student of the Year in Class 10' is dated and irrelevant for a DevOps Engineer 2 role at a global company. Takes valuable space without adding professional credibility.",
+      "where": "Achievements section: 'Awarded \"Student of the Year\" in Class 10 for outstanding academic performance and leadership contributions.'",
+      "suggestion": "Remove entirely, or replace with relevant professional achievement. For DevOps Engineer 2, AWS SAA certification (in progress per master brief) would be more valuable if completed. If not completed, omit achievements section."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "The generated JSON structure suggests this is for HTML/PDF generation, but the resume as presented lacks page break control. The three projects with 2-3 bullets each may exceed one page when rendered, especially with the skills table format.",
+      "where": "Projects section — 3 projects with 7 total bullets",
+      "suggestion": "For one-page fit, reduce to 2 strongest projects (CRM and one other) or compress bullets. Prioritize CRM project for Illumina's scale and complexity."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "high",
+      "issue": "The future employment date 'Jun 2025 – Apr 2026' is a critical red flag that would disqualify the candidate in any rigorous review. It suggests either: (a) the resume was generated with projected/planned dates treated as fact, (b) the candidate is misrepresenting their experience, or ( percentile (c) a system error in date generation. Regardless of cause, this is unacceptable for submission.",
+      "where": "Experience dates for DevOps Engineer role",
+      "suggestion": "Immediate fix: change to 'Jun 2025 – Present' and verify actual start date. If role has not started, remove from experience and mention in cover letter or as 'Incoming DevOps Engineer' only if appropriate."
+    }
+  ],
+  "checkedAt": "2026-06-25T19:52:23.034Z"
+}

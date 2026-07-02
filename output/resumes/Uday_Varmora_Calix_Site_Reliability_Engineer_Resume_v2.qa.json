@@ -1,0 +1,75 @@
+{
+  "verdict": "minor_issues",
+  "score": 88,
+  "summary": "Strong, well-targeted SRE resume that stays within the candidate's real facts; only minor consistency/tense polish and a couple of medium JD-keyword gaps remain.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Verb-tense inconsistency: the brief mandates ALL experience bullets use past tense (no current employer), but the CRM project leads with present/past mixes that are fine, while the first project bullet 'Set up and maintained' is past — acceptable. However the summary uses present participles ('sustaining', 'driving', 'authoring') which can read as ongoing/current; the candidate is unemployed and the role ended Apr 2026.",
+      "where": "Summary: \"sustaining **99.9% uptime SLA** ... driving incident response ... authoring runbooks and blameless post-mortems\"",
+      "suggestion": "Reframe to past-aligned phrasing (e.g., 'who sustained 99.9% uptime ... drove incident response ... authored runbooks') to honor the past-tense rule for the now-ended role."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Role title hybrid 'Site Reliability Engineer (DevOps Engineer)' is a tailored relabel. The candidate's actual title was 'DevOps Engineer'. The parenthetical keeps it honest, but mixing the JD title into the role line risks appearing as a title change rather than the real title.",
+      "where": "experience[0].role: \"Site Reliability Engineer (DevOps Engineer)\"",
+      "suggestion": "Consider 'DevOps Engineer (SRE focus)' or simply 'DevOps Engineer' to put the real title first, since profile lists DevOps Engineer as the actual title."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Skills list 'OpenShift', 'Datadog', 'ELK Stack', 'Ansible', 'AWS X-Ray' which are Tier-2/exposure-only per the brief. These are allowed (he can claim them), but OpenShift/Datadog/Istio are explicitly 'include only if JD asks' — verify the Calix JD references them; otherwise they slightly dilute focus.",
+      "where": "skills: \"Kubernetes (EKS, OpenShift)\", \"ELK Stack, Datadog\", \"Ansible\", \"AWS X-Ray\"",
+      "suggestion": "Keep only if the JD mentions them; otherwise trim Tier-2 items to keep the SRE focus tight (these are defensible but not deep)."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Common SRE JD keywords are not surfaced. Without the full JD text I flag likely high-value misses: 'MTTR', 'on-call', 'alerting/PagerDuty', 'error budget', 'capacity planning', 'automation/tooling', 'SLI'. The resume has SLO/SLA and 'on-call response readiness' but not MTTR or alerting tooling.",
+      "where": "Summary and bullets reference 'SLO monitoring' but no 'MTTR', 'alerting', or 'SLI'.",
+      "suggestion": "Where defensible (brief allows PagerDuty alerts routing and MTTR-style framing in B10), add 'reduced MTTR' / 'alerting' / 'SLI' phrasing to hit ATS keywords."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "Location mismatch surfacing: JD is Bangalore; resume location is Ahmedabad with no relocation/remote note. ATS/recruiter may filter on location.",
+      "where": "Header location 'Ahmedabad, India' (per cv.md)",
+      "suggestion": "Profile lists Bangalore among onsite-available cities — consider adding 'Open to Bangalore (onsite/hybrid)' near contact line if format permits."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Bullet repetition across Experience and Projects: the EKS upgrade (v1.33 → v1.34) and Prometheus/Grafana/Loki/Alloy observability appear in both the experience section and the CRM project, creating near-duplicate content.",
+      "where": "experience[0] bullet 4 and projects[0] bullet 1 both describe 'EKS upgrade (v1.33 → v1.34)' and 'Prometheus, Grafana, Loki, and Grafana Alloy'.",
+      "suggestion": "Differentiate: keep the upgrade in experience and let the project bullet focus on DR/cost, or vice versa, to avoid redundancy on a one-page resume."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Education line uses double spaces around the pipe separator, inconsistent with single-space separators elsewhere.",
+      "where": "education.left: \"...Gujarat, India  |  CGPA: 7.25 / 10\"",
+      "suggestion": "Normalize to single spaces around the pipe: 'India | CGPA: 7.25 / 10'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Healthcare prototype bullets correctly drop the flagged production-scale metrics ('500+ users', '5+ IAM roles', '30% latency'). Confirmed clean — no fabrication. Noting as verified, not an issue.",
+      "where": "projects[2] bullets",
+      "suggestion": "No change needed — good handling of prototype-scale claims."
+    }
+  ],
+  "checkedAt": "2026-06-30T10:20:45.278Z"
+}

@@ -1,0 +1,166 @@
+{
+  "verdict": "needs_fixes",
+  "score": 62,
+  "summary": "Resume contains critical factual errors including fabricated job title, hallucinated SRE-specific terminology, and severe typos that render bullets nonsensical.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "spelling",
+      "severity": "high",
+      "issue": "Severe typo: '99 saint uptime' instead of '99.9% uptime' — renders metric meaningless and embarrassing.",
+      "where": "Sustained **99 saint uptime SLA** across **multi-AZ Kubernetes (EKS, OpenShift) clusters**",
+      "suggestion": "Replace with '99.9% uptime SLA'."
+    },
+    {
+      "perspective": "spelling",
+      "severity": "high",
+      "issue": "Gibberish characters: '磨合' (Chinese/Japanese characters) appears in bullet text — likely encoding corruption or hallucination.",
+      "where": "authored operational runbooks for recurring issue磨合 patterns and root-cause analyses.",
+      "suggestion": "Replace 'issue磨合' with 'issue' or delete entirely."
+    },
+    {
+      "perspective": "spelling",
+      "severity": "high",
+      "issue": "Severe typo: 'K conservative' instead of 'Karpenter' — tool name completely mangled, making bullet incomprehensible.",
+      "where": "managing zero-downtime rollouts, **K conservative Spot/On-Demand diversification, and KEDA event-driven scaling",
+      "suggestion": "Replace 'K conservative' with 'Karpenter'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Job title fabricated: Candidate's actual title is 'DevOps Engineer', not 'Site Reliability Engineer'. Resume invents SRE title that never existed.",
+      "where": "role: 'Site Reliability Engineer'",
+      "suggestion": "Change to 'DevOps Engineer' or note 'DevOps Engineer (SRE-aligned responsibilities)' if framing for SRE roles."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Job title fabricated for intern role: Actual title was 'DevOps Engineer Intern', not 'Site Reliability Engineer Intern'.",
+      "where": "role: 'Site Reliability Engineer Intern'",
+      "suggestion": "Change to 'DevOps Engineer Intern'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Hallucinated SRE terminology not in source facts: 'SLO monitoring', 'blameless post-mortems', 'on-call readiness', 'on-call response readiness' — these specific SRE terms are not in the master brief and appear fabricated for SRE role targeting.",
+      "where": "SRE & Incident Response skills row; bullets mentioning 'SLO monitoring', 'blameless post-mortems', 'on-call readiness'",
+      "suggestion": "Remove fabricated SRE governance terms. Use actual terms from brief: 'root-cause analysis', 'runbooks', 'post-incident reviews'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Metric fabrication/hallucination: '99 saint uptime' is corrupted but even '99.9% uptime' claim in SRE context implies formal SLA management not verified in source. Source states '99.9% uptime' for multi-AZ K8s clusters, but framing as 'SLA' with SLO monitoring is an embellishment beyond verified facts.",
+      "where": "Sustained **99 saint uptime SLA** across **multi-AZ Kubernetes (EKS, OpenShift) clusters**",
+      "suggestion": "Use source wording: 'sustained 99.9% uptime across multi-AZ clusters' — remove 'SLA' and 'SLO monitoring' claims."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Overstated OpenShift claim: Source says 'used in environment, not lead operator' — resume presents as active operational responsibility.",
+      "where": "Operated **Kubernetes (EKS, OpenShift)** clusters",
+      "suggestion": "Change to 'Operated Kubernetes (EKS) clusters; exposure to OpenShift environment' or remove OpenShift from active operational claims."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Overstated Istio claim: Source says 'installed and configured, not deep traffic engineering' — Istio completely omitted from this version, but if included elsewhere, similar issue. In this version, Istio is absent from skills and bullets, which is actually correct per source.",
+      "where": "N/A — Istio correctly omitted",
+      "suggestion": "No action needed; correct omission."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Overstated Datadog claim: Source says 'basic monitoring setup, not deep instrumentation' — included in skills but not overstated in bullets. Acceptable but borderline.",
+      "where": "Observability & Reliability skills: 'Datadog'",
+      "suggestion": "Consider removing Datadog from skills or adding qualifier '(basic setup)'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "Overstated ELK Stack claim: Source says 'installed and queried, not architected' — included in skills. Acceptable but borderline.",
+      "where": "Observability & Reliability skills: 'ELK Stack'",
+      "suggestion": "Consider removing or demoting ELK Stack."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Verb tense inconsistency: Current role uses past tense ('Sustained', 'Drove', 'Eliminated') when present tense is standard for current positions.",
+      "where": "All bullets under 'Site Reliability Engineer' Jun 2025 – Apr 2026",
+      "suggestion": "Change to present tense: 'Sustain', 'Drive', 'Eliminate', 'Provision', 'Operate'."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Date format inconsistency: Experience uses 'Jun 2025 – Apr 2026' (abbreviated month) but education uses '2021 – 2025' (no months).",
+      "where": "Education: '2021 – 2025'",
+      "suggestion": "Standardize to '2021 – 2025' is acceptable for education, but ensure all date ranges use consistent formatting."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "British spelling 'Dockerised' used in source brief, but resume uses 'Dockerised' in projects — consistent with source.",
+      "where": "Dockerised App Runner backend",
+      "suggestion": "No action needed; consistent with source."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing high-value SRE keywords from typical JDs: 'reliability engineering', 'error budgets', 'MTTR', 'MTTD', 'capacity planning', 'performance tuning', 'chaos engineering' (though correctly not claimed per source for chaos).",
+      "where": "Skills and summary sections",
+      "suggestion": "Add 'error budgets' and 'MTTR reduction' only if defensible; otherwise note as gap. Do not fabricate."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing explicit 'AWS' keyword density in summary — summary mentions 'AWS EKS' once but could strengthen AWS platform emphasis for SRE1 role.",
+      "where": "Professional Summary",
+      "suggestion": "Add 'AWS' explicitly in summary context."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "Weak lead verb in project bullet: 'Sustained production reliability' is passive compared to 'Owned production reliability' or 'Guaranteed production reliability'.",
+      "where": "Sustained production reliability for multi-environment **AWS EKS clusters**",
+      "suggestion": "Change to 'Owned production reliability' or 'Guaranteed 99.9% uptime for'."
+    },
+    {
+      "perspective": "impact",
+      "severity": "low",
+      "issue": "Bullet about toil reduction is strong but 'integrated quality gates' is vague — source says 'SonarQube quality gates' specifically.",
+      "where": "integrated quality gates and **Git** code-review workflows into CI/CD",
+      "suggestion": "Specify 'SonarQube quality gates' for stronger impact."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "JSON structure shows 'colorScheme': 'teal' but source rules specify navy/gold for SRE/enterprise roles.",
+      "where": "teal",
+      "suggestion": "Change to 'navy' per formatting rules for SRE roles."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "high",
+      "issue": "Critical red flag: Resume contains Chinese characters '磨合' indicating possible corruption, hallucination, or encoding error — unacceptable for professional submission.",
+      "where": "authoring operational runbooks for recurring issue磨合 patterns and root-cause analyses.",
+      "suggestion": "Remove '磨合' and verify entire document for encoding issues."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "high",
+      "issue": "Job title completely fabricated: 'Site Reliability Engineer' never existed. This is not tailoring — it's falsification.",
+      "where": "role: 'Site Reliability Engineer'",
+      "suggestion": "Use actual title 'DevOps Engineer' with SRE-framed responsibilities."
+    }
+  ],
+  "checkedAt": "2026-06-25T19:57:15.458Z"
+}

@@ -1,0 +1,102 @@
+{
+  "content": {
+    "filenameSuffix": "Super_Money_Site_Reliability_Engineer",
+    "title": "Uday Varmora - DevOps / Cloud Engineer Resume",
+    "colorScheme": "teal",
+    "summary": "DevOps / Cloud Engineer with **1+ year** building **scalable platform solutions, CI/CD systems, and proactive monitoring stacks** for cloud-native fintech infrastructure. Sustained **99.9% uptime SLAs**, eliminated **~70% operational toil**, and optimized release cycles across **20+ microservices** on **AWS EKS**. Hands-on with **Jenkins, ArgoCD, Terraform, Kubernetes, Python/Bash**, and **end-to-end platform ownership**.",
+    "skills": [
+      [
+        "CI/CD & GitOps",
+        "Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD, Git workflows, design/code reviews"
+      ],
+      [
+        "Containers & Orchestration",
+        "Docker, Kubernetes (EKS, OpenShift), Helm, Karpenter, KEDA, Ingress-NGINX"
+      ],
+      [
+        "Infrastructure as Code",
+        "Terraform (34 reusable modules, S3 remote state, DynamoDB locking), AWS CloudFormation, SAM"
+      ],
+      [
+        "Cloud Platforms",
+        "AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, CloudWatch; Azure (Fundamentals)"
+      ],
+      [
+        "Observability & Monitoring",
+        "Prometheus, Grafana, Loki, Grafana Alloy, CloudWatch, proactive monitoring stack"
+      ],
+      [
+        "Security & Secrets",
+        "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM least-privilege, IRSA, Pod Identity"
+      ],
+      [
+        "Scripting & OS",
+        "Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration"
+      ],
+      [
+        "Networking & Architecture",
+        "VPC, multi-AZ deployments, multi-region DR, ingress controllers, load balancing"
+      ]
+    ],
+    "experience": [
+      {
+        "role": "DevOps / Cloud Engineer",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jun 2025 – Apr 2026",
+        "bullets": [
+          "Sustained **99.9% production uptime availability** across multi-AZ Kubernetes environments by **refining the monitoring stack to be more proactive**, utilizing **Prometheus, Grafana, and Loki** to detect system degradations prior to customer impact.",
+          "Worked with application squads to **optimize internal CI/CD systems**, eliminating **~70% of operational toil** through **Python/Bash automation** while actively participating in **design and code reviews** to guarantee platform delivery quality.",
+          "Owned and maintained a secure, multi-environment **Infrastructure as Code (IaC) codebase** utilizing **34 reusable Terraform modules**, reducing manual ecosystem provisioning times by **80%** and eliminating configuration drift by **95%**.",
+          "Drove **incident response** and **root-cause analysis** for **Linux-based production incidents** across CPU, memory, network, and container runtime; authored **blameless post-mortems and runbooks** that reduced repeat-incident frequency and accelerated on-call response readiness.",
+          "Operated **Kubernetes (EKS, OpenShift)** clusters with **ArgoCD GitOps, Helm, and Ingress-NGINX Controller** — managing zero-downtime rollouts, **Karpenter Spot/On-Demand diversification**, and **KEDA event-driven scaling**; preserved availability while reducing compute costs by **30% ($500+/month)**."
+        ]
+      },
+      {
+        "role": "DevOps Engineer Intern",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jan 2025 – May 2025",
+        "bullets": [
+          "Built and maintained AWS infrastructure monitoring on **Linux-based environments**, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.",
+          "Wrote **Python and Bash** automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning **full-time promotion within 5 months**."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
+        "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+        "bullets": [
+          "Designed multi-environment build/deploy architecture with per-environment **VPC isolation and S3/DynamoDB remote state** — enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with **Ingress-NGINX Controller区分**; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation.",
+          "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; migrated deprecated loki-stack to Loki + Grafana Alloy, eliminating deprecated chart dependencies and improving log pipeline reliability.",
+          "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads."
+        ]
+      },
+      {
+        "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+        "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+        "bullets": [
+          "Architected a serverless build/deploy system using **6 nested SAM/CloudFormation templates** with SAM build pipelines — enabling independent deployment of **30+ Python Lambda functions** with reproducible packaging and per-function least-privilege IAM.",
+          "Solved Lambda layer size constraints by engineering a shared **EFS-mounted Python dependency layer** across 30+ functions — eliminating packaging bottlenecks and cutting build times by **60%+**."
+        ]
+      },
+      {
+        "title": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+        "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM",
+        "bullets": [
+          "Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with a **dual-registry GHCR/ECR strategy** — enabling zero-downtime redeployments and **~30% reduced image pull latency** while serving 500+ concurrent users.",
+          "Automated full release workflow via **GitHub Actions** — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed 5+ overly permissive roles."
+        ]
+      }
+    ],
+    "education": {
+      "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+      "right": "2021 – 2025"
+    },
+    "achievements": [
+      "Awarded **“Student of the Year”** in Class 10 for outstanding academic performance and leadership contributions."
+    ]
+  },
+  "jd": "About super.money\nWe're super.money, an Indian fintech startup backed by Flipkart, here to redefine how money works.super.money isn't just another UPI app; it is India's most rewarding UPI platform, a daily money hack. Whether one is booking a flight, grabbing coffee, or splitting bills with friends, they get rewarded every time they spend. super.money offers instant cashback, flight rewards, and credit that actually works for users. It's built for speed, packed with perks, and made for the way Gen Z moves - fast, smart, and always on. Whether it's payments, loans, credit cards, or just helping someone survive the month, super.money can do it all.\n\nJob Description\nFunction: IT Operations and Support → DevOps / Cloud\n\nCI / CDCloud ComputingDevOpsMonitoring+6 moreReliability EngineeringAWSAzureGoogle Cloud (GCP)JenkinsTerraform\nWe are looking for world-class talent who can help us accelerate this journey and be part of a core team that is just getting started.\n\n\n\nResponsibilities:\n\nOwn and build scalable platform solutions that will be used by the complete organization.\nWork with app teams to optimize our CI/CD systems.\nRefine our monitoring stack to be more proactive.\nActively participate in design and code reviews to ensure the quality of solutions.\n\n\nRequirements:\n\nB. E. /B. Tech or any other similar qualification with experience in the below technology stack.\nExperience with Continuous Integration / Continuous Delivery (CI/CD) tools (e. g., Argo, Git, Jenkins).\nFamiliarity with Infrastructure as Code frameworks like Terraform.\nA good grasp of cloud services offered by providers like GCP, AWS or Azure.\nExperience with container orchestration with Kubernetes and docker.\nPreliminary knowledge of networking concepts.\n\n\nGood to have:\n\nExperience in maintaining an IAC codebase.\nExperience with any observability stack.\nExperience in a fintech or similar organization.\nAbility to own things end to end and operate under minimal supervision.\n\nBenefits at super.money\nFree pantry\n\nsuper.money's Tech Stack\nGoogle CloudAWSAzureJavaRubyClojureScalaC++SQLReact.jsAngularEmberJavaScriptHTMLCSS",
+  "company": "Super Money",
+  "role": "Site Reliability Engineer 1"
+}

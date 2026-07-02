@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uday Varmora — CV</title>
+<style>
+  @page { size: letter; margin: 20pt 0.5in 20pt 0.5in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: Calibri, 'Segoe UI', sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.35;
+    color: #1a1a1a;
+    background: #fff;
+  }
+  .header { margin-bottom: 10px; }
+  .header h1 {
+    font-size: 16pt; font-weight: 700; text-align: center;
+    color: #1B3A6B; letter-spacing: 0.5px; margin-bottom: 3px;
+  }
+  .header .contact {
+    text-align: center; font-size: 9.5pt; color: #444;
+  }
+  .header .contact a { color: #1B3A6B; text-decoration: none; }
+  .header .accent-line {
+    height: 1.5px; background: linear-gradient(90deg, #1B3A6B, #B8942A);
+    margin: 6px auto; width: 100%;
+  }
+  .section { margin-bottom: 10px; }
+  .section-title {
+    font-size: 10.5pt; font-weight: 700; color: #1B3A6B;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    border-bottom: 1px solid #d0d0d0; padding-bottom: 2px; margin-bottom: 5px;
+  }
+  .summary { font-size: 9pt; line-height: 1.35; color: #222; }
+  .skills-grid { display: flex; flex-wrap: wrap; }
+  .skill-row { width: 50%; font-size: 8.5pt; line-height: 1.5; }
+  .skill-row strong { font-weight: 600; color: #1a1a1a; }
+  .job { margin-bottom: 8px; }
+  .job-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-title { font-size: 10pt; font-weight: 700; color: #1B3A6B; }
+  .job-period { font-size: 8.5pt; color: #888; white-space: nowrap; }
+  .job-subtitle { font-size: 9pt; font-weight: 600; color: #444; margin-bottom: 1px; }
+  .job ul { padding-left: 14px; margin-top: 2px; }
+  .job li { font-size: 8.5pt; line-height: 1.4; margin-bottom: 2px; color: #222; }
+  .project { margin-bottom: 6px; }
+  .project-title { font-size: 9pt; font-weight: 600; color: #1B3A6B; }
+  .project-tech { font-size: 8pt; font-style: italic; color: #888; }
+  .project-desc { font-size: 8.5pt; line-height: 1.35; color: #222; }
+  .edu-item { margin-bottom: 2px; }
+  .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-title { font-size: 9pt; font-weight: 600; color: #1a1a1a; }
+  .edu-year { font-size: 8.5pt; color: #888; white-space: nowrap; }
+  .edu-desc { font-size: 8.5pt; color: #555; }
+  .two-col { display: flex; gap: 20px; }
+  .two-col > div { flex: 1; }
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<div class="header avoid-break">
+  <h1>UDAY VARMORA</h1>
+  <div class="accent-line"></div>
+  <div class="contact">+91 96623 85170 | varmorauday1045@gmail.com | linkedin.com/in/udayvarmora | github.com/udayvarmora07 | Ahmedabad, India</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title">Professional Summary</div>
+  <div class="summary">
+    DevOps Engineer with <strong>1+ year</strong> building <strong>40+ CI/CD pipelines</strong>, provisioning AWS infrastructure via <strong>Terraform IaC</strong>, and operating <strong>Kubernetes (EKS, OpenShift)</strong> clusters — cutting release cycles <strong>82% (45 → 8 min)</strong> and reducing provisioning time <strong>80%</strong>. Proficient in <strong>Python, Bash, SQL scripting</strong>, database fundamentals, containerisation, and <strong>DevSecOps</strong> practices. AWS Certified.
+  </div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-grid">
+    <div class="skill-row"><strong>Scripting &amp; DB:</strong> Python, Bash/Shell, SQL (PostgreSQL, Oracle), PowerShell</div>
+    <div class="skill-row"><strong>CI/CD &amp; GitOps:</strong> Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, ArgoCD</div>
+    <div class="skill-row"><strong>Containers &amp; K8s:</strong> Docker, Kubernetes (EKS, OpenShift), Helm, Istio, Karpenter, KEDA</div>
+    <div class="skill-row"><strong>IaC:</strong> Terraform (34 modules), AWS CloudFormation, AWS SAM, Ansible</div>
+    <div class="skill-row"><strong>Cloud:</strong> AWS (EKS, EC2, Lambda, S3, RDS, VPC, IAM, CloudWatch), Azure (Fundamentals)</div>
+    <div class="skill-row"><strong>Observability:</strong> Prometheus, Grafana, Loki, ELK Stack, Datadog, CloudWatch</div>
+    <div class="skill-row"><strong>Security/DevSecOps:</strong> HashiCorp Vault, Trivy, Sealed Secrets, IAM, SonarQube</div>
+    <div class="skill-row"><strong>VCS:</strong> Git, GitHub, Bitbucket, Branching Strategies, Code Review</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Professional Experience</div>
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">eSparkBiz Technologies — DevOps Engineer</span>
+      <span class="job-period">Ahmedabad | Jun 2025 – Apr 2026</span>
+    </div>
+    <ul>
+      <li>Designed <strong>40+ CI/CD pipelines</strong> (Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline) for <strong>20+ Dockerised microservices</strong> — cutting release cycles <strong>82% (45 → 8 min)</strong>.</li>
+      <li>Provisioned multi-environment AWS infrastructure via <strong>Terraform IaC</strong> (34 reusable modules, S3/DynamoDB state) — reducing provisioning time <strong>80%</strong> and drift <strong>95%</strong>.</li>
+      <li>Operated <strong>Kubernetes (EKS, OpenShift)</strong> clusters with ArgoCD, Helm, Istio, Karpenter, KEDA — sustained <strong>99.9% uptime</strong>, zero-downtime rollouts.</li>
+      <li>Drove <strong>Linux-based incident RCA</strong>; built observability (Prometheus, Grafana, Loki, ELK, Datadog); authored runbooks reducing repeat incidents.</li>
+      <li>Developed <strong>Python/Bash automation</strong> eliminating ~70% of toil; integrated SonarQube and <strong>DevSecOps</strong> practices into pipelines.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">eSparkBiz Technologies — DevOps Engineer Intern</span>
+      <span class="job-period">Ahmedabad | Jan 2025 – May 2025</span>
+    </div>
+    <ul>
+      <li>Built AWS infra monitoring on Linux, configured CloudWatch dashboards, triaged K8s incidents; earned <strong>full-time promotion within 5 months</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Key Projects</div>
+  <div class="project">
+    <div class="project-title">Cloud-Native SaaS CRM — Multi-Tenant AWS/EKS</div>
+    <div class="project-tech">Terraform · EKS · Docker · Jenkins · GitLab CI/CD · ArgoCD · Prometheus · Grafana</div>
+    <div class="project-desc">Multi-environment VPC-isolated AWS architecture. Reduced compute costs <strong>30% ($500+/mo)</strong> via Karpenter Spot + KEDA scale-down. Multi-region DR with Velero — <strong>RPO &lt; 1 hr</strong>.</div>
+  </div>
+  <div class="project">
+    <div class="project-title">Serverless Backend — Multi-Tenant Salon SaaS</div>
+    <div class="project-tech">AWS Lambda · SAM · CloudFormation · RDS PostgreSQL · EFS · Python</div>
+    <div class="project-desc">6 nested SAM templates deploying <strong>30+ Lambda functions</strong>. Engineered EFS-mounted dependency layer cutting build times <strong>60%+</strong>.</div>
+  </div>
+  <div class="project">
+    <div class="project-title">Healthcare Management System — Cloud Infra &amp; CI/CD</div>
+    <div class="project-tech">AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions</div>
+    <div class="project-desc">Split-hosting (S3/CloudFront + App Runner) with dual-registry GHCR/ECR — <strong>~30% reduced pull latency</strong>, <strong>500+ concurrent users</strong>.</div>
+  </div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title">Education &amp; Certifications</div>
+  <div class="edu-item">
+    <div class="edu-header">
+      <span class="edu-title">B.Tech, Information Technology</span>
+      <span class="edu-year">2021 – 2025</span>
+    </div>
+    <div class="edu-desc">Dharmsinh Desai University, Gujarat &middot; CGPA: 7.25/10</div>
+  </div>
+  <div class="edu-desc" style="margin-top:2px;">AWS Certified Cloud Practitioner (2024) &middot; AWS SAA (In Progress)</div>
+</div>
+
+</body>
+</html>

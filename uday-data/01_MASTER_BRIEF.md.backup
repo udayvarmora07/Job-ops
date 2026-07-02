@@ -1,0 +1,190 @@
+# Uday Varmora — Master Resume Brief (Source of Truth)
+
+> **For Claude (or any AI):** This is the ONLY source of facts you may use when tailoring my resume. Never invent metrics, tools, projects, or claims that aren't here. If a JD asks for something not in this brief, mark it as a gap rather than fabricate.
+
+---
+
+## 1. Identity & Contact (NEVER CHANGES)
+
+- **Name:** UDAY VARMORA
+- **Phone:** +91 96623 85170
+- **Email:** varmorauday1045@gmail.com
+- **LinkedIn:** linkedin.com/in/udayvarmora (plain text + hyperlink)
+- **GitHub:** github.com/udayvarmora07 (plain text + hyperlink)
+- **Location:** Ahmedabad, India
+
+## 2. Experience Facts (NEVER CHANGES)
+
+- **Total experience:** 1+ year (NEVER state as "1.5 years" or specific months)
+- **Current role:** DevOps Engineer at eSparkBiz Technologies, Ahmedabad
+- **Tenure:** Jan 2025 – May 2025 (Intern) → Jun 2025 – Apr 2026 (full-time, promoted within 5 months)
+- **Education:** B.Tech, Information Technology — Dharmsinh Desai University, Gujarat, India, 2021–2025, CGPA 7.25/10
+- **Achievement:** "Student of the Year" in Class 10
+- **Certifications:** AWS Cloud Practitioner (2024). AWS SAA in progress. **Default: omit Certifications section** unless JD specifically asks.
+
+## 3. Anchor Metrics (THE ONLY METRICS YOU MAY USE)
+
+These are real, defensible numbers. Never invent others.
+
+| Metric | Value | Where it lives |
+|--------|-------|----------------|
+| Uptime SLA | 99.9% | Multi-AZ K8s clusters (CRM project, current role) |
+| Provisioning speed | 80% faster | Terraform IaC (34 modules) |
+| Release cycles | 82% faster (45 min → 8 min) | CI/CD pipelines |
+| Operational toil reduction | ~70% | Python/Bash automation |
+| Compute cost reduction | 30% ($500+/month) | Karpenter Spot + KEDA scale-down |
+| Configuration drift reduction | 95% | Terraform IaC |
+| Image pull latency reduction | ~30% | Healthcare project GHCR/ECR dual-registry |
+| Build time reduction | 60%+ | EFS-mounted Python dependency layer (Salon SaaS) |
+| RPO (disaster recovery) | < 1 hour | Multi-region DR (CRM project) |
+| Promotion timeline | Full-time within 5 months | Intern → full-time |
+| CI/CD pipelines built | 40+ | Across Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline |
+| Lambda functions deployed | 30+ | Salon SaaS project |
+| Dockerised microservices | 20+ | CRM project |
+| SAM/CloudFormation templates | 6 nested | Salon SaaS project |
+| Terraform modules | 34 reusable | Current role IaC |
+| Concurrent users served | 500+ | Healthcare project |
+| Overly permissive IAM roles removed | 5+ | Healthcare project |
+| EKS cluster upgrade | v1.33 → v1.34 | CRM project (zero-downtime, NEVER change versions) |
+
+## 4. Tech Stack — What I Can Defensibly Claim
+
+### TIER 1 — Deep production experience (lead with these)
+- **AWS:** EKS, EC2, Lambda, S3, ECR, RDS (Aurora PostgreSQL), VPC, IAM (IRSA, Pod Identity), KMS, Secrets Manager, CloudWatch, CloudFormation, SAM, CodePipeline, CodeBuild, CloudFront, App Runner, X-Ray, EFS, DynamoDB
+- **Containers/K8s:** Docker, Kubernetes (EKS), Helm, ArgoCD, Karpenter, KEDA, Ingress-NGINX Controller
+- **IaC:** Terraform (34 modules, S3 remote state, DynamoDB locking), AWS CloudFormation, AWS SAM
+- **CI/CD:** Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild
+- **Observability (in CRM project):** Prometheus, Grafana, Loki, Grafana Alloy, CloudWatch
+- **Languages:** Python, Bash/Shell
+- **OS:** Linux (Ubuntu, Amazon Linux, RHEL), System Administration
+- **Security:** HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM least-privilege
+- **VCS:** Git, GitHub, Bitbucket
+
+### TIER 2 — Exposure but not deep production (include only if JD asks)
+- **OpenShift** — used in environment, not lead operator
+- **Istio service mesh** — installed and configured, not deep traffic engineering
+- **Gerrit** — used for code review at Qualcomm-style shops
+- **ELK Stack** — installed and queried, not architected
+- **Datadog** — basic monitoring setup, not deep instrumentation
+- **PagerDuty** — alerts routing, not on-call rotation owner
+- **Ansible** — basic playbooks, not deep automation
+- **SonarQube** — integrated into pipelines, not custom rules
+- **Buildbot** — pipeline exposure only
+- **Kong API Gateway** — light exposure
+- **AWS CDK** — listed for ATS, not deep production
+
+### TIER 3 — Fundamentals only (use "Azure (Fundamentals)" framing)
+- **Azure** — fundamentals knowledge only, NO production work, equivalent service awareness
+
+### NEVER CLAIM (NOT IN INVENTORY)
+- Go programming language
+- GCP / Google Cloud
+- Chaos engineering / Chaos Monkey / Gremlin
+- Production Readiness Reviews (formal Google-style)
+- Error budget policy management (formal SRE governance)
+- Game days / failure injection exercises
+- Service Catalog / SSP / Backstage
+- Distributed tracing systems (Jaeger, OpenTelemetry) — only X-Ray
+- ML/AI infrastructure
+- Mobile development
+- Frontend frameworks (React/Vue/Angular)
+
+## 5. Project Inventory
+
+### Project 1: Cloud-Native SaaS CRM Platform (Jan 2025 – Apr 2026)
+**One-line summary:** Multi-tenant AWS / EKS Build & Deploy Infrastructure
+
+**Universal tech stack (single line):**
+`Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana`
+
+**Defensible bullets (use 2-3 based on role):**
+1. **Architecture:** Designed multi-environment AWS architecture with per-environment VPC isolation, S3/DynamoDB remote state, and Ingress-NGINX Controller on Linux-based EKS nodes; executed zero-downtime EKS cluster upgrade (v1.33 → v1.34).
+2. **Cost optimization:** Reduced compute costs by 30% ($500+/month) via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; migrated deprecated loki-stack to Loki + Grafana Alloy.
+3. **Disaster recovery:** Built multi-region disaster recovery strategy using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving RPO < 1 hour.
+
+### Project 2: Serverless Backend — Multi-Tenant Salon Management SaaS (Aug – Dec 2024)
+**Universal tech stack:**
+`AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python`
+
+**Defensible bullets:**
+1. **Architecture:** Architected serverless build/deploy system using 6 nested SAM/CloudFormation templates — enabling deployment of 30+ Python Lambda functions with reproducible packaging and per-function least-privilege IAM.
+2. **EFS layer:** Solved Lambda layer size constraints by engineering a shared EFS-mounted Python dependency layer across 30+ functions — eliminating packaging bottlenecks and cutting build times by 60%+.
+
+### Project 3: Healthcare Management System — Cloud Infrastructure & CI/CD (Jun – Aug 2024)
+**Universal tech stack:**
+`AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM`
+
+**Defensible bullets:**
+1. **Split-hosting architecture:** Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with dual-registry GHCR/ECR strategy — enabling zero-downtime redeployments and ~30% reduced image pull latency while serving 500+ concurrent users.
+2. **Release automation:** Automated full release workflow via GitHub Actions — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed 5+ overly permissive roles.
+
+## 6. Experience Bullet Library (Master List)
+
+Pick 5-6 bullets per resume from this library. Reframe verbs/emphasis to match JD tone.
+
+### B1 — CI/CD pipelines
+"Designed and maintained 40+ CI/CD pipelines using Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, and AWS CodeBuild — automating build-test-deploy workflows across 20+ Dockerised microservices, cutting release cycles by 82% (45 → 8 min)."
+
+### B2 — Terraform IaC
+"Provisioned multi-environment AWS infrastructure on Linux (Ubuntu, Amazon Linux, RHEL) using Terraform IaC (34 reusable modules, S3 remote state, DynamoDB locking) — reducing provisioning time 80% and configuration drift 95% across Dev, Staging, and Production environments."
+
+### B3 — Kubernetes/EKS operations
+"Operated Kubernetes (EKS, OpenShift) clusters with ArgoCD GitOps, Helm, Istio service mesh, and Ingress-NGINX Controller — managing zero-downtime rollouts, Karpenter node autoscaling, and KEDA event-driven scaling; sustained 99.9% uptime across multi-AZ clusters."
+
+### B4 — Linux RCA + Observability
+"Drove root-cause analysis for Linux-based production incidents across CPU, memory, network, and container runtime; built observability with Prometheus, Grafana, Loki, ELK Stack, and Datadog; authored runbooks and post-incident reviews."
+
+### B5 — Python/Bash automation + toil reduction
+"Developed Python and Bash automation to eliminate ~70% of recurring operational toil — covering cluster operations, log triage, secret rotation, and pipeline scripting; integrated SonarQube quality gates and Git/Gerrit code-review workflows into CI/CD."
+
+### B6 — Security & secrets
+"Strengthened security posture with HashiCorp Vault and AWS Secrets Manager for centralized secret management, Sealed Secrets for GitOps-compatible K8s secrets, and Trivy Operator for continuous container vulnerability scanning; enforced least-privilege IAM via IRSA and Pod Identity."
+
+### B7 — AWS architecture breadth (Cloud Engineer variant)
+"Architected and operated production AWS infrastructure spanning EC2, EKS, Lambda, S3, RDS, VPC, IAM, and CloudWatch across multi-AZ deployments — supporting 20+ Dockerised microservices with 99.9% uptime."
+
+### B8 — Cost optimization standalone (Cloud Engineer variant)
+"Reduced AWS compute costs by 30% ($500+/month) through Karpenter Spot/On-Demand diversification, KEDA off-hours scale-down, and right-sized cluster capacity — preserving production availability while improving cluster resource utilization across 20+ services."
+
+### B9 — SRE-framed reliability
+"Owned production reliability for Kubernetes (EKS, OpenShift) clusters serving 20+ microservices — sustained 99.9% uptime SLA across multi-AZ deployments with continuous SLO monitoring."
+
+### B10 — SRE-framed incident response
+"Drove incident response and root-cause analysis for Linux-based production incidents; authored blameless post-mortems and runbooks that reduced repeat-incident frequency and accelerated on-call response readiness."
+
+### Intern bullets (use both, always)
+- **I1:** "Built and maintained AWS infrastructure monitoring on Linux-based environments, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses."
+- **I2:** "Wrote Python and Bash automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning full-time promotion within 5 months."
+
+## 7. Tone Reframing by Role Type
+
+| Role | Verbs | Frame |
+|------|-------|-------|
+| **Startup / SaaS** | Owned, Built, Shipped | Ownership + speed + breadth |
+| **SRE** | Sustained, Drove, Authored, Eliminated | SLOs/MTTR/toil/error budgets/runbooks/on-call |
+| **Cloud Engineer** | Architected, Designed, Operated, Provisioned | AWS service depth + architecture + cost |
+| **DevOps Engineer** | Designed, Automated, Provisioned, Maintained | Pipeline volume + automation + uptime |
+| **BFSI / Enterprise** | Governed, Standardized, Audited, Hardened | Governance/compliance/audit/least-privilege |
+| **Platform Engineer** | Built, Enabled, Standardized | Internal platform + developer experience + golden paths |
+
+## 8. Format Rules (NEVER CHANGE)
+
+- **Page:** Single page, US Letter (216 × 279 mm)
+- **Font:** Calibri throughout
+- **Body size:** 10pt (size 20 in half-points)
+- **Skills & contact size:** 10pt (size 20)
+- **Project tech stack:** 9.5pt italic dark gray
+- **Name:** 16pt bold, centered
+- **Section headers:** 11pt bold with accent underline
+- **Margins:** 25pt top + 25pt bottom, 0.5" left/right
+- **Color schemes:**
+  - **Teal `#1A7A7A` + gold `#C8A951`** — startup/SaaS roles
+  - **Navy `#1B3A6B` + slate gold `#B8942A`** — enterprise/BFSI/Cloud/SRE roles (DEFAULT)
+- **Skill row format:** Category name (bold black) + items (regular), each row ONE line at 9.5pt
+- **Bullets:** Action verb + context + quantified result; 1-2 lines each; mix bold key terms
+- **URLs:** plain text format with hyperlinks underneath (NOT "LinkedIn" / "GitHub" labels)
+- **British -ise spelling:** Dockerised, containerised (not -ize)
+- **Sections (in order):** Header → Summary (3 lines max) → Technical Skills (8 rows) → Professional Experience → Key Projects → Education → Achievements
+- **Education and Achievements:** ALWAYS separate sections
+- **"Immediate joiner":** Only include if JD explicitly asks
+- **Certifications:** Default = omit. Include only if JD asks.

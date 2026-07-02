@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref_snapmint_parvinder",
+    "company": "Snapmint",
+    "role": "DevOps Engineer",
+    "contact": "Parvinder Kaur (Manager-HR / Talent Acquisition)",
+    "channel": "LinkedIn",
+    "status": "asked",
+    "jobUrl": "",
+    "note": "Recruiter who posted the job. Sent LinkedIn connection message.",
+    "askedDate": "2026-06-22",
+    "updatedAt": "2026-06-22T00:00:00.000Z"
+  },
+  {
+    "id": "ref_exxonmobil_kunal",
+    "company": "ExxonMobil India Careers",
+    "role": "DevOps Engineer",
+    "contact": "Kunal Pandya, PMP (Engineering at ExxonMobil)",
+    "channel": "LinkedIn",
+    "status": "asked",
+    "jobUrl": "",
+    "note": "DDU alumni in Bengaluru. Sent referral message as DDU batchmate.",
+    "askedDate": "2026-06-22",
+    "updatedAt": "2026-06-22T00:00:00.000Z"
+  },
+  {
+    "id": "ref_1782381619439_mow8h",
+    "company": "IDX",
+    "role": "Finance Executive",
+    "contact": "Prashant Gautam",
+    "channel": "LinkedIn",
+    "status": "responded",
+    "jobUrl": "",
+    "note": "Send cold mail for referral",
+    "askedDate": "2026-06-25",
+    "updatedAt": "2026-06-27T09:54:50.145Z"
+  }
+]

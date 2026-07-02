@@ -1,0 +1,110 @@
+{
+  "verdict": "needs_fixes",
+  "score": 62,
+  "summary": "Resume contains fabricated 'Data SRE' title and summary reframe that misrepresents candidate's actual DevOps Engineer experience, plus duplicate near-identical bullets, weak JD alignment for data-focused SRE role, and missing contact info in generated output.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Candidate has never held 'Data SRE' title; actual title is 'DevOps Engineer'. Reframing summary as 'Data SRE with 1+ year' is a fabricated title claim that could fail background verification and constitutes resume fraud.",
+      "where": "Professional Summary: 'Data SRE with **1+ year** sustaining **production reliability...'",
+      "suggestion": "Change title to 'DevOps Engineer' or 'Site Reliability Engineer (DevOps)'. If applying to Data SRE role, use cover letter to explain transferable skills rather than falsifying title."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Summary claims 'Data SRE' expertise but candidate has zero data infrastructure experience (no Spark, Kafka, Airflow, dbt, data pipelines, data quality, or data platform engineering). This is a complete fabrication for a Data SRE role.",
+      "where": "Professional Summary entire text",
+      "suggestion": "Remove 'Data SRE' framing entirely. Apply as DevOps/SRE candidate with transferable infrastructure skills, or decline this role as unaligned with actual experience."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Duplicate bullets B9 and B4 in experience section are nearly identical—both describe 'root-cause analysis for Linux-based production incidents' with overlapping observability tools. This is lazy copy-paste from master brief without deduplication.",
+      "where": "DevOps Engineer bullets 2 and 3: 'Drove **incident response and root-cause analysis**...' and 'Drove root-cause analysis for Linux-based production incidents...'",
+      "suggestion": "Delete bullet 3 (the B4 duplicate). Keep bullet 2 (B9/B10 blend) which is stronger. Replace with B6 (Security & secrets) or B7 (AWS architecture breadth) to show breadth."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "high",
+      "issue": "Job title is 'Data SRE' but resume contains ZERO data-specific keywords: Spark, Kafka, Airflow, dbt, data pipelines, data quality, data lake, data warehouse, BigQuery, Snowflake, Redshift, streaming, batch processing, data observability, data lineage, or data platform. Complete mismatch with role requirements.",
+      "where": "Entire resume — no data infrastructure content",
+      "suggestion": "Either: (a) Do not apply to this role as candidate is fundamentally unqualified, or (b) If applying anyway, add honest gap statement about data platform learning interest rather than fabricate experience."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "high",
+      "issue": "Generated resume JSON contains no contact information (name, email, phone, location, LinkedIn, GitHub). These are present in source cv.md but stripped from generated output.",
+      "where": "Top of resume — missing entirely from JSON structure",
+      "suggestion": "Add header block: 'Uday Varmora | +91 96623 85170 | varmorauday1045@gmail.com | linkedin.com/in/udayvarmora | github.com/udayvarmora07 | Ahmedabad, India'"
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Date format inconsistency: experience uses 'Jun 2025 – Apr 2026' (Month YYYY format) but education uses '2021 – 2025' (YYYY only). Also, 'Jun 2025 – Apr 2026' implies future end date suggesting this is speculative/padded.",
+      "where": "Professional Experience dates vs Education dates",
+      "suggestion": "Standardize to Month YYYY format throughout. Verify 'Apr 2026' is correct — if candidate is still employed, use 'Jun 2025 – Present'."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "Bullet 4 in experience ('Developed Python and Bash automation...') leads with tool/activity rather than outcome. '~70% of recurring operational toil' is strong but buried after covering clause. Also 'integrated SonarQube quality gates' is a weak trailing addition.",
+      "where": "DevOps Engineer bullet 4",
+      "suggestion": "Restructure: 'Eliminated ~70% of recurring operational toil by developing Python and Bash automation for cluster operations, log triage, secret rotation, and pipeline scripting.' Move SonarQube to separate bullet or drop if not data-relevant."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "medium",
+      "issue": "Resume title 'Data SRE' combined with zero data experience is a major red flagging risk for recruiters and hiring managers. Appears as keyword-stuffing or title inflation to game ATS.",
+      "where": "Document title / filename suffix: 'Antal_International_Data_SRE'",
+      "suggestion": "Change filename and any document title to honest role: 'Uday_Varmora_DevOps_Engineer' or 'Uday_Varmora_SRE_DevOps'."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing high-value keywords that could bridge to Data SRE if candidate had any exposure: Python (listed but not 'data Python'), SQL, data quality, data pipelines, streaming, batch, observability (listed but not 'data observability'). However, adding these without experience would be further fabrication.",
+      "where": "Skills and experience sections",
+      "suggestion": "Do not add unclaimed keywords. Instead, add honest 'Professional Development' section listing data-related learning if any (courses, certifications, self-study). If none exists, omit and accept role mismatch."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Skills section uses 8 rows but 'Version Control & Code Review' includes 'Gerrit' which is Tier 2 exposure per master brief. Including in main skills overstates depth.",
+      "where": "Skills row 8: 'Git, GitHub, Bitbucket, Gerrit, Branching Strategies'",
+      "suggestion": "Move Gerrit to parenthetical or remove: 'Git, GitHub, Bitbucket, Branching Strategies' — or add '(light exposure)' if keeping."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "British spelling 'Dockerised' used in source brief but generated resume uses 'Dockerised' in some places and 'Dockerised' is consistent; however 'containerised' vs 'containerized' not tested. Minor: 'Dockerised' in projects but check if consistent.",
+      "where": "Project 3: 'Dockerised App Runner backend'",
+      "suggestion": "Verify all instances use British '-ise' spelling per format rules. Current state appears consistent."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "Projects section buries the most relevant SRE project (CRM with DR, uptime, observability) but leads with infrastructure details. For Data SRE target (even though mismatched), the Velero DR bullet should lead with RPO metric.",
+      "where": "Project 1 bullets — current order: DR first (good), then cost, then architecture",
+      "suggestion": "Actually acceptable order. However for general SRE roles, keep DR first. For this specific Data SRE role, project order doesn't matter due to fundamental mismatch."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "The entire resume reframe assumes candidate can claim 'Data SRE' identity. Master brief explicitly states candidate has no data infrastructure experience and lists 'NEVER CLAIM' items including 'ML/AI infrastructure'. Data SRE typically requires data pipeline and data platform expertise.",
+      "where": "Implicit in entire document framing",
+      "suggestion": "Abandon this application or reframe honestly as 'DevOps Engineer applying to infrastructure-focused SRE roles' — not Data SRE specifically."
+    }
+  ],
+  "checkedAt": "2026-06-27T10:26:24.256Z"
+}

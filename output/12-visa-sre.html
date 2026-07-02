@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UDAY VARMORA — Site Reliability Engineer | Visa</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 8.5in;
+      height: 11in;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.25;
+      color: #000;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 8.5in;
+      height: 11in;
+      padding: 0.35in 0.5in 0.35in 0.5in;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .header { text-align: center; margin-bottom: 0.05in; }
+    .header h1 {
+      font-size: 16pt;
+      font-weight: 700;
+      color: #1B3A6B;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+    }
+    .contact-line {
+      font-size: 10pt;
+      color: #444;
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+    .contact-line a { color: #444; text-decoration: none; }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1B3A6B;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid #1B3A6B;
+      padding-bottom: 1px;
+      margin-top: 0.1in;
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── SUMMARY ── */
+    .summary { font-size: 10pt; line-height: 1.35; color: #111; }
+    .summary strong { font-weight: 700; }
+
+    /* ── SKILLS ── */
+    .skill-row { font-size: 10pt; line-height: 1.3; color: #111; margin-bottom: 1px; }
+    .skill-row .cat { font-weight: 700; color: #000; }
+
+    /* ── EXPERIENCE ── */
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 10pt;
+      margin-top: 7px;
+      margin-bottom: 1px;
+    }
+    .job-header:first-of-type { margin-top: 2px; }
+    .job-left { font-weight: 700; color: #000; }
+    .job-left .org { font-weight: 400; color: #444; }
+    .job-right { font-weight: 700; color: #000; white-space: nowrap; font-size: 9.5pt; }
+    .job-bullets { padding-left: 0.18in; margin-top: 1px; }
+    .job-bullets li {
+      font-size: 10pt;
+      line-height: 1.3;
+      color: #111;
+      margin-bottom: 1px;
+      list-style: disc;
+    }
+    .job-bullets li strong { font-weight: 700; }
+
+    /* ── PROJECTS ── */
+    .project { margin-top: 6px; }
+    .project-title { font-size: 10pt; font-weight: 700; color: #000; line-height: 1.2; }
+    .project-tech { font-size: 9.5pt; font-style: italic; color: #444; margin-top: 1px; margin-bottom: 1px; }
+    .project-bullets { padding-left: 0.18in; }
+    .project-bullets li {
+      font-size: 10pt;
+      line-height: 1.3;
+      color: #111;
+      margin-bottom: 1px;
+      list-style: disc;
+    }
+    .project-bullets li strong { font-weight: 700; }
+
+    /* ── EDUCATION ── */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 10pt;
+      margin-top: 2px;
+    }
+    .edu-left { color: #111; }
+    .edu-left strong { font-weight: 700; }
+    .edu-right { font-weight: 700; white-space: nowrap; font-size: 9.5pt; }
+
+    /* ── ACHIEVEMENTS ── */
+    .achievements-bullets { padding-left: 0.18in; margin-top: 2px; }
+    .achievements-bullets li {
+      font-size: 10pt;
+      line-height: 1.3;
+      color: #111;
+      list-style: disc;
+    }
+    .achievements-bullets li strong { font-weight: 700; }
+
+    /* ── SPACER fills remaining vertical space ── */
+    .flex-spacer { flex: 1; }
+
+    /* ── PRINT ── */
+    @media print {
+      html, body { width: 8.5in; height: 11in; }
+      .page { padding: 0.35in 0.5in; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>UDAY VARMORA</h1>
+    <div class="contact-line">
+      +91 96623 85170 &nbsp;|&nbsp;
+      <a href="mailto:varmorauday1045@gmail.com">varmorauday1045@gmail.com</a> &nbsp;|&nbsp;
+      <a href="https://linkedin.com/in/udayvarmora">linkedin.com/in/udayvarmora</a> &nbsp;|&nbsp;
+      <a href="https://github.com/udayvarmora07">github.com/udayvarmora07</a> &nbsp;|&nbsp;
+      Ahmedabad, India
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section-header">Professional Summary</div>
+  <div class="summary">Site Reliability Engineer with <strong>1+ year</strong> of production experience managing high-availability Kubernetes clusters, building observability pipelines, and automating operational toil. Promoted to full-time within 5 months. Sustained <strong>99.9% uptime</strong> across 20+ microservices on multi-AZ EKS clusters; led production incident RCA using Prometheus, Grafana, ELK, and Datadog. Engineered multi-region disaster recovery achieving <strong>RPO < 1 hour</strong>. Eliminated <strong>~70% of recurring toil</strong> through Python and Bash automation — aligned with Visa's mission-critical payment infrastructure reliability standards.</div>
+
+  <!-- TECHNICAL SKILLS -->
+  <div class="section-header">Technical Skills</div>
+  <div class="skills-section">
+    <div class="skill-row"><span class="cat">Scripting & OS:</span> Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration</div>
+        <div class="skill-row"><span class="cat">Containers & Orchestration:</span> Kubernetes (EKS, OpenShift), Docker, Helm, Istio, Karpenter, KEDA, Ingress-NGINX</div>
+        <div class="skill-row"><span class="cat">Observability & Monitoring:</span> Prometheus, Grafana, Loki, Grafana Alloy, ELK Stack, Datadog, CloudWatch</div>
+        <div class="skill-row"><span class="cat">CI/CD & GitOps:</span> Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD</div>
+        <div class="skill-row"><span class="cat">Infrastructure as Code:</span> Terraform, AWS CloudFormation, AWS SAM, Ansible</div>
+        <div class="skill-row"><span class="cat">Cloud Platforms:</span> AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, CloudWatch; Azure (Fundamentals)</div>
+        <div class="skill-row"><span class="cat">Security & Secrets:</span> HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM, KMS, TLS/SSL</div>
+        <div class="skill-row"><span class="cat">Version Control:</span> Git, GitHub, Bitbucket, Branching Strategies</div>
+  </div>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <div class="section-header">Professional Experience</div>
+
+  <div class="job-header">
+    <span class="job-left">DevOps Engineer &nbsp;<span class="org">|&nbsp; eSparkBiz · Ahmedabad, India</span></span>
+    <span class="job-right">Jun 2025 – Apr 2026</span>
+  </div>
+  <ul class="job-bullets">
+    <li>Owned production reliability for <strong>Kubernetes (EKS, OpenShift)</strong> clusters serving 20+ microservices — sustained <strong>99.9% uptime</strong> SLA across multi-AZ deployments with continuous SLO monitoring.</li>
+            <li>Drove <strong>root-cause analysis</strong> for <strong>Linux-based production incidents</strong> across CPU, memory, network, and container runtime; built observability with <strong>Prometheus, Grafana, Loki, ELK Stack, and Datadog</strong>; authored runbooks and post-incident reviews.</li>
+            <li>Drove incident response and <strong>root-cause analysis</strong> for Linux-based production incidents; authored blameless post-mortems and runbooks that reduced repeat-incident frequency and accelerated on-call response readiness.</li>
+            <li>Developed <strong>Python and Bash</strong> automation to eliminate <strong>~70% of recurring operational toil</strong> — covering cluster operations, log triage, secret rotation, and pipeline scripting; integrated SonarQube quality gates and <strong>Git</strong> code-review workflows into CI/CD.</li>
+            <li>Provisioned multi-environment AWS infrastructure on <strong>Linux (Ubuntu, Amazon Linux, RHEL)</strong> using <strong>Terraform IaC</strong> (34 reusable modules, S3 remote state, DynamoDB locking) — reducing provisioning time by <strong>80%</strong> and configuration drift by <strong>95%</strong> across Dev, Staging, and Production environments.</li>
+  </ul>
+
+  <div class="job-header">
+    <span class="job-left">DevOps Engineer Intern &nbsp;<span class="org">|&nbsp; eSparkBiz · Ahmedabad, India</span></span>
+    <span class="job-right">Jan 2025 – May 2025</span>
+  </div>
+  <ul class="job-bullets">
+    <li>Built and maintained <strong>AWS infrastructure monitoring</strong> on Linux-based environments, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.</li>
+            <li>Wrote <strong>Python and Bash</strong> automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning <strong>full-time promotion within 5 months</strong>.</li>
+  </ul>
+
+  <!-- KEY PROJECTS -->
+  <div class="section-header">Key Projects</div>
+  
+        <div class="project">
+          <div class="project-title">Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure</div>
+          <div class="project-tech">Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana</div>
+          <ul class="project-bullets">
+            <li>Designed multi-environment build/deploy architecture with per-environment <strong>VPC isolation and S3/DynamoDB remote state</strong> — enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with <strong>Ingress-NGINX Controller</strong>; executed zero-downtime <strong>EKS cluster upgrade (v1.33 → v1.34)</strong> managing node group rollouts, add-on compatibility, and API deprecation remediation.</li>
+            <li>Reduced compute costs by <strong>30% ($500+/month)</strong> via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; migrated deprecated loki-stack to Loki + Grafana Alloy, improving log pipeline reliability.</li>
+            <li>Built multi-region <strong>disaster recovery strategy</strong> using Velero (EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving <strong>RPO < 1 hour</strong> for production workloads.</li>
+          </ul>
+        </div>
+        <div class="project">
+          <div class="project-title">Healthcare Management System — Cloud Infrastructure & CI/CD</div>
+          <div class="project-tech">AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM</div>
+          <ul class="project-bullets">
+            <li>Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with a <strong>dual-registry GHCR/ECR strategy</strong> — enabling zero-downtime redeployments and <strong>~30% reduced image pull latency</strong> while serving 500+ concurrent users.</li>
+            <li>Automated full release workflow via <strong>GitHub Actions</strong> — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed 5+ overly permissive roles.</li>
+          </ul>
+        </div>
+        <div class="project">
+          <div class="project-title">Serverless Backend — Multi-Tenant Salon Management SaaS</div>
+          <div class="project-tech">AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python</div>
+          <ul class="project-bullets">
+            <li>Architected a serverless build/deploy system using <strong>6 nested SAM/CloudFormation templates</strong> with SAM build pipelines — enabling independent deployment of <strong>30+ Python Lambda functions</strong> with reproducible packaging and per-function least-privilege IAM.</li>
+            <li>Solved Lambda layer size constraints by engineering a shared <strong>EFS-mounted Python dependency layer</strong> across 30+ functions — eliminating packaging bottlenecks and cutting build times by <strong>60%+</strong>.</li>
+          </ul>
+        </div>
+
+  <!-- EDUCATION -->
+  <div class="section-header">Education</div>
+  <div class="edu-row">
+    <span class="edu-left"><strong>B.Tech, Information Technology</strong> — Dharmsinh Desai University, Gujarat, India &nbsp;|&nbsp; CGPA: 7.25 / 10</span>
+    <span class="edu-right">2021 – 2025</span>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div class="section-header">Achievements</div>
+  <ul class="achievements-bullets">
+    <li>Awarded <strong>"Student of the Year"</strong> in Class 10 for outstanding academic performance and leadership contributions.</li>
+  </ul>
+
+  <!-- FLEX SPACER — pushes content to fill the page -->
+  <div class="flex-spacer"></div>
+
+</div>
+</body>
+</html>

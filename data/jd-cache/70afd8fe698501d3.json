@@ -1,0 +1,10 @@
+{
+  "url": "https://www.linkedin.com/jobs/view/4432320161/",
+  "title": "DevOps Engineer",
+  "company": "Recro",
+  "location": "Bengaluru, Karnataka, India",
+  "jd": "Job Description: DevOps Engineer \n\nRole Overview \n\nWe are looking for a DevOps Engineer with hands-on experience in cloud infrastructure, automation, deployments, and production support. The ideal candidate should have experience with AWS, Kubernetes, CI/CD, and monitoring tools.\n\nResponsibilities\n\n• Manage and maintain cloud infrastructure (AWS/GCP/Azure).\n• Deploy and support containerized applications using Docker and Kubernetes.\n• Build and maintain CI/CD pipelines for automated deployments.\n• Monitor systems, analyze logs, and troubleshoot production issues.\n• Automate operational tasks using scripting and DevOps tools.\n• Support incident management and root-cause analysis.\n\nRequired Skills\n\n• 1+ year of DevOps/cloud infrastructure experience.\n• Hands-on AWS experience (EC2, IAM, EKS, networking, storage, monitoring).\n• Experience with Docker and Kubernetes.\n• Experience with CI/CD tools (GitHub Actions, GitLab CI, Jenkins).\n• Knowledge of monitoring tools (CloudWatch, Prometheus, Grafana, Datadog, ELK).\n• Scripting knowledge in Bash/Python.\n• Familiarity with Terraform/CloudFormation is a plus.\n• Good understanding of Git and deployment workflows.\n\nSoft Skills\n\n• Strong troubleshooting ability.\n• Ownership mindset and problem-solving approach.\n• Good collaboration and communication skills.\n\nExperience: 1–3 years",
+  "source": "linkedin-guest",
+  "platform": "linkedin",
+  "fetchedAt": "2026-07-02T14:23:23.176Z"
+}

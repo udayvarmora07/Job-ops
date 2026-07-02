@@ -1,0 +1,54 @@
+{
+  "verdict": "pass",
+  "score": 92,
+  "summary": "Strong, well-targeted SRE resume with defensible metrics that align tightly to the master brief and JD; only minor polish and one consistency nit.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Intern end date uses 'May 2025' while the brief tenure is 'Jan 2025 – May 2025' — consistent here, but the full-time start 'Jun 2025' creates a one-month overlap-free handoff that's fine; however the intern bullet says 'full-time promotion within 5 months' (Jan→Jun = 5 months) which is correct. No fix needed, but ensure date formats stay uniform (all 'Mon YYYY' — they are).",
+      "where": "Experience dates 'Jan 2025 – May 2025' and 'Jun 2025 – Apr 2026'",
+      "suggestion": "No change required; dates are internally consistent. (Listed only for verification.)"
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Mixed British/US spelling: 'utilisation' and 'Dockerised' (British -ise per format rule) appear alongside 'monitoring/optimization'-style US terms elsewhere is acceptable, but verify the rendered resume keeps -ise spelling consistently as the brief mandates ('Dockerised, containerised').",
+      "where": "'cluster resource utilisation' and 'Dockerised App Runner backend'",
+      "suggestion": "These follow the British -ise rule correctly; just confirm no stray 'optimization/utilization' (US) variants slip in during render."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "Role title 'DevOps Engineer — SRE Focus' is a slight reframe of the real title 'DevOps Engineer'. This is acceptable framing (not fabrication of employer/dates), but pure ATS title-matching could prefer the literal title.",
+      "where": "experience[0].role: 'DevOps Engineer — SRE Focus'",
+      "suggestion": "Acceptable as-is for an SRE target; optionally simplify to 'DevOps Engineer' if strict title-match parsing is a concern. The brief permits role-tone reframing."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Summary and bullets claim 'PagerDuty alerting' / 'PagerDuty alert routing'. The brief lists PagerDuty as Tier-2 ('alerts routing, not on-call rotation owner'). The resume correctly frames it as 'alert routing' and 'on-call response readiness' (not rotation ownership), so this is defensible — flagged only for awareness.",
+      "where": "'authored blameless post-mortems, runbooks, and PagerDuty alert routing'",
+      "suggestion": "Defensible as written. Keep framing limited to 'alert routing' / 'readiness'; do not escalate to 'owned on-call rotation' in interviews."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "ELK Stack and Grafana Alloy both appear; brief marks ELK as Tier-2 ('installed and queried, not architected'). The bullet says 'Built observability with ... ELK Stack' which slightly over-states for a Tier-2 tool, though paired with Tier-1 tools.",
+      "where": "'Built observability with **Prometheus, Grafana, Loki, Grafana Alloy, and ELK Stack**'",
+      "suggestion": "Consider softening ELK to 'queried logs via ELK Stack' or move ELK to skills-only to keep claims tightly defensible; minor."
+    }
+  ],
+  "checkedAt": "2026-06-30T10:47:40.193Z"
+}

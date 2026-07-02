@@ -1,0 +1,68 @@
+{
+  "verdict": "pass",
+  "score": 92,
+  "summary": "A clean, well-targeted Platform Engineer resume with all claims traceable to the source brief and strong GitOps/IaC framing; only minor polish and a few JD keyword gaps remain.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "OpenShift appears in the Skills row and experience bullet ('Kubernetes (EKS, OpenShift)') but is omitted from the CRM project tech stack, which is appropriate per the brief's Tier-2 framing — however OpenShift is Tier-2 'exposure, not lead operator' and is being claimed in a primary experience bullet without the JD asking for it. Minor over-claim risk.",
+      "where": "Experience bullet: \"Operated **Kubernetes (EKS, OpenShift)** clusters\" and Skills: \"Kubernetes (EKS, OpenShift)\"",
+      "suggestion": "Acceptable to keep, but consider trimming OpenShift since the Observe.AI JD likely centers on EKS; reduces interview exposure on a Tier-2 tech."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Resume content is reviewed without the full Observe.AI JD body, but for a 'Platform Engineer - 1' role, several common high-value keywords are not surfaced: 'developer experience / developer enablement', 'internal developer platform (IDP)', 'self-service' (used once in summary/title but not reinforced in bullets), 'on-call', and 'SLO/SLA'. SLA appears only via '99.9% uptime'.",
+      "where": "Summary and experience bullets overall",
+      "suggestion": "If the JD mentions developer experience or internal platforms, add explicit 'developer self-service / golden paths / developer enablement' phrasing to at least one experience bullet to strengthen ATS match for a Platform Engineer role."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Mixed time phrasing for the same metric: summary says '82% (45 → 8 min)' while the experience bullet says '82% (45 min → under 8 min)'. Both are within the brief's allowed value but the formatting differs.",
+      "where": "Summary: \"**82% (45 → 8 min)**\" vs Experience: \"**82% (45 min → under 8 min)**\"",
+      "suggestion": "Standardize the arrow format and units across both instances (e.g., '45 min → 8 min')."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Role title 'Platform / DevOps Engineer' for the eSparkBiz full-time role differs from the actual title in the source brief, which is 'DevOps Engineer'. The slash-title is a light tailoring liberty but is not the literal job title held.",
+      "where": "Experience role: \"Platform / DevOps Engineer | eSparkBiz\"",
+      "suggestion": "Acceptable as soft tailoring, but safest to use the real title 'DevOps Engineer' (or note 'Platform Engineering focus' in a bullet) to avoid title-mismatch flags in background checks."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Healthcare project bullets correctly drop the prototype-risky metrics (500+ users, 5+ IAM roles, 30% latency) per the brief's warning — this is compliant. Noting as a positive: no fabricated metrics detected; all numbers (80%, 95%, 82%, 70%, 99.9%, 30%/$500, RPO<1hr, v1.33→v1.34, 40+, 34, 30+, 6, 60%+, 10+) match the anchor metrics table exactly.",
+      "where": "All metrics across summary, experience, and projects",
+      "suggestion": "No change needed — truthfulness is clean."
+    },
+    {
+      "perspective": "impact",
+      "severity": "low",
+      "issue": "The fifth experience bullet bundles observability AND security into one bullet, making it long and slightly diluting impact; it lacks a quantified outcome unlike the other bullets.",
+      "where": "Experience bullet: \"Enabled platform reliability with **Prometheus, Grafana, Loki, and Grafana Alloy** ... strengthened security via **HashiCorp Vault, Sealed Secrets, and Trivy Operator**...\"",
+      "suggestion": "Consider tightening or adding an outcome (e.g., reduced MTTR or vulnerability detection coverage) if defensible; otherwise acceptable for one-page density."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact details (name, phone, email, LinkedIn, GitHub, location) are present in the source cv.md but the generated JSON does not include a contact block — assuming the renderer injects it from profile.yml. If not, contact info would be missing.",
+      "where": "Generated resume JSON has no explicit contact/header fields",
+      "suggestion": "Confirm the template renders the header (name + phone + email + linkedin + github + Ahmedabad) from profile.yml; otherwise add it."
+    }
+  ],
+  "checkedAt": "2026-06-30T10:41:04.264Z"
+}

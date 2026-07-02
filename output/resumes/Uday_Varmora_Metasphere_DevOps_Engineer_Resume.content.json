@@ -1,0 +1,102 @@
+{
+  "content": {
+    "filenameSuffix": "Metasphere_DevOps_Engineer",
+    "title": "Uday Varmora - DevOps Engineer Resume",
+    "colorScheme": "teal",
+    "summary": "DevOps Engineer with **1+ year** building **CI/CD pipelines and Linux-based cloud-native infrastructure** across 20+ Dockerised microservices — sustaining **~8-minute automated deploys**, **99.9% uptime**, and eliminating **~70%** of operational toil. Hands-on with **Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, Docker, Kubernetes (EKS), Terraform, ArgoCD, Python/Bash**.",
+    "skills": [
+      [
+        "CI/CD & GitOps",
+        "Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD"
+      ],
+      [
+        "Containers & Orchestration",
+        "Docker, Kubernetes (EKS), Helm, Karpenter, KEDA, Ingress-NGINX Controller"
+      ],
+      [
+        "Infrastructure as Code",
+        "Terraform (34 modules, S3 state, DynamoDB locking), AWS CloudFormation, AWS SAM, Ansible"
+      ],
+      [
+        "Scripting & OS",
+        "Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration"
+      ],
+      [
+        "Cloud Platforms",
+        "AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, IAM, CloudWatch, CloudFormation"
+      ],
+      [
+        "Observability & Monitoring",
+        "Prometheus, Grafana, Loki, Grafana Alloy, CloudWatch"
+      ],
+      [
+        "Security & Secrets",
+        "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM, KMS"
+      ],
+      [
+        "Version Control & Code Review",
+        "Git, GitHub, Bitbucket, Branching Strategies"
+      ]
+    ],
+    "experience": [
+      {
+        "role": "DevOps Engineer",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jun 2025 – Apr 2026",
+        "bullets": [
+          "Built and maintained **40+ CI/CD pipelines** using **Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, and AWS CodeBuild** — automating build-test-deploy across **20+ Dockerised microservices**, including pipelines for new services added to the platform; sustained fast, automated **~8-minute deployments**.",
+          "Maintained and extended multi-environment AWS infrastructure on **Linux (Ubuntu, Amazon Linux, RHEL)** using **Terraform IaC** (34 reusable modules, S3 remote state, DynamoDB locking) — delivering consistent, reproducible provisioning across Dev, Staging, and Production.",
+          "Operated **Kubernetes (EKS)** clusters with **ArgoCD GitOps, Helm, and Ingress-NGINX** — managing zero-downtime rollouts, Karpenter node autoscaling, and KEDA event-driven scaling; executed a zero-downtime **EKS upgrade (v1.33 → v1.34)**; sustained **99.9% uptime** across multi-AZ clusters.",
+          "Developed **Python and Bash** automation to eliminate **~70% of recurring operational toil** — cluster operations, log triage, secret rotation, scheduled scaling (non-prod CronJob), and pipeline scripting.",
+          "Drove **root-cause analysis** for **Linux-based production incidents** across CPU, memory, network, and container runtime; built observability with **Prometheus, Grafana, and Loki**; authored runbooks and post-incident reviews."
+        ]
+      },
+      {
+        "role": "DevOps Engineer Intern",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jan 2025 – May 2025",
+        "bullets": [
+          "Built and maintained AWS infrastructure monitoring on **Linux-based environments**, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.",
+          "Wrote **Python and Bash** automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning **full-time promotion within 5 months**."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
+        "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+        "bullets": [
+          "Operated and extended a multi-environment build/deploy architecture with per-environment **VPC isolation and S3/DynamoDB remote state** — enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with **Ingress-NGINX Controller**; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation.",
+          "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification, KEDA off-hours scale-down, and a **Kubernetes CronJob** scaling dev/non-prod down overnight and back up each morning; migrated deprecated loki-stack to Loki + Grafana Alloy.",
+          "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads."
+        ]
+      },
+      {
+        "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+        "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+        "bullets": [
+          "Maintained and extended a serverless build/deploy system of **6 nested SAM/CloudFormation templates** and **30+ Python Lambda functions** — handling deployments, reproducible packaging, and per-function least-privilege IAM.",
+          "Hit SAM build limits (Lambda layer size exceeding 250MB); engineered a shared **EFS-mounted Python dependency layer** across 30+ functions — eliminating the packaging bottleneck and cutting build times by **60%+**."
+        ]
+      },
+      {
+        "title": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+        "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · GHCR · Secrets Manager · IAM",
+        "bullets": [
+          "Co-built a split-hosting prototype (S3/CloudFront frontend, Dockerised App Runner backend) with a **dual-registry GHCR/ECR strategy** — demonstrating zero-downtime redeployment for client review.",
+          "Built the release workflow via **GitHub Actions** — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy — with least-privilege IAM scoping."
+        ]
+      }
+    ],
+    "education": {
+      "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+      "right": "2021 – 2025"
+    },
+    "achievements": [
+      "Awarded **“Student of the Year”** in Class 10 for outstanding academic performance and leadership contributions."
+    ]
+  },
+  "jd": "Role: DevOps Engineer\nCompany: Metasphere\nLocation: Ahmedabad",
+  "company": "Metasphere",
+  "role": "DevOps Engineer"
+}

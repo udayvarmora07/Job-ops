@@ -1,0 +1,102 @@
+{
+  "content": {
+    "filenameSuffix": "Blue_Stone_Dev_Ops",
+    "title": "Uday Varmora - DevOps Engineer Resume",
+    "colorScheme": "teal",
+    "summary": "DevOps Engineer with **1+ year** designing, implementing, and maintaining **CI/CD pipelines with security and testing gates** and managing **Linux-based cloud infrastructure via Terraform** — cutting release cycles **82% (45 → 8 min)**, provisioning **80%**, and toil **70%** across 20+ services including **Java/Spring** microservices. Hands-on with **Jenkins, GitLab CI/CD, GitHub Actions, Azure DevOps, Docker, Kubernetes (EKS), Terraform**, and **Azure** cloud resources.",
+    "skills": [
+      [
+        "CI/CD & GitOps",
+        "Jenkins, GitLab CI/CD, GitHub Actions, Azure DevOps, AWS CodePipeline, AWS CodeBuild, ArgoCD, SonarQube, Trivy"
+      ],
+      [
+        "Infrastructure as Code",
+        "Terraform (34 reusable modules, S3 remote state, DynamoDB locking), AWS CloudFormation, AWS SAM, Ansible"
+      ],
+      [
+        "Cloud Platforms",
+        "AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, CloudWatch; Azure (Fundamentals)"
+      ],
+      [
+        "Containers & Orchestration",
+        "Docker, Kubernetes (EKS, OpenShift), Helm, Karpenter, KEDA, Ingress-NGINX"
+      ],
+      [
+        "Scripting & OS",
+        "Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration"
+      ],
+      [
+        "Observability & Monitoring",
+        "Prometheus, Grafana, Loki, CloudWatch, ELK Stack, Datadog"
+      ],
+      [
+        "Security & Secrets",
+        "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM, KMS, TLS/SSL"
+      ],
+      [
+        "Version Control & Collaboration",
+        "Git, GitHub, Bitbucket, Branching Strategies, Developer Support, Change Management"
+      ]
+    ],
+    "experience": [
+      {
+        "role": "DevOps Engineer",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jun 2025 – Apr 2026",
+        "bullets": [
+          "Designed, implemented, and maintained **40+ CI/CD pipelines** using **Jenkins, GitLab CI/CD, GitHub Actions, and AWS CodePipeline** — integrating **security and testing gates** (SonarQube, Trivy Operator) to enforce compliance and quality, automating build-test-deploy workflows across **20+ Dockerised microservices** including **Java/Spring** backends, cutting release cycles by **82% (45 min → under 8 min)**.",
+          "Provisioned multi-environment AWS and **Azure**-aware infrastructure on **Linux (Ubuntu, Amazon Linux, RHEL)** using **Terraform IaC** (34 reusable modules, S3 remote state, DynamoDB locking) — reducing provisioning metrics: provisioning time **80%**, configuration drift **95%** across Dev, Staging, and Production environments.",
+          "Operated **Kubernetes (EKS, OpenShift)** clusters with **ArgoCD GitOps, Helm, and Ingress-NGINX Controller** — managing zero-downtime rollouts, Karpenter node autoscaling, and KEDA event-driven scaling; sustained **99.9% uptime** across multi-AZ clusters supporting containerised **Java/Spring** services.",
+          "Partnered with **development and architecture teams** to provide **hands-on support**, developing **template scripts and automation** in **Python and Bash** to eliminate **~70% of recurring operational toil** — covering cluster operations, log triage, secret rotation, and pipeline scripting; operated within **controlled change management processes** to deliver applications safely.",
+          "Strengthened **security and compliance posture** with **HashiCorp Vault** and **AWS Secrets Manager** for centralized secret management, **Sealed Secrets** for GitOps-compatible K8s secrets, and **Trivy Operator** for continuous container vulnerability scanning; enforced **least-privilege IAM** via IRSA and Pod Identity."
+        ]
+      },
+      {
+        "role": "DevOps Engineer Intern",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jan 2025 – May 2025",
+        "bullets": [
+          "Built and maintained AWS infrastructure monitoring on **Linux-based environments**, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.",
+          "Wrote **Python and Bash** automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning **full-time promotion within 5 months**."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
+        "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · Azure DevOps · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+        "bullets": [
+          "Designed multi-environment build/deploy architecture with per-environment **VPC isolation and S3/DynamoDB remote state** — enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with **Ingress-NGINX Controller**; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation.",
+          "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; migrated deprecated loki-stack to Loki + Grafana Alloy, eliminating deprecated chart dependencies and improving log pipeline reliability.",
+          "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads."
+        ]
+      },
+      {
+        "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+        "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+        "bullets": [
+          "Architected a serverless build/deploy system using **6 nested SAM/CloudFormation templates** with SAM build pipelines — enabling independent deployment of **30+ Python Lambda functions** with reproducible packaging and per-function least-privilege IAM.",
+          "Solved Lambda layer size constraints by engineering a shared **EFS-mounted Python dependency layer** across 30+ functions — eliminating packaging bottlenecks and cutting build times by **60%+**."
+        ]
+      },
+      {
+        "title": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+        "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM",
+        "bullets": [
+          "Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with a **dual-registry GHCR/ECR strategy** — enabling zero-downtime redeployments and **~30% reduced image pull latency** while serving 500+ concurrent users.",
+          "Automated full release workflow via **GitHub Actions** — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed 5+ overly permissive roles."
+        ]
+      }
+    ],
+    "education": {
+      "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+      "right": "2021 – 2025"
+    },
+    "achievements": [
+      "Awarded **“Student of the Year”** in Class 10 for outstanding academic performance and leadership contributions."
+    ]
+  },
+  "jd": "About BlueStone.com\nBlueStone.com is India's Leading Online Jewellery Destination. Founded in 2011 with the intent of providing exquisite gold and diamond jewellery to the Indian consumer at affordable prices, Bluestone houses exquisite pieces of jewellery, designed to appeal to people with unique tastes. One of the first companies to serve the online elite, Bluestone aims at revolutionizing the Jewellery and lifestyle Ecommerce in India with its firm focus on affordability, quality and user experience.\n\n\n\nQuick Facts:\n\n3x year on year growth\nTotal funding of $30 million from Accel, Kalaari, Saama Capital, IvyCap Ventures, Dragoneer, Mr Ratan Tata and Ms Meena Ganesh\n5,000+ exclusive designs across Rings, Pendents, Ear rings, Bangles, Necklaces and Solitaires\nOver 2 million unique visitors with over 45% repeat customers\nShips to over 20,000 pin codes in India and internationally to US, Canada, UK and Australia\nJob Description\nFunction: IT Operations and Support → DevOps / Cloud\n\nJavaKubernetesSpringTerraformAzureAzure DevOps+8 moreCI / CDCloud ComputingConfiguration ManagementContainersDevOpsGoogle Cloud (GCP)LinuxRelease Engineering\nWe are seeking a highly skilled and motivated DevOps Engineer to join our team. In this role, you will be responsible for designing, implementing, maintaining, and enhancing CI/CD pipelines with security and testing gates, as well as managing infrastructure through Infrastructure as Code using Terraform. Your expertise will be crucial in automating infrastructure provisioning and manual deployments, developing reusable Terraform modules, and managing Azure cloud resources.\n\n\n\nResponsibilities:\n\nDesign, implement, and maintain CI/CD pipelines with integrated security and testing gates.\nManage infrastructure through Infrastructure as Code (IaC) using Terraform.\nSupport and improve existing pipelines across hybrid cloud and on-prem environments.\nAutomate infrastructure provisioning and manual deployment processes.\nDevelop reusable Terraform modules for efficient infrastructure management.\nManage and optimise Azure cloud resources.\nSupport GitHub and Azure DevOps repositories.\nEnforce security and testing gates within pipelines to ensure compliance and quality.\nProvide hands-on support to development teams, developing template scripts and automation.\nPartner with developers and architecture teams to deliver applications quickly and safely.\nOperate within controlled change management processes.\n\n\nRequirements:\n\n1+ years of experience in DevOps, cloud engineering, or infrastructure engineering.\nHands-on experience with Infrastructure as Code (Terraform).\nProficient in Azure cloud environments, GitHub, and Azure DevOps.\nExperience in building CI/CD pipelines with security and testing gates.\nProven track record of supporting both cloud and on-prem deployments.\nExpertise in automating infrastructure and manual processes.\nExperience operating in a fast-paced, agile enterprise environment.\n\nWhy Explore a Career at BlueStone.com\nAs a member of Engineering team in Bluestone, you will directly interact with Product team and other cross functional organizations & lead complex & challenging technical efforts. You will have complete ownership & have an opportunity to make an impact at the company level. We are a fast-paced start-up with an accelerated growth path & learning environment. We are building a very strong consumer brand in India & you can be part of this journey!\n\n\n\nOur product & services span full stack - all the way from rich browser based application to complex middleware, database layer & mobile apps. Its a multi-node distributed system which runs various services within our platform. It includes our E-Commerce Platform, Order & Product Management system, CRM, ERP etc. We are working on very interesting and challenging set of problems for HA, Reliability, Scalability, Analytics, Relevance based search, Personalization & Recommendation systems using micro services architecture. We primarily use Java, Spring, Hibernate, jQuery, react/ angular js, javascript, HTML, CSS.\n\n\nBlueStone.com Interview Process\nWe typically have 4-5 rounds of Tech interviews focusing on Architecture/ Design, hands on programming, problem solving. We sometimes give a written test as well focusing on core java and programming. We are looking for great engineers looking to solve challenging problems.\n\n\nBlueStone.com's Tech Stack\nJavaJ2EESpringHibernateAngularReact.jsJavaScriptHTMLCSSAWSLinuxAndroidiOS",
+  "company": "Blue Stone",
+  "role": "Dev Ops"
+}

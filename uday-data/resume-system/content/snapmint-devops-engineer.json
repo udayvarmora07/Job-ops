@@ -1,0 +1,69 @@
+{
+  "filenameSuffix": "Snapmint_DevOps",
+  "title": "Uday Varmora - DevOps Engineer Resume",
+  "colorScheme": "teal",
+  "summary": "DevOps Engineer with **1+ year** owning **CI/CD pipelines**, scaling **distributed applications** on **Kubernetes (EKS)**, and automating cloud infrastructure on **AWS**. Delivered **40+ pipelines** cutting release cycles by **82%**, provisioned **Terraform IaC** (80% faster, 95% drift reduction), and sustained **99.9% uptime** across multi-AZ clusters. Hands-on with **Elasticsearch (ELK), Fluentd, Prometheus, Grafana** for centralized logging and monitoring, **Ingress-NGINX, DNS, Load Balancers** for networking, and **database backups** for production db clusters.",
+  "skills": [
+    ["Containers & Orchestration", "Docker, Kubernetes (EKS, OpenShift), Helm, Karpenter, KEDA, Ingress-NGINX"],
+    ["CI/CD & GitOps", "Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD"],
+    ["Infrastructure as Code", "Terraform (34 modules, S3 remote state, DynamoDB locking), AWS CloudFormation, AWS SAM, Ansible"],
+    ["Cloud Platforms", "AWS — EKS, EC2, Lambda, S3, ECR, RDS (PostgreSQL), VPC, CloudWatch"],
+    ["Networking & DNS", "Ingress-NGINX, DNS, Load Balancers, Firewalls, VPC, TLS/SSL, CloudFront"],
+    ["Observability & Logging", "Prometheus, Grafana, Loki, Elasticsearch (ELK), Fluentd, Datadog, CloudWatch"],
+    ["Scripting & OS", "Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration"],
+    ["Security & DevSecOps", "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM, KMS"]
+  ],
+  "experience": [
+    {
+      "role": "DevOps Engineer",
+      "org": "eSparkBiz · Ahmedabad, India",
+      "dates": "Jun 2025 – Apr 2026",
+      "bullets": [
+        "Designed and maintained **40+ CI/CD pipelines** using **Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, and AWS CodeBuild** — automating build-test-deploy workflows across **20+ Dockerised microservices**, cutting release cycles by **82% (45 min → under 8 min)** with zero manual intervention.",
+        "Owned and scaled **multi-AZ Kubernetes (EKS)** clusters supporting **distributed applications**; configured **networking fundamentals** including **DNS, Load Balancers, and Firewalls** alongside **Ingress-NGINX Controller** — sustaining **99.9% uptime** via Karpenter node autoscaling and KEDA event-driven scaling for **scaling microservices**.",
+        "Provisioned multi-environment AWS infrastructure on **Linux (Ubuntu, Amazon Linux, RHEL)** using **Terraform IaC** (34 reusable modules, S3 remote state, DynamoDB locking) — reducing provisioning time by **80%** and configuration drift by **95%** across Dev, Staging, and Production environments.",
+        "Managed **database backups** and cloud infrastructure operations utilising **AWS Backup** and **Velero** to protect **db clusters** and production workloads; achieved **RPO < 1 hour** for cross-region disaster recovery with S3/ECR replication.",
+        "Configured **centralised logging and monitoring** using **Grafana, Loki, Elasticsearch (ELK), and Fluentd** for production troubleshooting across distributed applications; developed **Python and Bash** automation to eliminate **~70% of recurring toil** in cluster operations and log triage."
+      ]
+    },
+    {
+      "role": "DevOps Engineer Intern",
+      "org": "eSparkBiz · Ahmedabad, India",
+      "dates": "Jan 2025 – May 2025",
+      "bullets": [
+        "Built AWS infrastructure monitoring on **Linux** environments, triaged production incidents, and authored operational runbooks; wrote **Python and Bash** automation scripts — earning **full-time promotion within 5 months**."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
+      "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana · Loki · Elasticsearch",
+      "bullets": [
+        "Designed multi-environment build/deploy architecture with per-environment **VPC isolation and S3/DynamoDB remote state** — enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with **Ingress-NGINX Controller**; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation.",
+        "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; set up **Prometheus, Grafana, and Loki** monitoring stack for cluster-wide observability and alerting."
+      ]
+    },
+    {
+      "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+      "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+      "bullets": [
+        "Architected a serverless build/deploy system using **6 nested SAM/CloudFormation templates** with SAM build pipelines — enabling independent deployment of **30+ Python Lambda functions** with per-function least-privilege IAM; engineered an **EFS-mounted dependency layer** cutting build times by **60%+**."
+      ]
+    },
+    {
+      "title": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+      "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM",
+      "bullets": [
+        "Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with a **dual-registry GHCR/ECR strategy** — enabling zero-downtime redeployments and **~30% reduced image pull latency** while serving 500+ concurrent users; automated release workflow via **GitHub Actions** with least-privilege IAM scoping."
+      ]
+    }
+  ],
+  "education": {
+    "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+    "right": "2021 – 2025"
+  },
+  "achievements": [
+    "Awarded **\"Student of the Year\"** in Class 10 for outstanding academic performance and leadership contributions."
+  ]
+}

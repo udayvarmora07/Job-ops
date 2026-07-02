@@ -1,0 +1,75 @@
+{
+  "verdict": "pass",
+  "score": 92,
+  "summary": "A well-tailored, factually accurate DevOps resume that correctly avoids the forbidden fabricated metrics and prototype-scale claims, with only minor consistency and JD-alignment polish opportunities.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Salon SaaS project bullets state 250MB constraint and 30+ Lambda functions which are all supported; verified clean. No fabricated 82%/45→8min, 80% provisioning, or 95% drift claims appear — the generated resume correctly dropped them. Also correctly kept Healthcare '500+ users / 5+ IAM roles / 30% latency' OUT. Noted as a positive, no fix required.",
+      "where": "Overall metrics usage",
+      "suggestion": "No change needed — metrics align with the master brief."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "colorScheme is set to 'teal', but the master brief designates Navy + slate gold as the DEFAULT for Cloud/SRE/enterprise roles, with teal reserved for startup/SaaS. Lucidity is a cloud-cost-optimization SaaS product company, so teal is arguably defensible, but this should be a deliberate choice.",
+      "where": "\"colorScheme\": \"teal\"",
+      "suggestion": "Confirm teal is intended for this SaaS product company; if treating as a standard DevOps/Cloud role, switch to navy default."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Summary uses American spelling 'utilization' implicitly elsewhere but the brief mandates British -ise spelling (Dockerised, containerised). 'Dockerised' is used correctly, but 'utilization' in the experience bullet uses American -ization.",
+      "where": "\"improving cluster resource utilization\"",
+      "suggestion": "For consistency with the British -ise rule, consider 'utilisation' — or accept mixed convention if targeting Indian/US audience; low priority."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Intern end date 'May 2025' and full-time start 'Jun 2025' are consistent with the brief, but the intern dates use 'May 2025' while the full-time uses 'Apr 2026' — both abbreviated consistently. No issue. However the summary omits the 'immediate joiner' framing which per format rules should only appear if JD asks — correctly omitted.",
+      "where": "Experience dates",
+      "suggestion": "No change needed; dates are consistent."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Lucidity's product is autonomous cloud storage/cost optimization and block-storage auto-scaling; the resume strongly features cost optimization (good alignment) but does not surface any storage-scaling or FinOps keyword beyond the CronJob/Karpenter items. Consider emphasizing 'cost optimization / FinOps' as a skill or summary keyword.",
+      "where": "Skills section and summary",
+      "suggestion": "Add a 'Cost Optimization / FinOps' emphasis or skill tag to better match Lucidity's cloud-cost-savings domain; ensure 'auto-scaling' keyword is present (KEDA/Karpenter cover this)."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact information (email, phone, LinkedIn, GitHub, location) is present in the source cv.md but the generated JSON payload does not include a contact block — assuming the renderer injects header from profile, this is fine, but verify the header renders.",
+      "where": "Generated resume JSON has no explicit contact fields",
+      "suggestion": "Confirm the HTML template pulls name/phone/email/LinkedIn/GitHub/location from profile.yml so the header is not blank."
+    },
+    {
+      "perspective": "impact",
+      "severity": "low",
+      "issue": "The last experience bullet is dense, combining RCA, observability, runbooks, AND security hardening into one line — risks exceeding the 1-2 line limit and reads as keyword-heavy.",
+      "where": "\"Drove **root-cause analysis** ... hardened security with **least-privilege IAM**, Vault/Secrets Manager rotation, Sealed Secrets, and Trivy image scanning.\"",
+      "suggestion": "Consider splitting into two bullets (RCA/observability and security) or trimming to keep to two lines for readability."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "low",
+      "issue": "No placeholder text, no first-person pronouns, no duplicate bullets across sections (cost-optimization appears in both experience and CRM project but framed differently, which is acceptable). Clean.",
+      "where": "Whole document",
+      "suggestion": "No change needed."
+    }
+  ],
+  "checkedAt": "2026-07-01T18:55:51.760Z"
+}

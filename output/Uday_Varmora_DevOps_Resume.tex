@@ -1,0 +1,179 @@
+%-------------------------
+% Career-Ops LaTeX CV — Uday Varmora (DevOps Engineer)
+% Based on: Gabriel Sison / sb2nov resume template
+% License: MIT
+%------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Random Stuff %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-7pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{0pt}]
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Commands  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-3pt}}
+  }
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubheadingContinue}[2]{
+  \vspace{-3pt}
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{0pt}}
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Heading  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{center}
+        % NAME
+        {\Huge\scshape Uday Varmora}
+        % SUBHEADING
+        \\ Ahmedabad, India ~ \textbar ~ +91 96623 85170\\
+        \small
+        % EMAIL
+        \href{mailto:varmorauday1045@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{varmorauday1045@gmail.com}} ~
+        % LINKEDIN
+        \href{https://linkedin.com/in/udayvarmora}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/udayvarmora}}  ~
+        % GITHUB
+        \href{https://github.com/udayvarmora07}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/udayvarmora07}}
+    \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Summary  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Professional Summary}
+\vspace{2pt}
+\small{DevOps Engineer with \textbf{1+ year} building \textbf{CI/CD pipelines and Linux-based cloud-native infrastructure} --- cutting release cycles \textbf{82\% (45 $\rightarrow$ 8 min)}, provisioning \textbf{80\%}, and toil \textbf{70\%} across 20+ services. Hands-on with \textbf{Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, Docker, Kubernetes (EKS, OpenShift), Terraform, Istio, ELK Stack, Datadog, HashiCorp Vault, Python/Bash}.}
+\vspace{-2pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Experience  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Work Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {DevOps Engineer}{Jun 2025 -- Apr 2026}
+      {eSparkBiz}{Ahmedabad, India}
+      \resumeItemListStart
+        \resumeItem{Designed and maintained \textbf{40+ CI/CD pipelines} using \textbf{Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, and AWS CodeBuild} --- automating build-test-deploy workflows across \textbf{20+ Dockerised microservices}, cutting release cycles by \textbf{82\% (45 min $\rightarrow$ under 8 min)} with zero manual intervention.}
+        \resumeItem{Provisioned multi-environment AWS infrastructure on \textbf{Linux (Ubuntu, Amazon Linux, RHEL)} using \textbf{Terraform IaC} (34 reusable modules, S3 remote state, DynamoDB locking) --- reducing provisioning time by \textbf{80\%} and configuration drift by \textbf{95\%} across Dev, Staging, and Production environments.}
+        \resumeItem{Operated \textbf{Kubernetes (EKS, OpenShift)} clusters with \textbf{ArgoCD GitOps, Helm, Istio service mesh, and Ingress-NGINX Controller} --- managing zero-downtime rollouts, Karpenter node autoscaling, and KEDA event-driven scaling; sustained \textbf{99.9\% uptime} across multi-AZ clusters.}
+        \resumeItem{Drove \textbf{root-cause analysis} for \textbf{Linux-based production incidents} across CPU, memory, network, and container runtime; built observability with \textbf{Prometheus, Grafana, Loki, ELK Stack, and Datadog}; authored runbooks and post-incident reviews.}
+        \resumeItem{Developed \textbf{Python and Bash} automation to eliminate \textbf{$\sim$70\% of recurring operational toil} --- covering cluster operations, log triage, secret rotation, and pipeline scripting; integrated SonarQube quality gates and \textbf{Git/Gerrit} code-review workflows into CI/CD.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {DevOps Engineer Intern}{Jan 2025 -- May 2025}
+      {eSparkBiz}{Ahmedabad, India}
+      \resumeItemListStart
+        \resumeItem{Built and maintained AWS infrastructure monitoring on \textbf{Linux-based environments}, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.}
+        \resumeItem{Wrote \textbf{Python and Bash} automation scripts to streamline deployment workflows and reduce manual operational steps --- demonstrated ownership and impact, earning \textbf{full-time promotion within 5 months}.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PROJECTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Personal Projects}
+\resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Cloud-Native SaaS CRM Platform} $|$ \emph{Terraform $\cdot$ AWS EKS $\cdot$ Docker $\cdot$ Jenkins $\cdot$ GitLab CI/CD $\cdot$ GitHub Actions $\cdot$ AWS CodePipeline $\cdot$ ArgoCD $\cdot$ Ingress-NGINX $\cdot$ Prometheus $\cdot$ Grafana}}{}
+      \resumeItemListStart
+        \resumeItem{Designed multi-environment build/deploy architecture with per-environment \textbf{VPC isolation and S3/DynamoDB remote state} --- enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with \textbf{Ingress-NGINX Controller}; executed zero-downtime \textbf{EKS cluster upgrade (v1.33 $\rightarrow$ v1.34)} managing node group rollouts, add-on compatibility, and API deprecation remediation.}
+        \resumeItem{Reduced compute costs by \textbf{30\% (\$500+/month)} via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; migrated deprecated loki-stack to Loki + Grafana Alloy, eliminating deprecated chart dependencies and improving log pipeline reliability.}
+        \resumeItem{Built multi-region \textbf{disaster recovery strategy} using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults --- achieving \textbf{RPO $<$ 1 hour} for production workloads.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{Serverless Backend --- Multi-Tenant Salon Management SaaS} $|$ \emph{AWS Lambda $\cdot$ SAM $\cdot$ CloudFormation $\cdot$ API Gateway $\cdot$ RDS PostgreSQL $\cdot$ Amazon EFS $\cdot$ Secrets Manager $\cdot$ Python}}{}
+      \resumeItemListStart
+        \resumeItem{Architected a serverless build/deploy system using \textbf{6 nested SAM/CloudFormation templates} with SAM build pipelines --- enabling independent deployment of \textbf{30+ Python Lambda functions} with reproducible packaging and per-function least-privilege IAM.}
+        \resumeItem{Solved Lambda layer size constraints by engineering a shared \textbf{EFS-mounted Python dependency layer} across 30+ functions --- eliminating packaging bottlenecks and cutting build times by \textbf{60\%+}.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{Healthcare Management System --- Cloud Infrastructure \& CI/CD} $|$ \emph{AWS S3 $\cdot$ CloudFront $\cdot$ App Runner $\cdot$ ECR $\cdot$ Docker $\cdot$ GitHub Actions $\cdot$ Secrets Manager $\cdot$ IAM}}{}
+      \resumeItemListStart
+        \resumeItem{Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with a \textbf{dual-registry GHCR/ECR strategy} --- enabling zero-downtime redeployments and \textbf{$\sim$30\% reduced image pull latency} while serving 500+ concurrent users.}
+        \resumeItem{Automated full release workflow via \textbf{GitHub Actions} --- Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed 5+ overly permissive roles.}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Technical Skills  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technical Skills}
+\vspace{-7pt}
+\begin{itemize}[leftmargin=0.15in, label={}]\small{\item{
+  \textbf{Scripting \& OS:} Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration \\
+  \textbf{CI/CD \& GitOps:} Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD \\
+  \textbf{Containers \& Service Mesh:} Docker, Kubernetes (EKS, OpenShift), Helm, Istio, Karpenter, KEDA, Ingress-NGINX \\
+  \textbf{Infrastructure as Code:} Terraform, AWS CloudFormation, AWS SAM, Ansible \\
+  \textbf{Cloud Platforms:} AWS (EKS, EC2, Lambda, S3, ECR, RDS, VPC, CloudWatch), Azure (Fundamentals) \\
+  \textbf{Observability \& Monitoring:} Prometheus, Grafana, Loki, ELK Stack, Datadog, CloudWatch \\
+  \textbf{Security \& Secrets:} HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM, KMS, TLS/SSL \\
+  \textbf{Version Control \& Code Review:} Git, GitHub, Bitbucket, Gerrit, Branching Strategies
+}}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Education  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {B.Tech, Information Technology}{2021 -- 2025}
+      {Dharmsinh Desai University, Gujarat, India}{CGPA: 7.25 / 10}
+  \resumeSubHeadingListEnd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Achievements  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Achievements}
+\resumeSubHeadingListStart
+  \resumeItemListStart
+    \resumeItem{Awarded \textbf{``Student of the Year''} in Class 10 for outstanding academic performance and leadership contributions.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\end{document}

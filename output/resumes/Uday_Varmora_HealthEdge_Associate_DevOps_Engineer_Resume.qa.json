@@ -1,0 +1,68 @@
+{
+  "verdict": "needs_fixes",
+  "score": 72,
+  "summary": "Strong, well-aligned DevOps resume with defensible metrics, but a fabricated future end-date and a present-tense/tense inconsistency on the current role are high-severity must-fixes.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Current full-time role is dated with a fixed future end date, contradicting the source of truth which states the role is 'Jun 2025 – Present'. 'Apr 2026' is a fabricated end date and would also imply the role has ended.",
+      "where": "DevOps Engineer | eSparkBiz — dates: \"Jun 2025 – Apr 2026\"",
+      "suggestion": "Change to \"Jun 2025 – Present\" per the master brief tenure facts."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "high",
+      "issue": "The current (ongoing) role uses past-tense verbs throughout ('Built', 'Provisioned', 'Operated', 'Developed', 'Drove'). Master brief marks this role as Present; current roles should use present tense, or at minimum the fabricated end-date fix above must align tense with an ongoing role.",
+      "where": "DevOps Engineer | eSparkBiz bullets: \"Built and maintained 40+ CI/CD pipelines...\", \"Operated Kubernetes (EKS) clusters...\"",
+      "suggestion": "Once dates show 'Present', use present tense (e.g., 'Build and maintain', 'Operate') or keep a consistent convention; ensure tense matches the ongoing status."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "HealthEdge is a healthcare SaaS company; the resume includes a Healthcare Management System project but the summary and skills do not surface any healthcare/compliance-relevant keywords (e.g., HIPAA, compliance, security hardening) that an Associate DevOps role at a health-tech firm may screen for. No JD bullet text was provided, so keyword coverage is judged on company context only.",
+      "where": "Professional Summary and Technical Skills sections",
+      "suggestion": "If the actual JD lists keywords (e.g., HIPAA, observability, on-call, specific clouds), mirror them; emphasise the Healthcare project's security/least-privilege framing. Do not fabricate compliance experience not in the brief."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Summary uses 'operational toil 70%' while a bullet uses '~70% of recurring operational toil'; the tilde (~) qualifier is inconsistent between summary and body.",
+      "where": "Summary: \"operational toil 70%\" vs bullet: \"eliminate ~70% of recurring operational toil\"",
+      "suggestion": "Use '~70%' consistently in both places to match the master brief's '~70%'."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Summary abbreviates release-cycle figure as '45 → 8 min' while the experience bullet writes '45 min → under 8 min'; minor format inconsistency.",
+      "where": "Summary: \"82% (45 → 8 min)\" vs bullet: \"82% (45 min → under 8 min)\"",
+      "suggestion": "Standardise the notation (e.g., '45 min → 8 min') across summary and bullet."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact line (name, email, phone, location, LinkedIn, GitHub) is present in cv.md but not surfaced in this generated JSON payload; confirm the renderer injects the header so it is not dropped.",
+      "where": "Generated resume JSON has no header/contact block",
+      "suggestion": "Verify the contact header renders from cv.md/profile.yml in final output."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Project title labels the platform as 'Build & Deploy Infrastructure' which is acceptable, but bullets correctly use 'Operated and extended' — good. No over-claim of originating the platform detected; tier-2 tech (OpenShift, Istio, ELK, Datadog) correctly dropped for this role. Noting as clean confirmation.",
+      "where": "Projects and Skills sections",
+      "suggestion": "No change needed; framing aligns with the maintain/extend honesty rule."
+    }
+  ],
+  "checkedAt": "2026-06-29T14:59:30.170Z"
+}

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "career-ops-ai": {
+      "command": "node",
+      "args": ["mcp-server/index.mjs"],
+      "env": {}
+    }
+  }
+}

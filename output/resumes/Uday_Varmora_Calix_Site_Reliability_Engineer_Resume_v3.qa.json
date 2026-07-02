@@ -1,0 +1,68 @@
+{
+  "verdict": "minor_issues",
+  "score": 88,
+  "summary": "A strong, well-targeted SRE resume with truthful metrics and excellent JD alignment; only minor consistency and labeling issues remain.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "The Salon project tech line lists 'CloudFormation' but the bullet references 'SAM/CloudFormation templates' — the SAM tool is dropped from the tech stack header while still cited in the bullet. The master brief tech line for this project explicitly includes 'SAM'.",
+      "where": "Salon project tech: \"AWS Lambda · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python\" vs bullet \"6 nested SAM/CloudFormation templates\"",
+      "suggestion": "Add SAM back to the tech line: 'AWS Lambda · SAM · CloudFormation · API Gateway ...' to match the bullet and the source brief."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "medium",
+      "issue": "Role title 'DevOps Engineer (Site Reliability Engineer)' invents a parenthetical SRE title the candidate never held. The real title was 'DevOps Engineer' at eSparkBiz. Re-titling risks an honesty/verification flag.",
+      "where": "\"role\": \"DevOps Engineer (Site Reliability Engineer)\"",
+      "suggestion": "Use the actual title 'DevOps Engineer'. SRE framing is fine in the summary/bullets, but do not append a title the candidate did not hold."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Istio appears in the master Tier-2 stack but is intentionally omitted here (acceptable per JD-driven trimming). However ELK Stack and Datadog were dropped from observability while the master B4 bullet includes them — the resume's observability bullet correctly omits them, which is fine, but ensure no orphan reference remains. No orphan found; flagging only that the trimmed stack is consistent.",
+      "where": "Skills 'Observability & Monitoring' row vs master B4 bullet",
+      "suggestion": "No change needed — trimming is consistent. Confirm intentional."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Intern dates use 'May 2025' (full month) while other date formats are consistent; the full-time end is 'Apr 2026' (abbreviated). Both abbreviated forms are fine, but 'May' is not abbreviated whereas 'Jun', 'Jan', 'Apr' are — May is naturally 3 letters so this is acceptable, just noting for parallelism.",
+      "where": "\"Jan 2025 – May 2025\" and \"Jun 2025 – Apr 2026\"",
+      "suggestion": "No change required; consistent abbreviation already used."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "JD is for 'Site Reliability Engineer - I'. Resume surfaces strong SRE keywords (SLI/SLO, MTTR, incident response, post-mortems, runbooks, on-call). Coverage is good. Consider adding 'on-call' explicitly as a skill keyword if the JD emphasizes rotations, though it appears in bullets.",
+      "where": "Summary and Reliability & Incident Response skills row",
+      "suggestion": "Optionally add 'On-call readiness' to the Reliability row for exact ATS keyword match if JD lists on-call."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "Healthcare prototype bullets correctly avoid the unverified production-scale metrics ('500+ users', '5+ IAM roles removed', '30% latency reduction') per the brief's warning — this is correct and compliant. No fabrication detected.",
+      "where": "Healthcare Management System project bullets",
+      "suggestion": "No change — properly kept at prototype scale."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact info (phone, email, LinkedIn, GitHub, location) is not visible in this JSON payload but is present in cv.md header; assuming the renderer injects it. If the renderer relies solely on this JSON, contact block is missing.",
+      "where": "Generated resume JSON has no contact/header fields",
+      "suggestion": "Verify the HTML renderer pulls contact info from profile.yml/cv.md so name, phone, email, LinkedIn, GitHub, and location appear in the header."
+    }
+  ],
+  "checkedAt": "2026-06-30T10:29:59.650Z"
+}

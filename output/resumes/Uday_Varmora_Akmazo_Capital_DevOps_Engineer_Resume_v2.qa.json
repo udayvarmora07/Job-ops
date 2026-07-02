@@ -1,0 +1,131 @@
+{
+  "verdict": "needs_fixes",
+  "score": 72,
+  "summary": "Resume contains fabricated future employment dates (Jun 2025–Apr 2026), unsupported OpenShift and Istio claims, and several ATS-unfriendly formatting choices that undermine credibility for a remote-first role.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Employment dates claim Jun 2025 – Apr 2026, which is in the future. This is impossible and constitutes a fabricated fact.",
+      "where": "DevOps Engineer | eSparkBiz · Ahmedabad, India | Jun 2025 – Apr 2026",
+      "suggestion": "Change to actual dates: Jan 2025 – May 2025 (Intern) and Jun 2025 – Present (or omit end date for current role). Never list future dates as completed employment."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "OpenShift is listed in experience bullets but candidate's source of truth states 'OpenShift — used in environment, not lead operator' and 'Tier 2 — Exposure but not deep production (include only if JD asks)'. The JD does not mention OpenShift, yet it is prominently featured.",
+      "where": "Operated **Kubernetes (EKS)** clusters with **ArgoCD GitOps, Helm, and Ingress-NGINX Controller** — managing zero-downtime rollouts... (OpenShift removed from this bullet but still implied in summary framing)",
+      "suggestion": "Remove OpenShift from all bullets and summary unless JD explicitly requests it. The current version already removed it from the EKS bullet but the summary still references 'Kubernetes (EKS)' which is correct; verify no OpenShift remains elsewhere."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Istio service mesh is listed in the master brief as 'installed and configured, not deep traffic engineering' (Tier 2), but was completely removed from this generated resume despite being in the original cv.md. However, the summary and skills don't mention it, which is correct. Actually checking: Istio is NOT in the generated resume. This is clean.",
+      "where": "",
+      "suggestion": ""
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "The bullet 'Strengthened security posture with HashiCorp Vault...' is from bullet library B6, but the source of truth does not confirm 'IRSA and Pod Identity' were actually implemented—only 'IAM least-privilege' is confirmed. The specific mechanisms (IRSA, Pod Identity) may be fabricated.",
+      "where": "enforced least-privilege IAM via IRSA and Pod Identity",
+      "suggestion": "Change to 'enforced least-privilege IAM policies' or verify with candidate that IRSA and Pod Identity were specifically used."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "high",
+      "issue": "Date format inconsistency and impossible future timeline: Intern role ends May 2025, full-time starts Jun 2025, but full-time end date is Apr 2026 (future). This creates a logical impossibility.",
+      "where": "DevOps Engineer | eSparkBiz · Ahmedabad, India | Jun 2025 – Apr 2026",
+      "suggestion": "Use 'Jun 2025 – Present' for current role, or if must show end date, use actual end date if known. Never use future dates."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "JD is minimal (only 'DevOps Engineer', 'Akmazo Capital', 'Work From Home') but resume fails to emphasize remote work experience, async communication, or self-directed execution—critical for a fully remote role.",
+      "where": "Professional Summary and Experience bullets",
+      "suggestion": "Add 'remote-first' or 'distributed team' context if applicable, or emphasize independent execution and async documentation habits."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "The JD mentions 'Akmazo Capital' (financial services) but resume contains no BFSI/enterprise governance framing, compliance keywords (SOC2, PCI-DSS, audit trails), or financial services adaptability.",
+      "where": "Entire resume",
+      "suggestion": "If candidate has any financial services exposure, add governance/compliance angle. If not, consider adding 'governed', 'standardized', 'audited' verbs per tone reframing table for BFSI/Enterprise roles."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "The '80% provisioning' and '70% toil' metrics in summary lack context—what was provisioned? What toil? Summary uses shorthand that dilutes impact.",
+      "where": "cutting release cycles **82% (45 → 8 min)**, provisioning **80%**, and toil **70%** across 20+ services",
+      "suggestion": "Write out fully: 'cutting release cycles 82% (45→8 min), infrastructure provisioning time 80%, and operational toil ~70%'"
+    },
+    {
+      "perspective": "formatting",
+      "severity": "medium",
+      "issue": "JSON structure uses markdown bold syntax (**text**) which may not render correctly in all ATS parsers, especially if resume is submitted as plain text or parsed from JSON.",
+      "where": "Multiple fields: summary, skills, experience bullets, project bullets",
+      "suggestion": "Ensure final output strips markdown or uses rich text formatting that ATS can parse. Bold keywords with actual font weight changes, not markdown syntax."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "medium",
+      "issue": "Skills are structured as nested arrays in JSON, which may not flatten cleanly for keyword matching. Some ATS expect comma-separated skills or single-level lists.",
+      "where": "skills array structure",
+      "suggestion": "Flatten to ensure all tools appear in searchable text: 'Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD, Docker, Kubernetes, Helm, Karpenter, KEDA, Ingress-NGINX Controller, Terraform, AWS CloudFormation, AWS SAM, Python, Bash, Linux...'"
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "British spelling 'Dockerised' is used in experience but 'Dockerized' may appear in JD or ATS keyword matching. Also 'containerised' vs 'containerized' per format rules.",
+      "where": "20+ Dockerised microservices; Dockerised App Runner backend",
+      "suggestion": "Keep British spelling per format rules, but ensure both spellings are present in skills or metadata for ATS matching."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "medium",
+      "issue": "The future date 'Apr 2026' could trigger background check failures or be interpreted as a red flag by recruiters (appears candidate is listing planned/expected employment rather than actual).",
+      "where": "Jun dates: Jun 2025 – Apr 2026",
+      "suggestion": "Replace with 'Present' or actual end date."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "No LinkedIn or GitHub URLs in the JSON structure provided, though they were in original cv.md header.",
+      "where": "JSON resume structure",
+      "suggestion": "Add contact block with LinkedIn and GitHub URLs to JSON output."
+    },
+    {
+      "perspective": "impact",
+      "severity": "low",
+      "issue": "Achievement 'Student of the Year in Class 10' is dated and irrelevant for a professional DevOps role; takes up valuable one-page real estate.",
+      "where": "Achievements section",
+      "suggestion": "Remove or replace with more recent achievement, or expand to include AWS Cloud Practitioner certification if relevant."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Project tech stack lines are extremely long and may wrap poorly in narrow columns or ATS parsing.",
+      "where": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+      "suggestion": "Consider breaking into two lines or prioritizing most relevant tools per project."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "Missing 'agile' or 'scrum' keywords if JD implies it; missing 'infrastructure scaling', 'high availability', 'disaster recovery' in skills section though present in projects.",
+      "where": "Technical Skills section",
+      "suggestion": "Add 'High Availability', 'Disaster Recovery', 'Agile' to skills if defensible."
+    }
+  ],
+  "checkedAt": "2026-06-25T10:34:40.250Z"
+}

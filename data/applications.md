@@ -1,0 +1,42 @@
+# Applications Tracker
+
+| # | Date | Company | Role | Score | Status | PDF | Report | Notes |
+|---|------|---------|------|-------|--------|-----|--------|-------|
+| 40 | 2026-07-01 | Recro | DevOps Engineer | 3.6/5 | Applied | ❌ | [031](../reports/031-recro-2026-07-01.md) | Evaluated via web dashboard |
+| 39 | 2026-07-01 | Metasphere | DevOps Engineer | N/A | Applied | ❌ | — | Applied from https://msphere.io/careers/devops-engineer/ |
+| 38 | 2026-07-01 | Lucidity | DevOps Engineer | 4.2/5 | Applied | ❌ | [030](../reports/030-lucidity-2026-07-01.md) | Evaluated via web dashboard |
+| 37 | 2026-07-01 | Unknown | Unknown | N/A | Evaluated | ❌ | [029](../reports/029-unknown-2026-07-01.md) | Evaluated via web dashboard |
+| 36 | 2026-06-27 | Unknown | Unknown | N/A | Evaluated | ❌ | [028](../reports/028-unknown-2026-06-27.md) | Evaluated via web dashboard |
+| 35 | 2026-06-27 | Inception42 | DevOps Engineer | 0.0/5 | Evaluated | ❌ | [027](../reports/027-inception42-2026-06-27.md) | Evaluated via web dashboard |
+| 34 | 2026-06-27 | Tarana Wireless | Cloud DevOps Engineer | 3.7/5 | Evaluated | ❌ | [026](../reports/026-tarana-wireless-2026-06-27.md) | Evaluated via web dashboard |
+| 33 | 2026-06-27 | Actualize | DevOps Engineer | N/A | Applied | ❌ | — | Applied from https://www.linkedin.com/jobs/view/4431249072 |
+| 32 | 2026-06-25 | TestMu AI (Formely LambdaTest) is hiring DevOps Engineer job in Noida | DevOps Engineer | N/A | Applied | ❌ | — | Applied from https://cutshort.io/job/DevOps-Engineer-Noida-TestMu-AI-Formely-LambdaTest--If5tUAfe |
+| 31 | 2026-06-25 | Cashfree | DevOps Engineer | N/A | Applied | ❌ | — | Applied from https://www.instahyre.com/job-426017-devops-engineer-at-cashfree-bangalore/ |
+| 30 | 2026-06-25 | Cashfree Payments | DevOps Engineer 2 | N/A | Applied | ❌ | — | Applied from https://www.linkedin.com/jobs/view/4428088257 |
+| 29 | 2026-06-25 | TestMu AI (LambdaTest) | DevOps Engineer | 3.8/5 | Evaluated | ❌ | [025](../reports/025-testmu-ai-lambdatest-2026-06-25.md) | Evaluated via web dashboard |
+| 28 | 2026-06-25 | Deutsche Telekom Digital Labs | DevOps Engineer II | N/A | Applied | ❌ | — | Applied from https://www.instahyre.com/job-427834-devops-engineer-ii-at-deutsche-telekom-digital-labs-gurgaon/ |
+| 27 | 2026-06-25 | Associate Devops Engineer Bain Gurugram 1 To 4 Years | Associate Devops Engineer Bain Gurugram 1 To 4 Years | N/A | Applied | ❌ | — | Applied from https://www.naukri.com/job-listings-associate-devops-engineer-bain-gurugram-1-to-4-years-230426010947 |
+| 26 | 2026-06-25 | HDFC securities | Site Reliability Engineer | N/A | Applied | ❌ | — | Applied from https://www.adzuna.in/land/ad/5768219171?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=1CD927AA8A082FC2EAE40AF5EC909A2C8AB12969 |
+| 25 | 2026-06-25 | Aivar Innovations | Cloud / DevOps Engineer | N/A | Applied | ❌ | — | Applied from https://www.instahyre.com/job-415452-cloud-devops-engineer-at-aivar-innovations-coimbatore/ |
+| 24 | 2026-06-25 | Gemini Solutions Pvt Ltd | Site Reliability Engineer | N/A | Applied | ❌ | — | Applied from https://www.adzuna.in/land/ad/5765774330?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=343C2441F141AF528900168850677CC3B7A31833 |
+| 23 | 2026-06-25 | Delta Electronics India | Site Reliability Engineer | N/A | Applied | ❌ | — | Applied from https://www.adzuna.in/land/ad/5760052236?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=C98F59F59CDEC9BAA67797EF1896D0FB1F3E7D14 |
+| 22 | 2026-06-25 | Enterpret | Site Reliability Engineer | N/A | Applied | ❌ | — | Applied from https://www.adzuna.in/land/ad/5760050303?se=_AWOnW5w8RGA_J_s4PS1Ig&utm_medium=api&utm_source=091434ce&v=05508F70EA8890B3937776DDDD585E535B2BBB80 |
+| 21 | 2026-06-25 | Avenue Code | Site Reliability Engineering | 4.2/5 | Applied | ❌ | [022](../reports/022-avenue-code-2026-06-25.md) | Re-eval 2026-06-25 (3.9→4.2). Evaluated via web dashboard |
+| 20 | 2026-06-25 | unnamed (Aivar Innovations) | Cloud / DevOps Engineer | 3.7/5 | Evaluated | ❌ | [020](../reports/020-unnamed-aivar-innovations-2026-06-25.md) | Evaluated via web dashboard |
+| 19 | 2026-06-25 | Smart Working Solutions | DevOps Engineer (Remote, Full-Time) | 3.7/5 | Applied | ❌ | [019](../reports/019-smart-working-solutions-2026-06-25.md) | Evaluated via web dashboard |
+| 18 | 2026-06-24 | Akmazo Capital | DevOps Engineer | 4.2/5 | Evaluated | ❌ | [018](../reports/018-akmazo-capital-2026-06-24.md) | Evaluated via web dashboard |
+| 17 | 2026-06-24 | Netomi | DevOps Engineer - I | 3.9/5 | Evaluated | ❌ | [017](../reports/017-netomi-2026-06-24.md) | Evaluated via web dashboard |
+| 16 | 2026-06-24 | PhonePe | Site Reliability Engineer | 3.9/5 | Evaluated | ❌ | [016](../reports/016-phonepe-2026-06-24.md) | Evaluated via web dashboard |
+| 15 | 2026-06-24 | Observe.AI | Platform Engineer - 1 | 4.2/5 | Evaluated | ❌ | [015](../reports/015-observe-ai-2026-06-24.md) | Evaluated via web dashboard |
+| 14 | 2026-06-24 | super.money | Site Reliability Engineer 1 / 2 | 4.2/5 | Applied | ❌ | [014](../reports/014-super-money-2026-06-24.md) | Evaluated via web dashboard |
+| 13 | 2026-06-24 | IDX | Associate Cloud Engineer | 3.8/5 | Evaluated | ❌ | [013](../reports/013-idx-2026-06-24.md) | Evaluated via web dashboard |
+| 12 | 2026-06-24 | HARMAN India | Associate Engineer- AWS Devops | 3.8/5 | Applied | ❌ | [012](../reports/012-harman-india-2026-06-24.md) | Evaluated via web dashboard |
+| 11 | 2026-06-23 | CredFlow AI | DevOps Engineer | 4.2/5 | Evaluated | ❌ | [011](../reports/011-credflow-ai-2026-06-23.md) | Evaluated via web dashboard |
+| 10 | 2026-06-22 | BlueStone.com | DevOps Engineer | 4.1/5 | Evaluated | ❌ | [010](../reports/010-bluestone-com-2026-06-22.md) | Evaluated via web dashboard |
+| 9 | 2026-06-22 | Okta Identity India Private Limited | SRE Operations Engineer | 3.8/5 | Evaluated | ❌ | [009](../reports/009-okta-identity-india-private-limited-2026-06-22.md) | Evaluated via web dashboard |
+| 7 | 2026-06-22 | Bain & Company | Associate DevOps Engineer | 4.2/5 | Evaluated | ❌ | [007](../reports/007-bain-company-2026-06-22.md) | Evaluated via web dashboard |
+| 6 | 2026-06-22 | InfraCloud Technologies | Senior DevOps Engineer | 4.1/5 | Evaluated | ❌ | [006](../reports/006-infracloud-technologies-2026-06-22.md) | Evaluated via web dashboard |
+| 5 | 2026-06-22 | Snapmint | DevOps Engineer | 4.0/5 | Applied | ❌ | [005](../reports/005-snapmint-2026-06-22.md) | Strong match for DevOps role at profitable fintech startup; fintech domain and experience level gaps manageable |
+| 3 | 2026-06-20 | DocHipo | DevOps Engineer | 3.8/5 | Evaluated | ✅ | [003](../reports/003-dochipo-2026-06-20.md) | Remote India startup; strong AWS/Python/K8s fit; exp gap 1yr vs 2-3yr req |
+| 2 | 2026-06-20 | Mastercard | Platform Engineer I (DevOps) | 4.5/5 | Evaluated | ✅ | [2](../reports/002-mastercard-2026-06-20.md) | Entry-level Linux/DevOps, Pune; JD asks 0.5-1.5 yrs — exact fit; resume tailored |
+| 1 | 2026-06-17 | Sarvam AI | DevOps Engineer, Studio Platform | 4.3/5 | Evaluated | ✅ | [001](../reports/001-sarvam-2026-06-17.md) | Strong K8s/GitOps fit; 3+yr ask vs 1+yr — apply, lead with prod-K8s story |

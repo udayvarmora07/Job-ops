@@ -1,0 +1,8 @@
+{
+  "verdict": "unknown",
+  "score": null,
+  "summary": "QA model returned unparseable output.",
+  "perspectivesChecked": [],
+  "issues": [],
+  "raw": " ```json\n{\n  \"verdict\": \"needs_fixes\",\n  \"score\":  dred,\n  \"summary\": \"Multiple high-severity truthfulness issues: fabricated job title changes, unsupported SLO monitoring claim, and unverified ELK/Datadog observability claims violate the master brief; additionally contains a formatting error in skills and inconsistent date logic.\",\n  \"perspectivesChecked\": [\"spelling\",\"grammar\",\"consistency\",\"completeness\",\"truthfulness\",\"jd_ats\",\"impact\",\"formatting\",\"red_flags\"],\n  \"issues\": [\n    {\n      \"pe"
+}

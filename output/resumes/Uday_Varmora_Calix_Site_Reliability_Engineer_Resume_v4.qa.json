@@ -1,0 +1,61 @@
+{
+  "verdict": "minor_issues",
+  "score": 88,
+  "summary": "Strong, well-targeted SRE resume with metrics that match the source brief; only minor consistency and ATS-polish issues, no fabrications.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "The role title hybridizes two job titles in a way that may read awkwardly and could confuse ATS title parsing. The actual title is DevOps Engineer; bolting on '(Site Reliability Engineer)' overstates the formal title.",
+      "where": "\"role\": \"DevOps Engineer (Site Reliability Engineer)\"",
+      "suggestion": "Use the real title \"DevOps Engineer\" alone, or frame as \"DevOps Engineer — SRE Focus\". The brief states the only title is DevOps Engineer at eSparkBiz."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "low",
+      "issue": "PagerDuty is flagged Tier 2 ('alerts routing, not on-call rotation owner') in the brief. The bullet pairs 'PagerDuty alerting' with 'accelerating on-call response readiness,' which edges toward implying on-call rotation ownership. Defensible but borderline.",
+      "where": "\"authored **blameless post-mortems, runbooks, and PagerDuty alerting** that reduced **MTTR** ... while accelerating on-call response readiness.\"",
+      "suggestion": "Keep 'PagerDuty alert routing' framing to stay within the brief's defensible boundary; avoid implying on-call rotation ownership."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Intern end date uses 'May 2025' while skills/dates elsewhere abbreviate months consistently — this is fine, but note the full-time start is 'Jun 2025' and intern end 'May 2025'; tenure overlap is clean. No issue with the data itself, but the experience entries omit the 'Dockerised' British spelling consistently used in projects ('Dockerised App Runner backend') vs experience which has no instance — acceptable. Flag only that 'British -ise spelling' rule (Dockerised) is applied in projects but the word 'utilization' (US -ize) appears in the CRM project.",
+      "where": "\"preserving production availability and cluster resource utilization.\"",
+      "suggestion": "For consistency with the brief's British -ise rule (Dockerised), use 'utilisation'. Pick one spelling convention throughout."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "low",
+      "issue": "Summary leads strong on SRE keywords, but 'SLI/SLO monitoring and alerting', 'MTTR', and 'blameless post-mortems' are well surfaced. No major JD keyword gaps given an SRE-I role. Minor: 'incident response' and 'on-call' could be slightly more prominent for ATS, though both appear.",
+      "where": "Professional Summary",
+      "suggestion": "Optionally add 'on-call' explicitly to the summary line for SRE-I ATS matching; currently only in an experience bullet."
+    },
+    {
+      "perspective": "completeness",
+      "severity": "low",
+      "issue": "Contact info (name, phone, email, LinkedIn, GitHub, location) is present in the source cv.md but the generated JSON does not include a contact/header block — assuming the renderer injects it from profile, this is fine; flag only to confirm it is not dropped.",
+      "where": "Generated resume JSON has no explicit header/contact fields",
+      "suggestion": "Verify the rendering template injects name, phone, email, LinkedIn, GitHub, and location; ensure none are dropped in the final PDF."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "Achievements section mixes a logistics line ('Open to Bangalore... available immediately, no notice period') with an academic award. The brief says 'Immediate joiner: only include if JD explicitly asks.' The JD shown does not explicitly ask for joiner status.",
+      "where": "\"**Open to Bangalore (onsite/hybrid)** — available immediately, no notice period.\"",
+      "suggestion": "Move relocation/availability to the header or cover note, or omit unless the JD requests it, per the brief's rule. Keep Achievements for genuine achievements."
+    }
+  ],
+  "checkedAt": "2026-06-30T10:40:18.003Z"
+}

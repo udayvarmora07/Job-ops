@@ -1,0 +1,102 @@
+{
+  "content": {
+    "filenameSuffix": "Antal_International_Data_SRE",
+    "title": "Infra Data Engineer / Data SRE",
+    "colorScheme": "navy",
+    "summary": "Infra Data Engineer / Data SRE with **1+ year** sustaining **production reliability, Kubernetes operations, observability, disaster recovery readiness, and automation** for **Linux-based AWS** platforms. Hands-on with **EKS, Terraform, Helm, GitOps, ArgoCD, Prometheus, Grafana, Loki, CloudWatch, Jenkins, GitLab CI/CD, GitHub Actions, Python, and Bash** — sustaining **99.9% uptime**, achieving **RPO < 1 hour**, cutting release cycles **82% (45 → 8 min)**, and reducing operational toil **~70%** across 20+ services.",
+    "skills": [
+      [
+        "Containers & Kubernetes",
+        "Docker, Kubernetes (EKS, OpenShift), Helm, Karpenter, KEDA, Ingress-NGINX"
+      ],
+      [
+        "Observability & Monitoring",
+        "Prometheus, Grafana, Loki, CloudWatch, ELK Stack, Datadog"
+      ],
+      [
+        "Infrastructure as Code",
+        "Terraform, AWS CloudFormation, AWS SAM, Ansible"
+      ],
+      [
+        "CI/CD & GitOps",
+        "Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD"
+      ],
+      [
+        "Cloud Platforms",
+        "AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, IAM, CloudWatch"
+      ],
+      [
+        "Scripting & OS",
+        "Python, Bash/Shell, Linux (Ubuntu, Amazon Linux, RHEL), System Administration"
+      ],
+      [
+        "Security & Secrets",
+        "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM, KMS"
+      ],
+      [
+        "Version Control & Code Review",
+        "Git, GitHub, Bitbucket, Gerrit, Branching Strategies"
+      ]
+    ],
+    "experience": [
+      {
+        "role": "DevOps Engineer",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jun 2025 – Apr 2026",
+        "bullets": [
+          "Sustained **production reliability** for **Kubernetes (EKS, OpenShift)** clusters serving **20+ microservices** — maintaining **99.9% uptime SLA** and **high availability** across multi-AZ deployments with continuous monitoring and operational ownership.",
+          "Drove **incident response and root-cause analysis** for **Linux-based production incidents**; authored **blameless post-mortems** and runbooks that reduced repeat-incident frequency and improved response readiness.",
+          "Drove root-cause analysis for Linux-based production incidents across CPU, memory, network, and container runtime; built observability with **Prometheus, Grafana, Loki, ELK Stack, and Datadog**; authored runbooks and post-incident reviews.",
+          "Developed **Python and Bash** automation to eliminate **~70% of recurring operational toil** — covering cluster operations, log triage, secret rotation, and pipeline scripting; integrated SonarQube quality gates and Git/Gerrit code-review workflows into CI/CD.",
+          "Designed and maintained **40+ CI/CD and GitOps pipelines** using **Jenkins, GitLab CI/CD, GitHub Actions, AWS CodePipeline, AWS CodeBuild, ArgoCD, and Helm** — automating build-test-deploy workflows across **20+ Dockerised microservices**, cutting release cycles by **82% (45 → 8 min)**."
+        ]
+      },
+      {
+        "role": "DevOps Engineer Intern",
+        "org": "eSparkBiz · Ahmedabad, India",
+        "dates": "Jan 2025 – May 2025",
+        "bullets": [
+          "Built and maintained AWS infrastructure monitoring on **Linux-based environments**, configured CloudWatch dashboards, and triaged production incidents across Kubernetes workloads; authored operational runbooks for recurring issue patterns and root-cause analyses.",
+          "Wrote **Python and Bash** automation scripts to streamline deployment workflows and reduce manual operational steps — demonstrated ownership and impact, earning **full-time promotion within 5 months**."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
+        "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+        "bullets": [
+          "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads.",
+          "Drove **FinOps** cost optimization — reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification and KEDA off-hours scale-down; migrated deprecated loki-stack to Loki + Grafana Alloy.",
+          "Designed multi-environment AWS architecture with per-environment **VPC isolation**, S3/DynamoDB remote state, and **Ingress-NGINX Controller** on Linux-based EKS nodes; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** with full **high-availability** continuity."
+        ]
+      },
+      {
+        "title": "Serverless Backend — Multi-Tenant Salon Management SaaS",
+        "tech": "AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon EFS · Secrets Manager · Python",
+        "bullets": [
+          "Architected serverless build/deploy system using **6 nested SAM/CloudFormation templates** — enabling deployment of **30+ Python Lambda functions** with reproducible packaging and per-function least-privilege IAM.",
+          "Solved Lambda layer size constraints by engineering a shared **EFS-mounted Python dependency layer** across 30+ functions — eliminating packaging bottlenecks and cutting build times by **60%+**."
+        ]
+      },
+      {
+        "title": "Healthcare Management System — Cloud Infrastructure & CI/CD",
+        "tech": "AWS S3 · CloudFront · App Runner · ECR · Docker · GitHub Actions · Secrets Manager · IAM",
+        "bullets": [
+          "Automated full release workflow via **GitHub Actions** — Docker build, ECR/GHCR dual-push, S3 sync, CloudFront invalidation, and App Runner deploy; applied least-privilege IAM scoping that removed **5+ overly permissive roles**.",
+          "Engineered split-hosting (S3/CloudFront frontend, Dockerised App Runner backend) with dual-registry **GHCR/ECR** strategy — enabling zero-downtime redeployments and **~30% reduced image pull latency** while serving **500+ concurrent users**."
+        ]
+      }
+    ],
+    "education": {
+      "left": "**B.Tech, Information Technology** — Dharmsinh Desai University, Gujarat, India  |  CGPA: 7.25 / 10",
+      "right": "2021 – 2025"
+    },
+    "achievements": [
+      "Awarded **“Student of the Year”** in Class 10 for outstanding academic performance and leadership contributions."
+    ]
+  },
+  "jd": "About the job\nAbout the Role \n\nWe are looking for an experienced Infra Data Engineer / Data SRE to build, operate, and scale\n\nmodern data infrastructure platforms with a strong focus on Kubernetes, reliability,\n\nautomation, scalability, and cost optimization.\n\nIn this role, you will work closely with Data Engineering and Platform teams to manage\n\ndistributed data systems, improve operational efficiency, and build reliable cloud-native\n\ninfrastructure platforms.\n\nKey Responsibilities \n\nKubernetes & Platform Operations\n\n● Manage and optimize Kubernetes-based data infrastructure platforms in production\n\nenvironments.\n\n● Support cluster upgrades, autoscaling, workload scheduling, and resource optimization.\n\n● Implement Kubernetes best practices including StatefulSets, Persistent Volumes, Pod\n\nDisruption Budgets, and affinity rules.\n\n● Ensure platform reliability, high availability, and disaster recovery readiness.\n\nData Platform Engineering & Reliability\n\n● Operate and support distributed systems such as Kafka, Spark, and Airflow.\n\n● Build and maintain observability solutions using Prometheus, Grafana, and centralized\n\nlogging platforms.\n\n● Participate in incident management, root cause analysis, operational automation, and\n\non-call support.\n\n● Create and maintain operational runbooks, dashboards, and platform documentation.\n\nAutomation, CI/CD & Cost Optimization\n\n● Build and maintain CI/CD and GitOps workflows for infrastructure and platform\n\ndeployments.\n\n● Automate infrastructure provisioning using Terraform, Helm, and related IaC tools.\n\n● Monitor and optimize infrastructure utilization across compute, storage, and networking.\n\n● Implement security best practices including RBAC, secrets management, and\n\nvulnerability scanning.\n\nRequired Skills & Qualifications \n\n● 4–5 years of experience in Infrastructure Engineering, DevOps, Platform Engineering.\n\n● Strong hands-on experience with Kubernetes in production environments.\n\n● Experience operating distributed systems such as Kafka, Spark, or Airflow.\n\n● Experience with CI/CD pipelines, GitOps, Terraform, and Helm.\n\n● Familiarity with observability tools such as Prometheus, Grafana, and ELK/OpenSearch.\n\n● Good understanding of Linux systems, networking, and cloud infrastructure.\n\n● Scripting/programming experience in Python, Bash, or Go.\n\n● Strong troubleshooting and incident management skills.\n\nGood to Have\n\n● Experience with autoscaling tools such as HPA, VPA, or KEDA.\n\n● Exposure to cloud platforms such as GCP or AWS.\n\n● Experience with Vault, Trivy, or similar security and secrets management tools.\n\n● Understanding of cost optimization and FinOps practices.\n\n\nRequirements added by the job poster\n\n• 4+ years of work experience with Infrastructure as code (IaC)\n\n• 4+ years of work experience with Data Pipelines",
+  "company": "Antal International",
+  "role": "Data SRE"
+}

@@ -1,0 +1,117 @@
+{
+  "verdict": "needs_fixes",
+  "score": 72,
+  "summary": "Resume contains a critical factual error (role title fabrication), a critical typo ('Amazon num'), and several truthfulness issues including inflated OpenShift/Istio claims and unsupported SRE-specific framing.",
+  "perspectivesChecked": [
+    "spelling",
+    "grammar",
+    "consistency",
+    "completeness",
+    "truthfulness",
+    "jd_ats",
+    "impact",
+    "formatting",
+    "red_flags"
+  ],
+  "issues": [
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Role title fabricated: Candidate's actual title is 'DevOps Engineer' per master brief, not 'Site Reliability Engineer'. The master brief explicitly states 'Current role: DevOps Engineer at eSparkBiz Technologies' and warns 'Never invent metrics, tools, projects, or claims'. Changing the job title to SRE is a material misrepresentation.",
+      "where": "\"role\": \"Site Reliability Engineer\" / \"role\": \"SRE Intern\"",
+      "suggestion": "Restore actual titles: 'DevOps Engineer' and 'DevOps Engineer Intern'. Frame content with SRE-relevant bullets without falsifying the title."
+    },
+    {
+      "perspective": "spelling",
+      "severity": "high",
+      "issue": "Critical typo: 'Amazon num' instead of 'Amazon EFS' in project tech stack.",
+      "where": "\"tech\": \"AWS Lambda · SAM · CloudFormation · API Gateway · RDS PostgreSQL · Amazon num · Secrets Manager · Python\"",
+      "suggestion": "Correct to 'Amazon EFS'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "OpenShift claim overstated: Master brief lists OpenShift as 'TIER 2 — Exposure but not deep production' and states 'used in environment, not lead operator'. The resume claims 'Kubernetes (EKS, OpenShift)' as core operational scope in multiple places, implying production ownership.",
+      "where": "\"Sustained **99.9% uptime SLA** for **Kubernetes (EKS, OpenShift)** clusters\" and \"Operated **Kubernetes (EKS, OpenShift)** clusters\"",
+      "suggestion": "Remove OpenShift from primary operational claims or demote to 'exposure' level: 'Kubernetes (EKS) with exposure to OpenShift'."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "high",
+      "issue": "Istio claim inflated: Master brief lists Istio as 'TIER 2 — installed and configured, not deep traffic engineering'. Resume omits Istio entirely from this SRE version, but in the broader CV claims 'Istio service mesh' as operational. This inconsistency plus the TIER 2 status means prior claims were overstated; current omission is actually safer but reveals prior fabrication.",
+      "where": "N/A in this version, but reflects pattern of overstating TIER 2 items",
+      "suggestion": "Keep Istio omitted from this version; do not reintroduce in other versions without 'exposure' qualifier."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "SRE-specific framing unsupported: 'SLO referencing' and 'error budgets' appear in the SRE archetype description but are not in the candidate's actual experience. The resume claims 'continuous SLO monitoring' but master brief only lists '99.9% uptime SLA' with no evidence of formal SLO/SLI/SLA framework implementation or error budget policies.",
+      "where": "\"implemented continuous SLO monitoring with Prometheus and Grafana\"",
+      "suggestion": "Change to 'monitored uptime targets with Prometheus and Grafana' or reference the actual 99.9% uptime metric without implying formal SLO methodology."
+    },
+    {
+      "perspective": "truthfulness",
+      "severity": "medium",
+      "issue": "'on-call readiness' and 'on-call response' claims in skills and bullets: Master brief lists 'PagerDuty — alerts routing, not on-call rotation owner' as TIER 2. No evidence of formal on-call rotation ownership or pager duty management.",
+      "where": "\"SRE & Incident Response\" skill row: \"on-call readiness\"; bullet: \"accelerated on-call response readiness\"",
+      "suggestion": "Remove 'on-call' claims or qualify as 'supported on-call readiness' if only exposure."
+    },
+    {
+      "perspective": "spelling",
+      "severity": "medium",
+      "issue": "Typo: 'maximized packaging bottlenecks' should be 'eliminating packaging bottlenecks' — 'maximized' is opposite of intended meaning and contradicts the 60%+ build time reduction claim.",
+      "where": "\"maximized packaging bottlenecks and cutting build times by **60%+**\"",
+      "suggestion": "Correct to 'eliminating packaging bottlenecks and cutting build times by **60%+**'."
+    },
+    {
+      "perspective": "grammar",
+      "severity": "medium",
+      "issue": "Awward phrasing: 'triaged production incidents across Kubernetes workloads uptime' — 'uptime' is dangling, likely a copy-paste error from the '99.9% uptime' metric.",
+      "where": "\"triaged production incidents across Kubernetes workloads uptime\"",
+      "suggestion": "Remove 'uptime': 'triaged production incidents across Kubernetes workloads'."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "medium",
+      "issue": "Date format inconsistency: Experience uses 'Jun 2025 – Apr 2026' (abbreviated month) but education uses '2021 – 2025' (no months). While not strictly wrong, inconsistent granularity.",
+      "where": "Education: \"2021 – 2025\"",
+      "suggestion": "Add months for consistency: 'Aug 2021 – May 2025' or use years-only throughout."
+    },
+    {
+      "perspective": "jd_ats",
+      "severity": "medium",
+      "issue": "Missing high-value SRE keywords from typical JDs: 'reliability engineering', 'SLA', 'MTTR', 'MTTD', 'chaos engineering', 'capacity planning', 'performance tuning', 'incident management', 'post-incident review'. While some are present, 'MTTR/MTTD' and formal 'incident management' are absent. Also missing 'GitOps' as explicit skill (only in CI/CD row).",
+      "where": "Skills section and bullets",
+      "suggestion": "Add 'MTTR reduction' to incident response bullet if defensible; add 'GitOps' as explicit skill category."
+    },
+    {
+      "perspective": "impact",
+      "severity": "medium",
+      "issue": "Weak bullet: 'maintaining deployment safety for 40+ pipelines' is vague compared to quantified 82% release cycle reduction in master brief. The stronger metric is buried in favor of generic 'safety'.",
+      "where": "\"integrated SonarQube quality gates and **Git** code-review workflows into CI/CD, maintaining deployment safety for 40+ pipelines\"",
+      "suggestion": "Replace with quantified outcome: 'maintained 40+ CI/CD pipelines, cutting release cycles by 82% (45 → 8 min) with zero manual intervention'."
+    },
+    {
+      "perspective": "red_flags",
+      "severity": "medium",
+      "issue": "Role title inflation is a major red flag for background checks: 'Site Reliability Engineer' vs actual 'DevOps Engineer' will fail employment verification.",
+      "where": "Entire experience section header",
+      "suggestion": "Use actual title with SRE framing in bullets: 'DevOps Engineer (SRE-focused)' if targeting SRE roles."
+    },
+    {
+      "perspective": "formatting",
+      "severity": "low",
+      "issue": "Skills array structure uses nested arrays with category + items; this is ATS-friendly but 'SRE & Incident Response' as a skill category is odd since SRE is the target role, not a skill.",
+      "where": "\"SRE & Incident Response\" skill row",
+      "suggestion": "Rename to 'Incident Response & Reliability' to avoid role-title-as-skill redundancy."
+    },
+    {
+      "perspective": "consistency",
+      "severity": "low",
+      "issue": "British spelling 'Dockerised' in master brief rules, but projects use 'Dockerised' (correct) while some bullets use 'Dockerized' — inconsistent within generated content.",
+      "where": "Project 3: 'Dockerised App Runner backend' vs potential inconsistency",
+      "suggestion": "Verify all instances use 'Dockerised' per master brief."
+    }
+  ],
+  "checkedAt": "2026-06-25T10:07:48.271Z"
+}

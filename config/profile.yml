@@ -1,0 +1,84 @@
+# Career-Ops Profile Configuration
+# This is the single source of truth for your personal data across all modes.
+
+candidate:
+  full_name: "UDAY VARMORA"
+  email: "varmorauday1045@gmail.com"
+  phone: "+91 96623 85170"
+  location: "Ahmedabad, India"
+  linkedin: "linkedin.com/in/udayvarmora"
+  github: "github.com/udayvarmora07"
+  employment_status: "Unemployed — last full-time role (DevOps Engineer, eSparkBiz) ended April 2026"
+  availability: "Immediate joiner — no notice period, available to start immediately"
+
+# Warm-path background for referral targeting (off-account "Find real people").
+# Used to find ex-colleagues and alumni who now work at the target company.
+referral_network:
+  past_companies:
+    - "eSparkBiz Technologies"
+  schools:
+    - "Dharmsinh Desai University"
+
+target_roles:
+  primary:
+    - "DevOps Engineer"
+    - "Site Reliability Engineer"
+    - "Cloud Engineer"
+    - "Platform Engineer"
+    - "CI/CD Engineer"
+    - "Release Engineer"
+    - "Infrastructure Engineer"
+    - "Systems Engineer"
+  archetypes:
+    - name: "DevOps Engineer"
+      level: "Junior-Mid"
+      fit: "primary"
+    - name: "Site Reliability Engineer"
+      level: "Junior-Mid"
+      fit: "primary"
+    - name: "Cloud Engineer"
+      level: "Junior-Mid"
+      fit: "primary"
+    - name: "Platform Engineer"
+      level: "Junior-Mid"
+      fit: "primary"
+    - name: "CI/CD Engineer"
+      level: "Junior-Mid"
+      fit: "primary"
+    - name: "Release Engineer"
+      level: "Junior-Mid"
+      fit: "primary"
+    - name: "Infrastructure Engineer"
+      level: "Junior-Mid"
+      fit: "primary"
+    - name: "Systems Engineer"
+      level: "Junior-Mid"
+      fit: "primary"
+
+narrative:
+  headline: "DevOps & Cloud Engineer specializing in CI/CD automation, Kubernetes, and AWS infrastructure scaling"
+  exit_story: "Promoted from Intern to DevOps Engineer within 5 months at eSparkBiz. Led automated provisioning and scalable multi-tenant deployments until April 2026. Currently unemployed and actively seeking new opportunities — no notice period."
+  superpowers:
+    - "CI/CD Pipeline Automation (Jenkins, GitLab CI/CD, GitHub Actions)"
+    - "Infrastructure as Code (Terraform, CloudFormation)"
+    - "Container Orchestration & Autoscaling (EKS, Karpenter, KEDA)"
+    - "Observability & Linux System Administration"
+  proof_points:
+    - name: "CRM EKS Migration"
+      hero_metric: "Reduced release cycles 82% (45m -> 8m) and compute costs 30% ($500+/mo)"
+
+compensation:
+  target_range: ""
+  currency: "INR"
+  minimum: ""
+  location_flexibility: "Onsite or Hybrid in target Indian cities, or Remote India"
+
+location:
+  country: "India"
+  city: "Ahmedabad"
+  timezone: "IST"
+  visa_status: "No sponsorship needed in India"
+  onsite_availability: "Available for onsite/hybrid in Ahmedabad, Gandhinagar, Baroda, Pune, Bangalore, Gurugram, Noida, Hyderabad, Mumbai"
+
+cv:
+  output_format: "html"
