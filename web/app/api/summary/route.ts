@@ -1,11 +1,9 @@
 import { NextResponse } from "next/server";
-import { parseApplications, parseJobs, listReports } from "@/lib/parsers";
-import { listReferrals } from "@/lib/referrals";
+import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
 const REACHED: Record<string, number> = {
-  // how far each status has progressed through the funnel
   evaluated: 1,
   skip: 1,
   discarded: 1,
@@ -13,34 +11,35 @@ const REACHED: Record<string, number> = {
   responded: 3,
   interview: 4,
   offer: 5,
-  rejected: 2, // a rejection implies at least an application was sent
+  rejected: 2,
 };
 
 export async function GET() {
-  const apps = parseApplications();
-  const jobs = parseJobs();
-  const reports = listReports();
-  const referrals = listReferrals();
+  const [applications, scanCount, pipelineCount, reportCount, referrals] =
+    await Promise.all([
+      prisma.application.findMany(),
+      prisma.scanHistory.count(),
+      prisma.pipelineItem.count(),
+      prisma.report.count(),
+      prisma.referral.findMany(),
+    ]);
 
-  const stage = (a: { status: string }) =>
-    REACHED[a.status.toLowerCase().trim()] ?? 1;
-
-  const total = apps.length;
-  const applied = apps.filter((a) => stage(a) >= 2).length;
-  const responded = apps.filter((a) => stage(a) >= 3).length;
-  const interview = apps.filter((a) => stage(a) >= 4).length;
-  const offer = apps.filter((a) => stage(a) >= 5).length;
+  const total = applications.length;
+  const applied = applications.filter((a) => (REACHED[a.status.toLowerCase().trim()] ?? 1) >= 2).length;
+  const responded = applications.filter((a) => (REACHED[a.status.toLowerCase().trim()] ?? 1) >= 3).length;
+  const interview = applications.filter((a) => (REACHED[a.status.toLowerCase().trim()] ?? 1) >= 4).length;
+  const offer = applications.filter((a) => (REACHED[a.status.toLowerCase().trim()] ?? 1) >= 5).length;
 
   const pct = (n: number, d: number) => (d > 0 ? Math.round((n / d) * 100) : 0);
 
-  const scored = apps.filter((a) => a.scoreNum != null);
+  const scored = applications.filter((a) => a.score != null);
   const avgScore =
     scored.length > 0
-      ? scored.reduce((s, a) => s + (a.scoreNum as number), 0) / scored.length
+      ? scored.reduce((s, a) => s + (a.score as number), 0) / scored.length
       : null;
 
   const byStatus: Record<string, number> = {};
-  for (const a of apps) {
+  for (const a of applications) {
     const k = a.status || "Unknown";
     byStatus[k] = (byStatus[k] || 0) + 1;
   }
@@ -50,11 +49,11 @@ export async function GET() {
 
   return NextResponse.json({
     counts: {
-      fetchedJobs: jobs.length,
-      inPipeline: jobs.filter((j) => j.inPipeline && !j.processed).length,
-      processed: jobs.filter((j) => j.processed).length,
+      fetchedJobs: scanCount,
+      inPipeline: await prisma.pipelineItem.count({ where: { status: "pending" } }),
+      processed: await prisma.pipelineItem.count({ where: { status: "done" } }),
       evaluated: total,
-      reports: reports.length,
+      reports: reportCount,
       referrals: referrals.length,
     },
     funnel: [

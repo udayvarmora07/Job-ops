@@ -1,33 +1,69 @@
 services:
-  jobops:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: jobops
+      POSTGRES_USER: jobops
+      POSTGRES_PASSWORD: jobops
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jobops"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "4317:4317"
+    environment:
+      DATABASE_URL: postgresql://jobops:jobops@postgres:5432/jobops
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+      - ./reports:/app/reports
+      - ./config:/app/config
+
+  worker:
     build:
       context: .
-      dockerfile: Dockerfile
-    image: jobops:local
-    container_name: jobops
-    working_dir: /app
-    # Long-running shell so `docker compose exec` is instant.
-    command: ["tail", "-f", "/dev/null"]
-    init: true
-    # Mount whole project so edits on host are visible inside the container.
-    # node_modules is kept inside the image to avoid host/container ABI mismatch
-    # (host is ubuntu26.04 where playwright won't install; image is jammy).
-    volumes:
-      - .:/app
-      - jobops-node-modules:/app/node_modules
+      dockerfile: worker/Dockerfile
     environment:
-      - NODE_ENV=development
-      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
-      # Forward common API keys if set on host. Empty values are ignored.
-      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
-      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
-    # Chromium needs a larger /dev/shm than the default 64M.
-    shm_size: "1gb"
-    # Dashboard TUI is interactive; expose nothing by default but allow `-it`.
-    tty: true
-    stdin_open: true
-    restart: unless-stopped
+      DATABASE_URL: postgresql://jobops:jobops@postgres:5432/jobops
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+      - ./reports:/app/reports
+      - ./config:/app/config
+    deploy:
+      replicas: 2
 
 volumes:
-  jobops-node-modules:
+  pgdata:

@@ -1,13 +1,35 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import { parseJobs } from "@/lib/parsers";
-import { FILES } from "@/lib/paths";
+import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export async function GET() {
-  return NextResponse.json({ jobs: parseJobs() });
+  const scanJobs = await prisma.scanHistory.findMany({
+    orderBy: { firstSeen: "desc" },
+  });
+
+  const pipelineItems = await prisma.pipelineItem.findMany();
+  const pipelineMap = new Map(pipelineItems.map((p) => [p.url, p]));
+
+  const jobs = scanJobs.map((s) => {
+    const pipe = pipelineMap.get(s.url);
+    return {
+      url: s.url,
+      company: s.company,
+      role: s.title,
+      portal: s.portal,
+      location: s.location,
+      firstSeen: s.firstSeen.toISOString().slice(0, 10),
+      inPipeline: !!pipe,
+      processed: pipe?.status === "done",
+      source: pipe ? ("both" as const) : ("scan" as const),
+      expRequired: null as string | null,
+      expMinYears: null as number | null,
+    };
+  });
+
+  return NextResponse.json({ jobs });
 }
 
 export async function DELETE(req: Request) {
@@ -16,27 +38,10 @@ export async function DELETE(req: Request) {
   const url = (body.url || "").trim();
   if (!url) return NextResponse.json({ error: "url required" }, { status: 400 });
 
-  // Remove from scan-history.tsv
-  const tsvPath = FILES.scanHistory();
-  if (fs.existsSync(tsvPath)) {
-    const lines = fs.readFileSync(tsvPath, "utf8").split("\n");
-    const filtered = lines.filter((l) => {
-      const cols = l.split("\t");
-      return cols[0] !== url;
-    });
-    fs.writeFileSync(tsvPath, filtered.join("\n"), "utf8");
-  }
-
-  // Remove from pipeline.md
-  const pipePath = FILES.pipeline();
-  if (fs.existsSync(pipePath)) {
-    const lines = fs.readFileSync(pipePath, "utf8").split("\n");
-    const filtered = lines.filter((l) => {
-      const m = l.match(/^- \[[ x]\]\s*(\S+)/i);
-      return !m || m[1] !== url;
-    });
-    fs.writeFileSync(pipePath, filtered.join("\n"), "utf8");
-  }
+  await prisma.$transaction([
+    prisma.scanHistory.deleteMany({ where: { url } }),
+    prisma.pipelineItem.deleteMany({ where: { url } }),
+  ]);
 
   return NextResponse.json({ ok: true });
 }

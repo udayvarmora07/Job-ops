@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Application {
+  id        Int      @id @default(autoincrement())
+  num       Int      @unique
+  date      DateTime
+  company   String
+  role      String
+  score     Float?
+  status    String   @default("Evaluated")
+  pdfUrl    String?
+  reportUrl String?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([company, role])
+}
+
+model ScanHistory {
+  id         Int      @id @default(autoincrement())
+  url        String   @unique
+  firstSeen  DateTime
+  portal     String
+  title      String
+  company    String
+  status     String   @default("new")
+  location   String?
+  createdAt  DateTime @default(now())
+
+  @@index([company])
+  @@index([portal])
+}
+
+model PipelineItem {
+  id        Int      @id @default(autoincrement())
+  url       String   @unique
+  status    String   @default("pending")
+  title     String?
+  company   String?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+}
+
+model Report {
+  id        Int      @id @default(autoincrement())
+  num       Int      @unique
+  company   String
+  role      String
+  score     Float?
+  status    String   @default("draft")
+  content   String
+  pdfUrl    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([company])
+}
+
+model Outreach {
+  id        Int      @id @default(autoincrement())
+  company   String
+  role      String?
+  contact   String?
+  email     String?
+  subject   String?
+  status    String   @default("draft")
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([company, status])
+}
+
+model Referral {
+  id        Int      @id @default(autoincrement())
+  company   String
+  role      String?
+  contact   String?
+  channel   String?
+  status    String   @default("identified")
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([company, status])
+}
+
+model Resume {
+  id        Int      @id @default(autoincrement())
+  company   String
+  role      String
+  filename  String   @unique
+  version   Int      @default(1)
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([company, role])
+}
+
+model AiCache {
+  key       String   @id
+  task      String
+  scope     String?
+  payload   Json
+  model     String?
+  expiresAt DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([task])
+  @@index([expiresAt])
+}

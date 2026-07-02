@@ -22,3 +22,8 @@ export const FILES = {
   referrals: () => path.join(dataDir(), "referrals.json"),
   profile: () => path.join(projectRoot(), "config", "profile.yml"),
 };
+
+export const DB_CONFIG = {
+  databaseUrl: () => process.env.DATABASE_URL || "postgresql://jobops:jobops@localhost:5432/jobops",
+  redisUrl: () => process.env.REDIS_URL || "redis://localhost:6379",
+};
