@@ -1,0 +1,46 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "jobops-evaluate": {
+      "description": "Evaluate job offers and generate full reports (oferta/auto-pipeline)",
+      "mode": "subagent",
+      "temperature": 0.3,
+      "prompt": "{file:./.opencode/agents/jobops-evaluate.md}"
+    },
+    "jobops-scan": {
+      "description": "Scan job portals for new offers",
+      "mode": "subagent",
+      "temperature": 0.2,
+      "prompt": "{file:./.opencode/agents/jobops-scan.md}"
+    },
+    "jobops-cv": {
+      "description": "Generate CV PDFs, LaTeX exports, cover letters",
+      "mode": "subagent",
+      "temperature": 0.3,
+      "prompt": "{file:./.opencode/agents/jobops-cv.md}"
+    },
+    "jobops-research": {
+      "description": "Deep company research and LinkedIn outreach drafts",
+      "mode": "subagent",
+      "temperature": 0.4,
+      "prompt": "{file:./.opencode/agents/jobops-research.md}"
+    },
+    "jobops-interview": {
+      "description": "Interview preparation and STAR story development",
+      "mode": "subagent",
+      "temperature": 0.3,
+      "prompt": "{file:./.opencode/agents/jobops-interview.md}"
+    },
+    "jobops-tracker": {
+      "description": "Application tracking, status updates, pipeline processing",
+      "mode": "subagent",
+      "temperature": 0.2,
+      "prompt": "{file:./.opencode/agents/jobops-tracker.md}"
+    }
+  },
+  "permission": {
+    "skill": {
+      "*": "ask"
+    }
+  }
+}
