@@ -1,5 +1,9 @@
 node_modules
 .opencode/node_modules
+
+# Next.js build output
+.next/
+
 # Keep environment variables out of version control
 .env
 
