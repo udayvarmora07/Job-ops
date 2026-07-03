@@ -1,405 +1,261 @@
 # Jobops
 
-[English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [简体中文](README.cn.md) | [繁體中文](README.zh-TW.md) | [Українська](README.ua.md) | [Русский](README.ru.md) | [Polski](README.pl.md) | [العربية](README.ar.md)
-
-<p align="center">
-  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Jobops Multi-Agent Job Search System" width="800"></a>
-</p>
-
-<p align="center">
-  <em>I spent months applying to jobs the hard way. So I engineered the system I wish I had.</em><br>
-  Companies use AI to filter candidates. <strong>I just gave candidates AI to <em>choose</em> companies.</strong><br>
-  <em>Now it's open source.</em>
-</p>
+> AI-powered, full-stack job search platform — evaluate offers, tailor CVs, scan portals, and track your pipeline from a CLI, a web dashboard, or your phone.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white" alt="Claude Code">
-  <img src="https://img.shields.io/badge/OpenCode-Ready-111827?style=flat&logo=terminal&logoColor=white" alt="OpenCode Ready">
-  <img src="https://img.shields.io/badge/OpenCode-111827?style=flat&logo=terminal&logoColor=white" alt="OpenCode">
+  <img src="https://img.shields.io/badge/OpenCode-Ready-111827?style=flat&logo=terminal&logoColor=white" alt="OpenCode">
   <img src="https://img.shields.io/badge/Gemini_CLI-4285F4?style=flat&logo=google&logoColor=white" alt="Gemini CLI">
-  <img src="https://img.shields.io/badge/Codex_(soon)-6B7280?style=flat&logo=openai&logoColor=white" alt="Codex">
-  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/Next.js-000?style=flat&logo=next.js&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/Expo-000020?style=flat&logo=expo&logoColor=white" alt="Expo">
   <img src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white" alt="Go">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white" alt="Redis">
+  <img src="https://img.shields.io/badge/BullMQ-EA2027?style=flat&logo=redis&logoColor=white" alt="BullMQ">
   <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white" alt="Playwright">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT">
-  <a href="TRADEMARK.md"><img src="https://img.shields.io/badge/Trademark-Policy-blue.svg" alt="Trademark Policy"></a>
-  <a href="https://discord.gg/8pRpHETxa4"><img src="https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Discord"></a>
-  <br>
-  <img src="https://img.shields.io/badge/EN-blue?style=flat" alt="EN">
-  <img src="https://img.shields.io/badge/ES-red?style=flat" alt="ES">
-  <img src="https://img.shields.io/badge/DE-grey?style=flat" alt="DE">
-  <img src="https://img.shields.io/badge/FR-blue?style=flat" alt="FR">
-  <img src="https://img.shields.io/badge/PT--BR-green?style=flat" alt="PT-BR">
-  <img src="https://img.shields.io/badge/KO-white?style=flat" alt="KO">
-  <img src="https://img.shields.io/badge/JA-red?style=flat" alt="JA">
-  <img src="https://img.shields.io/badge/ZH--CN-red?style=flat" alt="ZH-CN">
-  <img src="https://img.shields.io/badge/ZH--TW-blue?style=flat" alt="ZH-TW">
-</p>
-
-<p align="center">
-  <a href="https://trendshift.io/repositories/25195" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/25195" alt="santifer%2Fjobops | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-</p>
-
-<p align="center">
-  <a href="https://www.producthunt.com/products/santifer-io?utm_source=badge-featured&utm_medium=badge" target="_blank" rel="noopener noreferrer"><img src="docs/press/producthunt.svg" alt="Jobops on Claude | Product Hunt" style="width: 206px; height: 54px; vertical-align: middle;" width="206" height="54"/></a>
-</p>
-
-<p align="center"><sub>FEATURED IN</sub></p>
-
-<p align="center">
-  <a href="https://wired.com.gr/article/to-ai-ergaleio-pou-fernei-epanastasi-ston-tropo-pou-psachnoume-douleia/" rel="noopener noreferrer nofollow"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/press/wired-dark.svg"><img src="docs/press/wired.svg" alt="WIRED" height="32"></picture></a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://www.businessinsider.com/how-i-built-tool-filter-job-listings-landed-head-ai-2026-4" rel="noopener noreferrer nofollow"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/press/business-insider-dark.svg"><img src="docs/press/business-insider.svg" alt="Business Insider" height="32"></picture></a>
 </p>
 
 ---
 
-<p align="center">
-  <img src="docs/demo.gif" alt="Jobops Demo" width="800">
-</p>
+## What is Jobops
 
-<p align="center"><strong>740+ job listings evaluated · 100+ personalized CVs · 1 dream role landed</strong></p>
+Jobops turns your job search into an AI-driven pipeline instead of a spreadsheet. It reads your CV, reasons about each job description (not keyword matching), scores fit across weighted dimensions, generates ATS-optimized CVs and cover letters, and keeps everything in one tracked source of truth.
 
-<p align="center">
-  <a href="https://warpchart.dev/hq">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://warpchart.dev/api/chart?theme=dark&v=3">
-      <img alt="Live star telemetry of santifer/jobops" src="https://warpchart.dev/api/chart?theme=light&v=3" loading="lazy">
-    </picture>
-  </a>
-</p>
+It runs three ways, all backed by the same evaluation engine and data:
 
-<p align="center">
-  <a href="https://discord.gg/8pRpHETxa4"><img src="https://img.shields.io/badge/Join_the_community-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-</p>
+- **CLI** — drive it from any agentic coding CLI (Claude Code, OpenCode, Gemini CLI, Qwen). Paste a URL, get a full evaluation + PDF + tracker entry.
+- **Web dashboard** — a Next.js app to browse your pipeline, run scans, generate PDFs, and manage outreach/referrals from the browser.
+- **Mobile app** — an Expo/React Native client to review jobs and applications on the go.
 
-<p align="center">
-  <a href="https://github.com/santifer/jobops/releases/latest"><img src="https://img.shields.io/npm/v/%40santifer%2Fjobops?style=for-the-badge&labelColor=2b3137&color=2ea44f&label=release" alt="Latest release"></a>
-</p>
+Heavy work (evaluations, scans, PDF generation, liveness checks) runs asynchronously on a Redis-backed **BullMQ** worker, with **PostgreSQL** as the system of record.
 
-<p align="center">
-  <sub>Built with</sub><br>
-  <img src="https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white" alt="Claude Code">
-  <img src="https://img.shields.io/badge/OpenCode-111827?style=flat&logo=terminal&logoColor=white" alt="OpenCode">
-  <img src="https://img.shields.io/badge/Gemini_CLI-4285F4?style=flat&logo=google&logoColor=white" alt="Gemini CLI">
-  <img src="https://img.shields.io/badge/Codex-412991?style=flat&logo=openai&logoColor=white" alt="Codex">
-  <img src="https://img.shields.io/badge/Qwen-615CED?style=flat" alt="Qwen">
-  <img src="https://img.shields.io/badge/GitHub_Copilot-000?style=flat&logo=githubcopilot&logoColor=white" alt="GitHub Copilot">
-  <br>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js">
-  <img src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white" alt="Go">
-  <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white" alt="Playwright">
-  <img src="https://img.shields.io/badge/Bubble_Tea-FF75B5?style=flat&logo=go&logoColor=white" alt="Bubble Tea">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT">
-  <a href="TRADEMARK.md"><img src="https://img.shields.io/badge/Trademark-Policy-blue.svg" alt="Trademark Policy"></a>
-</p>
+> **This is a filter, not a spray-and-pray tool.** Jobops helps you find the few offers worth your time out of hundreds. It recommends against applying to anything scoring below 4.0/5, and it **never auto-submits** — you always review and decide.
 
-## What Is This
+> **The first evaluations won't be great — that's expected.** The system doesn't know you yet. Feed it your CV, your story, your proof points and preferences. The more context you give it, the sharper it gets.
 
-Jobops ([jobops.org](https://jobops.org), also known as **jobops**) turns any AI coding CLI into a full job search command center. Instead of manually tracking applications in a spreadsheet, you get an AI-powered pipeline that:
+---
 
-- **Evaluates offers** with a structured A-F scoring system (10 weighted dimensions)
-- **Generates tailored PDFs** -- ATS-optimized CVs customized per job description
-- **Scans portals** automatically (Greenhouse, Ashby, Lever, company pages)
-- **Processes in batch** -- evaluate 10+ offers in parallel with sub-agents
-- **Tracks everything** in a single source of truth with integrity checks
+## Architecture
 
-> **Important: This is NOT a spray-and-pray tool.** Jobops is a filter -- it helps you find the few offers worth your time out of hundreds. The system strongly recommends against applying to anything scoring below 4.0/5. Your time is valuable, and so is the recruiter's. Always review before submitting.
+```
+                        ┌─────────────────────────────────────┐
+   CLI  (Claude/        │            Jobops core              │
+   OpenCode/Gemini) ───▶│   modes/ · Node (.mjs) scripts ·    │
+                        │   Playwright · Go scanner           │
+   Web  (Next.js) ─────▶│                                     │
+                        └───────────────┬─────────────────────┘
+   Mobile (Expo) ──────▶                │
+                              ┌─────────▼──────────┐
+                              │   BullMQ worker    │  evaluate · scan
+                              │   (Redis queue)    │  pdf · liveness
+                              └─────────┬──────────┘
+                                        │
+                              ┌─────────▼──────────┐
+                              │   PostgreSQL       │  Application · Report
+                              │   (Prisma models)  │  Pipeline · Outreach …
+                              └────────────────────┘
+```
 
-Jobops is agentic: whichever AI coding CLI you choose navigates career pages with Playwright, evaluates fit by reasoning about your CV vs the job description (not keyword matching), and adapts your resume per listing.
+| Component | Path | Stack |
+|-----------|------|-------|
+| **Core engine** | `modes/`, `*.mjs` | Node.js (ESM), Playwright, YAML/Markdown |
+| **Web dashboard** | `web/` | Next.js 15, React 19, Prisma, shadcn/Radix, Tailwind, Framer Motion, Recharts |
+| **Mobile app** | `mobile/` | Expo, React Native, expo-router, NativeWind, Supabase auth, React Query |
+| **Background worker** | `worker/` | BullMQ + ioredis (`evaluate-job`, `generate-pdf`, `liveness-check`, `scan-portals`) |
+| **Portal scanner** | `scanner/` | Native Go (Greenhouse / Ashby / Lever APIs, reverse lookup) |
+| **Terminal dashboard** | `dashboard/` | Go + Bubble Tea + Lipgloss |
+| **Database** | `prisma/schema.prisma` | PostgreSQL 16 — `Application`, `Report`, `PipelineItem`, `Outreach`, `Referral`, `Resume`, `ScanHistory`, `AiCache` |
+| **Infra** | `docker-compose.yml` | Postgres 16 + Redis 7 + web + worker |
 
-> **Heads up: the first evaluations won't be great.** The system doesn't know you yet. Feed it context -- your CV, your career story, your proof points, your preferences, what you're good at, what you want to avoid. The more you nurture it, the better it gets. Think of it as onboarding a new recruiter: the first week they need to learn about you, then they become invaluable.
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the deep dive.
 
-Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. [Read the full case study](https://santifer.io/jobops-system).
+---
 
 ## Features
 
-| Feature                  | Description                                                                                                                              |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Auto-Pipeline**        | Paste a URL, get a full evaluation + PDF + tracker entry                                                                                 |
-| **6-Block Evaluation**   | Role summary, CV match, level strategy, comp research, personalization, interview prep (STAR+R) -- plus a Block G posting-legitimacy check that flags scams and ghost jobs |
-| **Interview Story Bank** | Accumulates STAR+Reflection stories across evaluations -- 5-10 master stories that answer any behavioral question                        |
-| **Negotiation Scripts**  | Salary negotiation frameworks, geographic discount pushback, competing offer leverage                                                    |
-| **ATS PDF Generation**   | Keyword-injected CVs with Space Grotesk + DM Sans design                                                                                 |
-| **Cover Letter Generator** | Research-backed cover letters with keyword mirroring, four interactive angle prompts (why/problems/approach/tone), draft-in-chat approval gate, and A4 PDF via the same HTML + Playwright pipeline as CVs. Auto-drafts on every evaluation; complete and generate on demand via `/jobops cover` |
-| **Portal Scanner**       | 45+ companies pre-configured (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + custom queries across Ashby, Greenhouse, Lever, Wellfound |
-| **Batch Processing**     | Parallel evaluation with headless CLI workers (`claude -p` / `opencode run`)                                                             |
-| **Dashboard TUI**        | Terminal UI to browse, filter, and sort your pipeline                                                                                    |
-| **Human-in-the-Loop**    | AI evaluates and recommends, you decide and act. The system never submits an application -- you always have the final call               |
-| **Pipeline Integrity**   | Automated merge, dedup, status normalization, health checks                                                                              |
+| Feature | Description |
+|---------|-------------|
+| **Auto-pipeline** | Paste a URL or JD → structured evaluation + ATS PDF + tracker entry |
+| **A–G evaluation** | Role summary, CV match, level strategy, comp research, personalization, interview prep (STAR+R), plus a posting-legitimacy check that flags scams and ghost jobs |
+| **ATS CV & cover letters** | Keyword-injected CVs and research-backed cover letters, rendered to A4 PDF via HTML + Playwright |
+| **Portal scanner** | Pre-configured companies + custom queries across Ashby, Greenhouse, Lever, Wellfound — plus a zero-token Go scanner |
+| **Outreach & referrals** | Find company emails, draft LinkedIn/email outreach, suggest referral targets and connection notes (web API) |
+| **Background jobs** | Long-running evaluations, scans, PDFs and liveness checks run on a BullMQ worker, not in your terminal |
+| **Interview story bank** | Accumulates STAR+Reflection stories across evaluations into a reusable set |
+| **Pipeline integrity** | Automated merge, dedup, status normalization, and health checks |
+| **Human-in-the-loop** | AI evaluates and recommends; you decide and submit. It never applies for you |
+
+---
 
 ## Quick Start
 
-**Fastest way — one command:**
+### Prerequisites
+
+- **Node.js 20+** and npm
+- **Go 1.22+** (for the scanner / terminal dashboard — optional)
+- **Docker** (recommended for Postgres + Redis) or local Postgres 16 & Redis 7
+- An agentic CLI if you want the CLI workflow: [Claude Code](https://claude.ai/code), [OpenCode](https://opencode.ai), or [Gemini CLI](https://github.com/google-gemini/gemini-cli)
+
+### 1. Clone & install
 
 ```bash
-npx @santifer/jobops init
-```
-
-> 💡 `npx` ships with [Node.js](https://nodejs.org) — it runs the installer once,
-> without installing anything globally. No Node yet? Install it first.
-> (Already using a Claude Code / Gemini / Codex CLI? Then you already have it.)
-
-This clones the latest release into `./jobops` and installs dependencies. Then:
-
-```bash
-cd jobops
-claude   # or gemini / codex / qwen / opencode — open your AI CLI here
-```
-
-**On first launch, jobops walks you through setup — your CV, profile and target roles — just by chatting. Nothing to edit by hand.**
-
-<details>
-<summary><b>Prefer to set it up manually? (git clone)</b></summary>
-
-```bash
-git clone https://github.com/santifer/jobops.git
-cd jobops && npm install
-npx playwright install chromium   # only needed for PDF generation
-
-# 2. Check setup
-npm run doctor                     # Validates all prerequisites
-
-# 3. Configure
-cp config/profile.example.yml config/profile.yml  # Edit with your details
-cp templates/portals.example.yml portals.yml       # Customize companies
-
-# 4. Add your CV
-# Create cv.md in the project root with your CV in markdown
-
-# 5. Personalize
-claude   # Open Claude Code in this directory
-opencode # Or use OpenCode
-
-# Then ask your CLI to adapt the system to you:
-# "Change the archetypes to backend engineering roles"
-# "Translate the modes to English"
-# "Add these 5 companies to portals.yml"
-# "Update my profile with this CV I'm pasting"
-
-# 6. Start using
-# Paste a job URL or run /jobops
-```
-
-</details>
-
-> **The system is designed to be customized by your AI coding CLI itself.** Modes, archetypes, scoring weights, negotiation scripts -- just ask it to change them. It reads the same files it uses, so it knows exactly what to edit.
-
-See [docs/SETUP.md](docs/SETUP.md) for the full setup guide.
-
-## Gemini CLI Integration
-
-Career-ops supports [Gemini CLI](https://github.com/google-gemini/gemini-cli) natively, the same way it supports Claude Code and OpenCode. All 15 slash commands are available, using the same `modes/*.md` evaluation logic.
-
-### Option A: Native Gemini CLI (Recommended)
-
-```bash
-# 1. Install Gemini CLI (requires Node.js 20+)
-npm install -g @google/gemini-cli
-# or: npx @google/gemini-cli --version
-
-# 2. Run in the jobops directory — on first launch, sign in with your
-#    Google account (free) to authenticate
-cd jobops
-gemini
-
-# 3. Use the unified /jobops command with subcommands:
-/jobops "Senior AI Engineer at Anthropic..."
-/jobops pipeline
-/jobops scan
-/jobops pdf
-/jobops tracker
-```
-
-The `GEMINI.md` file is auto-loaded as context. All subcommands are routed via the unified `.agents/skills/jobops/SKILL.md` definition.
-
-### Option B: Standalone API Script (No CLI install needed)
-
-```bash
-# 1. Get a free API key at https://aistudio.google.com/apikey
-cp .env.example .env
-# Edit .env, set GEMINI_API_KEY=your_key_here
-
-# 2. Install dependencies
+git clone https://github.com/udayvarmora07/Job-ops.git
+cd Job-ops
 npm install
-
-# 3. Evaluate a job description
-node gemini-eval.mjs "We are looking for a Senior AI Engineer..."
-node gemini-eval.mjs --file ./jds/my-job.txt
-npm run gemini:eval -- "JD text here"
+npx playwright install chromium   # for PDF generation & liveness checks
 ```
 
-> **Free tier:** Both options work without billing. Native CLI uses Google OAuth; the API script uses `gemini-2.5-flash` (15 RPM, 1M tokens/day free).
-
-## Usage
-
-Career-ops is a single slash command with multiple modes:
-
-```
-/jobops                → Show all available commands
-/jobops {paste a JD}   → Full auto-pipeline (evaluate + PDF + tracker)
-/jobops scan           → Scan portals for new offers
-/jobops pdf            → Generate ATS-optimized CV
-/jobops cover          → Cover letter generator (paste JD or /jobops cover {slug})
-/jobops batch          → Batch evaluate multiple offers
-/jobops tracker        → View application status
-/jobops apply          → Fill application forms with AI
-/jobops pipeline       → Process pending URLs
-/jobops contacto       → LinkedIn outreach message
-/jobops deep           → Deep company research
-/jobops training       → Evaluate a course/cert
-/jobops project        → Evaluate a portfolio project
-```
-
-Or just paste a job URL or description directly -- jobops auto-detects it and runs the full pipeline.
-
-## How It Works
-
-```
-You paste a job URL or description
-        │
-        ▼
-┌──────────────────┐
-│  Archetype       │  Classifies: LLMOps / Agentic / PM / SA / FDE / Transformation
-│  Detection       │
-└────────┬─────────┘
-         │
-┌────────▼─────────┐
-│  A-F Evaluation  │  Match, gaps, comp research, STAR stories
-│  (reads cv.md)   │
-└────────┬─────────┘
-         │
-    ┌────┼────┐
-    ▼    ▼    ▼
- Report  PDF  Tracker
-  .md   .pdf   .tsv
-```
-
-## Pre-configured Portals
-
-The scanner comes with **45+ companies** ready to scan and **19 search queries** across major job boards. Copy `templates/portals.example.yml` to `portals.yml` and add your own:
-
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automation:** n8n, Zapier, Make.com
-**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
-
-**Job boards searched:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
-
-By default `node scan.mjs` (a.k.a. `npm run scan`) trusts what each ATS feed returns. Some companies leave stale postings in their public API even after the role is closed, so those expired entries can leak into `pipeline.md`. Pass `--verify` to launch Playwright after the API pass and drop expired postings before they hit the pipeline:
+### 2. Configure environment
 
 ```bash
-node scan.mjs --verify          # zero-token discovery + Playwright liveness check
+cp .env.example .env
+# Fill in what you use: DATABASE_URL, REDIS_URL, and any AI/scan API keys.
+# .env is gitignored — your secrets never get committed.
 ```
 
-The verification is sequential and only runs against new offers (after dedup), so the cost stays bounded.
-
-## Dashboard TUI
-
-The built-in terminal dashboard lets you browse your pipeline visually:
+### 3. Bring up infrastructure
 
 ```bash
-cd dashboard
-go build -o career-dashboard .
-./career-dashboard --path ..
+docker compose up -d postgres redis    # Postgres 16 + Redis 7
+npx prisma migrate deploy              # apply the schema
 ```
 
-Features: 6 filter tabs, 4 sort modes, grouped/flat view, lazy-loaded previews, inline status changes.
+### 4. Verify setup
+
+```bash
+npm run doctor        # validates prerequisites & config
+```
+
+### 5. Add your profile
+
+```bash
+cp config/profile.example.yml config/profile.yml   # your details
+cp templates/portals.example.yml portals.yml        # companies to scan
+# Create cv.md in the project root with your CV in Markdown.
+```
+
+Or just open your CLI in the project and let it walk you through setup by chatting:
+
+```bash
+claude   # or: opencode / gemini / qwen
+```
+
+---
+
+## Running each surface
+
+**CLI** — one slash command, many modes:
+
+```
+/jobops                → show all commands
+/jobops {paste a JD}   → full auto-pipeline (evaluate + PDF + tracker)
+/jobops scan           → scan portals for new offers
+/jobops pdf            → generate an ATS-optimized CV
+/jobops cover          → cover letter generator
+/jobops batch          → batch-evaluate multiple offers
+/jobops tracker        → view application status
+/jobops apply          → assist filling application forms
+/jobops contacto       → LinkedIn/email outreach message
+/jobops deep           → deep company research
+```
+
+**Web dashboard:**
+
+```bash
+cd web
+npm install
+npm run dev            # http://localhost:4317
+```
+
+**Background worker** (processes queued evaluations, scans, PDFs):
+
+```bash
+cd worker
+npm install
+node index.mjs
+```
+
+**Mobile app:**
+
+```bash
+cd mobile
+npm install
+cp .env.example .env   # set EXPO_PUBLIC_API_URL to your web backend
+npm start              # Expo dev server (iOS / Android / web)
+```
+
+**Go portal scanner** (zero-token discovery):
+
+```bash
+cd scanner
+go run ./cmd/scanner
+# or from the root Node engine:
+npm run scan           # add --verify for Playwright liveness checks
+```
+
+**Terminal dashboard:**
+
+```bash
+npm run serve:dashboard   # Go TUI over your pipeline
+```
+
+---
 
 ## Project Structure
 
 ```
-jobops/
-├── AGENTS.md                    # Canonical agent instructions (all CLIs)
-├── CLAUDE.md                    # Claude Code wrapper (imports AGENTS.md)
-├── OPENCODE.md                  # OpenCode wrapper (imports AGENTS.md)
-├── cv.md                        # Your CV (create this)
-├── article-digest.md            # Your proof points (optional)
-├── config/
-│   └── profile.example.yml      # Template for your profile
-├── modes/                       # 15 skill modes
-│   ├── _shared.md               # Shared context (customize this)
-│   ├── oferta.md                # Single evaluation
-│   ├── pdf.md                   # PDF generation
-│   ├── cover.md                 # Cover letter generation
-│   ├── scan.md                  # Portal scanner
-│   ├── batch.md                 # Batch processing
-│   └── ...
-├── templates/
-│   ├── cv-template.html         # ATS-optimized CV template
-│   ├── portals.example.yml      # Scanner config template
-│   └── states.yml               # Canonical statuses
-├── batch/
-│   ├── batch-prompt.md          # Self-contained worker prompt
-│   └── batch-runner.sh          # Orchestrator script
-├── dashboard/                   # Go TUI pipeline viewer
-├── data/                        # Your tracking data (gitignored)
-├── reports/                     # Evaluation reports (gitignored)
-├── output/                      # Generated PDFs (gitignored)
-├── fonts/                       # Space Grotesk + DM Sans
-├── docs/                        # Setup, customization, architecture
-└── examples/                    # Sample CV, report, proof points
+Job-ops/
+├── AGENTS.md            # Canonical agent instructions (all CLIs)
+├── CLAUDE.md            # Claude Code wrapper
+├── OPENCODE.md          # OpenCode wrapper
+├── cv.md                # Your CV (create this)
+├── config/              # profile.yml + AI config
+├── modes/               # Skill modes (evaluate, scan, pdf, cover, batch, …)
+├── templates/           # CV templates, portals example, canonical states
+├── batch/               # Batch worker prompt + runner
+├── web/                 # Next.js web dashboard (jobops-web)
+├── mobile/              # Expo / React Native app (jobops-mobile)
+├── worker/              # BullMQ background jobs
+├── scanner/             # Go portal scanner
+├── dashboard/           # Go TUI pipeline viewer
+├── prisma/              # PostgreSQL schema
+├── docker-compose.yml   # Postgres + Redis + web + worker
+├── data/ reports/ output/   # Your tracked data & artifacts (gitignored)
+└── docs/                # Setup, architecture, customization, scripts
 ```
 
-## Tech Stack
+Key docs: [SETUP](docs/SETUP.md) · [ARCHITECTURE](docs/ARCHITECTURE.md) · [CUSTOMIZATION](docs/CUSTOMIZATION.md) · [SCRIPTS](docs/SCRIPTS.md) · [AI briefing](docs/AI_BRIEFING.md)
 
-![Claude Code](https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
-![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
-![Bubble Tea](https://img.shields.io/badge/Bubble_Tea-FF75B5?style=flat&logo=go&logoColor=white)
+---
 
-- **Agent**: Claude Code with custom skills and modes
-- **PDF**: Playwright/Puppeteer + HTML template
-- **Cover letters**: HTML template + Playwright (A4 PDF, same pipeline as CVs)
-- **Scanner**: Playwright + Greenhouse API + WebSearch
-- **Dashboard**: Go + Bubble Tea + Lipgloss (Catppuccin Mocha theme)
-- **Data**: Markdown tables + YAML config + TSV batch files
+## Customization
 
-## Also Open Source
+Jobops is designed to be customized **by your AI CLI itself** — it reads the same files it uses, so it knows exactly what to edit. Just ask:
 
-- **[cv-santiago](https://github.com/santifer/cv-santiago)** -- The portfolio website (santifer.io) with AI chatbot, LLMOps dashboard, and case studies. If you need a portfolio to showcase alongside your job search, fork it and make it yours.
+- *"Change the archetypes to backend engineering roles"*
+- *"Add these 5 companies to portals.yml"*
+- *"Adjust the scoring weights toward remote-first roles"*
+- *"Update my profile from this CV I'm pasting"*
 
-## About the Author
+Personalization lives in **your** files (`cv.md`, `config/profile.yml`, `modes/_profile.md`, `portals.yml`), which are never overwritten by system updates. See [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md).
 
-I'm Santiago -- Head of Applied AI, former founder (built and sold a business that still runs with my name on it). I built jobops to manage my own job search. It worked: I used it to land my current role.
+---
 
-My portfolio and other open source projects → [santifer.io](https://santifer.io)
+## Security & Data
 
-## Disclaimer
+- **Your data stays local.** CVs, profiles and tracking data live on your machine and are sent only to the AI provider you choose.
+- **Secrets are gitignored.** `.env`, `node_modules`, and build output (`.next/`) are excluded from version control. Never commit real API keys — use `.env.example` as the template.
+- **No auto-submit.** The system drafts and recommends but never sends an application on your behalf.
 
-**jobops is a local, open-source tool, NOT a hosted service.** By using this software, you acknowledge:
+---
 
-1. **You control your data.** Your CV, contact info, and personal data stay on your machine and are sent directly to the AI provider you choose (Anthropic, OpenAI, etc.). We do not collect, store, or have access to any of your data.
-2. **You control the AI.** The default prompts instruct the AI not to auto-submit applications, but AI models can behave unpredictably. If you modify the prompts or use different models, you do so at your own risk. **Always review AI-generated content for accuracy before submitting.**
-3. **You comply with third-party ToS.** You must use this tool in accordance with the Terms of Service of the career portals you interact with (Greenhouse, Lever, Workday, LinkedIn, etc.). Do not use this tool to spam employers or overwhelm ATS systems.
-4. **No guarantees.** Evaluations are recommendations, not truth. AI models may hallucinate skills or experience. The authors are not liable for employment outcomes, rejected applications, account restrictions, or any other consequences.
+## Credits
 
-See [LEGAL_DISCLAIMER.md](LEGAL_DISCLAIMER.md) for full details. This software is provided under the [MIT License](LICENSE) "as is", without warranty of any kind.
+Jobops builds on the open-source **[jobops / career-ops](https://github.com/santifer/career-ops)** project by [santifer](https://santifer.io), extended here with a web dashboard, mobile app, and a PostgreSQL + Redis + BullMQ backend. Licensed under [MIT](LICENSE).
 
-## Contributors
+---
 
-<a href="https://github.com/santifer/jobops/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=santifer/jobops" />
-</a>
+## License
 
-Got hired using jobops? [Share your story!](https://github.com/santifer/jobops/issues/new?template=i-got-hired.yml)
-
-## License & Trademark
-
-The code is licensed under [MIT](LICENSE). The "jobops" name and
-brand are governed by the [Trademark Policy](TRADEMARK.md), permissive
-for community use, reserved for commercial product naming and
-endorsement.
-
-## Let's Connect
-
-[![Website](https://img.shields.io/badge/santifer.io-000?style=for-the-badge&logo=safari&logoColor=white)](https://santifer.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/santifer)
-[![X](https://img.shields.io/badge/X-000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/santifer)
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/8pRpHETxa4)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:hi@santifer.io)
+[MIT](LICENSE) — provided "as is", without warranty of any kind. You are responsible for complying with the Terms of Service of any job portals you interact with. Evaluations are AI-generated recommendations, not guarantees.
