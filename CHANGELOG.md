@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.11.0](https://github.com/udayvarmora07/Job-ops/compare/jobops-v1.10.0...jobops-v1.11.0) (2026-07-08)
+
+
+### Features
+
+* add Go job scanner ([35f19c4](https://github.com/udayvarmora07/Job-ops/commit/35f19c404c9cc850c6f688d1454aad807482b841))
+* add OpenCode integration ([ee39eea](https://github.com/udayvarmora07/Job-ops/commit/ee39eeaba5896d964c769dfeacfb7cbb08bb6da5))
+* **ai:** add parse-resume task and update evaluation pipeline context ([c942728](https://github.com/udayvarmora07/Job-ops/commit/c942728939202ea52c8e2852ed2ab2bd5c48c0d8))
+* **mobile/screens:** add full screen set for all dashboard features ([d86756f](https://github.com/udayvarmora07/Job-ops/commit/d86756f0db43a3c12677b39905c4779fef608469))
+* **mobile/src:** add API layer, hooks, UI components, and demo mode ([1fb18a2](https://github.com/udayvarmora07/Job-ops/commit/1fb18a28c9d44aaaff04b7e513cd577764a58c62))
+* PostgreSQL + Redis + BullMQ architecture upgrade ([907a2a1](https://github.com/udayvarmora07/Job-ops/commit/907a2a19024c7a9220470eeb6ab843175c5ac0af))
+* scaffold Expo mobile app ([30f0748](https://github.com/udayvarmora07/Job-ops/commit/30f0748e6abf761a7a4b6cd2dbb855b6f03dc95b))
+* **schema:** extend Prisma schema for multi-user SaaS platform ([bfe1424](https://github.com/udayvarmora07/Job-ops/commit/bfe142454113d331b6e95a3e4f10d2d4a3e3679f))
+* **web/api:** add profile CRUD, resume parse, and LinkedIn import endpoints ([6233d0d](https://github.com/udayvarmora07/Job-ops/commit/6233d0d86670234adfc687171a914529bdb6abfa))
+* **web/auth:** add Supabase authentication with login, signup, and onboarding ([ce93556](https://github.com/udayvarmora07/Job-ops/commit/ce93556b3e3e975e17721430ca35adfe7053eae3))
+* **web/profile:** redesign profile settings page with sidebar nav and chip inputs ([b5775af](https://github.com/udayvarmora07/Job-ops/commit/b5775afe6913c7795893afde995c75bf340828d0))
+* **web/ui:** install shadcn avatar, label, separator, tooltip, progress, textarea ([015cfcb](https://github.com/udayvarmora07/Job-ops/commit/015cfcbf14bc90413b268f034a3010a227d35b17))
+
+
+### Bug Fixes
+
+* **mobile:** update auth provider, API client, and type definitions for Supabase ([8807d05](https://github.com/udayvarmora07/Job-ops/commit/8807d0516a6032e8cbd787861e9ee1e6c2aed7bd))
+* **web/api:** add per-route authentication guards to all API endpoints ([162178f](https://github.com/udayvarmora07/Job-ops/commit/162178fd85ecad023729491e7950ff14fd24b5e5))
+* **web:** resolve missing exports, broken tooltip context, and config gaps ([eb2cb49](https://github.com/udayvarmora07/Job-ops/commit/eb2cb496102c0b6436d54cef9f1ea328787a8fd0))
+
 ## [1.10.0](https://github.com/santifer/jobops/compare/jobops-v1.9.0...jobops-v1.10.0) (2026-06-11)
 
 

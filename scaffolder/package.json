@@ -1,6 +1,6 @@
 {
   "name": "@santifer/jobops",
-  "version": "1.16.0",
+  "version": "1.11.0",
   "description": "One-command installer for jobops — the AI-powered job search pipeline built on Claude Code.",
   "bin": {
     "jobops": "bin/cli.mjs"
