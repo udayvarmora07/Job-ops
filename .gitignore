@@ -4,10 +4,29 @@ node_modules
 # Next.js build output
 .next/
 
-# Keep environment variables out of version control
+# Keep environment variables out of version control (all locations).
+# Examples (.env.example) are intentionally kept.
 .env
+.env.*
+**/.env
+**/.env.local
+**/.env.*.local
+!.env.example
+!**/.env.example
 
 # Compiled Go scanner binary (build artifact)
 bin/go-scanner
 
 /generated/prisma
+
+# SQLite database files (runtime data, never commit)
+data/*.db
+data/*.db-shm
+data/*.db-wal
+
+# Generated output (gitignored per CLAUDE.md)
+output/
+
+# Python bytecode
+**/__pycache__/
+**/*.pyc
