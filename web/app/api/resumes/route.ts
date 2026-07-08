@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { prisma } from "@/lib/prisma";
+import { requireUserId } from "@/lib/auth";
 import { projectRoot } from "@/lib/paths";
 
 export const runtime = "nodejs";
@@ -39,11 +40,14 @@ interface ResumeGroup {
 }
 
 export async function GET(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   const { searchParams } = new URL(req.url);
   const company = searchParams.get("company") || "";
   const role = searchParams.get("role") || "";
 
-  const resumesDir = path.join(projectRoot(), "output/resumes");
+  const resumesDir = path.join(projectRoot(), "output", "resumes", uid);
   if (!fs.existsSync(resumesDir)) {
     return NextResponse.json({ groups: [], files: [] });
   }
@@ -52,11 +56,14 @@ export async function GET(req: Request) {
     const c = sanitizePart(company).split("_").slice(0, 3).join("_");
     const r = sanitizePart(role).split("_").slice(0, 3).join("_");
     const suffix = c && r ? `${c}_${r}` : c || r || "Tailored";
-    const base = `Uday_Varmora_${suffix}_Resume`;
 
     const all = fs.readdirSync(resumesDir).filter((f) => f.endsWith(".pdf"));
     const files = all
-      .filter((f) => f === `${base}.pdf` || f.startsWith(`${base}_v`))
+      .filter((f) => {
+        // Match either the unversioned resume or a versioned resume for this suffix.
+        const re = new RegExp(`^Uday_Varmora_${suffix}_Resume(?:_v(\\d+))?\\.pdf$`);
+        return re.test(f);
+      })
       .map((name) => {
         const vm = name.match(/_v(\d+)\.pdf$/);
         return {
@@ -112,5 +119,5 @@ export async function GET(req: Request) {
   result.sort((a, b) => b.latestMtime.localeCompare(a.latestMtime));
 
   const total = result.reduce((s, g) => s + g.files.length, 0);
-  return NextResponse.json({ groups, total });
+  return NextResponse.json({ groups: result, total });
 }

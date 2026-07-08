@@ -1,10 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { requireUserId } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-  const referrals = await prisma.referral.findMany({ orderBy: { createdAt: "desc" } });
+export async function GET(req: NextRequest) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
+  const referrals = await prisma.referral.findMany({
+    where: { userId: uid },
+    orderBy: { createdAt: "desc" },
+  });
   return NextResponse.json({
     referrals: referrals.map((r) => ({
       id: String(r.id),
@@ -22,9 +29,13 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   const body = await req.json().catch(() => ({}));
   const ref = await prisma.referral.create({
     data: {
+      userId: uid,
       company: body.company || "",
       role: body.role || null,
       contact: body.contact || null,
@@ -50,10 +61,13 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
 
-  await prisma.referral.deleteMany({ where: { id: parseInt(id, 10) } });
+  await prisma.referral.deleteMany({ where: { id: parseInt(id, 10), userId: uid } });
   return NextResponse.json({ ok: true });
 }

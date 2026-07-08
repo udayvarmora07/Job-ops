@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { FILES, projectRoot } from "@/lib/paths";
+import { requireUserId } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
 import { cacheGet, cacheSet, cacheKey } from "@/lib/cache";
 
 /** Ordered list of Apify tokens for failover: APIFY_TOKEN, APIFY_TOKEN_2, _3, ...
@@ -51,17 +53,19 @@ function firstUnder(raw: string, anchor: string): string | null {
   return null;
 }
 
-/** The user's warm-path background from config/profile.yml. */
-function loadBackground(): { pastCompany: string | null; school: string | null } {
-  try {
-    const raw = fs.readFileSync(FILES.profile(), "utf8");
-    return {
-      pastCompany: firstUnder(raw, "past_companies"),
-      school: firstUnder(raw, "schools"),
-    };
-  } catch {
-    return { pastCompany: null, school: null };
-  }
+/** The user's warm-path background from their UserProfile. */
+async function loadBackground(userId: string): Promise<{ pastCompany: string | null; school: string | null; pastCompanies: string[]; schools: string[] }> {
+  const up = await prisma.userProfile.findUnique({ where: { userId } });
+  if (!up) return { pastCompany: null, school: null, pastCompanies: [], schools: [] };
+
+  const pastCompanies = Array.isArray(up.pastCompanies) ? up.pastCompanies as string[] : [];
+  const schools = Array.isArray(up.schools) ? up.schools as string[] : [];
+  return {
+    pastCompany: pastCompanies[0] || null,
+    school: schools[0] || null,
+    pastCompanies,
+    schools,
+  };
 }
 
 // Off-account LinkedIn people search (no login/cookies; runs on Apify infra).
@@ -86,6 +90,9 @@ type Raw = {
  * Returns real public LinkedIn profiles matching the referral persona.
  */
 export async function POST(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   const tokens = getApifyTokens();
   if (!tokens.length) {
     return NextResponse.json(
@@ -112,8 +119,8 @@ export async function POST(req: Request) {
   const company = (body.company || "").trim();
   if (!company) return NextResponse.json({ error: "company required" }, { status: 400 });
 
-  // Cache by company + persona + keywords so a re-open / re-click costs no Apify run.
-  const key = cacheKey("find_people", company, body.persona || "", body.keywords || "");
+  // Cache by user + company + persona + keywords so a re-open / re-click costs no Apify run.
+  const key = cacheKey("find_people", uid, company, body.persona || "", body.keywords || "");
   if (!body.refresh) {
     const hit = cacheGet(key);
     if (hit) return NextResponse.json({ cached: true, ...(hit.payload as object) });
@@ -133,7 +140,7 @@ export async function POST(req: Request) {
   // Apply the user's warm-path background based on the persona of this target:
   // ex-colleague → past company; alumni → school. Explicit body values win.
   const persona = (body.persona || "").toLowerCase();
-  const bg = loadBackground();
+  const bg = await loadBackground(uid);
   const pastCompany =
     body.pastCompany || (/colleague|ex-|former|past|coworker/.test(persona) ? bg.pastCompany : null);
   const school =

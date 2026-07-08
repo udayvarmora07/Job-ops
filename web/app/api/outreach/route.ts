@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireUserId } from "@/lib/auth";
 import {
   listOutreach,
   addOutreach,
@@ -12,28 +13,37 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 /** GET /api/outreach → all tracked records + per-template A/B stats. */
-export async function GET() {
-  const outreach = listOutreach();
+export async function GET(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
+  const outreach = listOutreach(uid);
   return NextResponse.json({ outreach, templateStats: templateStats(outreach) });
 }
 
 /** POST /api/outreach → log (or merge by email) an outreach record. */
 export async function POST(req: NextRequest) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   const body = await req.json().catch(() => ({}));
   if (!body.company && !body.email) {
     return NextResponse.json({ error: "company or email required" }, { status: 400 });
   }
-  const record = addOutreach(body);
+  const record = addOutreach(body, uid);
   return NextResponse.json({ record });
 }
 
 /** PATCH /api/outreach → update a record by id (e.g. status change). */
 export async function PATCH(req: NextRequest) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   const body = await req.json().catch(() => ({}));
   if (!body.id) {
     return NextResponse.json({ error: "id required" }, { status: 400 });
   }
-  const record = updateOutreach(body.id, body.patch || body);
+  const record = updateOutreach(body.id, body.patch || body, uid);
   if (!record) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
   }
@@ -42,12 +52,15 @@ export async function PATCH(req: NextRequest) {
 
 /** DELETE /api/outreach → permanently remove a record by id. */
 export async function DELETE(req: NextRequest) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   const body = await req.json().catch(() => ({}));
   const id = body.id || new URL(req.url).searchParams.get("id");
   if (!id) {
     return NextResponse.json({ error: "id required" }, { status: 400 });
   }
-  const ok = deleteOutreach(id);
+  const ok = deleteOutreach(id, uid);
   if (!ok) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
   }

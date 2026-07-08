@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import fs from "fs";
 import nodePath from "path";
+import { requireUserId } from "@/lib/auth";
 import { parseApplications } from "@/lib/parsers";
 import { FILES, projectRoot } from "@/lib/paths";
 import { runNode } from "@/lib/run-node";
@@ -17,8 +18,14 @@ const STATES = [
 const slugify = (s: string) =>
   (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 24);
 
-export async function GET() {
-  const apps = await prisma.application.findMany({ orderBy: { num: "desc" } });
+export async function GET(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
+  const apps = await prisma.application.findMany({
+    where: { userId: uid },
+    orderBy: { num: "desc" },
+  });
   return NextResponse.json({
     applications: apps.map((a) => ({
       num: String(a.num).padStart(3, "0"),
@@ -38,6 +45,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   let body: { company?: string; role?: string; url?: string; status?: string } = {};
   try { body = await req.json(); } catch { /* empty */ }
 
@@ -52,6 +62,19 @@ export async function POST(req: Request) {
   const num = (maxNum?.num ?? 0) + 1;
   const slug = slugify(company);
   const note = body.url ? `Applied from ${body.url}` : "Applied via dashboard";
+
+  // Persist to Prisma as the per-user source of truth.
+  await prisma.application.create({
+    data: {
+      num,
+      date: new Date(date),
+      company,
+      role: role || "—",
+      status,
+      userId: uid,
+      notes: note,
+    },
+  });
 
   const tsv = [num, date, company, role || "—", status, "—", "❌", "—", note].join("\t");
 

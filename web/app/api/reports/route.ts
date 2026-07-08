@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { requireUserId } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-  const reports = await prisma.report.findMany({ orderBy: { num: "asc" } });
+export async function GET(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
+  const reports = await prisma.report.findMany({
+    where: { userId: uid },
+    orderBy: { num: "asc" },
+  });
   return NextResponse.json({
     reports: reports.map((r) => ({
       id: String(r.num).padStart(3, "0"),

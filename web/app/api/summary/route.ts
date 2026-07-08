@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { requireUserId } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
@@ -14,14 +15,17 @@ const REACHED: Record<string, number> = {
   rejected: 2,
 };
 
-export async function GET() {
+export async function GET(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   const [applications, scanCount, pipelineCount, reportCount, referrals] =
     await Promise.all([
-      prisma.application.findMany(),
-      prisma.scanHistory.count(),
-      prisma.pipelineItem.count(),
-      prisma.report.count(),
-      prisma.referral.findMany(),
+      prisma.application.findMany({ where: { userId: uid } }),
+      prisma.scanHistory.count({ where: { userId: uid } }),
+      prisma.pipelineItem.count({ where: { userId: uid } }),
+      prisma.report.count({ where: { userId: uid } }),
+      prisma.referral.findMany({ where: { userId: uid } }),
     ]);
 
   const total = applications.length;
@@ -50,8 +54,8 @@ export async function GET() {
   return NextResponse.json({
     counts: {
       fetchedJobs: scanCount,
-      inPipeline: await prisma.pipelineItem.count({ where: { status: "pending" } }),
-      processed: await prisma.pipelineItem.count({ where: { status: "done" } }),
+      inPipeline: await prisma.pipelineItem.count({ where: { status: "pending", userId: uid } }),
+      processed: await prisma.pipelineItem.count({ where: { status: "done", userId: uid } }),
       evaluated: total,
       reports: reportCount,
       referrals: referrals.length,

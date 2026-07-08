@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { prisma } from "@/lib/prisma";
+import { requireUserId } from "@/lib/auth";
+import { loadProfileForUser } from "@/lib/profile";
 import { projectRoot } from "@/lib/paths";
 import { runNode } from "@/lib/run-node";
 import { runTask } from "../../../../lib-ai/run.mjs";
@@ -20,6 +22,9 @@ function field(block: string, key: string): string {
 }
 
 export async function POST(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   let body: { jd?: string } = {};
   try { body = await req.json(); } catch { /* empty */ }
   const jd = (body.jd || "").trim();
@@ -30,7 +35,21 @@ export async function POST(req: Request) {
   let reservedNum: string | null = null;
 
   try {
-    const { system, prompt } = buildEvaluateJob(jd);
+    const profile = await loadProfileForUser(uid);
+    const userContext = {
+      fullName: profile.name,
+      email: "",
+      phone: "",
+      linkedinUrl: profile.linkedin,
+      githubUrl: profile.github,
+      city: profile.city,
+      country: profile.country,
+      cvMarkdown: "",
+      targetRoles: profile.targetRoles,
+      superpowers: profile.stack,
+      archetypes: "",
+    };
+    const { system, prompt } = buildEvaluateJob(jd, userContext);
     const r = await runTask("evaluate_job", { system, prompt });
     const text: string = r.text;
 
@@ -55,9 +74,10 @@ export async function POST(req: Request) {
 
     await prisma.report.upsert({
       where: { num: parseInt(num, 10) },
-      update: { content: text, score: scoreNum },
+      update: { content: text, score: scoreNum, userId: uid },
       create: {
         num: parseInt(num, 10),
+        userId: uid,
         company,
         role,
         score: scoreNum,
@@ -84,6 +104,7 @@ export async function POST(req: Request) {
       update: { score: scoreNum, status: "Evaluated" },
       create: {
         num: parseInt(num, 10),
+        userId: uid,
         date: new Date(date),
         company,
         role,

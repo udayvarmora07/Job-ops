@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { projectRoot } from "@/lib/paths";
+import { requireUserId } from "@/lib/auth";
+import { loadProfileForUser } from "@/lib/profile";
+import { prisma } from "@/lib/prisma";
 import { runNode } from "@/lib/run-node";
 import { getJd } from "@/lib/jd-store";
 import { runTask } from "../../../../lib-ai/run.mjs";
@@ -84,6 +87,9 @@ function buildFilenameSuffix(company?: string, role?: string): string {
 }
 
 export async function POST(req: Request) {
+  const uid = await requireUserId(req);
+  if (uid instanceof NextResponse) return uid;
+
   let body: { jd?: string; url?: string; company?: string; role?: string; instructions?: string; subdir?: string } = {};
   try {
     body = await req.json();
@@ -108,11 +114,10 @@ export async function POST(req: Request) {
 
   const root = projectRoot();
   const suffix = buildFilenameSuffix(body.company, body.role);
-  // Default save dir is output/resumes/. Callers (e.g. the hiring-post flow) may
-  // route into a separate folder via `subdir` — sanitized to a single safe segment
-  // so it can never escape output/ (no slashes, dots, traversal).
+  // Default save dir is output/resumes/<userId>/. Callers (e.g. the hiring-post flow)
+  // may route into a separate folder via `subdir` — sanitized to a single safe segment.
   const safeSubdir = (body.subdir || "resumes").replace(/[^a-zA-Z0-9_-]+/g, "").slice(0, 40) || "resumes";
-  const resumesDir = path.join(root, "output", safeSubdir);
+  const resumesDir = path.join(root, "output", safeSubdir, uid);
 
   // If a version of this resume already exists, load its tailored content so the
   // AI UPDATES the latest version (preserving prior refinements) rather than
@@ -129,7 +134,21 @@ export async function POST(req: Request) {
   }
 
   // 1. Ask AI for a tailored content JSON (update the latest version if one exists)
-  const { system, prompt } = buildTailorCvJson(jd, body.instructions || "", baseContent);
+  const profile = await loadProfileForUser(uid);
+  const userContext = {
+    fullName: profile.name,
+    email: "",
+    phone: "",
+    linkedinUrl: profile.linkedin,
+    githubUrl: profile.github,
+    city: profile.city,
+    country: profile.country,
+    cvMarkdown: "",
+    targetRoles: profile.targetRoles,
+    superpowers: profile.stack,
+    archetypes: "",
+  };
+  const { system, prompt } = buildTailorCvJson(jd, body.instructions || "", baseContent, userContext);
   let rawText: string;
   try {
     const r = await runTask("tailor_cv_json", { system, prompt, maxOutputTokens: 8192 });
@@ -181,14 +200,14 @@ export async function POST(req: Request) {
     );
   }
 
-  // 5. Save a versioned copy to output/resumes/ + a sidecar for company/role metadata
+  // 5. Save a versioned copy to output/resumes/<userId>/ + a sidecar for company/role metadata
   fs.mkdirSync(resumesDir, { recursive: true });
   const { filename: savedName, version: savedVersion } = nextVersionedFilename(suffix, resumesDir);
   fs.copyFileSync(buildPath, path.join(resumesDir, savedName));
   const metaPath = path.join(resumesDir, savedName.replace(/\.pdf$/, ".meta.json"));
   fs.writeFileSync(
     metaPath,
-    JSON.stringify({ company: body.company || null, role: body.role || null, createdAt: new Date().toISOString() }, null, 2)
+    JSON.stringify({ company: body.company || "", role: body.role || "", createdAt: new Date().toISOString() }, null, 2)
   );
 
   // Sidecar with the tailored content + JD so the QA pass (POST /api/resume-qa)
@@ -196,8 +215,19 @@ export async function POST(req: Request) {
   const contentSidecar = path.join(resumesDir, savedName.replace(/\.pdf$/, ".content.json"));
   fs.writeFileSync(
     contentSidecar,
-    JSON.stringify({ content, jd, company: body.company || null, role: body.role || null }, null, 2)
+    JSON.stringify({ content, jd, company: body.company || "", role: body.role || "" }, null, 2)
   );
+
+  // Track in Prisma as the per-user source of truth.
+  await prisma.resume.create({
+    data: {
+      userId: uid,
+      filename: savedName,
+      company: body.company || "",
+      role: body.role || "",
+      version: savedVersion,
+    },
+  });
 
   const pdf = fs.readFileSync(buildPath);
   return new NextResponse(pdf, {
