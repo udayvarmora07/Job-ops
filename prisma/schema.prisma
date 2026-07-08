@@ -4,11 +4,67 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Per-user career profile — the SaaS replacement for config/profile.yml + cv.md.
+/// Created on first authenticated API hit; enriched over time via onboarding
+/// wizard, resume parse, and LinkedIn import.
+model UserProfile {
+  userId    String   @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Identity
+  email        String?
+  fullName     String?
+  phone        String?
+  city         String?
+  country      String?
+  timezone     String?
+  linkedinUrl  String?
+  githubUrl    String?
+  portfolioUrl String?
+
+  // Status
+  employmentStatus   String? // e.g. "actively-looking", "passive", "employed"
+  availability       String?
+  visaStatus         String?
+  onsiteAvailability String? // "yes" | "no" | "hybrid" | "remote-only"
+
+  // Targeting
+  targetRoles String[]
+  archetypes  Json?
+  superpowers String[]
+  proofPoints Json?
+
+  // Compensation
+  compTargetRange String? // e.g. "$120k-$140k"
+  compCurrency    String? // "USD", "EUR", "INR"…
+  compMinimum     String?
+  compFlexibility String? // "firm" | "slight-flex" | "flexible"
+
+  // Referral net
+  pastCompanies String[]
+  schools       String[]
+
+  // CV
+  cvMarkdown   String?
+  cvStructured Json?
+
+  // Scan config
+  scanKeywords    String[]
+  targetCompanies String[]
+
+  // Onboarding flags
+  essentialsComplete Boolean @default(false)
+  onboardingComplete Boolean @default(false)
 }
 
 model Application {
   id        Int      @id @default(autoincrement())
   num       Int      @unique
+  userId    String?
   date      DateTime
   company   String
   role      String
@@ -22,25 +78,29 @@ model Application {
 
   @@index([status])
   @@index([company, role])
+  @@index([userId])
 }
 
 model ScanHistory {
-  id         Int      @id @default(autoincrement())
-  url        String   @unique
-  firstSeen  DateTime
-  portal     String
-  title      String
-  company    String
-  status     String   @default("new")
-  location   String?
-  createdAt  DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  userId    String?
+  url       String   @unique
+  firstSeen DateTime
+  portal    String
+  title     String
+  company   String
+  status    String   @default("new")
+  location  String?
+  createdAt DateTime @default(now())
 
   @@index([company])
   @@index([portal])
+  @@index([userId])
 }
 
 model PipelineItem {
   id        Int      @id @default(autoincrement())
+  userId    String?
   url       String   @unique
   status    String   @default("pending")
   title     String?
@@ -50,11 +110,13 @@ model PipelineItem {
   updatedAt DateTime @updatedAt
 
   @@index([status])
+  @@index([userId])
 }
 
 model Report {
   id        Int      @id @default(autoincrement())
   num       Int      @unique
+  userId    String?
   company   String
   role      String
   score     Float?
@@ -65,10 +127,12 @@ model Report {
   updatedAt DateTime @updatedAt
 
   @@index([company])
+  @@index([userId])
 }
 
 model Outreach {
   id        Int      @id @default(autoincrement())
+  userId    String?
   company   String
   role      String?
   contact   String?
@@ -80,10 +144,12 @@ model Outreach {
   updatedAt DateTime @updatedAt
 
   @@index([company, status])
+  @@index([userId])
 }
 
 model Referral {
   id        Int      @id @default(autoincrement())
+  userId    String?
   company   String
   role      String?
   contact   String?
@@ -94,10 +160,12 @@ model Referral {
   updatedAt DateTime @updatedAt
 
   @@index([company, status])
+  @@index([userId])
 }
 
 model Resume {
   id        Int      @id @default(autoincrement())
+  userId    String?
   company   String
   role      String
   filename  String   @unique
@@ -106,16 +174,17 @@ model Resume {
   createdAt DateTime @default(now())
 
   @@index([company, role])
+  @@index([userId])
 }
 
 model AiCache {
-  key       String   @id
+  key       String    @id
   task      String
   scope     String?
   payload   Json
   model     String?
   expiresAt DateTime?
-  createdAt DateTime @default(now())
+  createdAt DateTime  @default(now())
 
   @@index([task])
   @@index([expiresAt])
