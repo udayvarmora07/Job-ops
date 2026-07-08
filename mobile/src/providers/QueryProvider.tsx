@@ -8,7 +8,10 @@ export function QueryProvider({ children }: { children: ReactNode }) {
         defaultOptions: {
           queries: {
             staleTime: 30_000,
-            retry: 2,
+            // One quick retry, capped short — avoids long spinners when the
+            // backend is unreachable so demo fallback / error states show fast.
+            retry: 1,
+            retryDelay: 500,
             refetchOnWindowFocus: false,
           },
         },

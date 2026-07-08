@@ -29,7 +29,7 @@
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "single",
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
@@ -50,7 +50,7 @@
       "typedRoutes": true
     },
     "extra": {
-      "apiUrl": "http://localhost:3000",
+      "apiUrl": "http://localhost:4317",
       "supabaseUrl": "",
       "supabaseAnonKey": ""
     }

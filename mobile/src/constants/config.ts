@@ -9,14 +9,15 @@ type Extra = {
 const extra = (Constants.expoConfig?.extra ?? {}) as Extra;
 
 /**
- * Base URL of the Career-Ops / Jobops Next.js backend.
- * Override per-environment via app.json `extra.apiUrl` or EXPO_PUBLIC_API_URL.
+ * Base URL of the Jobops Next.js backend (the web dashboard API, which serves
+ * on port 4317). Override per-environment via app.json `extra.apiUrl` or
+ * EXPO_PUBLIC_API_URL.
  *
  * Note: on a physical device "localhost" points at the phone, not your dev
- * machine — use your machine's LAN IP (e.g. http://192.168.1.20:3000).
+ * machine — use your machine's LAN IP (e.g. http://192.168.1.20:4317).
  */
 export const API_URL =
-  process.env.EXPO_PUBLIC_API_URL ?? extra.apiUrl ?? "http://localhost:3000";
+  process.env.EXPO_PUBLIC_API_URL ?? extra.apiUrl ?? "http://localhost:4317";
 
 export const SUPABASE_URL =
   process.env.EXPO_PUBLIC_SUPABASE_URL ?? extra.supabaseUrl ?? "";
@@ -26,6 +27,14 @@ export const SUPABASE_ANON_KEY =
 
 /** Supabase auth is optional; when unconfigured the app runs in dev bypass. */
 export const SUPABASE_ENABLED = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
+
+/**
+ * When true, unreachable-backend requests fall back to bundled demo data so the
+ * app stays explorable on-device without a dev server. Disable by setting
+ * EXPO_PUBLIC_DEMO_FALLBACK=0. HTTP errors are never masked — only network
+ * failures fall back.
+ */
+export const DEMO_FALLBACK = process.env.EXPO_PUBLIC_DEMO_FALLBACK !== "0";
 
 export const FEATURES = {
   pushNotifications: false, // enabled in Phase 2

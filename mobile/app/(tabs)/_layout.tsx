@@ -42,10 +42,17 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="reports"
         options={{
-          title: "Profile",
-          tabBarIcon: ({ focused }) => <TabIcon icon="👤" focused={focused} />,
+          title: "Reports",
+          tabBarIcon: ({ focused }) => <TabIcon icon="📄" focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="more"
+        options={{
+          title: "More",
+          tabBarIcon: ({ focused }) => <TabIcon icon="⋯" focused={focused} />,
         }}
       />
     </Tabs>

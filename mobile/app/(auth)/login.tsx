@@ -4,6 +4,7 @@ import { Link } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { SocialButtons } from "@/components/auth/SocialButtons";
 import { useAuth } from "@/providers/AuthProvider";
 
 export default function Login() {
@@ -42,6 +43,8 @@ export default function Login() {
               Sign in to manage your job search.
             </Text>
           </View>
+
+          <SocialButtons onError={(m) => setError(m || null)} />
 
           <View className="gap-4">
             <Input

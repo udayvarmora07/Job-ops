@@ -63,11 +63,22 @@ async function request<T>(path: string, opts: RequestOptions = {}): Promise<T> {
   return data as T;
 }
 
+/**
+ * True when an error is a network/transport failure (host unreachable, DNS,
+ * offline) rather than an HTTP error response. `fetch` rejects with a TypeError
+ * in that case; a reachable-but-erroring backend throws ApiError instead.
+ */
+export function isNetworkError(err: unknown): boolean {
+  return !(err instanceof ApiError);
+}
+
 export const api = {
   get: <T>(path: string, opts?: RequestOptions) =>
     request<T>(path, { ...opts, method: "GET" }),
   post: <T>(path: string, body?: unknown, opts?: RequestOptions) =>
     request<T>(path, { ...opts, method: "POST", body }),
+  put: <T>(path: string, body?: unknown, opts?: RequestOptions) =>
+    request<T>(path, { ...opts, method: "PUT", body }),
   patch: <T>(path: string, body?: unknown, opts?: RequestOptions) =>
     request<T>(path, { ...opts, method: "PATCH", body }),
   del: <T>(path: string, body?: unknown, opts?: RequestOptions) =>

@@ -6,6 +6,7 @@ import { useJobs } from "@/hooks/useJobs";
 import { JobCard } from "@/components/job/JobCard";
 import { Input } from "@/components/ui/Input";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { DemoBanner } from "@/components/ui/DemoBanner";
 import { colors } from "@/constants/theme";
 
 export default function Jobs() {
@@ -36,6 +37,8 @@ export default function Jobs() {
           autoCapitalize="none"
         />
       </View>
+
+      <DemoBanner />
 
       {isLoading ? (
         <ActivityIndicator className="mt-8" color={colors.brand} />

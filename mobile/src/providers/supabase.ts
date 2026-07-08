@@ -27,6 +27,9 @@ export function getSupabase(): SupabaseClient | null {
       autoRefreshToken: true,
       persistSession: true,
       detectSessionInUrl: false,
+      // PKCE: OAuth redirect returns a `code` we exchange for a session
+      // (see signInWithProvider in AuthProvider). More secure for native.
+      flowType: "pkce",
     },
   });
 
