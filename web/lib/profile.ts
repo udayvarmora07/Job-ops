@@ -1,7 +1,82 @@
 import fs from "fs";
 import { FILES } from "./paths";
+import { prisma } from "./prisma";
 
 /**
+ * Prisma-backed profile for the signed-in user (SaaS path).
+ */
+export async function loadProfileForUser(userId: string): Promise<CandidateProfile> {
+  const up = await prisma.userProfile.findUnique({ where: { userId } });
+
+  const name = up?.fullName || "the candidate";
+  const titlePart = name
+    .split(/\s+/)
+    .map((w: string) => w.charAt(0) + w.slice(1).toLowerCase())
+    .join(" ");
+  const firstName = titlePart.split(/\s+/)[0] || "there";
+
+  const targetRoles = Array.isArray(up?.targetRoles) && up.targetRoles.length
+    ? up.targetRoles as string[]
+    : DEFAULTS.targetRoles;
+  const superpowers = Array.isArray(up?.superpowers) && up.superpowers.length
+    ? up.superpowers as string[]
+    : [];
+
+  const headline =
+    typeof up?.cvStructured === "object" && up.cvStructured && "headline" in up.cvStructured
+      ? (up.cvStructured as { headline?: string }).headline || DEFAULTS.headline
+      : DEFAULTS.headline;
+
+  const proofMetric =
+    (typeof up?.cvStructured === "object" && up.cvStructured && "summary" in up.cvStructured
+      ? (up.cvStructured as { summary?: string }).summary
+      : "") || "";
+
+  const STOPWORDS = new Set([
+    "engineer",
+    "engineering",
+    "senior",
+    "junior",
+    "mid",
+    "lead",
+    "manager",
+    "specialist",
+    "associate",
+    "and",
+    "the",
+    "with",
+    "for",
+    "scaling",
+  ]);
+
+  const stackTokens = new Set<string>(DEFAULTS.stack);
+  for (const s of [...superpowers, ...targetRoles]) {
+    for (const tok of s
+      .toLowerCase()
+      .split(/[^a-z0-9/+]+/)
+      .filter((t) => t.length > 2 && !STOPWORDS.has(t))) {
+      stackTokens.add(tok);
+    }
+  }
+
+  const pitchLine = proofMetric ? `${headline} — ${proofMetric}.` : headline;
+
+  return {
+    name: titlePart,
+    firstName,
+    city: up?.city || DEFAULTS.city,
+    country: up?.country || DEFAULTS.country,
+    linkedin: up?.linkedinUrl || DEFAULTS.linkedin,
+    github: up?.githubUrl || DEFAULTS.github,
+    headline,
+    targetRoles,
+    stack: Array.from(stackTokens),
+    proofMetric,
+    pitchLine,
+  };
+}
+
+/** File-system profile for CLI/local scripts (single-user fallback).
  * Candidate profile distilled from config/profile.yml.
  * Drives the referral suggestion scoring + the personalized message drafts.
  * We do a small, tolerant extraction (no YAML dependency in the web app) and
