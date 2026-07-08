@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geist = localFont({
   src: "../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2",
@@ -20,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
-      <body>{children}</body>
+      <body>
+        <TooltipProvider delay={300}>{children}</TooltipProvider>
+      </body>
     </html>
   );
 }

@@ -32,6 +32,7 @@ import { AiStudio } from "./AiStudio";
 import { PipelineManager } from "./PipelineManager";
 import { Outreach } from "./Outreach";
 import { CommandPalette, type Command } from "./CommandPalette";
+import { UserMenu } from "@/components/auth/UserMenu";
 import { ResumesLibrary } from "./ResumesLibrary";
 import type {
   Application,
@@ -218,6 +219,7 @@ export default function Dashboard() {
               <RefreshCw className={loading ? "h-4 w-4 animate-spin" : "h-4 w-4"} />
               Refresh
             </Button>
+            <UserMenu />
           </div>
         </header>
 

@@ -367,8 +367,11 @@ function buildSuggestion(
   };
 }
 
-export function suggestReferrals(input: SuggestInput): SuggestResult {
-  const p = loadProfile();
+export function suggestReferrals(
+  input: SuggestInput,
+  profile: CandidateProfile | null = null,
+): SuggestResult {
+  const p = profile || loadProfile();
   const roleMatch = roleMatchScore(input.role, p);
   const locMatch = locationMatchScore(input.location, p);
 
