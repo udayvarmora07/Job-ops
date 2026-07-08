@@ -125,6 +125,11 @@ tasks:
     - nim:moonshotai/kimi-k2.6
     - nim:deepseek-ai/deepseek-v4-pro
 
+  # Parse an uploaded resume/CV → structured JSON to pre-fill the onboarding wizard.
+  parse_resume:
+    - freemodel:gpt-5.5
+    - nim:moonshotai/kimi-k2.6
+
   # High-volume summarization → fast/cheap gpt-5.4-mini.
   summarize_report:
     - freemodel:gpt-5.4-mini

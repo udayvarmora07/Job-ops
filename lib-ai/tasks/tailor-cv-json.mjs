@@ -12,15 +12,16 @@ import { read, CLI_RULES } from '../context.mjs';
  * @param {string} jdText
  * @param {string} [instructions]
  * @param {Record<string, unknown> | null} [baseContent]  latest version's content, for update mode
+ * @param {object|null} [userContext]  per-user profile/CV context
  */
-export function buildTailorCvJson(jdText, instructions = '', baseContent = null) {
+export function buildTailorCvJson(jdText, instructions = '', baseContent = null, userContext = null) {
   if (!jdText || !String(jdText).trim()) {
     throw new Error('buildTailorCvJson: empty job description.');
   }
   const isUpdate = baseContent && typeof baseContent === 'object';
 
   const template = read('uday-data/resume-system/content/universal.json', 'universal.json template');
-  const masterBrief = read('uday-data/01_MASTER_BRIEF.md', 'master brief');
+  const masterBrief = userContext?.cvMarkdown || read('uday-data/01_MASTER_BRIEF.md', 'master brief');
   const articleDigest = read('article-digest.md');
 
   const system = `You generate a tailored resume content JSON file for a specific job description.

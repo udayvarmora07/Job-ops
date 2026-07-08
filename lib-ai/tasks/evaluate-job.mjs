@@ -9,7 +9,11 @@
 import { read, today, candidateContext } from '../context.mjs';
 
 /** Build the { system, prompt } pair for an evaluation of `jdText`. */
-export function buildEvaluateJob(jdText) {
+/**
+ * @param {string} jdText
+ * @param {object|null} userContext  optional per-user profile/CV context
+ */
+export function buildEvaluateJob(jdText, userContext = null) {
   if (!jdText || !String(jdText).trim()) {
     throw new Error('buildEvaluateJob: empty job description.');
   }
@@ -20,17 +24,17 @@ Today's date is ${today()} — use it for any report date; never guess the date.
 
 Your evaluation methodology is defined below. Follow it exactly.
 
-═══════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════
 SYSTEM CONTEXT (_shared.md)
-═══════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════
 ${read('modes/_shared.md')}
 
-═══════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════
 EVALUATION MODE (oferta.md)
-═══════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════
 ${read('modes/oferta.md')}
 
-${candidateContext()}
+${candidateContext(userContext)}
 
 ═══════════════════════════════════════════════════════
 IMPORTANT OPERATING RULES FOR THIS CLI SESSION

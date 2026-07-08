@@ -23,8 +23,22 @@ export function today() {
   return `${d.getFullYear()}-${z(d.getMonth() + 1)}-${z(d.getDate())}`;
 }
 
-/** Candidate contact details from config/profile.yml (for email signatures). */
-export function candidateContact() {
+/** Candidate contact details. Prefer the provided user context; fall back to config/profile.yml. */
+export function candidateContact(userContext = null) {
+  if (userContext) {
+    const name = userContext.fullName || '';
+    const linkedin = userContext.linkedinUrl || '';
+    return {
+      name,
+      email: userContext.email || '',
+      phone: userContext.phone || '',
+      linkedin,
+      linkedinUrl: linkedin ? (/^https?:\/\//.test(linkedin) ? linkedin : `https://${linkedin}`) : '',
+      github: userContext.githubUrl || '',
+      location: [userContext.city, userContext.country].filter(Boolean).join(', ') || '',
+      availability: userContext.availability || '',
+    };
+  }
   const raw = read('config/profile.yml');
   const get = (k) =>
     (raw.match(new RegExp(`^\\s*${k}:\\s*"?([^"\\n]+?)"?\\s*$`, 'm')) || [])[1]?.trim() || '';
@@ -48,28 +62,36 @@ export function candidateContact() {
 }
 
 /** A clean email signature block (name + phone + LinkedIn URL + email). */
-export function candidateSignature() {
-  const c = candidateContact();
+export function candidateSignature(userContext = null) {
+  const c = candidateContact(userContext);
   const line2 = [c.phone, c.linkedinUrl, c.email].filter(Boolean).join('  |  ');
   return [c.name, line2].filter(Boolean).join('\n');
 }
 
 /** Common candidate context block reused across tasks. */
-export function candidateContext() {
-  return `═══════════════════════════════════════════════════════
-CANDIDATE RESUME (cv.md)
-═══════════════════════════════════════════════════════
-${read('cv.md')}
+export function candidateContext(userContext = null) {
+  const cvMarkdown = userContext?.cvMarkdown || read('cv.md');
+  const profileText = userContext
+    ? JSON.stringify(userContext, null, 2)
+    : read('config/profile.yml');
+  const archetypes = userContext?.archetypes
+    ? JSON.stringify(userContext.archetypes, null, 2)
+    : read('modes/_profile.md');
 
-═══════════════════════════════════════════════════════
-CANDIDATE PROFILE & TARGETS (config/profile.yml)
-═══════════════════════════════════════════════════════
-${read('config/profile.yml')}
+  return `════════════════════════════════════════════════════════════
+CANDIDATE RESUME
+════════════════════════════════════════════════════════════
+${cvMarkdown}
 
-═══════════════════════════════════════════════════════
-USER ARCHETYPES & NARRATIVE (_profile.md)
-═══════════════════════════════════════════════════════
-${read('modes/_profile.md')}`;
+════════════════════════════════════════════════════════════
+CANDIDATE PROFILE & TARGETS
+════════════════════════════════════════════════════════════
+${profileText}
+
+════════════════════════════════════════════════════════════
+USER ARCHETYPES & NARRATIVE
+════════════════════════════════════════════════════════════
+${archetypes}`;
 }
 
 /** Standard CLI operating rules (no web/files/browser tools in a pipe). */

@@ -18,6 +18,7 @@ import { buildConnectionNotes } from './connection-notes.mjs';
 import { buildColdEmail } from './cold-email.mjs';
 import { buildParseHiringPost } from './parse-hiring-post.mjs';
 import { buildResumeQa } from './resume-qa.mjs';
+import { buildParseResume } from './parse-resume.mjs';
 
 export const builders = {
   evaluate_job: buildEvaluateJob,
@@ -30,6 +31,7 @@ export const builders = {
   cold_email: buildColdEmail,
   parse_hiring_post: buildParseHiringPost,
   resume_qa: buildResumeQa,
+  parse_resume: buildParseResume,
 };
 
 /** True if `task` has a context-assembling builder. */
