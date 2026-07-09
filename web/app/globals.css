@@ -1,33 +1,87 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ————————————————————————————————————————————————————————————————
+   Meridian "Warm" — a single dark, warm-paper palette.
+
+   Structure from design-samples/web/final.html (sidebar + topbar + cards),
+   colour from design-samples/web/concept-a.html (warm gold on near-black,
+   never navy/indigo). The raw palette below is the source of truth; both
+   the CDS semantic layer and the shadcn base tokens are remapped onto it,
+   so every existing component picks up the warmth without a rewrite.
+———————————————————————————————————————————————————————————————— */
 :root {
-  --font-sans: "Fira Sans";
   --font-mono: "Fira Code";
-  --background: 222 47% 5%;
-  --foreground: 210 40% 98%;
-  --card: 222 47% 7%;
-  --card-foreground: 210 40% 98%;
-  --primary: 217 91% 60%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 217 33% 17%;
-  --secondary-foreground: 210 40% 96%;
-  --accent: 38 92% 50%;
-  --accent-foreground: 26 83% 14%;
-  --muted: 215 28% 14%;
-  --muted-foreground: 217 14% 63%;
-  --border: 215 28% 17%;
-  --input: 215 28% 17%;
-  --ring: 217 91% 60%;
-  --destructive: 0 72% 55%;
-  --destructive-foreground: 0 0% 100%;
-  --success: 142 69% 45%;
-  --warning: 38 92% 50%;
-  --danger: 0 72% 55%;
+
+  /* ——— Raw Meridian Warm palette (source of truth) ——— */
+  --bg: #080808;
+  --s1: #0e0c08; /* card surface */
+  --s2: #141209; /* elevated surface */
+  --s3: #1a1710; /* hover surface */
+  --s4: #201e15; /* active surface */
+  --t1: #ede8d8; /* primary text — warm paper */
+  --t2: #a09880; /* secondary text */
+  --t3: #4a4437; /* muted text */
+  --amber: #c8920a; /* scores, achievement, accent */
+  --amber-dim: rgba(200, 146, 10, 0.08);
+  --amber-border: rgba(200, 146, 10, 0.22);
+  --green: #3ac98a; /* verified, success */
+  --green-dim: rgba(58, 201, 138, 0.08);
+  --red: #e06363; /* rejected, overdue, danger */
+  --red-dim: rgba(224, 99, 99, 0.08);
+  --rule: rgba(237, 232, 216, 0.09); /* borders — warm, not indigo */
+  --rule-strong: rgba(237, 232, 216, 0.18);
+
   --radius: 0.6rem;
+
+  /* ——— shadcn base tokens (HSL triplets), remapped to the warm palette
+     so Button / Tabs / Input / Dialog / Card etc. read warm. ——— */
+  --background: 0 0% 3%; /* --bg */
+  --foreground: 44 34% 89%; /* --t1 */
+  --card: 40 27% 4%; /* --s1 */
+  --card-foreground: 44 34% 89%;
+  --primary: 43 90% 41%; /* --amber */
+  --primary-foreground: 0 0% 4%; /* near-black text on amber */
+  --secondary: 42 24% 8%; /* --s3 */
+  --secondary-foreground: 44 34% 89%;
+  --accent: 47 21% 10%; /* --s4 (hover/muted accent surface) */
+  --accent-foreground: 44 34% 89%;
+  --muted: 42 24% 8%; /* --s3 */
+  --muted-foreground: 45 20% 56%; /* --t2 */
+  --border: 40 6% 13%; /* --rule, flattened onto bg */
+  --input: 40 6% 15%;
+  --ring: 43 90% 41%; /* --amber */
+  --destructive: 0 68% 63%; /* --red */
+  --destructive-foreground: 0 0% 4%;
+  --success: 153 55% 51%; /* --green */
+  --warning: 43 90% 41%; /* --amber */
+  --danger: 0 68% 63%; /* --red */
+
+  /* ——— Meridian CDS semantic layer, remapped onto the warm palette.
+     Existing components (TodayView, PatternsView …) reference these. ——— */
+  --text-primary: var(--t1);
+  --text-secondary: var(--t2);
+  --text-muted: var(--t3);
+  --text-accent: var(--amber);
+  --text-warning: var(--amber);
+  --text-success: var(--green);
+  --text-danger: var(--red);
+
+  --surface-1: var(--s1);
+  --surface-2: var(--s2);
+  --surface-hover: var(--s3);
+
+  --border-subtle: var(--rule);
+  --border-strong: var(--rule-strong);
+
+  --fill-accent: var(--amber);
+  --bg-accent: var(--amber-dim);
+  --bg-warning: var(--amber-dim);
+  --bg-success: var(--green-dim);
+  --bg-danger: var(--red-dim);
 }
 
 * {

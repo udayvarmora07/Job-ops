@@ -13,7 +13,13 @@ export interface Command {
   run: () => void;
 }
 
-export function CommandPalette({ commands }: { commands: Command[] }) {
+export function CommandPalette({
+  commands,
+  variant = "button",
+}: {
+  commands: Command[];
+  variant?: "button" | "bar";
+}) {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
@@ -68,15 +74,29 @@ export function CommandPalette({ commands }: { commands: Command[] }) {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 rounded-md border border-border bg-secondary/40 px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground cursor-pointer"
-        title="Command palette (⌘K)"
-      >
-        <Search className="h-3.5 w-3.5" />
-        <span className="hidden sm:inline">Search & run…</span>
-        <kbd className="rounded border border-border bg-background px-1 font-sans text-[10px]">⌘K</kbd>
-      </button>
+      {variant === "bar" ? (
+        <button
+          onClick={() => setOpen(true)}
+          className="flex w-full max-w-[380px] items-center gap-2.5 rounded-md border border-[color:var(--rule)] bg-[color:var(--s2)] px-3 py-2 text-[13px] text-[color:var(--t3)] transition-colors hover:border-[color:var(--rule-strong)] cursor-pointer"
+          title="Search & run (⌘K)"
+        >
+          <Search className="h-4 w-4" />
+          <span className="flex-1 text-left">Search jobs, reports, companies…</span>
+          <kbd className="rounded border border-[color:var(--rule)] bg-[color:var(--bg)] px-1.5 py-0.5 font-sans text-[10px]">
+            ⌘K
+          </kbd>
+        </button>
+      ) : (
+        <button
+          onClick={() => setOpen(true)}
+          className="inline-flex items-center gap-2 rounded-md border border-border bg-secondary/40 px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground cursor-pointer"
+          title="Command palette (⌘K)"
+        >
+          <Search className="h-3.5 w-3.5" />
+          <span className="hidden sm:inline">Search & run…</span>
+          <kbd className="rounded border border-border bg-background px-1 font-sans text-[10px]">⌘K</kbd>
+        </button>
+      )}
 
       <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
         <DialogPrimitive.Portal>
