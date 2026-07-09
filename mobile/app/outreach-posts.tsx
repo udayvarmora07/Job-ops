@@ -55,7 +55,7 @@ export default function OutreachPosts() {
                   onPress={() => setMode(m.value)}
                   className={`rounded-full px-3 py-1.5 ${active ? "bg-brand" : "bg-bg-elevated"}`}
                 >
-                  <Text className={`text-sm ${active ? "text-white" : "text-muted"}`}>{m.label}</Text>
+                  <Text className={`text-sm ${active ? "text-paper" : "text-muted"}`}>{m.label}</Text>
                 </Pressable>
               );
             })}
@@ -103,12 +103,12 @@ function DiscoverTab({ onUsePost }: { onUsePost: (text: string) => void }) {
       {scan.isPending ? <ActivityIndicator color={colors.brand} /> : null}
       {posts.map((p) => (
         <Card key={p.url}>
-          <Text className="text-sm font-semibold text-white">{p.authorName || "Unknown"}</Text>
+          <Text className="text-sm font-semibold text-paper">{p.authorName || "Unknown"}</Text>
           <Text className="text-xs text-muted">{p.authorTitle}</Text>
           {p.fit ? (
             <Text className="mt-1 text-xs text-brand">Fit {Math.round(p.fit.score)}%</Text>
           ) : null}
-          <Text className="mt-2 text-sm text-white" numberOfLines={4}>{p.text}</Text>
+          <Text className="mt-2 text-sm text-paper" numberOfLines={4}>{p.text}</Text>
           {p.emails?.length ? (
             <Text className="mt-2 text-xs text-good">📧 {p.emails.join(", ")}</Text>
           ) : null}
@@ -197,7 +197,7 @@ function PasteTab({ seed }: { seed: string }) {
         placeholder="Paste a LinkedIn hiring post (and top comments)…"
         placeholderTextColor={colors.muted}
         multiline
-        className="min-h-[120px] rounded-xl border border-border bg-bg-card p-4 text-base text-white"
+        className="min-h-[120px] rounded-xl border border-border bg-bg-card p-4 text-base text-paper"
         style={{ textAlignVertical: "top" }}
       />
       <Button label={parse.isPending ? "Parsing…" : "Parse post"} onPress={onParse} loading={parse.isPending} />
@@ -206,7 +206,7 @@ function PasteTab({ seed }: { seed: string }) {
 
       {parsed ? (
         <Card>
-          <Text className="text-sm font-semibold text-white">{parsed.company || "—"}</Text>
+          <Text className="text-sm font-semibold text-paper">{parsed.company || "—"}</Text>
           <Text className="text-xs text-muted">{parsed.role || "role unknown"}</Text>
           {parsed.requirements?.length ? (
             <Text className="mt-2 text-xs text-muted" numberOfLines={4}>
@@ -230,20 +230,20 @@ function PasteTab({ seed }: { seed: string }) {
             keyboardType="email-address"
             placeholder="recruiter@company.com"
             placeholderTextColor={colors.muted}
-            className="mb-3 rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+            className="mb-3 rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
           />
           <Text className="text-xs font-medium text-muted">Subject</Text>
           <TextInput
             value={draft.subject}
             onChangeText={(v) => setDraft({ ...draft, subject: v })}
-            className="mb-3 rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+            className="mb-3 rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
           />
           <Text className="text-xs font-medium text-muted">Body</Text>
           <TextInput
             value={draft.body}
             onChangeText={(v) => setDraft({ ...draft, body: v })}
             multiline
-            className="min-h-[160px] rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+            className="min-h-[160px] rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
             style={{ textAlignVertical: "top" }}
           />
           <View className="mt-3">
@@ -284,7 +284,7 @@ function EmailsTab() {
         onChangeText={setCompany}
         placeholder="Company name"
         placeholderTextColor={colors.muted}
-        className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+        className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
       />
       <TextInput
         value={domain}
@@ -292,14 +292,14 @@ function EmailsTab() {
         placeholder="or domain (acme.com)"
         placeholderTextColor={colors.muted}
         autoCapitalize="none"
-        className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+        className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
       />
       <Button label={find.isPending ? "Searching…" : "Find company emails"} onPress={run} loading={find.isPending} />
       <ErrText msg={error} />
       {res?.emails?.length ? (
         res.emails.map((e) => (
           <Card key={e.email}>
-            <Text className="text-sm text-white">{e.email}</Text>
+            <Text className="text-sm text-paper">{e.email}</Text>
             {(e.name || e.title) ? (
               <Text className="text-xs text-muted">{[e.name, e.title].filter(Boolean).join(" · ")}</Text>
             ) : null}

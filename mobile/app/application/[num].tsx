@@ -45,7 +45,7 @@ export default function ApplicationDetail() {
         <Card>
           <View className="flex-row items-start justify-between gap-3">
             <View className="flex-1 gap-1">
-              <Text className="text-lg font-bold text-white">{app.role}</Text>
+              <Text className="text-lg font-bold text-paper">{app.role}</Text>
               <Text className="text-sm text-muted">{app.company}</Text>
               <View className="mt-1 flex-row items-center gap-2">
                 <StatusBadge status={String(app.status)} />
@@ -58,7 +58,7 @@ export default function ApplicationDetail() {
         </Card>
 
         <Card>
-          <Text className="mb-3 text-sm font-semibold text-white">Update status</Text>
+          <Text className="mb-3 text-sm font-semibold text-paper">Update status</Text>
           <View className="flex-row flex-wrap gap-2">
             {APPLICATION_STATUSES.map((s) => {
               const active = app.status === s;

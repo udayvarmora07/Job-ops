@@ -51,8 +51,8 @@ describe("job browser", () => {
     expect(getByText("DevOps Engineer")).toBeTruthy();
   });
 
-  it("filters the list by search query", async () => {
-    const { findByText, getByPlaceholderText, queryByText } = render(
+  it("filters the deck when a filter chip is tapped", async () => {
+    const { findByText, getByText, queryByText } = render(
       <QueryProvider>
         <Jobs />
       </QueryProvider>,
@@ -60,10 +60,9 @@ describe("job browser", () => {
 
     await findByText("Senior Site Reliability Engineer");
 
-    fireEvent.changeText(
-      getByPlaceholderText(/Search role, company, location/i),
-      "netflix",
-    );
+    // Only Netflix is inPipeline in the sample; the "In pipeline" chip should
+    // drop the Google card from the deck.
+    fireEvent.press(getByText("In pipeline"));
 
     await waitFor(() => {
       expect(queryByText("Senior Site Reliability Engineer")).toBeNull();

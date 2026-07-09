@@ -55,7 +55,7 @@ export default function Reports() {
             <Card onPress={() => router.push({ pathname: "/report/[id]", params: { id: item.id } })}>
               <View className="flex-row items-start justify-between gap-3">
                 <View className="flex-1 gap-1">
-                  <Text className="text-base font-semibold text-white" numberOfLines={2}>
+                  <Text className="text-base font-semibold text-paper" numberOfLines={2}>
                     {item.role}
                   </Text>
                   <Text className="text-sm text-muted">{item.company}</Text>

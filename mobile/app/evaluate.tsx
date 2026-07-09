@@ -58,7 +58,7 @@ export default function Evaluate() {
             placeholderTextColor={colors.muted}
             multiline
             editable={!busy}
-            className="min-h-[160px] rounded-xl border border-border bg-bg-card p-4 text-base text-white"
+            className="min-h-[160px] rounded-xl border border-border bg-bg-card p-4 text-base text-paper"
             style={{ textAlignVertical: "top" }}
           />
 
@@ -81,7 +81,7 @@ export default function Evaluate() {
             <Card>
               <View className="flex-row items-start justify-between gap-3">
                 <View className="flex-1 gap-1">
-                  <Text className="text-lg font-bold text-white">{result.role}</Text>
+                  <Text className="text-lg font-bold text-paper">{result.role}</Text>
                   <Text className="text-sm text-muted">{result.company}</Text>
                   <Text className="mt-1 text-xs text-good">✓ Saved as report #{result.num}</Text>
                 </View>

@@ -37,7 +37,7 @@ export default function Resumes() {
           renderItem={({ item }) => (
             <Card>
               <View className="flex-row items-center justify-between">
-                <Text className="flex-1 text-base font-semibold text-white" numberOfLines={1}>
+                <Text className="flex-1 text-base font-semibold text-paper" numberOfLines={1}>
                   {item.displayName}
                 </Text>
                 <View className="rounded-md bg-bg-elevated px-2 py-0.5">

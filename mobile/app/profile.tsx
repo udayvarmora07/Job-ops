@@ -202,12 +202,12 @@ export default function Profile() {
         <Card>
           <View className="flex-row items-center gap-3">
             <View className="h-12 w-12 items-center justify-center rounded-full bg-brand">
-              <Text className="text-lg font-bold text-white">
+              <Text className="text-lg font-bold text-paper">
                 {(user?.email?.[0] ?? "U").toUpperCase()}
               </Text>
             </View>
             <View className="flex-1">
-              <Text className="text-base font-semibold text-white">
+              <Text className="text-base font-semibold text-paper">
                 {form.fullName || user?.name || "Jobops user"}
               </Text>
               <Text className="text-sm text-muted">{user?.email}</Text>
@@ -223,7 +223,7 @@ export default function Profile() {
           <>
             {/* Quick fill / enrichment */}
             <Card>
-              <Text className="mb-1 text-sm font-semibold text-white">Quick fill</Text>
+              <Text className="mb-1 text-sm font-semibold text-paper">Quick fill</Text>
               <Text className="mb-3 text-xs text-muted">
                 Import from a résumé or LinkedIn to pre-fill the fields below.
               </Text>
@@ -236,7 +236,7 @@ export default function Profile() {
               />
               <View className="mt-3 gap-2">
                 <TextInput
-                  className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+                  className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
                   placeholder="https://linkedin.com/in/your-profile"
                   placeholderTextColor={colors.muted}
                   autoCapitalize="none"
@@ -307,7 +307,7 @@ export default function Profile() {
         )}
 
         <Card>
-          <Text className="mb-2 text-sm font-semibold text-white">Account</Text>
+          <Text className="mb-2 text-sm font-semibold text-paper">Account</Text>
           <InfoRow label="Email" value={user?.email || "N/A"} />
           <InfoRow label="Auth" value={SUPABASE_ENABLED ? "Supabase" : "Dev bypass"} />
         </Card>
@@ -321,7 +321,7 @@ export default function Profile() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <Card>
-      <Text className="mb-3 text-sm font-semibold text-white">{title}</Text>
+      <Text className="mb-3 text-sm font-semibold text-paper">{title}</Text>
       <View className="gap-3">{children}</View>
     </Card>
   );
@@ -351,7 +351,7 @@ function Row({ children }: { children: React.ReactNode }) {
 function Input(props: React.ComponentProps<typeof TextInput>) {
   return (
     <TextInput
-      className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+      className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
       placeholderTextColor={colors.muted}
       {...props}
     />
@@ -362,7 +362,7 @@ function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <View className="flex-row items-center justify-between py-1">
       <Text className="text-sm text-muted">{label}</Text>
-      <Text className="max-w-[60%] text-sm text-white" numberOfLines={1}>{value}</Text>
+      <Text className="max-w-[60%] text-sm text-paper" numberOfLines={1}>{value}</Text>
     </View>
   );
 }

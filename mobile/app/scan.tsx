@@ -51,7 +51,7 @@ export default function Scan() {
 
         {result ? (
           <Card>
-            <Text className="text-base font-semibold text-white">
+            <Text className="text-base font-semibold text-paper">
               {result.ok ? "✅ Scan complete" : "⚠️ Scan finished with issues"}
             </Text>
             <Text className="mt-1 text-sm text-muted">{result.summary}</Text>
@@ -60,7 +60,7 @@ export default function Scan() {
                 {result.sources.map((s) => (
                   <View key={s.id} className="flex-row justify-between">
                     <Text className="text-xs text-muted">{s.label ?? s.id}</Text>
-                    <Text className="text-xs text-white">
+                    <Text className="text-xs text-paper">
                       {s.new == null ? "—" : `${s.new} new`}
                     </Text>
                   </View>

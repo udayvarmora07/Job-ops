@@ -153,7 +153,7 @@ export default function OnboardingScreen() {
         </Text>
 
         <Card>
-          <Text className="mb-1 text-sm font-semibold text-white">Quick start</Text>
+          <Text className="mb-1 text-sm font-semibold text-paper">Quick start</Text>
           <Text className="mb-3 text-xs text-muted">
             Upload a résumé or import from LinkedIn to pre-fill the fields below.
           </Text>
@@ -166,7 +166,7 @@ export default function OnboardingScreen() {
           />
           <View className="mt-3 gap-2">
             <TextInput
-              className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+              className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
               placeholder="https://linkedin.com/in/your-profile"
               placeholderTextColor={colors.muted}
               autoCapitalize="none"
@@ -191,7 +191,7 @@ export default function OnboardingScreen() {
           <View className="gap-3">
             <Field label="Full name *" autoFilled={autoFilled.has("fullName")}>
               <TextInput
-                className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+                className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
                 placeholder="Jane Doe"
                 placeholderTextColor={colors.muted}
                 value={fullName}
@@ -204,7 +204,7 @@ export default function OnboardingScreen() {
 
             <Field label="Target roles * (comma-separated)" autoFilled={autoFilled.has("roles")}>
               <TextInput
-                className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+                className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
                 placeholder="DevOps Engineer, SRE"
                 placeholderTextColor={colors.muted}
                 value={roles}
@@ -220,7 +220,7 @@ export default function OnboardingScreen() {
               <View className="flex-1">
                 <Field label="City *" autoFilled={autoFilled.has("city")}>
                   <TextInput
-                    className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+                    className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
                     placeholder="Berlin"
                     placeholderTextColor={colors.muted}
                     value={city}
@@ -234,7 +234,7 @@ export default function OnboardingScreen() {
               <View className="flex-1">
                 <Field label="Country *" autoFilled={autoFilled.has("country")}>
                   <TextInput
-                    className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-white"
+                    className="rounded-md border border-border bg-bg/60 px-3 py-2 text-sm text-paper"
                     placeholder="Germany"
                     placeholderTextColor={colors.muted}
                     value={country}
@@ -276,7 +276,7 @@ function Field({
   return (
     <View className="gap-1">
       <View className="flex-row items-center gap-1.5">
-        <Text className="text-sm font-medium text-white">{label}</Text>
+        <Text className="text-sm font-medium text-paper">{label}</Text>
         {autoFilled && (
           <Text className="rounded-full bg-brand/10 px-1.5 py-0.5 text-[10px] text-brand">
             auto-filled — check this

@@ -1,20 +1,31 @@
 /**
- * Design tokens. Mirror the Tailwind palette in tailwind.config.js so both
- * className styling and imperative RN styles stay consistent.
+ * Design tokens — Meridian "Warm".
+ *
+ * A single dark, warm-paper palette (gold on near-black, never navy/indigo)
+ * shared with the web dashboard. Existing key names are preserved so every
+ * screen keeps working; the values are remapped onto the warm palette and a
+ * few surface/accent tokens are added.
  */
 export const colors = {
-  bg: "#0B1120",
-  card: "#111827",
-  elevated: "#1F2937",
-  brand: "#6366F1",
-  brandFg: "#FFFFFF",
-  text: "#F9FAFB",
-  muted: "#9CA3AF",
-  border: "#1F2937",
-  good: "#22C55E",
-  warn: "#F59E0B",
-  bad: "#EF4444",
-  info: "#3B82F6",
+  bg: "#080808",
+  card: "#0E0C08", // s1 — card surface
+  elevated: "#141209", // s2 — elevated surface
+  hover: "#1A1710", // s3
+  active: "#201E15", // s4
+  brand: "#C8920A", // amber — scores, achievement, accent
+  brandFg: "#080808", // near-black text on amber
+  text: "#EDE8D8", // t1 — warm paper
+  muted: "#A09880", // t2 — secondary text
+  subtle: "#4A4437", // t3 — muted text
+  border: "rgba(237,232,216,0.10)", // warm rule
+  borderStrong: "rgba(237,232,216,0.18)",
+  good: "#3AC98A", // green — verified, success
+  warn: "#C8920A", // amber
+  bad: "#E06363", // red — rejected, overdue
+  info: "#C8920A", // amber (no cold blues in Meridian)
+  amberDim: "rgba(200,146,10,0.10)",
+  greenDim: "rgba(58,201,138,0.10)",
+  redDim: "rgba(224,99,99,0.10)",
 } as const;
 
 export const spacing = {
@@ -33,24 +44,21 @@ export const radius = {
   full: 999,
 } as const;
 
-/** Color for a 0–5 fit score. */
+/** Color for a 0–5 fit score. Meridian reserves amber for the score itself. */
 export function scoreColor(score: number | null | undefined): string {
-  if (score == null) return colors.muted;
-  if (score >= 4.0) return colors.good;
-  if (score >= 3.0) return colors.warn;
-  return colors.bad;
+  if (score == null) return colors.subtle;
+  return colors.brand;
 }
 
-/** Color for a canonical application status. */
+/** Color for a canonical application status (warm semantics). */
 export function statusColor(status: string): string {
   switch (status) {
     case "Offer":
-      return colors.good;
     case "Interview":
-      return colors.info;
+      return colors.good;
     case "Responded":
     case "Applied":
-      return colors.brand;
+      return colors.warn;
     case "Rejected":
     case "Discarded":
     case "SKIP":

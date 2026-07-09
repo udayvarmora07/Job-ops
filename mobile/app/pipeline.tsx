@@ -63,7 +63,7 @@ export default function Pipeline() {
           }
           renderItem={({ item }) => (
             <Card onPress={() => Linking.openURL(item.url)}>
-              <Text className="text-base font-semibold text-white" numberOfLines={2}>
+              <Text className="text-base font-semibold text-paper" numberOfLines={2}>
                 {item.role || "Untitled role"}
               </Text>
               <Text className="text-sm text-muted">{item.company || hostFromUrl(item.url)}</Text>

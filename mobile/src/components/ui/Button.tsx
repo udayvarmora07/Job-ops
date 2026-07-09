@@ -20,10 +20,10 @@ const containerFor: Record<Variant, string> = {
 };
 
 const textFor: Record<Variant, string> = {
-  primary: "text-white",
-  secondary: "text-white",
+  primary: "text-paper",
+  secondary: "text-paper",
   ghost: "text-muted",
-  danger: "text-white",
+  danger: "text-paper",
 };
 
 export function Button({

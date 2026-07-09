@@ -15,7 +15,7 @@ export function AppCard({ application, onPress }: Props) {
     <Card onPress={onPress}>
       <View className="flex-row items-start justify-between gap-3">
         <View className="flex-1 gap-1">
-          <Text className="text-base font-semibold text-white" numberOfLines={2}>
+          <Text className="text-base font-semibold text-paper" numberOfLines={2}>
             {application.role}
           </Text>
           <Text className="text-sm text-muted">{application.company}</Text>

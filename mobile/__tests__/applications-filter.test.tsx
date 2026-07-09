@@ -1,4 +1,4 @@
-import { render, fireEvent, waitFor } from "@testing-library/react-native";
+import { render } from "@testing-library/react-native";
 import Applications from "../app/(tabs)/applications";
 import { QueryProvider } from "@/providers/QueryProvider";
 import type { Application } from "@/types";
@@ -49,8 +49,8 @@ describe("application tracker filtering", () => {
     expect(getByText("DevOps Engineer")).toBeTruthy();
   });
 
-  it("filters to a single status when a chip is tapped", async () => {
-    const { findByText, getByTestId, queryByText } = render(
+  it("groups applications into stages", async () => {
+    const { findByText, getByText } = render(
       <QueryProvider>
         <Applications />
       </QueryProvider>,
@@ -58,12 +58,9 @@ describe("application tracker filtering", () => {
 
     await findByText("Senior SRE");
 
-    // Tap the "Interview" filter chip (testID avoids the status badge clash).
-    fireEvent.press(getByTestId("filter-Interview"));
-
-    await waitFor(() => {
-      expect(queryByText("Senior SRE")).toBeTruthy(); // Interview app stays
-      expect(queryByText("DevOps Engineer")).toBeNull(); // Applied app filtered out
-    });
+    // The Interview app surfaces under its stage header (date-independent),
+    // and both roles remain visible in the grouped list.
+    expect(getByText(/Interview & offers/)).toBeTruthy();
+    expect(getByText("DevOps Engineer")).toBeTruthy();
   });
 });

@@ -72,7 +72,7 @@ export default function ReferralFinder() {
             {suggest.data.suggestions.map((s) => (
               <Card key={s.persona}>
                 <View className="flex-row items-center justify-between">
-                  <Text className="text-base font-semibold text-white">{s.personaLabel}</Text>
+                  <Text className="text-base font-semibold text-paper">{s.personaLabel}</Text>
                   <Text className="text-xs font-bold text-brand">{s.score}/100</Text>
                 </View>
                 <Text className="mt-1 text-xs text-good">{s.recommendedAskLabel}</Text>
@@ -101,7 +101,7 @@ export default function ReferralFinder() {
               targets.data.targets.map((t, i) => (
                 <Card key={i}>
                   <View className="flex-row items-center justify-between">
-                    <Text className="flex-1 text-base font-semibold text-white">{t.persona || "Target"}</Text>
+                    <Text className="flex-1 text-base font-semibold text-paper">{t.persona || "Target"}</Text>
                     {t.warmth ? (
                       <View className="rounded-md bg-bg-elevated px-2 py-0.5">
                         <Text className="text-[10px] text-good">{t.warmth} warmth</Text>
@@ -112,7 +112,7 @@ export default function ReferralFinder() {
                   {t.why ? <Text className="mt-1 text-xs text-muted">{t.why}</Text> : null}
                   {t.outreachMessage ? (
                     <View className="mt-2 rounded-lg bg-bg p-2">
-                      <Text className="text-xs text-white">{t.outreachMessage}</Text>
+                      <Text className="text-xs text-paper">{t.outreachMessage}</Text>
                     </View>
                   ) : null}
                   {t.linkedinUrl ? (
@@ -129,7 +129,7 @@ export default function ReferralFinder() {
         {/* Connection notes */}
         {notes.data ? (
           <Card>
-            <Text className="mb-2 text-sm font-semibold text-white">Connection notes</Text>
+            <Text className="mb-2 text-sm font-semibold text-paper">Connection notes</Text>
             {notes.data.directAsk ? <NoteBlock label="Direct ask" text={notes.data.directAsk} /> : null}
             {notes.data.warmIntro ? <NoteBlock label="Warm intro" text={notes.data.warmIntro} /> : null}
             {notes.data.referralFollowUp ? <NoteBlock label="Follow-up DM" text={notes.data.referralFollowUp} /> : null}
@@ -144,7 +144,7 @@ export default function ReferralFinder() {
             ) : (
               people.data.people.map((p, i) => (
                 <Card key={i}>
-                  <Text className="text-base font-semibold text-white">{p.name || "—"}</Text>
+                  <Text className="text-base font-semibold text-paper">{p.name || "—"}</Text>
                   {p.headline ? <Text className="text-xs text-muted">{p.headline}</Text> : null}
                   {(p.linkedinUrl || p.profileUrl) ? (
                     <Text className="mt-2 text-xs font-medium text-brand" onPress={() => Linking.openURL(String(p.linkedinUrl || p.profileUrl))}>
@@ -165,7 +165,7 @@ function NoteBlock({ label, text }: { label: string; text: string }) {
   return (
     <View className="mb-2">
       <Text className="text-xs font-medium text-brand">{label}</Text>
-      <Text className="text-sm text-white">{text}</Text>
+      <Text className="text-sm text-paper">{text}</Text>
     </View>
   );
 }

@@ -19,11 +19,11 @@ export function Markdown({ content }: { content: string }) {
           return (
             <View key={i} className="flex-row gap-2 pl-1">
               <Text className="text-muted">•</Text>
-              <Text className="flex-1 text-sm text-white">{renderInline(t.replace(/^\s*[-*]\s+/, ""))}</Text>
+              <Text className="flex-1 text-sm text-paper">{renderInline(t.replace(/^\s*[-*]\s+/, ""))}</Text>
             </View>
           );
         }
-        return <Text key={i} className="text-sm leading-5 text-white">{renderInline(t)}</Text>;
+        return <Text key={i} className="text-sm leading-5 text-paper">{renderInline(t)}</Text>;
       })}
     </View>
   );
@@ -32,10 +32,10 @@ export function Markdown({ content }: { content: string }) {
 function Heading({ level, text }: { level: 1 | 2 | 3; text: string }) {
   const cls =
     level === 1
-      ? "mt-3 text-xl font-bold text-white"
+      ? "mt-3 text-xl font-bold text-paper"
       : level === 2
-        ? "mt-3 text-lg font-bold text-white"
-        : "mt-2 text-base font-semibold text-white";
+        ? "mt-3 text-lg font-bold text-paper"
+        : "mt-2 text-base font-semibold text-paper";
   return <Text className={cls}>{renderInline(text)}</Text>;
 }
 

@@ -78,7 +78,7 @@ export default function JobDetail() {
       <ScrollView contentContainerClassName="px-4 pb-8 gap-4">
         {!job ? (
           <Card>
-            <Text className="text-base text-white">Job not found in the current feed.</Text>
+            <Text className="text-base text-paper">Job not found in the current feed.</Text>
             <Text className="mt-1 text-sm text-muted">
               It may have been removed. You can still open the link below.
             </Text>
@@ -91,7 +91,7 @@ export default function JobDetail() {
         ) : (
           <>
             <View className="gap-1 pt-2">
-              <Text className="text-2xl font-bold text-white">{job.role}</Text>
+              <Text className="text-2xl font-bold text-paper">{job.role}</Text>
               <Text className="text-base text-muted">
                 {job.company}
                 {job.location ? ` • ${job.location}` : ""}
@@ -102,7 +102,7 @@ export default function JobDetail() {
             </View>
 
             <Card>
-              <Text className="mb-2 text-sm font-semibold text-white">Status</Text>
+              <Text className="mb-2 text-sm font-semibold text-paper">Status</Text>
               <Row label="Portal" value={job.portal} />
               <Row label="In pipeline" value={job.inPipeline ? "Yes" : "No"} />
               <Row

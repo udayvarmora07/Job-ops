@@ -64,7 +64,7 @@ export default function AiStudio() {
                   onPress={() => { setTask(t.value); setResult(null); setError(null); }}
                   className={`rounded-full px-3 py-1.5 ${active ? "bg-brand" : "bg-bg-elevated"}`}
                 >
-                  <Text className={`text-sm ${active ? "text-white" : "text-muted"}`}>{t.label}</Text>
+                  <Text className={`text-sm ${active ? "text-paper" : "text-muted"}`}>{t.label}</Text>
                 </Pressable>
               );
             })}
@@ -77,7 +77,7 @@ export default function AiStudio() {
             placeholderTextColor={colors.muted}
             multiline
             editable={!run.isPending}
-            className="min-h-[150px] rounded-xl border border-border bg-bg-card p-4 text-base text-white"
+            className="min-h-[150px] rounded-xl border border-border bg-bg-card p-4 text-base text-paper"
             style={{ textAlignVertical: "top" }}
           />
 

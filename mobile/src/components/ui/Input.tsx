@@ -13,7 +13,7 @@ export function Input({ label, error, ...props }: Props) {
       {label ? <Text className="text-sm font-medium text-muted">{label}</Text> : null}
       <TextInput
         placeholderTextColor={colors.muted}
-        className={`rounded-xl border bg-bg-card px-4 py-3 text-base text-white ${error ? "border-bad" : "border-border"}`}
+        className={`rounded-xl border bg-bg-card px-4 py-3 text-base text-paper ${error ? "border-bad" : "border-border"}`}
         {...props}
       />
       {error ? <Text className="text-xs text-bad">{error}</Text> : null}

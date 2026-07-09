@@ -38,7 +38,7 @@ export default function Login() {
       >
         <ScrollView contentContainerClassName="flex-grow justify-center px-6 gap-6">
           <View className="gap-2">
-            <Text className="text-3xl font-bold text-white">Welcome back</Text>
+            <Text className="text-3xl font-bold text-paper">Welcome back</Text>
             <Text className="text-base text-muted">
               Sign in to manage your job search.
             </Text>

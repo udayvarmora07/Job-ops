@@ -24,7 +24,7 @@ export default function ReportDetail() {
           <Card>
             <View className="flex-row items-start justify-between gap-3">
               <View className="flex-1 gap-1">
-                <Text className="text-lg font-bold text-white">{meta.role}</Text>
+                <Text className="text-lg font-bold text-paper">{meta.role}</Text>
                 <Text className="text-sm text-muted">{meta.company}</Text>
                 <View className="mt-1 flex-row flex-wrap items-center gap-2">
                   {meta.legitimacy ? <Tag text={meta.legitimacy} /> : null}

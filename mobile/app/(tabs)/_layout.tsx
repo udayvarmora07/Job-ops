@@ -4,7 +4,7 @@ import { colors } from "@/constants/theme";
 
 /** Emoji tab icon (kept dependency-free; swap for vector icons later). */
 function TabIcon({ icon, focused }: { icon: string; focused: boolean }) {
-  return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{icon}</Text>;
+  return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.45 }}>{icon}</Text>;
 }
 
 export default function TabsLayout() {
@@ -13,48 +13,44 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors.brand,
-        tabBarInactiveTintColor: colors.muted,
+        tabBarInactiveTintColor: colors.subtle,
         tabBarStyle: {
           backgroundColor: colors.card,
           borderTopColor: colors.border,
         },
+        tabBarLabelStyle: { fontSize: 11, fontWeight: "500" },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
-          tabBarIcon: ({ focused }) => <TabIcon icon="🏠" focused={focused} />,
+          title: "Today",
+          tabBarIcon: ({ focused }) => <TabIcon icon="⚡" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="jobs"
         options={{
-          title: "Jobs",
+          title: "Discover",
           tabBarIcon: ({ focused }) => <TabIcon icon="🔍" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="applications"
         options={{
-          title: "Tracker",
-          tabBarIcon: ({ focused }) => <TabIcon icon="📋" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="reports"
-        options={{
-          title: "Reports",
-          tabBarIcon: ({ focused }) => <TabIcon icon="📄" focused={focused} />,
+          title: "Track",
+          tabBarIcon: ({ focused }) => <TabIcon icon="◧" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="more"
         options={{
-          title: "More",
-          tabBarIcon: ({ focused }) => <TabIcon icon="⋯" focused={focused} />,
+          title: "Me",
+          tabBarIcon: ({ focused }) => <TabIcon icon="👤" focused={focused} />,
         }}
       />
+      {/* Reports stays reachable by route but is not a bottom-nav tab. */}
+      <Tabs.Screen name="reports" options={{ href: null }} />
     </Tabs>
   );
 }

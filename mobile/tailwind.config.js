@@ -5,23 +5,27 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Aligned with src/constants/theme.ts
+        // Meridian "Warm" — aligned with src/constants/theme.ts
         bg: {
-          DEFAULT: "#0B1120",
-          card: "#111827",
-          elevated: "#1F2937",
+          DEFAULT: "#080808",
+          card: "#0E0C08", // s1
+          elevated: "#141209", // s2
+          hover: "#1A1710", // s3
+          active: "#201E15", // s4
         },
         brand: {
-          DEFAULT: "#6366F1",
-          fg: "#FFFFFF",
+          DEFAULT: "#C8920A", // amber
+          fg: "#080808",
         },
-        muted: "#9CA3AF",
-        border: "#1F2937",
+        paper: "#EDE8D8", // t1 — warm paper (primary text)
+        muted: "#A09880", // t2
+        subtle: "#4A4437", // t3
+        border: "rgba(237,232,216,0.10)",
         // Score / status accents
-        good: "#22C55E",
-        warn: "#F59E0B",
-        bad: "#EF4444",
-        info: "#3B82F6",
+        good: "#3AC98A",
+        warn: "#C8920A",
+        bad: "#E06363",
+        info: "#C8920A",
       },
     },
   },

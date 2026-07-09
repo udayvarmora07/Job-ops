@@ -24,7 +24,7 @@ export function ScreenHeader({ title, subtitle, right, back }: Props) {
       ) : null}
       <View className="flex-row items-center justify-between">
         <View className="flex-1">
-          <Text className="text-2xl font-bold text-white">{title}</Text>
+          <Text className="text-2xl font-bold text-paper">{title}</Text>
           {subtitle ? <Text className="text-sm text-muted">{subtitle}</Text> : null}
         </View>
         {right}

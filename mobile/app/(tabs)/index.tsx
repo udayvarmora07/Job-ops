@@ -1,14 +1,13 @@
+import { useMemo } from "react";
 import { ActivityIndicator, Pressable, RefreshControl, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useRouter, type Href } from "expo-router";
+import { useRouter } from "expo-router";
 import { useSummary } from "@/hooks/useSummary";
 import { useApplications } from "@/hooks/useApplications";
-import { StatCard } from "@/components/ui/StatCard";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { AppCard } from "@/components/application/AppCard";
+import { useReports } from "@/hooks/useReports";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { DemoBanner } from "@/components/ui/DemoBanner";
+import { SectionLabel, StreakDots, GhostShield, ghostShieldFromLegitimacy } from "@/components/ui/Meridian";
 import { colors } from "@/constants/theme";
 import { useAuth } from "@/providers/AuthProvider";
 
@@ -19,141 +18,324 @@ function greeting() {
   return "Good evening";
 }
 
-export default function Dashboard() {
+const DAY = 86_400_000;
+function dayKey(d: Date) {
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+}
+function daysSince(iso: string | null | undefined) {
+  if (!iso) return null;
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return null;
+  return Math.floor((Date.now() - t) / DAY);
+}
+
+export default function Today() {
   const router = useRouter();
   const { user } = useAuth();
   const summary = useSummary();
-  const apps = useApplications();
+  const appsQ = useApplications();
+  const reportsQ = useReports();
 
-  const refreshing = summary.isRefetching || apps.isRefetching;
+  const apps = appsQ.data ?? [];
+  const reports = reportsQ.data ?? [];
+  const s = summary.data;
+  const name = user?.name || user?.email?.split("@")[0] || "there";
+
+  const refreshing = summary.isRefetching || appsQ.isRefetching || reportsQ.isRefetching;
   const onRefresh = () => {
     summary.refetch();
-    apps.refetch();
+    appsQ.refetch();
+    reportsQ.refetch();
   };
 
-  const recent = (apps.data ?? []).slice(0, 5);
-  const name = user?.name || user?.email?.split("@")[0] || "there";
-  const s = summary.data;
+  const topPick = useMemo(() => {
+    return [...reports]
+      .filter((r) => typeof r.scoreNum === "number")
+      .sort((a, b) => (b.scoreNum ?? 0) - (a.scoreNum ?? 0))[0];
+  }, [reports]);
 
-  const quickLinks: { icon: string; label: string; href: Href }[] = [
-    { icon: "🔍", label: "Jobs", href: "/(tabs)/jobs" },
-    { icon: "📄", label: "Reports", href: "/(tabs)/reports" },
-    { icon: "📥", label: "Pipeline", href: "/pipeline" },
-    { icon: "📑", label: "Resumes", href: "/resumes" },
-  ];
+  const momentum = useMemo(() => {
+    const counts = new Map<string, number>();
+    const bump = (iso?: string | null) => {
+      if (!iso) return;
+      const t = Date.parse(iso);
+      if (Number.isNaN(t)) return;
+      const k = dayKey(new Date(t));
+      counts.set(k, (counts.get(k) ?? 0) + 1);
+    };
+    reports.forEach((r) => bump(r.date));
+    apps.forEach((a) => bump(a.date));
+    const today = new Date();
+    const days = Array.from({ length: 7 }, (_, i) => {
+      const d = new Date(today);
+      d.setDate(today.getDate() - (6 - i));
+      return { active: (counts.get(dayKey(d)) ?? 0) > 0 };
+    });
+    let streak = 0;
+    for (let i = days.length - 1; i >= 0; i--) {
+      if (days[i].active) streak++;
+      else break;
+    }
+    return { days, streak };
+  }, [reports, apps]);
+
+  const actions = useMemo(() => {
+    const out: { icon: string; title: string; desc: string; tag: string; tone: string; onPress: () => void }[] = [];
+    for (const a of apps) {
+      if (a.status === "Applied") {
+        const d = daysSince(a.date);
+        if (d != null && d >= 5) {
+          out.push({
+            icon: "⏰",
+            title: `Follow up with ${a.company}`,
+            desc: `${a.role} — day ${d}, no response`,
+            tag: "Overdue",
+            tone: colors.bad,
+            onPress: () => router.push({ pathname: "/application/[num]", params: { num: a.num } }),
+          });
+        }
+      }
+    }
+    for (const a of apps) {
+      if (a.status === "Interview") {
+        out.push({
+          icon: "🎤",
+          title: `Interview prep — ${a.company}`,
+          desc: a.role || "In interview process",
+          tag: "Prep",
+          tone: colors.brand,
+          onPress: () => router.push({ pathname: "/application/[num]", params: { num: a.num } }),
+        });
+      }
+    }
+    return out.slice(0, 3);
+  }, [apps, router]);
+
+  const stats = useMemo(() => {
+    const by = s?.byStatus ?? {};
+    return [
+      { n: String(s?.counts.evaluated ?? 0), l: "Evaluated", c: colors.text },
+      { n: String(by["Applied"] ?? 0), l: "Applied", c: colors.brand },
+      { n: String(by["Interview"] ?? 0), l: "Interview", c: colors.good },
+      { n: s?.avgScore != null ? s.avgScore.toFixed(1) : "—", l: "Avg score", c: colors.brand },
+    ];
+  }, [s]);
+
+  const wins = useMemo(() => {
+    const rank: Record<string, number> = { Offer: 3, Interview: 2, Responded: 1 };
+    return apps
+      .filter((a) => a.status in rank)
+      .sort((x, y) => {
+        const byDate = Date.parse(y.date) - Date.parse(x.date);
+        return Number.isNaN(byDate) ? rank[y.status] - rank[x.status] : byDate;
+      })
+      .slice(0, 3)
+      .map((a) => ({
+        key: a.num,
+        text:
+          a.status === "Offer"
+            ? `${a.company} — offer received`
+            : a.status === "Interview"
+              ? `${a.company} — in interviews`
+              : `${a.company} — replied`,
+      }));
+  }, [apps]);
+
+  const shield = topPick ? ghostShieldFromLegitimacy(topPick.legitimacy) : null;
 
   return (
     <SafeAreaView className="flex-1 bg-bg" edges={["top"]}>
       <ScrollView
-        contentContainerClassName="px-4 pb-8 gap-6"
+        contentContainerClassName="px-4 pb-10 gap-6"
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.brand} />
         }
       >
-        <View className="pt-2">
-          <Text className="text-2xl font-bold text-white">
-            {greeting()}, {name}
-          </Text>
-          <Text className="text-sm text-muted">Here&apos;s your search at a glance.</Text>
+        {/* Header */}
+        <View className="flex-row items-center justify-between pt-2">
+          <View className="flex-1">
+            <Text className="text-[22px] font-medium text-paper">
+              {greeting()}, {name}
+            </Text>
+            <View className="mt-2 flex-row items-center gap-2.5">
+              <StreakDots days={momentum.days} />
+              <Text className="text-[13px] text-muted">
+                {momentum.streak > 0 ? `${momentum.streak}-day streak 🔥` : "No streak yet"}
+              </Text>
+            </View>
+          </View>
+          <View
+            className="ml-3 h-10 w-10 items-center justify-center rounded-full"
+            style={{ backgroundColor: colors.brand }}
+          >
+            <Text className="text-[13px] font-medium" style={{ color: colors.brandFg }}>
+              {name.slice(0, 2).toUpperCase()}
+            </Text>
+          </View>
         </View>
 
         <DemoBanner />
 
-        {/* Primary actions */}
-        <View className="flex-row gap-3">
-          <View className="flex-1">
-            <Button label="🤖 Evaluate a job" onPress={() => router.push("/evaluate")} />
-          </View>
-          <View className="flex-1">
-            <Button label="⚡ Scan portals" variant="secondary" onPress={() => router.push("/scan")} />
-          </View>
-        </View>
-
         {summary.isLoading ? (
-          <ActivityIndicator color={colors.brand} />
-        ) : summary.isError ? (
-          <ErrorNote message="Couldn't reach the backend. Check API URL in settings." />
+          <ActivityIndicator className="mt-8" color={colors.brand} />
         ) : (
           <>
-            <View className="flex-row gap-3">
-              <StatCard value={s?.counts.fetchedJobs ?? 0} label="Jobs" accent={colors.info} />
-              <StatCard value={s?.counts.evaluated ?? 0} label="Evaluated" accent={colors.brand} />
-              <StatCard value={s?.counts.inPipeline ?? 0} label="Pipeline" accent={colors.warn} />
+            {/* Hero job card */}
+            {topPick ? (
+              <View>
+                <SectionLabel>Top pick today</SectionLabel>
+                <View
+                  className="overflow-hidden rounded-3xl border p-5"
+                  style={{ borderColor: colors.borderStrong, backgroundColor: colors.card }}
+                >
+                  <View className="flex-row items-start justify-between gap-3">
+                    <View className="flex-1">
+                      <Text className="text-[11px] font-medium tracking-wide text-brand">
+                        {topPick.company.toUpperCase()}
+                      </Text>
+                      <Text className="mt-1 text-[18px] font-medium text-paper" numberOfLines={2}>
+                        {topPick.role}
+                      </Text>
+                    </View>
+                    <View
+                      className="flex-row items-center rounded-2xl px-3 py-1.5"
+                      style={{ backgroundColor: colors.amberDim }}
+                    >
+                      <Text className="text-[18px] font-medium" style={{ color: colors.brand }}>
+                        ★ {topPick.scoreNum?.toFixed(1)}
+                      </Text>
+                    </View>
+                  </View>
+
+                  <View className="mt-3 flex-row flex-wrap items-center gap-2">
+                    {topPick.location && (
+                      <View className="rounded-full px-2 py-0.5" style={{ backgroundColor: colors.elevated }}>
+                        <Text className="text-[11px] text-muted">{topPick.location}</Text>
+                      </View>
+                    )}
+                    {topPick.archetype && (
+                      <View className="rounded-full px-2 py-0.5" style={{ backgroundColor: colors.elevated }}>
+                        <Text className="text-[11px] text-muted">{topPick.archetype.split("—")[0].trim()}</Text>
+                      </View>
+                    )}
+                  </View>
+
+                  {shield && (
+                    <View className="mt-3">
+                      <GhostShield status={shield.status} label={shield.label} />
+                    </View>
+                  )}
+
+                  <View className="mt-4 flex-row gap-2">
+                    <Pressable
+                      onPress={() =>
+                        topPick.id
+                          ? router.push({ pathname: "/report/[id]", params: { id: topPick.id } })
+                          : router.push("/evaluate")
+                      }
+                      className="flex-1 items-center rounded-xl py-2.5 active:opacity-80"
+                      style={{ backgroundColor: colors.brand }}
+                    >
+                      <Text className="text-[13px] font-medium" style={{ color: colors.brandFg }}>
+                        View report
+                      </Text>
+                    </Pressable>
+                    <Pressable
+                      onPress={() => router.push("/resumes")}
+                      className="flex-1 items-center rounded-xl border py-2.5 active:opacity-80"
+                      style={{ borderColor: colors.border, backgroundColor: colors.elevated }}
+                    >
+                      <Text className="text-[13px] font-medium text-paper">Tailor CV</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </View>
+            ) : (
+              <EmptyState
+                emoji="✨"
+                title="No evaluations yet"
+                subtitle="Scan the portals or evaluate a job to see your top pick here."
+              />
+            )}
+
+            {/* Next actions */}
+            {actions.length > 0 && (
+              <View>
+                <SectionLabel>Next actions</SectionLabel>
+                <View className="gap-2">
+                  {actions.map((a, i) => (
+                    <Pressable
+                      key={i}
+                      onPress={a.onPress}
+                      className="flex-row items-center gap-3 rounded-2xl border p-3 active:opacity-80"
+                      style={{ borderColor: colors.border, backgroundColor: colors.card }}
+                    >
+                      <View
+                        className="h-9 w-9 items-center justify-center rounded-xl"
+                        style={{ backgroundColor: colors.elevated }}
+                      >
+                        <Text className="text-[15px]">{a.icon}</Text>
+                      </View>
+                      <View className="flex-1">
+                        <Text className="text-[13px] font-medium text-paper">{a.title}</Text>
+                        <Text className="mt-0.5 text-[11px] text-muted">{a.desc}</Text>
+                      </View>
+                      <View className="rounded-full px-2 py-0.5" style={{ backgroundColor: `${a.tone}22` }}>
+                        <Text className="text-[10px] font-medium" style={{ color: a.tone }}>
+                          {a.tag}
+                        </Text>
+                      </View>
+                    </Pressable>
+                  ))}
+                </View>
+              </View>
+            )}
+
+            {/* Stats strip */}
+            <View>
+              <SectionLabel>At a glance</SectionLabel>
+              <View className="flex-row gap-2">
+                {stats.map((st) => (
+                  <View
+                    key={st.l}
+                    className="flex-1 items-center rounded-2xl border py-3"
+                    style={{ borderColor: colors.border, backgroundColor: colors.card }}
+                  >
+                    <Text className="text-[20px] font-medium" style={{ color: st.c }}>
+                      {st.n}
+                    </Text>
+                    <Text className="mt-1 text-[10px] text-muted">{st.l}</Text>
+                  </View>
+                ))}
+              </View>
             </View>
 
-            {/* Pipeline funnel */}
-            {s?.funnel?.length ? (
-              <Card>
-                <Text className="mb-3 text-sm font-semibold text-white">Pipeline funnel</Text>
+            {/* Recent wins */}
+            {wins.length > 0 && (
+              <View>
+                <SectionLabel>Recent wins 🏆</SectionLabel>
                 <View className="gap-2">
-                  {s.funnel.map((f) => (
-                    <View key={f.label} className="gap-1">
-                      <View className="flex-row justify-between">
-                        <Text className="text-xs text-muted">{f.label}</Text>
-                        <Text className="text-xs text-muted">{f.count}</Text>
+                  {wins.map((w) => (
+                    <View
+                      key={w.key}
+                      className="flex-row items-center gap-3 rounded-2xl p-3"
+                      style={{ backgroundColor: colors.card }}
+                    >
+                      <View
+                        className="h-6 w-6 items-center justify-center rounded-full"
+                        style={{ backgroundColor: colors.greenDim }}
+                      >
+                        <Text style={{ color: colors.good, fontSize: 11 }}>✓</Text>
                       </View>
-                      <View className="h-2 overflow-hidden rounded-full bg-bg-elevated">
-                        <View
-                          style={{ width: `${Math.max(2, f.pct)}%`, backgroundColor: colors.brand }}
-                          className="h-2 rounded-full"
-                        />
-                      </View>
+                      <Text className="flex-1 text-[13px] text-muted">{w.text}</Text>
                     </View>
                   ))}
                 </View>
-              </Card>
-            ) : null}
-
-            {/* Conversion rates */}
-            {s?.rates ? (
-              <View className="flex-row gap-3">
-                <StatCard value={`${s.rates.response}%`} label="Response" accent={colors.brand} />
-                <StatCard value={`${s.rates.interview}%`} label="Interview" accent={colors.info} />
-                <StatCard value={`${s.rates.offer}%`} label="Offer" accent={colors.good} />
               </View>
-            ) : null}
+            )}
           </>
         )}
-
-        {/* Quick links */}
-        <View className="flex-row gap-3">
-          {quickLinks.map((q) => (
-            <Pressable
-              key={q.label}
-              onPress={() => router.push(q.href)}
-              className="flex-1 items-center gap-1 rounded-2xl border border-border bg-bg-card py-3 active:opacity-80"
-            >
-              <Text className="text-xl">{q.icon}</Text>
-              <Text className="text-xs text-muted">{q.label}</Text>
-            </Pressable>
-          ))}
-        </View>
-
-        <View className="gap-3">
-          <Text className="text-lg font-semibold text-white">Recent applications</Text>
-          {apps.isLoading ? (
-            <ActivityIndicator color={colors.brand} />
-          ) : recent.length === 0 ? (
-            <EmptyState emoji="📋" title="No applications yet" subtitle="Evaluate a job to get started." />
-          ) : (
-            recent.map((a) => (
-              <AppCard
-                key={a.num}
-                application={a}
-                onPress={() => router.push({ pathname: "/application/[num]", params: { num: a.num } })}
-              />
-            ))
-          )}
-        </View>
       </ScrollView>
     </SafeAreaView>
-  );
-}
-
-function ErrorNote({ message }: { message: string }) {
-  return (
-    <View className="rounded-xl border border-bad/40 bg-bad/10 p-4">
-      <Text className="text-sm text-bad">{message}</Text>
-    </View>
   );
 }

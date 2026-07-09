@@ -87,7 +87,7 @@ export default function Referrals() {
             <Card>
               <View className="flex-row items-start justify-between gap-3">
                 <View className="flex-1 gap-1">
-                  <Text className="text-base font-semibold text-white">{item.contact}</Text>
+                  <Text className="text-base font-semibold text-paper">{item.contact}</Text>
                   <Text className="text-sm text-muted">
                     {item.role} @ {item.company}
                   </Text>

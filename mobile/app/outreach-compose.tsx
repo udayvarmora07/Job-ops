@@ -86,14 +86,14 @@ export default function OutreachCompose() {
               onChangeText={setBody}
               multiline
               placeholderTextColor={colors.muted}
-              className="min-h-[180px] rounded-xl border border-border bg-bg px-3 py-2 text-sm text-white"
+              className="min-h-[180px] rounded-xl border border-border bg-bg px-3 py-2 text-sm text-paper"
               style={{ textAlignVertical: "top" }}
             />
           </Card>
         ) : null}
 
         <Card>
-          <Text className="mb-2 text-sm font-semibold text-white">Recipient</Text>
+          <Text className="mb-2 text-sm font-semibold text-paper">Recipient</Text>
           <Input label="Contact name" value={name} onChangeText={setName} placeholder="e.g. Alex Rivera" />
           <View className="mt-2">
             <Button label={find.isPending ? "Finding…" : "🔍 Find email"} variant="secondary" onPress={onFindEmail} loading={find.isPending} />

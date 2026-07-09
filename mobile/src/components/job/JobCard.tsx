@@ -12,7 +12,7 @@ export function JobCard({ job, onPress }: Props) {
   return (
     <Card onPress={onPress}>
       <View className="gap-1">
-        <Text className="text-base font-semibold text-white" numberOfLines={2}>
+        <Text className="text-base font-semibold text-paper" numberOfLines={2}>
           {job.role}
         </Text>
         <Text className="text-sm text-muted">
