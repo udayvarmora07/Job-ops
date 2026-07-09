@@ -232,7 +232,7 @@ export function PipelineManager({
     <div className="space-y-4">
       {/* Add URL form */}
       <Card className="p-4">
-        <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold">
+        <h3 className="mb-3 flex items-center gap-2 text-sm font-medium">
           <Plus className="h-4 w-4" />
           Add Job URL to Pipeline
         </h3>
@@ -335,7 +335,7 @@ export function PipelineManager({
         <div className="flex items-center justify-between gap-2 border-b border-border p-3">
           <div className="flex items-center gap-2">
             <Inbox className="h-4 w-4 text-muted-foreground" />
-            <span className="text-sm font-semibold">
+            <span className="text-sm font-medium">
               Pending{" "}
               <span className="font-num text-muted-foreground">
                 ({loading ? "…" : pending.length})

@@ -311,7 +311,7 @@ export function SuggestContacts({
       </DialogTrigger>
       <DialogContent className="max-h-[88vh] w-[min(92vw,720px)] max-w-none overflow-y-auto">
         <div className="border-b border-border px-5 py-3">
-          <DialogTitle className="flex items-center gap-2 text-sm font-semibold">
+          <DialogTitle className="flex items-center gap-2 text-sm font-medium">
             <Sparkles className="h-4 w-4 text-primary" />
             Who to ask for a referral
           </DialogTitle>
@@ -431,7 +431,7 @@ function Section({
   return (
     <div>
       <div className="mb-1.5">
-        <p className="text-sm font-semibold">{title}</p>
+        <p className="text-sm font-medium">{title}</p>
         <p className="text-xs text-muted-foreground">{hint}</p>
       </div>
       <div className="space-y-2.5">{children}</div>

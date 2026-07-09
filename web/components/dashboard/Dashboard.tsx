@@ -350,7 +350,7 @@ export default function Dashboard() {
           />
         );
       case "reports":
-        return <ReportsView reports={reports} loading={loading} />;
+        return <ReportsView reports={reports} apps={apps} loading={loading} />;
       case "patterns":
         return <PatternsView apps={apps} reports={reports} summary={summary} loading={loading} />;
       case "resumes":
@@ -368,9 +368,10 @@ export default function Dashboard() {
     }
   }
 
-  // StatCards are the "cockpit" strip — useful context on the data-heavy tabs,
-  // but noise on the editorial Today / Pipeline / Settings pages.
-  const showStatCards = !["overview", "pipeline-board", "settings", "patterns"].includes(tab);
+  // StatCards are the "cockpit" strip — useful on the data-browsing tabs, but
+  // noise on pages that carry their own header/stats (Today, Pipeline, Reports,
+  // Resumes, Outreach, Settings, Patterns).
+  const showStatCards = !["overview", "pipeline-board", "settings", "patterns", "reports", "resumes", "outreach"].includes(tab);
 
   return (
     <AppShell

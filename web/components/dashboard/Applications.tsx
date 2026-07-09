@@ -100,7 +100,7 @@ function StatusEditor({
               <button
                 key={s}
                 onClick={() => pick(s)}
-                className={`flex w-full items-center gap-2 px-3 py-1.5 text-left text-xs transition-colors hover:bg-secondary/60 ${s === value ? "bg-secondary/40 font-semibold" : ""}`}
+                className={`flex w-full items-center gap-2 px-3 py-1.5 text-left text-xs transition-colors hover:bg-secondary/60 ${s === value ? "bg-secondary/40 font-medium" : ""}`}
               >
                 <span className={`inline-flex rounded border px-1.5 py-0 text-[10px] font-medium ${sCls}`}>
                   {s}

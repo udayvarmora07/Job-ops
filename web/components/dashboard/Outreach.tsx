@@ -727,6 +727,25 @@ export function Outreach() {
   return (
     <div className="space-y-6">
 
+      {/* Header */}
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 className="text-[22px] font-medium tracking-tight text-[color:var(--t1)]">Outreach</h2>
+          <p className="mt-0.5 text-[13px] text-[color:var(--t2)]">
+            {records.length} tracked · turn hiring posts and contacts into tailored cold mail.
+            Nothing is ever sent automatically.
+          </p>
+        </div>
+        {dueCount > 0 && (
+          <span
+            className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[12px] font-medium"
+            style={{ color: "var(--amber)", background: "var(--amber-dim)" }}
+          >
+            {dueCount} follow-up{dueCount === 1 ? "" : "s"} due
+          </span>
+        )}
+      </div>
+
       {/* ── Hiring posts → cold mail ── */}
       <Card>
         <CardHeader>
@@ -764,7 +783,7 @@ export function Outreach() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
                       {p.fit && (
-                        <span className={`font-num font-semibold ${
+                        <span className={`font-num font-medium ${
                           p.fit.score >= 60 ? "text-[hsl(var(--success))]" : p.fit.score >= 30 ? "text-[hsl(var(--warning))]" : "text-muted-foreground"
                         }`}>fit {p.fit.score}</span>
                       )}
@@ -921,7 +940,7 @@ export function Outreach() {
                         <td className="py-1 pr-3 font-num">{s.total}</td>
                         <td className="py-1 pr-3 font-num">{s.sent + s.replied + s.no_response + s.bounced}</td>
                         <td className="py-1 pr-3 font-num">{s.replied}</td>
-                        <td className="py-1 font-num font-semibold">{fmtPercent(s.replyRate)}</td>
+                        <td className="py-1 font-num font-medium">{fmtPercent(s.replyRate)}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -1069,7 +1088,7 @@ export function Outreach() {
                           <td className="py-1.5 pr-3">{c.name || "—"}</td>
                           <td className="py-1.5 pr-3 text-muted-foreground">{c.title || "—"}</td>
                           <td className="py-1.5 pr-3">
-                            <span className={`font-num font-semibold ${
+                            <span className={`font-num font-medium ${
                               c.confidence >= 80 ? "text-[hsl(var(--success))]"
                               : c.confidence >= 50 ? "text-[hsl(var(--warning))]"
                               : "text-muted-foreground"

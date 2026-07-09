@@ -113,7 +113,7 @@ export function ResumeQaPanel({
           {v.label}
         </Badge>
         {typeof qa.score === "number" && (
-          <span className="font-num text-sm font-semibold text-muted-foreground">
+          <span className="font-num text-sm font-medium text-muted-foreground">
             ATS {qa.score}/100
           </span>
         )}

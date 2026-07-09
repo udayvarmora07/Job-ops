@@ -53,7 +53,7 @@ export function ReportDialog({
       </DialogTrigger>
       <DialogContent>
         <div className="border-b border-border px-5 py-3">
-          <DialogTitle className="text-sm font-semibold">
+          <DialogTitle className="text-sm font-medium">
             {meta?.title || `Report ${reportId}`}
           </DialogTitle>
         </div>

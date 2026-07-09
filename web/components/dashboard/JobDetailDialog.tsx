@@ -609,7 +609,7 @@ export function JobDetailDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl">
         <div className="border-b border-border px-5 py-3 pr-12">
-          <DialogTitle className="text-sm font-semibold">
+          <DialogTitle className="text-sm font-medium">
             {job.company}
             {job.role ? <span className="text-muted-foreground"> · {job.role}</span> : null}
           </DialogTitle>
@@ -631,7 +631,7 @@ export function JobDetailDialog({
 
           {/* STATUS ------------------------------------------------------- */}
           <section>
-            <h4 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <h4 className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
               <FileText className="h-3.5 w-3.5" /> Status
             </h4>
             {app ? (
@@ -724,7 +724,7 @@ export function JobDetailDialog({
 
           {/* RÉSUMÉ ------------------------------------------------------- */}
           <section>
-            <h4 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <h4 className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
               <Sparkles className="h-3.5 w-3.5" /> Résumé
             </h4>
 
@@ -857,7 +857,7 @@ export function JobDetailDialog({
 
           {/* COVER LETTER ------------------------------------------------- */}
           <section>
-            <h4 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <h4 className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
               <Mail className="h-3.5 w-3.5" /> Cover Letter
             </h4>
             <Button onClick={generateCover} disabled={coverBusy} size="sm">
@@ -898,7 +898,7 @@ export function JobDetailDialog({
 
           {/* INTERVIEW PREP ----------------------------------------------- */}
           <section>
-            <h4 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <h4 className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
               <BookOpen className="h-3.5 w-3.5" /> Interview Prep
             </h4>
             <Button onClick={generatePrep} disabled={prepBusy} size="sm">
@@ -923,7 +923,7 @@ export function JobDetailDialog({
           {/* BEST REFERRAL PATHS ----------------------------------------- */}
           <section>
             <div className="mb-2 flex items-center justify-between gap-2">
-              <h4 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <h4 className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
                 <Users className="h-3.5 w-3.5" /> Best referral paths
               </h4>
               {!tracked && (

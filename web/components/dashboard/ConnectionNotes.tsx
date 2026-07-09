@@ -44,7 +44,7 @@ function NoteBox({ label, badge, text }: { label: string; badge?: string; text: 
   return (
     <div className="rounded-md border border-border bg-background/40 p-2.5">
       <div className="mb-1.5 flex items-center gap-2">
-        <span className="text-[11px] font-semibold text-foreground/80">{label}</span>
+        <span className="text-[11px] font-medium text-foreground/80">{label}</span>
         {badge && <Badge variant="outline" className="px-1.5 py-0 text-[10px]">{badge}</Badge>}
       </div>
       <p className="whitespace-pre-wrap text-xs leading-relaxed text-foreground/90">{text}</p>

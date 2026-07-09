@@ -11,13 +11,12 @@ import {
   Trash2,
   X,
   RefreshCcw,
+  Search,
 } from "lucide-react";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ResumeQaPanel } from "./ResumeQaPanel";
+import { focusRing } from "./meridian";
 import type { ResumeQa } from "@/lib/types";
 
 interface ResumeFile {
@@ -66,14 +65,33 @@ function parseSuffix(suffix: string): { company: string; role: string } {
 function VersionBadge({ version, latest }: { version: number; latest: boolean }) {
   return (
     <span
-      className={`font-num inline-block rounded px-1.5 py-0.5 text-[11px] font-semibold ${
+      className={`font-num inline-block rounded px-1.5 py-0.5 text-[11px] font-medium ${
         latest
-          ? "bg-primary/15 text-primary"
-          : "bg-secondary text-muted-foreground"
+          ? "bg-[color:var(--amber-dim)] text-[color:var(--amber)]"
+          : "bg-[color:var(--s3)] text-[color:var(--t3)]"
       }`}
     >
       v{version}
-      {latest && <span className="ml-1 text-[9px] uppercase opacity-70">latest</span>}
+      {latest && <span className="ml-1 text-[9px] opacity-70">latest</span>}
+    </span>
+  );
+}
+
+/** ATS match badge — green ≥80, amber ≥60, muted below. */
+function AtsBadge({ score }: { score: number }) {
+  const tone =
+    score >= 80
+      ? { color: "var(--green)", bg: "var(--green-dim)" }
+      : score >= 60
+        ? { color: "var(--amber)", bg: "var(--amber-dim)" }
+        : { color: "var(--t2)", bg: "var(--s3)" };
+  return (
+    <span
+      className="font-num rounded-full px-2 py-0.5 text-[11px] font-medium tabular-nums"
+      style={{ color: tone.color, background: tone.bg }}
+      title="ATS keyword match on the latest version"
+    >
+      {Math.round(score)}% ATS
     </span>
   );
 }
@@ -177,7 +195,7 @@ function UpdateModal({
       <div className="w-full max-w-lg rounded-xl border border-border bg-background p-5 shadow-2xl">
         <div className="mb-4 flex items-start justify-between gap-2">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="text-xs font-medium tracking-wide text-muted-foreground">
               Update résumé
             </p>
             <p className="mt-0.5 text-sm font-medium">{group.displayName}</p>
@@ -329,135 +347,149 @@ export function ResumesLibrary() {
         />
       )}
 
-      <Card className="overflow-hidden">
-        {/* Toolbar */}
-        <div className="flex flex-wrap items-center gap-2 border-b border-border p-3">
-          <Input
-            placeholder="Search resumes…"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            className="max-w-xs"
-          />
-          <Button variant="ghost" size="sm" onClick={load}>
-            <RefreshCw className="h-3.5 w-3.5" /> Refresh
-          </Button>
-          <span className="font-num ml-auto text-xs text-muted-foreground">
-            {filtered.length} jobs · {total} PDFs
-          </span>
-        </div>
-
-        {filtered.length === 0 ? (
-          <p className="py-12 text-center text-sm text-muted-foreground">
-            {q
-              ? "No resumes match your search."
-              : "No resumes saved yet. Generate one from the Jobs tab."}
+      {/* Header + toolbar */}
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h2 className="text-[22px] font-medium tracking-tight text-[color:var(--t1)]">Resumes</h2>
+          <p className="mt-0.5 text-[13px] text-[color:var(--t2)]">
+            {filtered.length} tailored {filtered.length === 1 ? "resume" : "resumes"} · {total} PDF
+            {total === 1 ? "" : "s"}
           </p>
-        ) : (
-          <div className="divide-y divide-border">
-            {filtered.map((group) => {
-              const qa = qaByGroup[group.suffix];
-              return (
-                <div key={group.suffix} className="px-4 py-3">
-                  {/* Group header */}
-                  <div className="mb-2 flex items-center gap-2">
-                    <FileText className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-                    <span className="text-sm font-medium">{group.displayName}</span>
-                    <Badge variant="outline" className="font-num text-[10px]">
-                      {group.files.length} {group.files.length === 1 ? "version" : "versions"}
-                    </Badge>
-                    <div className="ml-auto flex items-center gap-1">
-                      {/* QA review button */}
-                      <Button
-                        variant={qa ? "secondary" : "ghost"}
-                        size="sm"
-                        className="h-7 px-2 text-xs"
-                        onClick={() => toggleQa(group)}
-                        title={qa ? "Hide QA review" : "Review this résumé (ATS score, grammar, fixes)"}
-                      >
-                        {qa?.busy ? (
-                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        ) : (
-                          <ShieldCheck className="h-3.5 w-3.5" />
-                        )}
-                        {qa ? "Hide QA" : "QA Review"}
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="h-7 px-2 text-xs"
-                        onClick={() => setUpdateTarget({ group })}
-                        title="Regenerate with AI — saves as a new version"
-                      >
-                        <RefreshCcw className="h-3.5 w-3.5" /> Update
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Version rows */}
-                  <div className="space-y-0.5 pl-5">
-                    {group.files.map((f, i) => (
-                      <div
-                        key={f.name}
-                        className="flex items-center gap-3 rounded-md px-2 py-1.5 transition-colors hover:bg-secondary/40"
-                      >
-                        <VersionBadge version={f.version} latest={i === 0} />
-                        <span className="font-num text-xs text-muted-foreground">
-                          {fmt(f.mtime)}
-                        </span>
-                        <div className="ml-auto flex items-center gap-1">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => setPreview({ name: f.name, url: f.url })}
-                          >
-                            <Eye className="h-3.5 w-3.5" /> Preview
-                          </Button>
-                          <Button variant="ghost" size="sm" asChild>
-                            <a href={f.url} download={f.name}>
-                              <FileDown className="h-3.5 w-3.5" /> Download
-                            </a>
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-7 w-7 text-muted-foreground hover:text-[hsl(var(--danger))]"
-                            onClick={() => deleteFile(f.name)}
-                            disabled={deleting.has(f.name)}
-                            title="Delete this version"
-                          >
-                            {deleting.has(f.name) ? (
-                              <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                            ) : (
-                              <Trash2 className="h-3.5 w-3.5" />
-                            )}
-                          </Button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Inline QA panel — shown below version rows when active */}
-                  {qa && (
-                    <div className="mt-3 pl-5">
-                      <p className="mb-1.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
-                        ATS / QA Review — {group.files[0]?.name}
-                      </p>
-                      <ResumeQaPanel
-                        qa={qa.qa}
-                        busy={qa.busy}
-                        selectable
-                        onApply={(instructions) =>
-                          setUpdateTarget({ group, initialInstructions: instructions })
-                        }
-                      />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="relative">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[color:var(--t3)]" />
+            <input
+              placeholder="Search resumes…"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              className="rounded-md border border-[color:var(--rule)] bg-[color:var(--s2)] py-2 pl-9 pr-3 text-[13px] text-[color:var(--t1)] placeholder:text-[color:var(--t3)] focus:border-[color:var(--amber-border)] focus:outline-none"
+            />
           </div>
-        )}
-      </Card>
+          <button
+            onClick={load}
+            className={`flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--rule)] text-[color:var(--t2)] transition-colors hover:bg-[color:var(--s2)] hover:text-[color:var(--t1)] ${focusRing}`}
+            title="Refresh"
+          >
+            <RefreshCw className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+
+      {filtered.length === 0 ? (
+        <div className="rounded-[14px] border border-dashed border-[color:var(--rule)] bg-[color:var(--s1)] py-16 text-center text-[14px] text-[color:var(--t3)]">
+          {q ? "No resumes match your search." : "No resumes saved yet. Generate one from Discover."}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {filtered.map((group) => {
+            const qa = qaByGroup[group.suffix];
+            const atsScore = qa?.qa?.score;
+            return (
+              <div
+                key={group.suffix}
+                className="flex flex-col rounded-[14px] border border-[color:var(--rule)] bg-[color:var(--s1)] p-4"
+              >
+                {/* Card header */}
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex min-w-0 items-start gap-2">
+                    <FileText className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--t3)]" />
+                    <div className="min-w-0">
+                      <div className="truncate text-[14px] font-medium text-[color:var(--t1)]">
+                        {group.displayName}
+                      </div>
+                      <div className="mt-0.5 text-[11px] text-[color:var(--t3)]">
+                        {group.files.length} {group.files.length === 1 ? "version" : "versions"} ·
+                        updated {fmt(group.latestMtime)}
+                      </div>
+                    </div>
+                  </div>
+                  {typeof atsScore === "number" && <AtsBadge score={atsScore} />}
+                </div>
+
+                {/* Version rows */}
+                <div className="mt-3 flex flex-col gap-0.5">
+                  {group.files.map((f, i) => (
+                    <div
+                      key={f.name}
+                      className="flex items-center gap-2 rounded-md px-1.5 py-1 transition-colors hover:bg-[color:var(--s2)]"
+                    >
+                      <VersionBadge version={f.version} latest={i === 0} />
+                      <span className="font-num text-[11px] text-[color:var(--t3)]">{fmt(f.mtime)}</span>
+                      <div className="ml-auto flex items-center gap-0.5">
+                        <button
+                          onClick={() => setPreview({ name: f.name, url: f.url })}
+                          title="Preview"
+                          className={`flex h-7 w-7 items-center justify-center rounded-md text-[color:var(--t3)] transition-colors hover:bg-[color:var(--s3)] hover:text-[color:var(--t1)] ${focusRing}`}
+                        >
+                          <Eye className="h-3.5 w-3.5" />
+                        </button>
+                        <a
+                          href={f.url}
+                          download={f.name}
+                          title="Download"
+                          className={`flex h-7 w-7 items-center justify-center rounded-md text-[color:var(--t3)] transition-colors hover:bg-[color:var(--s3)] hover:text-[color:var(--t1)] ${focusRing}`}
+                        >
+                          <FileDown className="h-3.5 w-3.5" />
+                        </a>
+                        <button
+                          onClick={() => deleteFile(f.name)}
+                          disabled={deleting.has(f.name)}
+                          title="Delete this version"
+                          className={`flex h-7 w-7 items-center justify-center rounded-md text-[color:var(--t3)] transition-colors hover:bg-[color:var(--red-dim)] hover:text-[color:var(--red)] ${focusRing}`}
+                        >
+                          {deleting.has(f.name) ? (
+                            <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          ) : (
+                            <Trash2 className="h-3.5 w-3.5" />
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Actions */}
+                <div className="mt-3 flex items-center gap-2 border-t border-[color:var(--rule)] pt-3">
+                  <button
+                    onClick={() => toggleQa(group)}
+                    title={qa ? "Hide QA review" : "Review ATS score, grammar & fixes"}
+                    className={`inline-flex items-center gap-1.5 rounded-md border border-[color:var(--rule)] px-2.5 py-1 text-[12px] font-medium text-[color:var(--t2)] transition-colors hover:bg-[color:var(--s2)] hover:text-[color:var(--t1)] ${focusRing}`}
+                  >
+                    {qa?.busy ? (
+                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                    ) : (
+                      <ShieldCheck className="h-3.5 w-3.5" />
+                    )}
+                    {qa ? "Hide QA" : "ATS / QA"}
+                  </button>
+                  <button
+                    onClick={() => setUpdateTarget({ group })}
+                    title="Regenerate with AI — saves as a new version"
+                    className={`inline-flex items-center gap-1.5 rounded-md border border-[color:var(--rule)] px-2.5 py-1 text-[12px] font-medium text-[color:var(--t2)] transition-colors hover:bg-[color:var(--s2)] hover:text-[color:var(--t1)] ${focusRing}`}
+                  >
+                    <RefreshCcw className="h-3.5 w-3.5" /> Edit
+                  </button>
+                </div>
+
+                {/* Inline QA panel */}
+                {qa && (
+                  <div className="mt-3">
+                    <ResumeQaPanel
+                      qa={qa.qa}
+                      busy={qa.busy}
+                      selectable
+                      onApply={(instructions) =>
+                        setUpdateTarget({ group, initialInstructions: instructions })
+                      }
+                    />
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 }

@@ -136,7 +136,7 @@ export function CommandPalette({
               )}
               {groups.map(([group, cmds]) => (
                 <div key={group} className="mb-1">
-                  <p className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                  <p className="px-2 py-1 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
                     {group}
                   </p>
                   {cmds.map((c) => {

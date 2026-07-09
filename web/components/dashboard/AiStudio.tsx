@@ -159,7 +159,7 @@ export function AiStudio({ onSaved }: { onSaved?: () => Promise<void> | void } =
       <Card className="p-4">
         <div className="mb-3 flex items-center gap-2">
           <Sparkles className="h-4 w-4 text-primary" />
-          <h3 className="text-sm font-semibold">AI Studio</h3>
+          <h3 className="text-sm font-medium">AI Studio</h3>
           <span className="ml-auto text-xs text-muted-foreground">
             via NVIDIA NIM · {MODEL_HINT[task]}
           </span>
@@ -216,7 +216,7 @@ export function AiStudio({ onSaved }: { onSaved?: () => Promise<void> | void } =
       {/* Output panel */}
       <Card className="p-4">
         <div className="mb-3 flex items-center gap-2">
-          <h3 className="text-sm font-semibold">Output</h3>
+          <h3 className="text-sm font-medium">Output</h3>
           {model && (
             <span className="ml-auto rounded bg-secondary px-2 py-0.5 text-xs text-muted-foreground">
               {model}

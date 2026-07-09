@@ -22,7 +22,7 @@ function Rate({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-lg border border-border bg-background/40 p-4">
       <p className="text-xs text-muted-foreground">{label}</p>
-      <p className="font-num mt-1 text-3xl font-semibold text-foreground">
+      <p className="font-num mt-1 text-3xl font-medium text-foreground">
         {value}
         <span className="text-base text-muted-foreground">%</span>
       </p>

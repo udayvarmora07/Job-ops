@@ -74,7 +74,7 @@ function AddReferral({ onAdded }: { onAdded: () => void }) {
       </DialogTrigger>
       <DialogContent className="max-w-md">
         <div className="border-b border-border px-5 py-3">
-          <DialogTitle className="text-sm font-semibold">
+          <DialogTitle className="text-sm font-medium">
             Track a referral ask
           </DialogTitle>
         </div>
