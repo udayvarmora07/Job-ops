@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   ShieldAlert,
   ShieldX,
+  Flame,
 } from "lucide-react";
 import type { Application, Job, ReportMeta, Summary } from "@/lib/types";
 
@@ -57,6 +58,10 @@ function daysSince(iso: string | null): number | null {
   const t = Date.parse(iso);
   if (Number.isNaN(t)) return null;
   return Math.floor((Date.now() - t) / DAY);
+}
+
+function dayKey(d: Date): string {
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 }
 
 function scoreLabel(n: number): string {
@@ -236,6 +241,42 @@ export function TodayView({
       }));
   }, [apps]);
 
+  /* ——— Emotional momentum: streak dots + weekly activity bars ———
+     Activity = evaluations (reports) and application moves, bucketed by day.
+     The 7 pips are the last 7 days; the streak counts consecutive active
+     days ending today. */
+  const momentum = useMemo(() => {
+    const counts = new Map<string, number>();
+    const bump = (iso: string | null) => {
+      if (!iso) return;
+      const t = Date.parse(iso);
+      if (Number.isNaN(t)) return;
+      const k = dayKey(new Date(t));
+      counts.set(k, (counts.get(k) ?? 0) + 1);
+    };
+    for (const r of reports) bump(r.date);
+    for (const a of apps) bump(a.date);
+
+    const today = new Date();
+    const days = Array.from({ length: 7 }, (_, i) => {
+      const d = new Date(today);
+      d.setDate(today.getDate() - (6 - i)); // oldest → today
+      const n = counts.get(dayKey(d)) ?? 0;
+      return { n, active: n > 0 };
+    });
+
+    // Streak: consecutive active days counting back from today.
+    let streak = 0;
+    for (let i = days.length - 1; i >= 0; i--) {
+      if (days[i].active) streak++;
+      else break;
+    }
+
+    const max = Math.max(1, ...days.map((d) => d.n));
+    const total = days.reduce((s, d) => s + d.n, 0);
+    return { days, streak, max, total };
+  }, [reports, apps]);
+
   const heroActions = topPick
     ? [
         {
@@ -282,6 +323,28 @@ export function TodayView({
             {brief.length} action{brief.length > 1 ? "s" : ""} waiting
           </span>
         )}
+
+        {/* Streak — emotional momentum */}
+        <div className="flex items-center gap-2.5 sm:ml-auto">
+          <div className="flex items-center gap-1">
+            {momentum.days.map((d, i) => (
+              <span
+                key={i}
+                className="h-1.5 w-1.5 rounded-full transition-colors"
+                style={{ background: d.active ? "var(--amber)" : "var(--s4)" }}
+                title={d.active ? `${d.n} on this day` : "No activity"}
+              />
+            ))}
+          </div>
+          {momentum.streak > 0 ? (
+            <span className="flex items-center gap-1 text-[color:var(--text-secondary)]">
+              <Flame className="h-3.5 w-3.5 text-[color:var(--amber)]" />
+              {momentum.streak}-day streak
+            </span>
+          ) : (
+            <span className="text-[color:var(--text-muted)]">No streak yet</span>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 gap-x-14 gap-y-12 lg:grid-cols-[minmax(0,1fr)_340px]">
@@ -494,6 +557,38 @@ export function TodayView({
                   </span>
                 </button>
               ))}
+            </div>
+          </div>
+
+          {/* Activity this week — momentum bars */}
+          <div>
+            <div className="mb-3 flex items-baseline justify-between">
+              <span className="text-[11px] font-medium tracking-wide text-[color:var(--text-muted)]">
+                Activity this week
+              </span>
+              <span className="text-[11px] text-[color:var(--text-muted)]">
+                {momentum.total} action{momentum.total === 1 ? "" : "s"}
+              </span>
+            </div>
+            <div className="flex h-10 items-end gap-1.5">
+              {momentum.days.map((d, i) => {
+                const isToday = i === momentum.days.length - 1;
+                return (
+                  <div
+                    key={i}
+                    className="flex-1 rounded-[2px] transition-colors"
+                    style={{
+                      height: `${Math.max(8, Math.round((d.n / momentum.max) * 100))}%`,
+                      background: isToday
+                        ? "var(--amber)"
+                        : d.active
+                          ? "var(--amber-border)"
+                          : "var(--s3)",
+                    }}
+                    title={`${d.n} action${d.n === 1 ? "" : "s"}`}
+                  />
+                );
+              })}
             </div>
           </div>
 
