@@ -7,15 +7,17 @@ import { Card } from "@/components/ui/Card";
 import { ScoreBadge } from "@/components/ui/ScoreBadge";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { ScreenHeader } from "@/components/ui/ScreenHeader";
+import { Confetti } from "@/components/ui/Confetti";
 import { APPLICATION_STATUSES } from "@/types";
 import { relativeDate } from "@/utils/format";
-import { statusColor } from "@/constants/theme";
+import { colors, statusColor } from "@/constants/theme";
 
 export default function ApplicationDetail() {
   const { num } = useLocalSearchParams<{ num: string }>();
   const { data } = useApplications();
   const update = useUpdateStatus();
   const [savedMsg, setSavedMsg] = useState<string | null>(null);
+  const [confetti, setConfetti] = useState(0);
 
   const app = (data ?? []).find((a) => a.num === num);
 
@@ -33,6 +35,7 @@ export default function ApplicationDetail() {
     try {
       await update.mutateAsync({ num: String(app!.num), status });
       setSavedMsg(`Status updated to ${status}`);
+      if (status === "Interview") setConfetti((n) => n + 1);
     } catch (e) {
       setSavedMsg(e instanceof Error ? e.message : "Update failed");
     }
@@ -70,9 +73,9 @@ export default function ApplicationDetail() {
                   onPress={() => setStatus(s)}
                   disabled={update.isPending}
                   className="rounded-full px-3 py-1.5"
-                  style={{ backgroundColor: active ? color : "#1F2937" }}
+                  style={{ backgroundColor: active ? color : colors.elevated }}
                 >
-                  <Text className="text-sm" style={{ color: active ? "#fff" : color }}>
+                  <Text className="text-sm" style={{ color: active ? colors.bg : color }}>
                     {s}
                   </Text>
                 </Pressable>
@@ -82,6 +85,7 @@ export default function ApplicationDetail() {
           {savedMsg ? <Text className="mt-3 text-xs text-good">{savedMsg}</Text> : null}
         </Card>
       </ScrollView>
+      <Confetti trigger={confetti} />
     </SafeAreaView>
   );
 }

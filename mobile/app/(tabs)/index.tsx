@@ -69,14 +69,17 @@ export default function Today() {
     const days = Array.from({ length: 7 }, (_, i) => {
       const d = new Date(today);
       d.setDate(today.getDate() - (6 - i));
-      return { active: (counts.get(dayKey(d)) ?? 0) > 0 };
+      const n = counts.get(dayKey(d)) ?? 0;
+      return { active: n > 0, n };
     });
     let streak = 0;
     for (let i = days.length - 1; i >= 0; i--) {
       if (days[i].active) streak++;
       else break;
     }
-    return { days, streak };
+    const max = Math.max(1, ...days.map((d) => d.n));
+    const total = days.reduce((sum, d) => sum + d.n, 0);
+    return { days, streak, max, total };
   }, [reports, apps]);
 
   const actions = useMemo(() => {
@@ -307,6 +310,36 @@ export default function Today() {
                     <Text className="mt-1 text-[10px] text-muted">{st.l}</Text>
                   </View>
                 ))}
+              </View>
+            </View>
+
+            {/* Activity this week — momentum bars */}
+            <View>
+              <View className="mb-2.5 flex-row items-baseline justify-between">
+                <SectionLabel>Activity this week</SectionLabel>
+                <Text className="text-[11px] text-subtle">
+                  {momentum.total} action{momentum.total === 1 ? "" : "s"}
+                </Text>
+              </View>
+              <View
+                className="flex-row items-end justify-between rounded-2xl border px-4"
+                style={{ height: 72, borderColor: colors.border, backgroundColor: colors.card, paddingVertical: 14 }}
+              >
+                {momentum.days.map((d, i) => {
+                  const isToday = i === momentum.days.length - 1;
+                  const h = Math.max(6, Math.round((d.n / momentum.max) * 44));
+                  return (
+                    <View
+                      key={i}
+                      style={{
+                        width: 14,
+                        height: h,
+                        borderRadius: 3,
+                        backgroundColor: isToday ? colors.brand : d.active ? colors.amberDim : colors.hover,
+                      }}
+                    />
+                  );
+                })}
               </View>
             </View>
 

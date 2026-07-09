@@ -89,10 +89,12 @@ export default function Me() {
     { icon: "⚡", label: "Scan portals", sub: "Find new job postings", href: "/scan" },
     { icon: "📥", label: "Pipeline", sub: "Pending URLs to evaluate", href: "/pipeline", count: c?.inPipeline },
     { icon: "📄", label: "Reports", sub: "Your evaluation reports", href: "/(tabs)/reports", count: c?.reports },
+    { icon: "📉", label: "Rejection intel", sub: "Where your search is leaking", href: "/patterns" },
     { icon: "📑", label: "Resumes", sub: "Tailored CV versions", href: "/resumes" },
     { icon: "🤝", label: "Referrals", sub: "Warm intros & asks", href: "/referrals", count: c?.referrals },
     { icon: "📧", label: "Outreach", sub: "Cold emails & follow-ups", href: "/outreach" },
     { icon: "👤", label: "Profile", sub: "Complete & edit your profile", href: "/profile" },
+    { icon: "⚙️", label: "Settings", sub: "Preferences & privacy", href: "/settings" },
   ];
 
   return (
