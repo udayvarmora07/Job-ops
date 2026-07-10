@@ -61,7 +61,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ai-sdk/openai-compatible": "^1.0.42",
+    "@ai-sdk/openai-compatible": "^3.0.7",
     "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^6.19.3",
     "ai": "^5.0.210",
