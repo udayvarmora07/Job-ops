@@ -7,6 +7,13 @@
       "runtimeArgs": ["--prefix", "web", "run", "dev"],
       "port": 4317,
       "autoPort": false
+    },
+    {
+      "name": "design-samples",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "5173", "design-samples"],
+      "port": 5173,
+      "autoPort": false
     }
   ]
 }

@@ -32,6 +32,7 @@ PARALLEL=1
 DRY_RUN=false
 RETRY_FAILED=false
 RESUME_PAUSED=false
+STATUS_ONLY=false
 START_FROM=0
 MAX_RETRIES=2
 MIN_SCORE=0
@@ -90,6 +91,7 @@ while [[ $# -gt 0 ]]; do
     --dry-run) DRY_RUN=true; shift ;;
     --retry-failed) RETRY_FAILED=true; shift ;;
     --resume-paused) RESUME_PAUSED=true; shift ;;
+    --status) STATUS_ONLY=true; shift ;;
     --start-from) START_FROM="$2"; shift 2 ;;
     --max-retries) MAX_RETRIES="$2"; shift 2 ;;
     --min-score) MIN_SCORE="$2"; shift 2 ;;
@@ -477,9 +479,10 @@ process_offer() {
       score="$score_match"
     fi
 
-    # Check min-score gate
-    if [[ "$score" != "-" && -n "$score" ]] && (( $(echo "$MIN_SCORE > 0" | bc -l) )); then
-      if (( $(echo "$score < $MIN_SCORE" | bc -l) )); then
+    # Check min-score gate. Values are passed to awk via -v (data, never
+    # interpolated into the program) so a hostile score string can't inject code.
+    if [[ "$score" != "-" && -n "$score" ]] && awk -v min="$MIN_SCORE" 'BEGIN{exit !(min>0)}'; then
+      if awk -v score="$score" -v min="$MIN_SCORE" 'BEGIN{exit !(score<min)}'; then
         update_state "$id" "$url" "skipped" "$started_at" "$completed_at" "$report_num" "$score" "below-min-score" "$retries"
         echo "    ⏭️  Skipped (score: $score < min-score: $MIN_SCORE)"
         return 0
@@ -527,8 +530,11 @@ print_summary() {
     total=$((total + 1))
     case "$sstatus" in
       completed) completed=$((completed + 1))
-        if [[ "$sscore" != "-" && -n "$sscore" ]]; then
-          score_sum=$(echo "$score_sum + $sscore" | bc 2>/dev/null || echo "$score_sum")
+        # Only count well-formed numeric scores in the average; a hostile or
+        # malformed value (e.g. injected text) is ignored, never executed. awk
+        # -v passes the score as data with no program interpolation.
+        if [[ "$sscore" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+          score_sum=$(awk -v a="$score_sum" -v b="$sscore" 'BEGIN{print a + b}')
           score_count=$((score_count + 1))
         fi
         ;;
@@ -542,13 +548,30 @@ print_summary() {
 
   if (( score_count > 0 )); then
     local avg
-    avg=$(echo "scale=1; $score_sum / $score_count" | bc 2>/dev/null || echo "N/A")
+    avg=$(awk -v s="$score_sum" -v c="$score_count" 'BEGIN{ if (c > 0) printf "%.1f", s / c; else print "N/A" }')
     echo "Average score: $avg/5 ($score_count scored)"
   fi
 }
 
 # Main
 main() {
+  # --status reads existing state and reports progress WITHOUT the full-batch
+  # prerequisites (input/prompt files, lock). Scores are printed as data via
+  # printf %s and only numeric ones enter the average — never evaluated.
+  if [[ "$STATUS_ONLY" == "true" ]]; then
+    if [[ ! -f "$STATE_FILE" ]]; then
+      echo "No batch state found ($STATE_FILE)."
+      exit 0
+    fi
+    echo "=== batch status ==="
+    while IFS=$'\t' read -r sid surl sstatus _ _ sreport sscore _ _; do
+      [[ "$sid" == "id" ]] && continue
+      printf '  #%s: %s [%s] score=%s report=%s\n' "$sid" "$surl" "$sstatus" "$sscore" "$sreport"
+    done < "$STATE_FILE"
+    print_summary
+    exit 0
+  fi
+
   check_prerequisites
 
   if [[ "$DRY_RUN" == "false" ]]; then

@@ -51,3 +51,6 @@ reports/e2e-*
 
 # Transient batch tracker-addition staging (merged into data/applications.md)
 batch/tracker-additions/
+
+# Generated Prisma client (web)
+web/.prisma/

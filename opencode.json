@@ -1,5 +1,18 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "opencode": {
+      "models": {
+        "deepseek-v4-flash-free": {
+          "options": {
+            "reasoningEffort": "xhigh",
+            "textVerbosity": "high",
+            "reasoningSummary": "auto"
+          }
+        }
+      }
+    }
+  },
   "agent": {
     "jobops-evaluate": {
       "description": "Evaluate job offers and generate full reports (oferta/auto-pipeline)",
@@ -38,9 +51,5 @@
       "prompt": "{file:./.opencode/agents/jobops-tracker.md}"
     }
   },
-  "permission": {
-    "skill": {
-      "*": "ask"
-    }
-  }
+  "permission": "allow"
 }
