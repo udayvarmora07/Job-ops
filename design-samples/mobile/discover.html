@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobops Meridian — Mobile Discover (Swipe Cards)</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080C1A;--surface:#0F1629;--surface-2:#161E36;--surface-3:#1E2A45;
+  --border:#1E2A45;--primary:#6366F1;--primary-dim:rgba(99,102,241,.15);--primary-glow:rgba(99,102,241,.3);
+  --accent:#FBBF24;--accent-dim:rgba(251,191,36,.15);--accent-glow:rgba(251,191,36,.4);
+  --success:#10B981;--success-dim:rgba(16,185,129,.15);
+  --danger:#F87171;--danger-dim:rgba(248,113,113,.15);
+  --text-1:#F1F5F9;--text-2:#94A3B8;--text-3:#475569;
+  --font-d:'Outfit',system-ui,sans-serif;--font-b:'Inter',system-ui,sans-serif;
+  --font-m:'JetBrains Mono',monospace;
+}
+body{background:#12121C;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:40px 20px;font-family:var(--font-b);-webkit-font-smoothing:antialiased}
+
+.phone{width:375px;min-height:812px;background:var(--bg);border-radius:44px;overflow:hidden;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08),inset 0 0 0 1px rgba(255,255,255,.04)}
+.phone-notch{height:44px;background:var(--bg);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:relative;z-index:10;flex-shrink:0}
+.notch-island{width:120px;height:28px;background:#000;border-radius:99px;position:absolute;left:50%;transform:translateX(-50%);top:8px}
+.status-left{font-size:12px;font-weight:600;color:var(--text-1)}
+.status-right{display:flex;gap:6px;align-items:center;color:var(--text-1)}
+
+/* Header */
+.app-header{padding:16px 22px 0;display:flex;align-items:center;justify-content:space-between}
+.page-title{font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--text-1)}
+.page-count{font-size:12px;color:var(--text-2);background:var(--surface-2);padding:3px 10px;border-radius:99px;border:1px solid var(--border)}
+
+/* Filter pills */
+.filter-row{display:flex;gap:8px;padding:12px 22px;overflow-x:auto;scrollbar-width:none}
+.filter-row::-webkit-scrollbar{display:none}
+.fpill{padding:5px 12px;border-radius:99px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-2);white-space:nowrap;transition:all .15s}
+.fpill.active{background:var(--primary-dim);border-color:var(--primary);color:var(--primary)}
+
+/* Card stack area */
+.card-arena{height:440px;position:relative;margin:0 22px}
+
+.job-swipe-card{position:absolute;width:100%;background:var(--surface);border:1px solid var(--border);border-radius:24px;overflow:hidden;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .35s;transform-origin:bottom center;cursor:grab}
+.job-swipe-card:active{cursor:grabbing}
+.job-swipe-card.card-0{transform:translateY(0) scale(1);z-index:3;box-shadow:0 16px 48px rgba(0,0,0,.7)}
+.job-swipe-card.card-1{transform:translateY(16px) scale(.97);z-index:2;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.job-swipe-card.card-2{transform:translateY(30px) scale(.94);z-index:1;opacity:.7}
+
+/* Swipe out animations */
+.job-swipe-card.swipe-left{transform:translateX(-120%) rotate(-15deg)!important;opacity:0!important}
+.job-swipe-card.swipe-right{transform:translateX(120%) rotate(15deg)!important;opacity:0!important}
+
+/* Card content */
+.jsc-top{padding:20px 20px 0}
+.jsc-company-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.jsc-logo{width:44px;height:44px;border-radius:12px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:18px;border:1px solid var(--border);flex-shrink:0}
+.jsc-co-info{flex:1;min-width:0}
+.jsc-company{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.jsc-role{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--text-1);line-height:1.2;margin-top:2px}
+.jsc-score{background:var(--accent-dim);color:var(--accent);font-family:var(--font-m);font-size:16px;font-weight:700;padding:6px 10px;border-radius:10px;box-shadow:0 0 16px var(--accent-glow);flex-shrink:0;display:flex;align-items:center;gap:3px}
+.jsc-score::before{content:'★'}
+
+.jsc-tags{display:flex;gap:6px;flex-wrap:wrap;padding:0 20px;margin-bottom:12px}
+.jtag{font-size:11px;color:var(--text-2);background:var(--surface-2);padding:3px 9px;border-radius:99px;border:1px solid var(--border)}
+.jtag.match{background:var(--primary-dim);color:var(--primary);border-color:rgba(99,102,241,.3)}
+
+.jsc-desc{padding:0 20px;font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+.jsc-reasons{padding:0 20px;margin-bottom:16px}
+.reason-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-1);margin-bottom:4px}
+.reason-icon{color:var(--success);font-size:11px}
+.reason-icon.warn{color:var(--accent)}
+
+.jsc-footer{padding:14px 20px;border-top:1px solid var(--border-soft,#131C33);display:flex;align-items:center;justify-content:space-between}
+.jsc-date{font-size:11px;color:var(--text-3)}
+
+/* Swipe hint overlay */
+.swipe-hint-left,.swipe-hint-right{position:absolute;top:50%;transform:translateY(-50%);padding:6px 14px;border-radius:99px;font-size:13px;font-weight:700;opacity:0;transition:opacity .1s;pointer-events:none;z-index:10}
+.swipe-hint-left{left:16px;background:var(--danger-dim);color:var(--danger);border:2px solid var(--danger)}
+.swipe-hint-right{right:16px;background:var(--success-dim);color:var(--success);border:2px solid var(--success)}
+
+/* Action buttons */
+.swipe-buttons{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:12px;padding:0 22px}
+.swipe-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;transition:all .2s;font-size:20px}
+.swipe-btn-skip{background:var(--surface);border:2px solid var(--danger);color:var(--danger)}
+.swipe-btn-skip:hover{background:var(--danger-dim);transform:scale(1.05)}
+.swipe-btn-save{width:64px;height:64px;background:linear-gradient(135deg,var(--primary),#818CF8);color:#fff;box-shadow:0 8px 24px var(--primary-glow)}
+.swipe-btn-save:hover{transform:scale(1.08)}
+.swipe-btn-later{background:var(--surface);border:2px solid var(--border);color:var(--text-2)}
+.swipe-btn-later:hover{background:var(--surface-2);transform:scale(1.05)}
+
+/* Progress dots */
+.progress-dots{display:flex;justify-content:center;gap:5px;margin-top:10px}
+.pdot{width:6px;height:6px;border-radius:50%;background:var(--surface-3);transition:all .3s}
+.pdot.active{background:var(--primary);width:18px;border-radius:3px}
+
+/* Bottom nav */
+.bottom-nav{position:absolute;bottom:0;left:0;right:0;height:82px;background:rgba(15,22,41,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;align-items:flex-start;padding-top:8px}
+.nav-tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0;cursor:pointer}
+.nav-tab svg{width:22px;height:22px}
+.nav-tab-label{font-size:10px;font-weight:500}
+.nav-tab.active .nav-tab-label,.nav-tab.active svg{color:var(--primary)}
+.nav-tab:not(.active) svg,.nav-tab:not(.active) .nav-tab-label{color:var(--text-3)}
+.nav-notif{position:relative}
+.nav-dot{position:absolute;top:-2px;right:-4px;width:7px;height:7px;border-radius:50%;background:var(--accent);border:2px solid rgba(15,22,41,.95)}
+
+.side-note{position:fixed;left:calc(50% + 215px);top:50%;transform:translateY(-50%);width:180px;font-size:12px;color:rgba(255,255,255,.35);line-height:1.7}
+.side-note h3{font-family:var(--font-d);font-size:14px;color:rgba(255,255,255,.55);margin-bottom:8px;font-weight:600}
+.side-note li{margin-bottom:6px}
+@media(max-width:700px){.side-note{display:none}}
+</style>
+</head>
+<body>
+
+<div class="phone">
+  <div class="phone-notch">
+    <span class="status-left">9:41</span>
+    <div class="notch-island"></div>
+    <div class="status-right">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M1.5 8.5a13 13 0 0 1 21 0M5 12a9.5 9.5 0 0 1 14 0M8.5 15.5a6 6 0 0 1 7 0M12 19h.01" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+
+  <!-- Fixed layout inside phone -->
+  <div style="height:calc(812px - 44px - 82px);display:flex;flex-direction:column;overflow:hidden">
+
+    <!-- Header -->
+    <div class="app-header">
+      <div class="page-title">Discover</div>
+      <span class="page-count">47 new</span>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-row">
+      <button class="fpill active">All</button>
+      <button class="fpill">Remote</button>
+      <button class="fpill">≥ 4.0 ★</button>
+      <button class="fpill">AI / ML</button>
+      <button class="fpill">Senior+</button>
+      <button class="fpill">$150k+</button>
+    </div>
+
+    <!-- Card stack -->
+    <div class="card-arena" id="arena">
+      <!-- Card 3 (bottom) -->
+      <div class="job-swipe-card card-2" id="card2">
+        <div class="jsc-top">
+          <div class="jsc-company-row">
+            <div class="jsc-logo" style="color:#8B5CF6">V</div>
+            <div class="jsc-co-info">
+              <div class="jsc-company">Vercel</div>
+              <div class="jsc-role">Sr. Engineer — AI Infra</div>
+            </div>
+            <div class="jsc-score">4.2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 (middle) -->
+      <div class="job-swipe-card card-1" id="card1">
+        <div class="jsc-top">
+          <div class="jsc-company-row">
+            <div class="jsc-logo" style="color:#10B981">A</div>
+            <div class="jsc-co-info">
+              <div class="jsc-company">Anthropic</div>
+              <div class="jsc-role">AI Research Engineer</div>
+            </div>
+            <div class="jsc-score">4.6</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 1 (top / active) -->
+      <div class="job-swipe-card card-0" id="card0">
+        <!-- Swipe hints -->
+        <div class="swipe-hint-left" id="hintLeft">✕ Skip</div>
+        <div class="swipe-hint-right" id="hintRight">★ Save</div>
+
+        <div class="jsc-top">
+          <div class="jsc-company-row">
+            <div class="jsc-logo" style="color:#6366F1">S</div>
+            <div class="jsc-co-info">
+              <div class="jsc-company">Stripe · Remote · $180–230k</div>
+              <div class="jsc-role">Senior AI Engineer — Payments Intelligence</div>
+            </div>
+            <div class="jsc-score">4.7</div>
+          </div>
+        </div>
+
+        <div class="jsc-tags">
+          <span class="jtag match">Python ✓</span>
+          <span class="jtag match">LLMs ✓</span>
+          <span class="jtag match">Remote ✓</span>
+          <span class="jtag">Fintech</span>
+          <span class="jtag">$180k+</span>
+        </div>
+
+        <div class="jsc-desc">Build the next generation of AI-powered fraud detection and payment intelligence systems using cutting-edge LLM orchestration and real-time ML pipelines.</div>
+
+        <div class="jsc-reasons">
+          <div class="reason-item"><span class="reason-icon">✓</span> Matches your LLM orchestration expertise</div>
+          <div class="reason-item"><span class="reason-icon">✓</span> Remote-first, strong comp range</div>
+          <div class="reason-item"><span class="reason-icon">✓</span> Stripe's AI team is rapidly expanding</div>
+          <div class="reason-item"><span class="reason-icon warn">!</span> Fintech domain — not your primary background</div>
+        </div>
+
+        <div class="jsc-footer">
+          <span class="jsc-date">Posted today · Greenhouse</span>
+          <span style="font-size:11px;color:var(--primary);font-weight:600">Evaluate →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress dots -->
+    <div class="progress-dots">
+      <div class="pdot active"></div>
+      <div class="pdot"></div>
+      <div class="pdot"></div>
+      <div class="pdot"></div>
+      <div class="pdot"></div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="swipe-buttons">
+      <button class="swipe-btn swipe-btn-skip" onclick="swipeCard('left')" title="Skip">✕</button>
+      <button class="swipe-btn swipe-btn-save" onclick="swipeCard('right')" title="Save & Evaluate">★</button>
+      <button class="swipe-btn swipe-btn-later" onclick="swipeCard('later')" title="Later">⏰</button>
+    </div>
+
+    <div style="text-align:center;padding:6px 0 0;font-size:10px;color:var(--text-3)">← Skip &nbsp;&nbsp; Save ★ &nbsp;&nbsp; Later ⏰</div>
+
+  </div><!-- /inner -->
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <div class="nav-tab">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span class="nav-tab-label">Today</span>
+    </div>
+    <div class="nav-tab active nav-notif">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="nav-tab-label">Discover</span>
+      <span class="nav-dot"></span>
+    </div>
+    <div class="nav-tab">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="nav-tab-label">Track</span>
+    </div>
+    <div class="nav-tab">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span class="nav-tab-label">Me</span>
+    </div>
+  </nav>
+</div>
+
+<div class="side-note">
+  <h3>Discover Screen</h3>
+  <ul>
+    <li>Swipeable job cards</li>
+    <li>← skip / ★ save / ⏰ later</li>
+    <li>Match reasons inline</li>
+    <li>Score always amber</li>
+    <li>Filter chips up top</li>
+    <li>Stack depth visible</li>
+    <li>Progress dots below</li>
+    <li>Drag gesture works</li>
+  </ul>
+</div>
+
+<script>
+// Simple swipe demo
+let isDragging = false, startX = 0, currentX = 0
+const card = document.getElementById('card0')
+const hL = document.getElementById('hintLeft')
+const hR = document.getElementById('hintRight')
+
+card.addEventListener('mousedown', e => {
+  isDragging = true
+  startX = e.clientX
+  card.style.transition = 'none'
+})
+
+document.addEventListener('mousemove', e => {
+  if (!isDragging) return
+  currentX = e.clientX - startX
+  const rot = currentX * 0.08
+  card.style.transform = `translateX(${currentX}px) rotate(${rot}deg) scale(1)`
+  hL.style.opacity = currentX < -30 ? Math.min(1, (-currentX-30)/60) : 0
+  hR.style.opacity = currentX > 30 ? Math.min(1, (currentX-30)/60) : 0
+})
+
+document.addEventListener('mouseup', () => {
+  if (!isDragging) return
+  isDragging = false
+  card.style.transition = ''
+  if (currentX < -80) swipeCard('left')
+  else if (currentX > 80) swipeCard('right')
+  else {
+    card.style.transform = ''
+    hL.style.opacity = 0
+    hR.style.opacity = 0
+  }
+  currentX = 0
+})
+
+// Touch
+card.addEventListener('touchstart', e => { startX = e.touches[0].clientX; card.style.transition = 'none' })
+card.addEventListener('touchmove', e => {
+  const dx = e.touches[0].clientX - startX
+  card.style.transform = `translateX(${dx}px) rotate(${dx*.08}deg) scale(1)`
+  hL.style.opacity = dx < -30 ? Math.min(1,(-dx-30)/60) : 0
+  hR.style.opacity = dx > 30 ? Math.min(1,(dx-30)/60) : 0
+})
+card.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - startX
+  card.style.transition = ''
+  if (dx < -80) swipeCard('left')
+  else if (dx > 80) swipeCard('right')
+  else { card.style.transform = ''; hL.style.opacity=0; hR.style.opacity=0 }
+})
+
+let cardIdx = 0
+function swipeCard(dir) {
+  hL.style.opacity = 0; hR.style.opacity = 0
+  if (dir === 'left') card.classList.add('swipe-left')
+  else if (dir === 'right') card.classList.add('swipe-right')
+
+  setTimeout(() => {
+    card.classList.remove('swipe-left','swipe-right')
+    card.style.transform = ''
+    // Promote next cards
+    document.getElementById('card1').className = 'job-swipe-card card-0'
+    document.getElementById('card2').className = 'job-swipe-card card-1'
+    cardIdx++
+    // Update progress
+    document.querySelectorAll('.pdot').forEach((d,i) => d.classList.toggle('active', i === (cardIdx % 5)))
+  }, 400)
+}
+
+// Filter chips
+document.querySelectorAll('.fpill').forEach(p => {
+  p.addEventListener('click', () => {
+    document.querySelectorAll('.fpill').forEach(f => f.classList.remove('active'))
+    p.classList.add('active')
+  })
+})
+</script>
+</body>
+</html>

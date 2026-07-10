@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobops — Today</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070B18;--s1:#0C1325;--s2:#111A30;--s3:#17213B;--s4:#1C2844;
+  --p:#6366F1;--p2:#818CF8;--pd:rgba(99,102,241,.10);--pb:rgba(99,102,241,.20);
+  --a:#FBBF24;--ad:rgba(251,191,36,.10);--ab:rgba(251,191,36,.22);
+  --ok:#10B981;--okd:rgba(16,185,129,.10);--okb:rgba(16,185,129,.20);
+  --err:#F87171;--errd:rgba(248,113,113,.10);
+  --t1:#EEF2FF;--t2:#8B9EC7;--t3:#4B5C7E;
+  --bd:rgba(99,102,241,.12);--bds:rgba(255,255,255,.05);
+  --font-h:'Outfit',system-ui,sans-serif;
+  --font-b:'Inter',system-ui,sans-serif;
+  --font-m:'JetBrains Mono',monospace;
+  --r-sm:6px;--r:10px;--r-lg:14px;
+  --ease:cubic-bezier(.16,1,.3,1);--dur:180ms;
+}
+body{font-family:var(--font-b);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;height:100vh;overflow:hidden;display:flex}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--s4);border-radius:2px}
+
+/* SVG icons */
+svg.icon{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:middle}
+svg.icon-lg{width:18px;height:18px}
+svg.icon-sm{width:14px;height:14px}
+
+/* Sidebar */
+.sidebar{width:224px;flex-shrink:0;background:var(--s1);border-right:1px solid var(--bd);display:flex;flex-direction:column;transition:width var(--dur) var(--ease);overflow:hidden}
+.sidebar.collapsed{width:58px}
+.sidebar-logo{height:54px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--bd);flex-shrink:0}
+.logo-mark{width:28px;height:28px;background:var(--p);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.logo-text{font-family:var(--font-h);font-weight:700;font-size:15px;color:var(--t1);white-space:nowrap;transition:opacity var(--dur),width var(--dur)}
+.collapsed .logo-text{opacity:0;width:0}
+.nav{flex:1;padding:10px 8px;display:flex;flex-direction:column;gap:1px;overflow-y:auto}
+.nav-section{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);padding:10px 10px 4px;white-space:nowrap;transition:opacity var(--dur)}
+.collapsed .nav-section{opacity:0}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--r);cursor:pointer;color:var(--t2);font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;position:relative;border:none;background:transparent;width:100%;text-align:left;transition:color var(--dur),background var(--dur)}
+.nav-item:hover{background:var(--s2);color:var(--t1)}
+.nav-item.active{background:var(--pd);color:var(--p)}
+.nav-item.active::before{content:'';position:absolute;left:0;top:20%;height:60%;width:3px;background:var(--p);border-radius:0 2px 2px 0}
+.nav-label{transition:opacity var(--dur),width var(--dur)}
+.collapsed .nav-label{opacity:0;width:0}
+.nav-badge{margin-left:auto;background:var(--pd);color:var(--p2);font-size:10px;font-weight:600;padding:1px 6px;border-radius:99px;flex-shrink:0;transition:opacity var(--dur)}
+.collapsed .nav-badge{opacity:0}
+.sidebar-footer{padding:10px 8px;border-top:1px solid var(--bd)}
+.user-row{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--r);cursor:pointer;transition:background var(--dur)}
+.user-row:hover{background:var(--s2)}
+.avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--p),#8B5CF6);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:11px;color:#fff;flex-shrink:0}
+.user-name{font-size:13px;font-weight:600;color:var(--t1);white-space:nowrap;transition:opacity var(--dur)}
+.user-sub{font-size:11px;color:var(--t3);white-space:nowrap;transition:opacity var(--dur)}
+.collapsed .user-name,.collapsed .user-sub{opacity:0}
+
+/* Main */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.topbar{height:54px;background:var(--s1);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 24px;gap:12px;flex-shrink:0}
+.topbar-toggle{width:30px;height:30px;background:transparent;border:1px solid var(--bd);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t2);transition:all var(--dur);flex-shrink:0}
+.topbar-toggle:hover{background:var(--s2);color:var(--t1)}
+.search-wrap{flex:1;max-width:380px;position:relative}
+.search-wrap input{width:100%;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:7px 12px 7px 34px;color:var(--t1);font-size:13px;font-family:var(--font-b);outline:none;transition:border-color var(--dur)}
+.search-wrap input::placeholder{color:var(--t3)}
+.search-wrap input:focus{border-color:var(--p)}
+.search-ico{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--t3);pointer-events:none}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.icon-btn{width:32px;height:32px;background:transparent;border:1px solid var(--bd);border-radius:var(--r-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--t2);transition:all var(--dur);position:relative}
+.icon-btn:hover{background:var(--s2);color:var(--t1)}
+.notif-dot{position:absolute;top:5px;right:5px;width:6px;height:6px;border-radius:50%;background:var(--a);border:2px solid var(--s1)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--r);font-family:var(--font-b);font-size:13px;font-weight:500;cursor:pointer;border:none;white-space:nowrap;transition:all var(--dur)}
+.btn-primary{background:var(--p);color:#fff}
+.btn-primary:hover{background:#4F46E5}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--bd)}
+.btn-ghost:hover{background:var(--s2);color:var(--t1)}
+
+/* Content */
+.content{flex:1;overflow-y:auto;padding:28px 32px 40px}
+.greeting{font-family:var(--font-h);font-size:24px;font-weight:700;color:var(--t1)}
+.greeting-sub{font-size:13px;color:var(--t2);margin-top:2px;margin-bottom:26px}
+.greeting-sub strong{color:var(--a)}
+
+/* Grid */
+.today-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
+.col-left{display:flex;flex-direction:column;gap:16px}
+.col-right{display:flex;flex-direction:column;gap:16px}
+
+/* Cards */
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r-lg);overflow:hidden}
+.card-header{padding:13px 18px 10px;border-bottom:1px solid var(--bds);display:flex;align-items:center;justify-content:space-between}
+.card-label{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);display:flex;align-items:center;gap:6px}
+.card-meta{font-size:11px;color:var(--t3)}
+.card-body{padding:16px 18px}
+
+/* Mission hero card */
+.mission-card{background:var(--s1);border:1px solid var(--pb);border-radius:var(--r-lg);overflow:hidden;position:relative}
+.mission-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--p),transparent)}
+.mission-top{padding:16px 18px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.mission-left{flex:1;min-width:0}
+.mission-co{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--p2);display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.mission-role{font-family:var(--font-h);font-size:18px;font-weight:700;color:var(--t1);line-height:1.25;margin-bottom:8px}
+.mission-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;color:var(--t2);background:var(--s2);padding:2px 8px;border-radius:99px;border:1px solid var(--bd);display:flex;align-items:center;gap:4px}
+
+/* Score — the signature amber badge */
+.score-badge{background:var(--ad);color:var(--a);font-family:var(--font-m);font-size:17px;font-weight:500;padding:8px 12px;border-radius:var(--r);border:1px solid var(--ab);flex-shrink:0;display:flex;align-items:center;gap:4px;white-space:nowrap}
+
+/* Ghost job shield — key differentiator */
+.ghost-shield{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;background:var(--okd);color:var(--ok);border:1px solid var(--okb);letter-spacing:.03em}
+
+/* Hot badge */
+.hot-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;background:var(--ad);color:var(--a);border:1px solid var(--ab);letter-spacing:.05em;text-transform:uppercase;animation:pulse 2.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 0 4px rgba(251,191,36,.12)}}
+
+.mission-body{padding:12px 18px 0}
+.mission-insight{font-size:13px;color:var(--t2);line-height:1.6;padding:10px 12px;background:var(--s2);border-radius:var(--r-sm);border-left:3px solid var(--p);margin-bottom:14px}
+.mission-actions{padding:0 18px 16px;display:flex;gap:8px}
+
+/* Actions */
+.action-list{display:flex;flex-direction:column;gap:8px}
+.action-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);cursor:pointer;transition:border-color var(--dur),background var(--dur)}
+.action-item:hover{border-color:var(--pb);background:rgba(99,102,241,.05)}
+.action-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.action-title{font-size:13px;font-weight:500;color:var(--t1)}
+.action-desc{font-size:11px;color:var(--t2);margin-top:1px}
+.action-right{margin-left:auto;flex-shrink:0}
+.pill{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.03em}
+.pill::before{content:'';width:4px;height:4px;border-radius:50%;background:currentColor}
+.pill-warn{background:var(--ad);color:var(--a)}
+.pill-primary{background:var(--pd);color:var(--p2)}
+.pill-ok{background:var(--okd);color:var(--ok)}
+
+/* Wins */
+.win-list{display:flex;flex-direction:column;gap:8px}
+.win-item{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;border-radius:var(--r-sm);transition:background var(--dur)}
+.win-item:hover{background:var(--s2)}
+.win-check{width:18px;height:18px;border-radius:50%;background:var(--okd);color:var(--ok);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.win-text{font-size:13px;color:var(--t2);line-height:1.45}
+.win-text strong{color:var(--t1);font-weight:600}
+.win-time{font-size:10px;color:var(--t3);margin-top:2px}
+
+/* Right col */
+.pulse-row{display:flex;justify-content:space-between;margin-bottom:14px}
+.pulse-item{text-align:center;flex:1}
+.pulse-n{font-family:var(--font-h);font-size:22px;font-weight:700;line-height:1}
+.pulse-l{font-size:10px;color:var(--t3);margin-top:2px}
+.pulse-div{width:1px;background:var(--bd)}
+
+.momentum-label{display:flex;justify-content:space-between;font-size:11px;color:var(--t2);margin-bottom:8px}
+.momentum-delta{color:var(--ok)}
+.bars{display:flex;gap:3px;align-items:flex-end;height:36px}
+.bar{flex:1;border-radius:2px;background:var(--s3)}
+.bar.cur{background:var(--p)}
+
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-box{background:var(--s2);border-radius:var(--r);padding:12px 12px 10px;border:1px solid var(--bd)}
+.stat-n{font-family:var(--font-h);font-size:22px;font-weight:700;line-height:1;margin-bottom:2px}
+.stat-l{font-size:11px;color:var(--t2)}
+.stat-d{font-size:10px;margin-top:4px}
+.up{color:var(--ok)}.dn{color:var(--err)}
+
+.prog-wrap{margin-top:14px}
+.prog-label{display:flex;justify-content:space-between;font-size:11px;color:var(--t2);margin-bottom:5px}
+.prog-track{height:4px;background:var(--s3);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:var(--p);border-radius:2px}
+
+.scan-info{font-size:13px;color:var(--t2);margin-bottom:12px}
+.scan-info strong{color:var(--t1)}
+
+.watermark{position:fixed;bottom:16px;right:20px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r-lg);padding:6px 12px;font-size:11px;color:var(--t3);z-index:50}
+.watermark strong{color:var(--t2)}
+</style>
+</head>
+<body>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">J</div>
+    <span class="logo-text">Jobops</span>
+  </div>
+  <nav class="nav">
+    <button class="nav-item active">
+      <svg class="icon icon-lg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span class="nav-label">Today</span>
+    </button>
+    <div class="nav-section">Search</div>
+    <button class="nav-item">
+      <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="nav-label">Discover</span>
+      <span class="nav-badge">47</span>
+    </button>
+    <button class="nav-item">
+      <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="nav-label">Pipeline</span>
+      <span class="nav-badge">12</span>
+    </button>
+    <button class="nav-item">
+      <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <span class="nav-label">Reports</span>
+    </button>
+    <div class="nav-section">Network</div>
+    <button class="nav-item">
+      <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="nav-label">Referrals</span>
+    </button>
+    <button class="nav-item">
+      <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span class="nav-label">Outreach</span>
+    </button>
+    <div class="nav-section">Content</div>
+    <button class="nav-item">
+      <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span class="nav-label">Resumes</span>
+    </button>
+    <button class="nav-item">
+      <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span class="nav-label">AI Studio</span>
+    </button>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="user-row">
+      <div class="avatar">UV</div>
+      <div style="flex:1;min-width:0">
+        <div class="user-name">Uday Varmora</div>
+        <div class="user-sub">AI Engineer</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <button class="topbar-toggle" onclick="document.getElementById('sidebar').classList.toggle('collapsed')" aria-label="Toggle sidebar">
+      <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="search-wrap">
+      <svg class="icon search-ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search jobs, reports, companies…  ⌘K" aria-label="Search">
+    </div>
+    <div class="topbar-right">
+      <button class="icon-btn" aria-label="Notifications">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="btn btn-ghost">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Scan portals
+      </button>
+      <button class="btn btn-primary">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Evaluate job
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="greeting">Good morning, Uday ☀️</div>
+    <div class="greeting-sub">Tuesday, July 8 — <strong>3 actions</strong> need your attention today</div>
+
+    <div class="today-grid">
+      <div class="col-left">
+
+        <!-- Priority mission card -->
+        <div class="mission-card">
+          <div class="mission-top">
+            <div class="mission-left">
+              <div class="mission-co">
+                Stripe · Top pick today
+                <span class="hot-badge">Hot lead</span>
+              </div>
+              <div class="mission-role">Senior AI Engineer — Payments Intelligence</div>
+              <div class="mission-tags">
+                <span class="tag">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Remote
+                </span>
+                <span class="tag">$180–230k</span>
+                <span class="tag">Python · LLMs</span>
+                <span class="ghost-shield">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  Verified active 2h ago
+                </span>
+              </div>
+            </div>
+            <div class="score-badge">★ 4.7 / 5</div>
+          </div>
+          <div class="mission-body">
+            <div class="mission-insight">
+              ✦ Strong match on LLM orchestration + payment domain. Stripe's AI team grew 40% in 2024 — right timing. One gap: fintech experience. Your negotiation script covers this.
+            </div>
+          </div>
+          <div class="mission-actions">
+            <button class="btn btn-primary">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Evaluate now
+            </button>
+            <button class="btn btn-ghost">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Tailor CV
+            </button>
+            <button class="btn btn-ghost">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Deep research
+            </button>
+          </div>
+        </div>
+
+        <!-- Next actions -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-label">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Next actions
+            </span>
+            <span class="card-meta">3 pending</span>
+          </div>
+          <div class="card-body">
+            <div class="action-list">
+              <div class="action-item">
+                <div class="action-icon" style="background:var(--ad);color:var(--a)">
+                  <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <div class="action-title">Follow up with Vercel</div>
+                  <div class="action-desc">Staff Eng — day 5 without response</div>
+                </div>
+                <div class="action-right"><span class="pill pill-warn">Overdue</span></div>
+              </div>
+              <div class="action-item">
+                <div class="action-icon" style="background:var(--pd);color:var(--p2)">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </div>
+                <div>
+                  <div class="action-title">Interview prep — Google SWE</div>
+                  <div class="action-desc">Thursday · 2 days away</div>
+                </div>
+                <div class="action-right"><span class="pill pill-primary">Prep</span></div>
+              </div>
+              <div class="action-item">
+                <div class="action-icon" style="background:var(--okd);color:var(--ok)">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div>
+                  <div class="action-title">Evaluate 2 new jobs from scan</div>
+                  <div class="action-desc">Linear · Anthropic — added yesterday</div>
+                </div>
+                <div class="action-right"><span class="pill pill-ok">New</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent wins -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-label">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+              Recent wins
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="win-list">
+              <div class="win-item">
+                <div class="win-check">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div class="win-text"><strong>Vercel</strong> — Interview scheduled for Thursday</div>
+                  <div class="win-time">2 days ago</div>
+                </div>
+              </div>
+              <div class="win-item">
+                <div class="win-check">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div class="win-text"><strong>Linear</strong> — CV tailored · score 4.8 / 5</div>
+                  <div class="win-time">4 days ago</div>
+                </div>
+              </div>
+              <div class="win-item">
+                <div class="win-check">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div class="win-text"><strong>Anthropic</strong> — Applied · ATS match 92%</div>
+                  <div class="win-time">1 week ago</div>
+                </div>
+              </div>
+              <div class="win-item">
+                <div class="win-check">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div class="win-text"><strong>Stripe</strong> — Evaluation report complete</div>
+                  <div class="win-time">1 week ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right column -->
+      <div class="col-right">
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-label">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Pipeline pulse
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="pulse-row">
+              <div class="pulse-item">
+                <div class="pulse-n" style="color:var(--a)">2</div>
+                <div class="pulse-l">Evaluate</div>
+              </div>
+              <div class="pulse-div"></div>
+              <div class="pulse-item">
+                <div class="pulse-n" style="color:var(--p2)">3</div>
+                <div class="pulse-l">Applied</div>
+              </div>
+              <div class="pulse-div"></div>
+              <div class="pulse-item">
+                <div class="pulse-n" style="color:var(--ok)">1</div>
+                <div class="pulse-l">Interview</div>
+              </div>
+              <div class="pulse-div"></div>
+              <div class="pulse-item">
+                <div class="pulse-n" style="color:var(--t3)">0</div>
+                <div class="pulse-l">Offers</div>
+              </div>
+            </div>
+            <div style="border-top:1px solid var(--bds);padding-top:14px;margin-top:2px">
+              <div class="momentum-label">
+                <span>Activity this week</span>
+                <span class="momentum-delta">▲ +3 vs last week</span>
+              </div>
+              <div class="bars" id="bars"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-label">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              30-day stats
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="stat-grid">
+              <div class="stat-box">
+                <div class="stat-n" style="color:var(--t1)">23</div>
+                <div class="stat-l">Evaluated</div>
+                <div class="stat-d up">▲ +5 this week</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-n" style="color:var(--p2)">8</div>
+                <div class="stat-l">Applied</div>
+                <div class="stat-d up">▲ +2 this week</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-n" style="color:var(--a)">4.3</div>
+                <div class="stat-l">Avg. score</div>
+                <div class="stat-d up">▲ Improving</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-n" style="color:var(--ok)">35%</div>
+                <div class="stat-l">Response rate</div>
+                <div class="stat-d dn">▼ −5% vs prev</div>
+              </div>
+            </div>
+            <div class="prog-wrap">
+              <div class="prog-label"><span>Apply conversion</span><span>8 / 23</span></div>
+              <div class="prog-track"><div class="prog-fill" style="width:35%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-label">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Portal scanner
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="scan-info">
+              Last scan <strong>3 hours ago</strong> · 45 portals ·
+              <strong style="color:var(--a)">2 new matches</strong>
+            </div>
+            <button class="btn btn-ghost" style="width:100%;justify-content:center">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.25"/></svg>
+              Scan now
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="watermark"><strong>Design sample</strong> — Meridian · Jobops</div>
+
+<script>
+const vals=[2,4,3,7,5,8,6],max=Math.max(...vals),c=document.getElementById('bars');
+vals.forEach((v,i)=>{const e=document.createElement('div');e.className='bar'+(i===vals.length-1?' cur':'');e.style.height=Math.round(v/max*100)+'%';c.appendChild(e)});
+</script>
+</body>
+</html>

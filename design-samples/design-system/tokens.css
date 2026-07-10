@@ -1,0 +1,140 @@
+/**
+ * Meridian Design System — CSS Custom Properties
+ * Jobops "Calm Intelligence" rebrand concept
+ *
+ * Usage: import this file before any component styles.
+ * All components reference these tokens — never raw hex.
+ */
+
+:root {
+  /* ── Colour: Backgrounds ─────────────────────────────── */
+  --bg:           #080C1A;   /* page canvas */
+  --surface:      #0F1629;   /* cards, panels */
+  --surface-2:    #161E36;   /* raised cards, dropdowns */
+  --surface-3:    #1E2A45;   /* modals, popovers */
+  --border:       #1E2A45;
+  --border-soft:  #131C33;
+
+  /* ── Colour: Brand ───────────────────────────────────── */
+  --primary:      #6366F1;   /* indigo — CTA, active states */
+  --primary-dim:  rgba(99, 102, 241, 0.15);
+  --primary-glow: rgba(99, 102, 241, 0.3);
+
+  /* ── Colour: Accent (score / energy) ─────────────────── */
+  --accent:       #FBBF24;   /* amber — scores, badges, wins */
+  --accent-dim:   rgba(251, 191, 36, 0.15);
+  --accent-glow:  rgba(251, 191, 36, 0.35);
+
+  /* ── Colour: Semantic ────────────────────────────────── */
+  --success:      #10B981;
+  --success-dim:  rgba(16, 185, 129, 0.15);
+  --warning:      #F59E0B;
+  --warning-dim:  rgba(245, 158, 11, 0.15);
+  --danger:       #F87171;
+  --danger-dim:   rgba(248, 113, 113, 0.15);
+  --info:         #60A5FA;
+  --info-dim:     rgba(96, 165, 250, 0.15);
+
+  /* ── Colour: Text ────────────────────────────────────── */
+  --text-1:       #F1F5F9;   /* primary — headings, key data */
+  --text-2:       #94A3B8;   /* secondary — body, labels */
+  --text-3:       #475569;   /* muted — hints, timestamps */
+  --text-on-primary: #FFFFFF;
+
+  /* ── Typography ──────────────────────────────────────── */
+  --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 15px;
+  --text-md:   17px;
+  --text-lg:   20px;
+  --text-xl:   24px;
+  --text-2xl:  32px;
+  --text-3xl:  40px;
+
+  --weight-normal:  400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+  --weight-bold:    700;
+
+  --leading-tight:  1.25;
+  --leading-normal: 1.5;
+  --leading-loose:  1.75;
+
+  /* ── Spacing (8pt grid) ──────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── Radius ──────────────────────────────────────────── */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ─────────────────────────────────────────── */
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg:  0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-primary: 0 0 20px var(--primary-glow);
+  --shadow-accent:  0 0 16px var(--accent-glow);
+
+  /* ── Transitions ─────────────────────────────────────── */
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --ease-inout: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:  120ms;
+  --dur-base:  200ms;
+  --dur-slow:  350ms;
+
+  /* ── Z-index scale ───────────────────────────────────── */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-overlay: 20;
+  --z-dropdown: 40;
+  --z-modal:   100;
+  --z-toast:   1000;
+
+  /* ── Layout ──────────────────────────────────────────── */
+  --sidebar-width:        220px;
+  --sidebar-collapsed-w:  60px;
+  --header-height:        56px;
+  --content-max-w:        1200px;
+}
+
+/* Light mode override (opt-in) */
+[data-theme="light"] {
+  --bg:        #F8FAFF;
+  --surface:   #FFFFFF;
+  --surface-2: #F1F5FD;
+  --surface-3: #E8EFF9;
+  --border:    #E2E8F6;
+  --border-soft: #EDF2FB;
+  --primary:   #4F46E5;
+  --text-1:    #0F172A;
+  --text-2:    #475569;
+  --text-3:    #94A3B8;
+}
+
+/* Utility resets */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}

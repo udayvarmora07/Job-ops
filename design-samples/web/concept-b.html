@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept B — Signal</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ——— Design language: cockpit, Bloomberg-beautiful, monospace-first ——— */
+/* Conviction: information density done RIGHT feels calm, not busy.        */
+/* A senior quant trader never wants less data — they want better data.    */
+/* Every pixel earns its place. Zero decorative elements.                  */
+
+:root{
+  --bg:#050505;
+  --surface:#0D0D0D;
+  --text:#C4C0B4;
+  --text-dim:#636056;
+  --text-bright:#F0EDE4;
+  --amber:#F0A000;
+  --amber-bg:rgba(240,160,0,.06);
+  --green:#3DD68C;
+  --green-bg:rgba(61,214,140,.06);
+  --blue:#60A5FA;
+  --red:#F87171;
+  --rule:rgba(196,192,180,.07);
+  --rule-strong:rgba(196,192,180,.14);
+  --mono:'JetBrains Mono','Fira Code','Cascadia Code',monospace;
+}
+
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:var(--mono);
+  background:var(--bg);
+  color:var(--text);
+  font-size:12px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ——— HEADER ——— */
+header{
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  height:32px;
+  background:var(--surface);
+  border-bottom:1px solid var(--rule-strong);
+  flex-shrink:0;
+  gap:0;
+}
+.hdr-logo{
+  font-weight:700;
+  font-size:11px;
+  color:var(--amber);
+  letter-spacing:.06em;
+  padding-right:16px;
+  border-right:1px solid var(--rule-strong);
+  margin-right:16px;
+  white-space:nowrap;
+}
+.hdr-tabs{
+  display:flex;
+  gap:0;
+  flex:1;
+}
+.hdr-tab{
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:500;
+  color:var(--text-dim);
+  padding:0 12px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  cursor:pointer;
+  border-right:1px solid var(--rule);
+  border-bottom:2px solid transparent;
+  margin-bottom:-1px;
+  transition:color .1s;
+}
+.hdr-tab:hover{color:var(--text)}
+.hdr-tab.active{color:var(--amber);border-bottom-color:var(--amber)}
+.hdr-badge{
+  font-size:9px;
+  color:var(--amber);
+  background:var(--amber-bg);
+  padding:0 4px;
+  border-radius:2px;
+}
+.hdr-right{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  font-size:10px;
+  color:var(--text-dim);
+}
+.hdr-time{color:var(--text)}
+.hdr-action{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--text-dim);
+  background:transparent;
+  border:1px solid var(--rule-strong);
+  padding:2px 8px;
+  cursor:pointer;
+  transition:color .1s,border-color .1s;
+}
+.hdr-action:hover{color:var(--text);border-color:var(--rule-strong)}
+.hdr-action.primary{color:var(--amber);border-color:var(--amber)}
+
+/* ——— MAIN LAYOUT ——— */
+.main{
+  flex:1;
+  display:grid;
+  grid-template-columns:1fr 240px;
+  grid-template-rows:1fr auto;
+  overflow:hidden;
+}
+.panel-main{
+  grid-row:1/3;
+  overflow-y:auto;
+  border-right:1px solid var(--rule-strong);
+}
+.panel-side{
+  overflow-y:auto;
+}
+.status-bar{
+  grid-column:2;
+  height:24px;
+  background:var(--surface);
+  border-top:1px solid var(--rule-strong);
+  display:flex;
+  align-items:center;
+  padding:0 12px;
+  font-size:9px;
+  color:var(--text-dim);
+  gap:16px;
+}
+
+/* ——— SECTION HEADER ——— */
+.sec{
+  border-bottom:1px solid var(--rule-strong);
+}
+.sec-hdr{
+  display:flex;
+  align-items:center;
+  padding:6px 16px;
+  background:var(--surface);
+  border-bottom:1px solid var(--rule);
+  gap:10px;
+}
+.sec-tag{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.08em;
+  color:var(--amber);
+  background:var(--amber-bg);
+  padding:1px 6px;
+}
+.sec-title{
+  font-size:10px;
+  font-weight:700;
+  color:var(--text-bright);
+  letter-spacing:.05em;
+  flex:1;
+}
+.sec-meta{
+  font-size:9px;
+  color:var(--text-dim);
+}
+
+/* ——— JOB BLOCK ——— */
+.job-block{
+  padding:14px 16px 0;
+}
+/* The score bar — this is the signature element of this design            */
+/* Character art. Can't be confused with any other job search app.         */
+.score-bar-row{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  margin-bottom:14px;
+}
+.score-bar-fill{
+  font-size:14px;
+  font-weight:700;
+  color:var(--amber);
+  letter-spacing:-1px;
+}
+.score-bar-empty{
+  font-size:14px;
+  color:var(--text-dim);
+  letter-spacing:-1px;
+}
+.score-n{
+  font-size:18px;
+  font-weight:700;
+  color:var(--text-bright);
+}
+.score-label{
+  font-size:9px;
+  color:var(--text-dim);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+/* Structured job data — like a form, but beautiful                        */
+.field-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:14px;
+}
+.field-table tr{border-bottom:1px solid var(--rule)}
+.field-table tr:last-child{border-bottom:none}
+.field-key{
+  padding:6px 12px 6px 0;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.06em;
+  color:var(--text-dim);
+  white-space:nowrap;
+  width:80px;
+  vertical-align:top;
+}
+.field-val{
+  padding:6px 0;
+  font-size:11px;
+  color:var(--text);
+  vertical-align:top;
+}
+.field-val strong{color:var(--text-bright);font-weight:500}
+.field-val .tag-active{color:var(--green);font-size:9px}
+.field-val .tag-warn{color:var(--amber);font-size:9px}
+
+.analysis-block{
+  background:var(--surface);
+  border:1px solid var(--rule-strong);
+  padding:10px 12px;
+  margin-bottom:14px;
+}
+.analysis-title{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.08em;
+  color:var(--text-dim);
+  margin-bottom:8px;
+}
+.analysis-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:3px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:10px;
+}
+.analysis-row:last-child{border-bottom:none}
+.a-label{color:var(--text-dim)}
+.a-val{font-weight:700}
+.a-strong{color:var(--green)}
+.a-med{color:var(--amber)}
+.a-high{color:var(--text-bright)}
+
+/* Keyboard-style action hints                                             */
+.action-bar{
+  display:flex;
+  gap:16px;
+  padding:10px 0 14px;
+  border-top:1px solid var(--rule);
+  flex-wrap:wrap;
+}
+.kb-action{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--text-dim);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  transition:color .1s;
+  background:none;
+  border:none;
+  padding:0;
+}
+.kb-action:hover{color:var(--text)}
+.kb-key{
+  display:inline-block;
+  border:1px solid var(--rule-strong);
+  padding:0 4px;
+  font-size:9px;
+  color:var(--text-bright);
+  background:var(--surface);
+  min-width:16px;
+  text-align:center;
+}
+
+/* ——— QUEUE ——— */
+.queue-block{padding:10px 16px}
+.queue-row{
+  display:flex;
+  align-items:baseline;
+  gap:0;
+  padding:5px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:10px;
+  cursor:pointer;
+  transition:background .1s;
+}
+.queue-row:last-child{border-bottom:none}
+.q-idx{
+  width:14px;
+  color:var(--text-dim);
+  flex-shrink:0;
+  font-size:9px;
+}
+.q-status{
+  width:72px;
+  flex-shrink:0;
+  font-size:9px;
+  font-weight:700;
+  padding:0 6px;
+}
+.q-overdue{color:var(--red)}
+.q-warn{color:var(--amber)}
+.q-new{color:var(--green)}
+.q-title{color:var(--text);flex:1}
+.q-sub{color:var(--text-dim);font-size:9px;text-align:right}
+
+/* ——— SIDE PANEL ——— */
+.side-sec{border-bottom:1px solid var(--rule-strong)}
+.side-hdr{
+  padding:5px 12px;
+  background:var(--surface);
+  border-bottom:1px solid var(--rule);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.07em;
+  color:var(--text-dim);
+}
+.side-body{padding:8px 12px}
+
+.pipe-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:4px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:10px;
+}
+.pipe-row:last-child{border-bottom:none}
+.pipe-state{color:var(--text-dim)}
+.pipe-n{
+  font-weight:700;
+  color:var(--text-bright);
+}
+
+.stat-row{
+  display:flex;
+  justify-content:space-between;
+  padding:4px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:10px;
+}
+.stat-row:last-child{border-bottom:none}
+.s-key{color:var(--text-dim)}
+.s-val{color:var(--text)}
+.s-up{color:var(--green)}
+.s-dn{color:var(--red)}
+
+/* momentum sparkline using bar chars */
+.sparkline{
+  display:flex;
+  gap:2px;
+  align-items:flex-end;
+  height:24px;
+  padding:6px 0 4px;
+}
+.sp-bar{
+  width:6px;
+  background:var(--rule-strong);
+  border-radius:1px;
+}
+.sp-bar.cur{background:var(--amber)}
+
+.scan-row{
+  font-size:10px;
+  color:var(--text-dim);
+  padding:4px 0;
+  line-height:1.6;
+}
+.scan-row strong{color:var(--text)}
+.scan-btn{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--amber);
+  background:var(--amber-bg);
+  border:1px solid rgba(240,160,0,.2);
+  padding:3px 8px;
+  cursor:pointer;
+  display:block;
+  width:100%;
+  text-align:left;
+  margin-top:8px;
+  transition:background .1s;
+}
+.scan-btn:hover{background:rgba(240,160,0,.12)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-logo">JOBOPS</div>
+  <div class="hdr-tabs">
+    <div class="hdr-tab active">TODAY</div>
+    <div class="hdr-tab">DISCOVER <span class="hdr-badge">47</span></div>
+    <div class="hdr-tab">PIPELINE <span class="hdr-badge">12</span></div>
+    <div class="hdr-tab">REPORTS</div>
+  </div>
+  <div class="hdr-right">
+    <span class="hdr-time">TUE 2026-07-08 · 09:41</span>
+    <span>UDAY VARMORA</span>
+    <button class="hdr-action">↺ SCAN</button>
+    <button class="hdr-action primary">+ EVALUATE</button>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- MAIN PANEL -->
+  <div class="panel-main">
+
+    <!-- Top signal -->
+    <div class="sec">
+      <div class="sec-hdr">
+        <span class="sec-tag">TOP SIGNAL</span>
+        <span class="sec-title">Highest-priority opportunity · evaluated this session</span>
+        <span class="sec-meta">1 of 2 pending</span>
+      </div>
+      <div class="job-block">
+
+        <!-- Score as character bar — signature element -->
+        <div class="score-bar-row">
+          <span>
+            <span class="score-bar-fill">▓▓▓▓▓▓▓▓▓</span><span class="score-bar-empty">▒</span>
+          </span>
+          <span class="score-n">4.7/5</span>
+          <span class="score-label">EXCEPTIONAL</span>
+        </div>
+
+        <table class="field-table">
+          <tr>
+            <td class="field-key">COMPANY</td>
+            <td class="field-val"><strong>Stripe, Inc.</strong></td>
+          </tr>
+          <tr>
+            <td class="field-key">ROLE</td>
+            <td class="field-val"><strong>Senior AI Engineer — Payments Intelligence</strong></td>
+          </tr>
+          <tr>
+            <td class="field-key">LOCATION</td>
+            <td class="field-val">Remote — United States</td>
+          </tr>
+          <tr>
+            <td class="field-key">COMP</td>
+            <td class="field-val"><strong>$180,000 – $230,000</strong> base · equity TBD</td>
+          </tr>
+          <tr>
+            <td class="field-key">STACK</td>
+            <td class="field-val">Python · LLMs · MLOps · Fintech · Distributed Systems</td>
+          </tr>
+          <tr>
+            <td class="field-key">POSTED</td>
+            <td class="field-val">18 hours ago</td>
+          </tr>
+          <tr>
+            <td class="field-key">STATUS</td>
+            <td class="field-val"><span class="tag-active">[LIVE] ● Playwright-verified 2h ago</span></td>
+          </tr>
+          <tr>
+            <td class="field-key">LEGITIMACY</td>
+            <td class="field-val"><span class="tag-active">[TIER-1] Direct company posting, not aggregator</span></td>
+          </tr>
+        </table>
+
+        <div class="analysis-block">
+          <div class="analysis-title">MATCH ANALYSIS</div>
+          <div class="analysis-row">
+            <span class="a-label">LLM orchestration</span>
+            <span class="a-val a-strong">STRONG ↑</span>
+          </div>
+          <div class="analysis-row">
+            <span class="a-label">Payment domain experience</span>
+            <span class="a-val a-med">ADJACENT ~</span>
+          </div>
+          <div class="analysis-row">
+            <span class="a-label">MLOps / production AI</span>
+            <span class="a-val a-strong">STRONG ↑</span>
+          </div>
+          <div class="analysis-row">
+            <span class="a-label">Fintech regulatory context</span>
+            <span class="a-val a-med">PARTIAL —</span>
+          </div>
+          <div class="analysis-row">
+            <span class="a-label">Negotiation leverage</span>
+            <span class="a-val a-high">HIGH ↑↑</span>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="kb-action">
+            <span class="kb-key">E</span>
+            Full evaluation report
+          </button>
+          <button class="kb-action">
+            <span class="kb-key">T</span>
+            Tailor CV
+          </button>
+          <button class="kb-action">
+            <span class="kb-key">R</span>
+            Company research
+          </button>
+          <button class="kb-action">
+            <span class="kb-key">C</span>
+            Cover letter
+          </button>
+          <button class="kb-action">
+            <span class="kb-key">S</span>
+            Save / skip
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action queue -->
+    <div class="sec">
+      <div class="sec-hdr">
+        <span class="sec-tag">QUEUE</span>
+        <span class="sec-title">Today's required actions</span>
+        <span class="sec-meta">3 items · 1 overdue</span>
+      </div>
+      <div class="queue-block">
+        <div class="queue-row">
+          <span class="q-idx">1</span>
+          <span class="q-status q-overdue">[OVERDUE]</span>
+          <span class="q-title">Follow up — Vercel / Staff Engineer</span>
+          <span class="q-sub">day 5 · no response</span>
+        </div>
+        <div class="queue-row">
+          <span class="q-idx">2</span>
+          <span class="q-status q-warn">[2 DAYS]</span>
+          <span class="q-title">Interview prep — Google / SWE L5</span>
+          <span class="q-sub">Thu · system design round</span>
+        </div>
+        <div class="queue-row">
+          <span class="q-idx">3</span>
+          <span class="q-status q-new">[NEW]</span>
+          <span class="q-title">Evaluate 2 new arrivals from scan</span>
+          <span class="q-sub">Linear · Anthropic</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDE PANEL -->
+  <div class="panel-side">
+
+    <div class="side-sec">
+      <div class="side-hdr">PIPELINE</div>
+      <div class="side-body">
+        <div class="pipe-row">
+          <span class="pipe-state">Evaluate</span>
+          <span class="pipe-n">2</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-state">Applied</span>
+          <span class="pipe-n">3</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-state">Interview</span>
+          <span class="pipe-n">1</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-state">Offer</span>
+          <span class="pipe-n" style="color:var(--text-dim)">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-state">Rejected</span>
+          <span class="pipe-n" style="color:var(--text-dim)">4</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-sec">
+      <div class="side-hdr">ACTIVITY · 7D</div>
+      <div class="side-body">
+        <div class="sparkline" id="spark"></div>
+        <div style="font-size:9px;color:var(--text-dim);padding-top:4px">
+          ▲ +3 vs previous week
+        </div>
+      </div>
+    </div>
+
+    <div class="side-sec">
+      <div class="side-hdr">30-DAY STATS</div>
+      <div class="side-body">
+        <div class="stat-row">
+          <span class="s-key">Evaluated</span>
+          <span class="s-val">23 <span class="s-up">↑5</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="s-key">Applied</span>
+          <span class="s-val">8 <span class="s-up">↑2</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="s-key">Avg. score</span>
+          <span class="s-val">4.3 <span class="s-up">↑</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="s-key">Response %</span>
+          <span class="s-val">35% <span class="s-dn">↓5</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="s-key">Conversion</span>
+          <span class="s-val">8/23</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-sec">
+      <div class="side-hdr">PORTAL SCANNER</div>
+      <div class="side-body">
+        <div class="scan-row">
+          Last run: <strong>3h ago</strong><br>
+          Portals: <strong>45</strong><br>
+          New matches: <strong style="color:var(--amber)">2</strong><br>
+        </div>
+        <button class="scan-btn">↺ RUN SCAN NOW</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="status-bar">
+    <span>JOBOPS v2.1.0</span>
+    <span>·</span>
+    <span>CV updated 2d ago</span>
+    <span>·</span>
+    <span style="color:var(--green)">● ONLINE</span>
+  </div>
+
+</div>
+
+<script>
+// Build sparkline bars
+const vals=[2,4,3,7,5,8,6],max=Math.max(...vals);
+const el=document.getElementById('spark');
+vals.forEach((v,i)=>{
+  const b=document.createElement('div');
+  b.className='sp-bar'+(i===vals.length-1?' cur':'');
+  b.style.height=Math.round(v/max*100)+'%';
+  b.style.flex='1';
+  el.appendChild(b);
+});
+</script>
+</body>
+</html>

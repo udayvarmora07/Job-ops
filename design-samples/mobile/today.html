@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobops Meridian — Mobile Today Screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080C1A;--surface:#0F1629;--surface-2:#161E36;--surface-3:#1E2A45;
+  --border:#1E2A45;--primary:#6366F1;--primary-dim:rgba(99,102,241,.15);
+  --accent:#FBBF24;--accent-dim:rgba(251,191,36,.15);--accent-glow:rgba(251,191,36,.4);
+  --success:#10B981;--success-dim:rgba(16,185,129,.15);
+  --danger:#F87171;--text-1:#F1F5F9;--text-2:#94A3B8;--text-3:#475569;
+  --font-d:'Outfit',system-ui,sans-serif;--font-b:'Inter',system-ui,sans-serif;
+  --font-m:'JetBrains Mono',monospace;
+}
+body{background:#12121C;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:40px 20px;font-family:var(--font-b);-webkit-font-smoothing:antialiased}
+
+/* Phone shell */
+.phone{width:375px;min-height:812px;background:var(--bg);border-radius:44px;overflow:hidden;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08),inset 0 0 0 1px rgba(255,255,255,.04)}
+.phone-notch{height:44px;background:var(--bg);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:relative;z-index:10}
+.notch-island{width:120px;height:28px;background:#000;border-radius:99px;position:absolute;left:50%;transform:translateX(-50%);top:8px}
+.status-left{font-size:12px;font-weight:600;color:var(--text-1)}
+.status-right{display:flex;gap:6px;align-items:center;color:var(--text-1)}
+.status-right svg{width:14px;height:14px}
+
+/* Content scroll area */
+.phone-content{height:calc(812px - 44px - 82px);overflow-y:auto;scroll-behavior:smooth}
+.phone-content::-webkit-scrollbar{display:none}
+
+/* Header */
+.app-header{padding:20px 22px 0;position:relative}
+.greeting{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--text-1);margin-bottom:2px}
+.greeting-sub{font-size:13px;color:var(--text-2)}
+.header-avatar{position:absolute;right:22px;top:20px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6366F1,#8B5CF6);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:13px;color:#fff}
+
+/* Section */
+.section{padding:18px 22px 0}
+.sec-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px}
+
+/* Hero job card */
+.hero-card{margin:18px 16px 0;background:linear-gradient(135deg,rgba(99,102,241,.12) 0%,rgba(99,102,241,.04) 100%);border:1px solid rgba(99,102,241,.3);border-radius:20px;overflow:hidden;position:relative}
+.hero-glow{position:absolute;top:-30px;right:-20px;width:120px;height:120px;background:radial-gradient(circle,rgba(99,102,241,.25),transparent 70%);pointer-events:none}
+.hero-top{padding:16px 18px 12px;display:flex;align-items:flex-start;justify-content:space-between}
+.hero-co{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:4px}
+.hero-title{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--text-1);line-height:1.2;margin-bottom:8px}
+.hero-meta{display:flex;gap:8px;flex-wrap:wrap}
+.meta-chip{font-size:11px;color:var(--text-2);background:rgba(255,255,255,.06);padding:2px 8px;border-radius:99px}
+.score-big{background:var(--accent-dim);color:var(--accent);font-family:var(--font-m);font-size:18px;font-weight:700;padding:6px 12px;border-radius:12px;box-shadow:0 0 20px var(--accent-glow);white-space:nowrap;display:flex;align-items:center;gap:4px}
+.score-big::before{content:'★ '}
+.hero-actions{display:flex;gap:8px;padding:0 18px 16px}
+.hero-btn{flex:1;padding:10px;border-radius:12px;font-family:var(--font-b);font-size:13px;font-weight:600;cursor:pointer;border:none;text-align:center}
+.hero-btn-primary{background:var(--primary);color:#fff}
+.hero-btn-ghost{background:rgba(255,255,255,.07);color:var(--text-1);border:1px solid var(--border)}
+.hot-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.5s infinite;margin-right:4px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Next actions */
+.action-list{display:flex;flex-direction:column;gap:8px}
+.action-row{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.action-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.action-text-wrap{flex:1;min-width:0}
+.action-title{font-size:13px;font-weight:600;color:var(--text-1)}
+.action-desc{font-size:11px;color:var(--text-2);margin-top:1px}
+.action-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px}
+
+/* Stats row */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:10px 8px;text-align:center}
+.stat-n{font-family:var(--font-d);font-size:20px;font-weight:700}
+.stat-l{font-size:10px;color:var(--text-2);margin-top:2px;line-height:1.3}
+
+/* Wins */
+.win-row{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface);border-radius:12px;margin-bottom:8px}
+.win-icon{width:24px;height:24px;border-radius:50%;background:var(--success-dim);color:var(--success);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px}
+.win-text{font-size:13px;color:var(--text-2)}
+.win-text strong{color:var(--text-1)}
+.win-ago{font-size:10px;color:var(--text-3);margin-top:2px}
+
+/* Bottom nav */
+.bottom-nav{position:absolute;bottom:0;left:0;right:0;height:82px;background:rgba(15,22,41,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;align-items:flex-start;padding-top:8px}
+.nav-tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.nav-tab svg{width:22px;height:22px;transition:transform .15s}
+.nav-tab.active svg{transform:scale(1.1)}
+.nav-tab-label{font-size:10px;font-weight:500;transition:color .15s}
+.nav-tab.active .nav-tab-label,.nav-tab.active svg{color:var(--primary)}
+.nav-tab:not(.active) svg,.nav-tab:not(.active) .nav-tab-label{color:var(--text-3)}
+.nav-notif{position:relative}
+.nav-dot{position:absolute;top:-2px;right:-4px;width:7px;height:7px;border-radius:50%;background:var(--accent);border:2px solid rgba(15,22,41,.95)}
+
+/* Spacer */
+.pb{padding-bottom:20px}
+
+/* Side label */
+.side-note{position:fixed;left:calc(50% + 215px);top:50%;transform:translateY(-50%);width:180px;font-size:12px;color:rgba(255,255,255,.35);line-height:1.7}
+.side-note h3{font-family:var(--font-d);font-size:14px;color:rgba(255,255,255,.55);margin-bottom:8px;font-weight:600}
+.side-note li{margin-bottom:6px}
+
+@media(max-width:700px){.side-note{display:none}}
+</style>
+</head>
+<body>
+
+<div class="phone">
+  <!-- Status bar -->
+  <div class="phone-notch">
+    <span class="status-left">9:41</span>
+    <div class="notch-island"></div>
+    <div class="status-right">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M1.5 8.5a13 13 0 0 1 21 0M5 12a9.5 9.5 0 0 1 14 0M8.5 15.5a6 6 0 0 1 7 0M12 19h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      <svg fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M22 11v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+
+  <!-- Scrollable content -->
+  <div class="phone-content">
+
+    <!-- Header -->
+    <div class="app-header">
+      <div class="greeting">Good morning, Uday ☀️</div>
+      <div class="greeting-sub"><span class="hot-dot"></span><strong style="color:var(--accent)">2 hot leads</strong> · 3 actions need you</div>
+      <div class="header-avatar">UV</div>
+    </div>
+
+    <!-- Hero Job Card -->
+    <div class="hero-card">
+      <div class="hero-glow"></div>
+      <div class="hero-top">
+        <div style="flex:1;min-width:0">
+          <div class="hero-co">Stripe · Top Pick</div>
+          <div class="hero-title">Senior AI Engineer — Payments Intelligence</div>
+          <div class="hero-meta">
+            <span class="meta-chip">Remote</span>
+            <span class="meta-chip">$180–230k</span>
+            <span class="meta-chip">Python · LLMs</span>
+          </div>
+        </div>
+        <div class="score-big">4.7</div>
+      </div>
+      <div class="hero-actions">
+        <button class="hero-btn hero-btn-primary">⚡ Evaluate</button>
+        <button class="hero-btn hero-btn-ghost">Tailor CV</button>
+        <button class="hero-btn hero-btn-ghost">Research</button>
+      </div>
+    </div>
+
+    <!-- Next Actions -->
+    <div class="section">
+      <div class="sec-label">Next Actions</div>
+      <div class="action-list">
+        <div class="action-row">
+          <div class="action-icon" style="background:var(--accent-dim)">⏰</div>
+          <div class="action-text-wrap">
+            <div class="action-title">Follow up with Vercel</div>
+            <div class="action-desc">Staff Eng — Day 5, no response</div>
+          </div>
+          <span class="action-tag" style="background:var(--accent-dim);color:var(--accent)">Overdue</span>
+        </div>
+        <div class="action-row">
+          <div class="action-icon" style="background:var(--primary-dim)">🎤</div>
+          <div class="action-text-wrap">
+            <div class="action-title">Interview Prep — Google</div>
+            <div class="action-desc">Thursday · 2 days away</div>
+          </div>
+          <span class="action-tag" style="background:var(--primary-dim);color:var(--primary)">Prep</span>
+        </div>
+        <div class="action-row">
+          <div class="action-icon" style="background:var(--success-dim)">✨</div>
+          <div class="action-text-wrap">
+            <div class="action-title">Evaluate 2 new jobs</div>
+            <div class="action-desc">Linear · Anthropic — from scan</div>
+          </div>
+          <span class="action-tag" style="background:var(--success-dim);color:var(--success)">New</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="section">
+      <div class="sec-label">Last 7 Days</div>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-n" style="color:var(--text-1)">8</div>
+          <div class="stat-l">Evaluated</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n" style="color:var(--primary)">3</div>
+          <div class="stat-l">Applied</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n" style="color:var(--success)">1</div>
+          <div class="stat-l">Interview</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n" style="color:var(--accent)">4.3</div>
+          <div class="stat-l">Avg Score</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Wins -->
+    <div class="section">
+      <div class="sec-label">Recent Wins 🏆</div>
+      <div class="win-row">
+        <div class="win-icon">✓</div>
+        <div>
+          <div class="win-text"><strong>Vercel</strong> — Interview scheduled</div>
+          <div class="win-ago">2 days ago</div>
+        </div>
+      </div>
+      <div class="win-row">
+        <div class="win-icon">✓</div>
+        <div>
+          <div class="win-text"><strong>Linear</strong> — CV tailored · 4.8/5</div>
+          <div class="win-ago">4 days ago</div>
+        </div>
+      </div>
+      <div class="win-row">
+        <div class="win-icon">✓</div>
+        <div>
+          <div class="win-text"><strong>Anthropic</strong> — Applied · ATS 92%</div>
+          <div class="win-ago">1 week ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb"></div>
+  </div><!-- /phone-content -->
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <div class="nav-tab active">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span class="nav-tab-label">Today</span>
+    </div>
+    <div class="nav-tab nav-notif">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="nav-tab-label">Discover</span>
+      <span class="nav-dot"></span>
+    </div>
+    <div class="nav-tab">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="nav-tab-label">Track</span>
+    </div>
+    <div class="nav-tab">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span class="nav-tab-label">Me</span>
+    </div>
+  </nav>
+</div>
+
+<div class="side-note">
+  <h3>Today Screen</h3>
+  <ul>
+    <li>One greeting, one focus</li>
+    <li>Hero card = top scored job</li>
+    <li>3 inline quick actions</li>
+    <li>Stats at a glance</li>
+    <li>4-item bottom nav</li>
+    <li>Score always in amber</li>
+    <li>Overdue items flagged</li>
+    <li>Recent wins visible</li>
+  </ul>
+</div>
+
+</body>
+</html>

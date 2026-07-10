@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobops Meridian — Web Dashboard Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Tokens ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080C1A;--surface:#0F1629;--surface-2:#161E36;--surface-3:#1E2A45;
+  --border:#1E2A45;--border-soft:#131C33;
+  --primary:#6366F1;--primary-dim:rgba(99,102,241,.15);--primary-glow:rgba(99,102,241,.3);
+  --accent:#FBBF24;--accent-dim:rgba(251,191,36,.15);--accent-glow:rgba(251,191,36,.35);
+  --success:#10B981;--success-dim:rgba(16,185,129,.15);
+  --danger:#F87171;--danger-dim:rgba(248,113,113,.15);
+  --text-1:#F1F5F9;--text-2:#94A3B8;--text-3:#475569;
+  --font-display:'Outfit',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --sidebar-w:220px;--header-h:56px;
+  --radius-sm:6px;--radius-md:10px;--radius-lg:14px;--radius-xl:20px;
+}
+body{background:var(--bg);color:var(--text-1);font-family:var(--font-body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+/* ── Layout ── */
+.app{display:flex;height:100vh;overflow:hidden}
+.sidebar{width:var(--sidebar-w);background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;transition:width .25s var(--ease-out)}
+.sidebar.collapsed{width:60px}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.topbar{height:var(--header-h);background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:16px;flex-shrink:0}
+.content{flex:1;overflow-y:auto;padding:28px 32px}
+.content::-webkit-scrollbar{width:6px}
+.content::-webkit-scrollbar-track{background:transparent}
+.content::-webkit-scrollbar-thumb{background:var(--surface-3);border-radius:3px}
+
+/* ── Sidebar Logo ── */
+.sidebar-logo{height:56px;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid var(--border);flex-shrink:0}
+.logo-mark{width:28px;height:28px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.logo-text{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--text-1);letter-spacing:-.3px;white-space:nowrap;overflow:hidden;transition:opacity .2s}
+.sidebar.collapsed .logo-text{opacity:0;width:0}
+
+/* ── Sidebar Nav ── */
+.nav{flex:1;padding:12px 8px;display:flex;flex-direction:column;gap:2px;overflow-y:auto}
+.nav-section-label{font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--text-3);text-transform:uppercase;padding:8px 10px 4px;white-space:nowrap;overflow:hidden;transition:opacity .2s}
+.sidebar.collapsed .nav-section-label{opacity:0}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--radius-md);cursor:pointer;transition:all .15s;color:var(--text-2);white-space:nowrap;overflow:hidden;position:relative;font-size:14px}
+.nav-item:hover{background:var(--surface-2);color:var(--text-1)}
+.nav-item.active{background:var(--primary-dim);color:var(--primary)}
+.nav-item.active::before{content:'';position:absolute;left:0;top:20%;height:60%;width:3px;background:var(--primary);border-radius:0 2px 2px 0}
+.nav-icon{width:18px;height:18px;flex-shrink:0;opacity:.8}
+.nav-label{font-weight:500;transition:opacity .2s,width .2s;overflow:hidden}
+.sidebar.collapsed .nav-label{opacity:0;width:0}
+.nav-badge{margin-left:auto;background:var(--primary-dim);color:var(--primary);font-size:10px;font-weight:600;padding:1px 6px;border-radius:99px;flex-shrink:0;transition:opacity .2s}
+.sidebar.collapsed .nav-badge{opacity:0}
+.sidebar-footer{padding:12px 8px;border-top:1px solid var(--border)}
+.user-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:var(--radius-md);cursor:pointer;transition:background .15s}
+.user-row:hover{background:var(--surface-2)}
+.avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#8B5CF6);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:11px;color:#fff;flex-shrink:0}
+.user-info{overflow:hidden}
+.user-name{font-size:13px;font-weight:600;color:var(--text-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .2s}
+.user-role{font-size:11px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .2s}
+.sidebar.collapsed .user-name,.sidebar.collapsed .user-role{opacity:0}
+
+/* ── Topbar ── */
+.topbar-toggle{width:32px;height:32px;background:transparent;border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-2);transition:all .15s;flex-shrink:0}
+.topbar-toggle:hover{background:var(--surface-2);color:var(--text-1)}
+.topbar-search{flex:1;max-width:400px;position:relative}
+.topbar-search input{width:100%;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:7px 12px 7px 36px;color:var(--text-1);font-size:14px;font-family:var(--font-body);outline:none;transition:border-color .15s}
+.topbar-search input:focus{border-color:var(--primary)}
+.topbar-search input::placeholder{color:var(--text-3)}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text-3);width:16px;height:16px}
+.topbar-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.icon-btn{width:34px;height:34px;background:transparent;border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-2);transition:all .15s;position:relative}
+.icon-btn:hover{background:var(--surface-2);color:var(--text-1)}
+.notif-dot{position:absolute;top:6px;right:6px;width:6px;height:6px;border-radius:50%;background:var(--accent);border:2px solid var(--surface)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--radius-md);font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;border:none;white-space:nowrap}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:#4F46E5;box-shadow:var(--shadow-primary)}
+.btn-ghost{background:transparent;color:var(--text-2);border:1px solid var(--border)}
+.btn-ghost:hover{background:var(--surface-2);color:var(--text-1)}
+
+/* ── Score Badge ── */
+.score{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:500;border-radius:var(--radius-sm);white-space:nowrap}
+.score-sm{font-size:12px;padding:2px 7px;gap:3px}
+.score-md{font-size:14px;padding:4px 10px;gap:4px}
+.score-lg{font-size:20px;padding:6px 14px;gap:5px}
+.score-hot{background:var(--accent-dim);color:var(--accent);box-shadow:0 0 12px var(--accent-glow)}
+.score-good{background:rgba(251,191,36,.1);color:#D4A008}
+.score-meh{background:var(--surface-2);color:var(--text-2)}
+.score-star::before{content:'★ '}
+
+/* ── Status Pill ── */
+.pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.02em}
+.pill-evaluated{background:var(--primary-dim);color:var(--primary)}
+.pill-applied{background:var(--info-dim,rgba(96,165,250,.15));color:#60A5FA}
+.pill-interview{background:var(--success-dim);color:var(--success)}
+.pill-offer{background:rgba(251,191,36,.15);color:var(--accent)}
+.pill-rejected{background:var(--danger-dim);color:var(--danger)}
+.pill-skip{background:var(--surface-2);color:var(--text-3)}
+.pill::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+
+/* ── Page: Today ── */
+.today-greeting{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--text-1);margin-bottom:4px}
+.today-sub{font-size:14px;color:var(--text-2);margin-bottom:28px}
+
+.today-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
+.today-main{display:flex;flex-direction:column;gap:20px}
+.today-sidebar{display:flex;flex-direction:column;gap:20px}
+
+/* ── Cards ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.card-header{padding:16px 20px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-soft)}
+.card-title{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-3)}
+.card-body{padding:20px}
+.card-body-sm{padding:14px 20px}
+
+/* ── Mission Card ── */
+.mission-card{background:linear-gradient(135deg,var(--surface) 0%,rgba(99,102,241,.06) 100%);border:1px solid rgba(99,102,241,.25)}
+.mission-company{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:4px}
+.mission-role{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text-1);margin-bottom:8px;line-height:1.2}
+.mission-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.meta-tag{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--text-2)}
+.mission-actions{display:flex;gap:8px;margin-top:16px}
+.hot-label{background:var(--accent-dim);color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:99px;text-transform:uppercase;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--accent-glow)}50%{box-shadow:0 0 0 6px transparent}}
+
+/* ── Job Card (list) ── */
+.job-list{display:flex;flex-direction:column;gap:10px}
+.job-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all .18s;position:relative;overflow:hidden}
+.job-card:hover{border-color:rgba(99,102,241,.4);background:rgba(99,102,241,.04);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.job-card.hot{border-color:rgba(251,191,36,.25)}
+.company-logo{width:38px;height:38px;border-radius:var(--radius-md);background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:14px;flex-shrink:0;border:1px solid var(--border)}
+.job-info{flex:1;min-width:0}
+.job-company{font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.job-title{font-size:14px;font-weight:600;color:var(--text-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px}
+.job-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;color:var(--text-2);background:var(--surface-2);padding:1px 7px;border-radius:99px;border:1px solid var(--border)}
+.job-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+
+/* ── Stats Grid ── */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-item{background:var(--surface-2);border-radius:var(--radius-md);padding:12px 14px}
+.stat-val{font-family:var(--font-display);font-size:22px;font-weight:700;line-height:1;margin-bottom:2px}
+.stat-label{font-size:11px;color:var(--text-2)}
+.stat-delta{font-size:11px;margin-top:4px}
+.delta-up{color:var(--success)}
+.delta-down{color:var(--danger)}
+
+/* ── Progress Bar ── */
+.progress-bar{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin-top:8px}
+.progress-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--primary),#818CF8);transition:width .6s var(--ease-out)}
+
+/* ── Actions List ── */
+.action-list{display:flex;flex-direction:column;gap:8px}
+.action-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--surface-2);border-radius:var(--radius-md);cursor:pointer;transition:background .15s}
+.action-item:hover{background:var(--surface-3)}
+.action-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.action-text{flex:1;font-size:13px;color:var(--text-1)}
+.action-sub{font-size:11px;color:var(--text-2)}
+.action-chip{font-size:10px;font-weight:600;padding:2px 7px;border-radius:99px;background:var(--accent-dim);color:var(--accent)}
+
+/* ── Wins List ── */
+.win-list{display:flex;flex-direction:column;gap:6px}
+.win-item{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;border-radius:var(--radius-md)}
+.win-check{width:16px;height:16px;border-radius:50%;background:var(--success-dim);color:var(--success);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px}
+.win-text{font-size:13px;color:var(--text-2)}
+.win-text strong{color:var(--text-1)}
+.win-time{font-size:11px;color:var(--text-3);margin-top:1px}
+
+/* ── Pulse Bar (pipeline) ── */
+.pulse-row{display:flex;justify-content:space-between;margin-bottom:12px}
+.pulse-item{text-align:center}
+.pulse-num{font-family:var(--font-display);font-size:20px;font-weight:700;line-height:1}
+.pulse-label{font-size:10px;color:var(--text-3);margin-top:2px}
+.pulse-item.hot .pulse-num{color:var(--accent)}
+.pulse-item.active .pulse-num{color:var(--primary)}
+.pulse-item.go .pulse-num{color:var(--success)}
+.momentum-bar{background:var(--surface-2);border-radius:var(--radius-md);padding:12px 14px}
+.momentum-label{font-size:11px;color:var(--text-2);margin-bottom:8px;display:flex;justify-content:space-between}
+.momentum-track{display:flex;gap:3px;align-items:flex-end;height:32px}
+.momentum-col{flex:1;background:var(--surface-3);border-radius:2px;transition:height .4s var(--ease-out)}
+.momentum-col.active{background:var(--primary)}
+
+/* ── Nav Tabs (page switcher) ── */
+.page-tabs{display:flex;gap:4px;margin-bottom:0}
+.page-tab{padding:6px 14px;border-radius:var(--radius-md);font-size:13px;font-weight:500;cursor:pointer;color:var(--text-2);transition:all .15s;border:none;background:transparent}
+.page-tab:hover{background:var(--surface-2);color:var(--text-1)}
+.page-tab.active{background:var(--surface-2);color:var(--primary)}
+
+/* ── Discover page ── */
+.discover-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.filter-chip{padding:5px 12px;border-radius:99px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-2);transition:all .15s}
+.filter-chip:hover{border-color:var(--primary);color:var(--primary)}
+.filter-chip.active{background:var(--primary-dim);border-color:var(--primary);color:var(--primary)}
+.jobs-count{font-size:13px;color:var(--text-2);margin-left:auto}
+
+.discover-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.job-card-big{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;cursor:pointer;transition:all .2s;display:flex;flex-direction:column}
+.job-card-big:hover{border-color:rgba(99,102,241,.4);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.job-card-big.hot-card{border-color:rgba(251,191,36,.3)}
+.jcb-header{padding:16px 18px 12px;display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid var(--border-soft)}
+.jcb-logo{width:42px;height:42px;border-radius:var(--radius-md);background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:16px;flex-shrink:0}
+.jcb-meta{flex:1;min-width:0}
+.jcb-company{font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em}
+.jcb-role{font-size:15px;font-weight:700;font-family:var(--font-display);color:var(--text-1);line-height:1.25;margin-top:2px}
+.jcb-body{padding:12px 18px;flex:1}
+.jcb-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.jcb-desc{font-size:12px;color:var(--text-2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.jcb-footer{padding:12px 18px;border-top:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between}
+.jcb-actions{display:flex;gap:6px}
+.btn-sm{padding:5px 12px;font-size:12px;border-radius:var(--radius-sm)}
+
+/* ── Pipeline page ── */
+.pipeline-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:4px}
+.pipeline-col{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.pipeline-col-header{padding:12px 14px;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between}
+.pipeline-col-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.pipeline-count{background:var(--surface-2);font-size:11px;font-weight:600;padding:1px 7px;border-radius:99px;color:var(--text-2)}
+.pipeline-items{padding:10px;display:flex;flex-direction:column;gap:8px}
+.pipeline-item{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;cursor:pointer;transition:all .15s}
+.pipeline-item:hover{border-color:rgba(99,102,241,.3);background:rgba(99,102,241,.05)}
+.pi-company{font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em}
+.pi-role{font-size:13px;font-weight:600;color:var(--text-1);margin:2px 0 6px}
+.pi-bottom{display:flex;align-items:center;justify-content:space-between}
+.pi-date{font-size:10px;color:var(--text-3)}
+
+/* ── Section heading ── */
+.section-heading{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-1);margin-bottom:4px}
+.section-sub{font-size:13px;color:var(--text-2);margin-bottom:20px}
+
+/* ── Tooltip ── */
+[data-tip]{position:relative}
+[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100%+6px);left:50%;transform:translateX(-50%);background:var(--surface-3);color:var(--text-1);font-size:11px;padding:4px 8px;border-radius:var(--radius-sm);white-space:nowrap;border:1px solid var(--border);pointer-events:none;z-index:100}
+
+/* ── Notification badge ── */
+.info-banner{background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.2);border-radius:var(--radius-md);padding:10px 14px;font-size:13px;color:var(--text-2);display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.info-icon{color:var(--primary);flex-shrink:0}
+
+/* ── Page visibility ── */
+.page{display:none}
+.page.active{display:block}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--surface-3);border-radius:3px}
+
+/* ── Sample notice ── */
+.sample-badge{position:fixed;bottom:20px;right:20px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 16px;font-size:12px;color:var(--text-2);z-index:9999;backdrop-filter:blur(8px)}
+.sample-badge strong{color:var(--text-1);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">J</div>
+      <span class="logo-text">Jobops</span>
+    </div>
+
+    <nav class="nav">
+      <a class="nav-item active" onclick="navigate('today',this)" data-tip="Today">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span class="nav-label">Today</span>
+      </a>
+
+      <div class="nav-section-label">Search</div>
+      <a class="nav-item" onclick="navigate('discover',this)" data-tip="Discover">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="nav-label">Discover</span>
+        <span class="nav-badge">47</span>
+      </a>
+      <a class="nav-item" onclick="navigate('pipeline',this)" data-tip="Pipeline">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span class="nav-label">Pipeline</span>
+        <span class="nav-badge">12</span>
+      </a>
+      <a class="nav-item" onclick="navigate('today',this);setTimeout(()=>document.getElementById('reports-anchor').scrollIntoView({behavior:'smooth'}),100)" data-tip="Reports">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <span class="nav-label">Reports</span>
+      </a>
+
+      <div class="nav-section-label">Network</div>
+      <a class="nav-item" data-tip="Referrals">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="nav-label">Referrals</span>
+      </a>
+      <a class="nav-item" data-tip="Outreach">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span class="nav-label">Outreach</span>
+      </a>
+
+      <div class="nav-section-label">Content</div>
+      <a class="nav-item" data-tip="Resumes">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span class="nav-label">Resumes</span>
+      </a>
+      <a class="nav-item" data-tip="AI Studio">
+        <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10H2A10 10 0 0 1 12 2z"/><path d="M12 12v10"/><path d="M8 16l4-4 4 4"/></svg>
+        <span class="nav-label">AI Studio</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="avatar">UV</div>
+        <div class="user-info">
+          <div class="user-name">Uday Varmora</div>
+          <div class="user-role">AI Engineer</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <div class="main">
+    <!-- Topbar -->
+    <header class="topbar">
+      <button class="topbar-toggle" onclick="toggleSidebar()" title="Toggle sidebar">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <div class="topbar-search">
+        <svg class="search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search jobs, reports, companies… ⌘K">
+      </div>
+
+      <div class="topbar-actions">
+        <button class="icon-btn" data-tip="Notifications">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="btn btn-primary">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Evaluate Job
+        </button>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+
+      <!-- ── PAGE: TODAY ── -->
+      <div class="page active" id="page-today">
+        <div class="today-greeting">Good morning, Uday ☀️</div>
+        <div class="today-sub">Tuesday, July 8 — <strong style="color:var(--accent)">3 things</strong> need your attention today</div>
+
+        <div class="today-grid">
+          <!-- Left: Mission + Actions -->
+          <div class="today-main">
+
+            <!-- Top mission card -->
+            <div class="card mission-card">
+              <div class="card-header">
+                <span class="card-title">🎯 Your Mission Today</span>
+                <span class="hot-label">HOT LEAD</span>
+              </div>
+              <div class="card-body">
+                <div class="mission-company">Stripe</div>
+                <div class="mission-role">Senior AI Engineer — Payments Intelligence</div>
+                <div class="mission-meta">
+                  <span class="score score-md score-hot score-star">4.7 / 5</span>
+                  <span class="meta-tag">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    Remote
+                  </span>
+                  <span class="meta-tag">$180k–$230k</span>
+                </div>
+                <div style="font-size:13px;color:var(--text-2);line-height:1.6">
+                  Strong match: LLM orchestration, payment domain context, Python expertise. Stripe's AI team is growing fast — this is the right timing.
+                </div>
+                <div class="mission-actions">
+                  <button class="btn btn-primary">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    Evaluate Now
+                  </button>
+                  <button class="btn btn-ghost">Tailor CV</button>
+                  <button class="btn btn-ghost">Research</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Actions -->
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">⚡ Next Actions</span>
+                <span style="font-size:12px;color:var(--text-3)">3 pending</span>
+              </div>
+              <div class="card-body-sm" style="padding-bottom:14px">
+                <div class="action-list">
+                  <div class="action-item">
+                    <div class="action-dot" style="background:var(--accent)"></div>
+                    <div style="flex:1">
+                      <div class="action-text">Follow up with Vercel</div>
+                      <div class="action-sub">Staff Eng role · Day 5 of silence</div>
+                    </div>
+                    <span class="action-chip">Overdue</span>
+                  </div>
+                  <div class="action-item">
+                    <div class="action-dot" style="background:var(--primary)"></div>
+                    <div style="flex:1">
+                      <div class="action-text">Interview prep — Google SWE</div>
+                      <div class="action-sub">Scheduled for Thursday · 2 days away</div>
+                    </div>
+                    <span class="action-chip" style="background:var(--primary-dim);color:var(--primary)">Prep</span>
+                  </div>
+                  <div class="action-item">
+                    <div class="action-dot" style="background:var(--success)"></div>
+                    <div style="flex:1">
+                      <div class="action-text">Evaluate 2 new jobs from scan</div>
+                      <div class="action-sub">Linear · Anthropic — added yesterday</div>
+                    </div>
+                    <span class="action-chip" style="background:var(--success-dim);color:var(--success)">New</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Wins -->
+            <div class="card" id="reports-anchor">
+              <div class="card-header">
+                <span class="card-title">🏆 Recent Wins</span>
+              </div>
+              <div class="card-body-sm" style="padding-bottom:14px">
+                <div class="win-list">
+                  <div class="win-item">
+                    <div class="win-check">✓</div>
+                    <div>
+                      <div class="win-text"><strong>Vercel</strong> — Interview scheduled</div>
+                      <div class="win-time">2 days ago</div>
+                    </div>
+                  </div>
+                  <div class="win-item">
+                    <div class="win-check">✓</div>
+                    <div>
+                      <div class="win-text"><strong>Linear</strong> — CV tailored · Score 4.8/5</div>
+                      <div class="win-time">4 days ago</div>
+                    </div>
+                  </div>
+                  <div class="win-item">
+                    <div class="win-check">✓</div>
+                    <div>
+                      <div class="win-text"><strong>Stripe</strong> — Evaluation report complete</div>
+                      <div class="win-time">5 days ago</div>
+                    </div>
+                  </div>
+                  <div class="win-item">
+                    <div class="win-check">✓</div>
+                    <div>
+                      <div class="win-text"><strong>Anthropic</strong> — Applied · ATS 92%</div>
+                      <div class="win-time">1 week ago</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Pipeline Pulse + Stats -->
+          <div class="today-sidebar">
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">📬 Pipeline Pulse</span>
+              </div>
+              <div class="card-body">
+                <div class="pulse-row">
+                  <div class="pulse-item hot">
+                    <div class="pulse-num">2</div>
+                    <div class="pulse-label">To Evaluate</div>
+                  </div>
+                  <div class="pulse-item active">
+                    <div class="pulse-num">3</div>
+                    <div class="pulse-label">Applied</div>
+                  </div>
+                  <div class="pulse-item go">
+                    <div class="pulse-num">1</div>
+                    <div class="pulse-label">Interview</div>
+                  </div>
+                  <div class="pulse-item">
+                    <div class="pulse-num" style="color:var(--text-2)">0</div>
+                    <div class="pulse-label">Offers</div>
+                  </div>
+                </div>
+                <div style="height:1px;background:var(--border);margin:14px 0"></div>
+                <div class="momentum-bar">
+                  <div class="momentum-label">
+                    <span>Activity this week</span>
+                    <span style="color:var(--success)">▲ +3 vs last</span>
+                  </div>
+                  <div class="momentum-track" id="momentumTrack"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">📊 30-Day Stats</span>
+              </div>
+              <div class="card-body">
+                <div class="stats-grid">
+                  <div class="stat-item">
+                    <div class="stat-val" style="color:var(--text-1)">23</div>
+                    <div class="stat-label">Evaluated</div>
+                    <div class="stat-delta delta-up">▲ +5 this week</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-val" style="color:var(--primary)">8</div>
+                    <div class="stat-label">Applied</div>
+                    <div class="stat-delta delta-up">▲ +2 this week</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-val" style="color:var(--accent)">4.3</div>
+                    <div class="stat-label">Avg. Score</div>
+                    <div class="stat-delta delta-up">▲ improving</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-val" style="color:var(--success)">35%</div>
+                    <div class="stat-label">Response rate</div>
+                    <div class="stat-delta delta-down">▼ 5% vs last mo</div>
+                  </div>
+                </div>
+                <div style="margin-top:16px">
+                  <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-2);margin-bottom:4px">
+                    <span>Apply conversion</span>
+                    <span>8 / 23 (35%)</span>
+                  </div>
+                  <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">🔔 Quick Scan</span>
+              </div>
+              <div class="card-body" style="padding-top:14px">
+                <div style="font-size:13px;color:var(--text-2);margin-bottom:12px">Last scanned <strong style="color:var(--text-1)">3 hours ago</strong> · 47 portals</div>
+                <button class="btn btn-ghost" style="width:100%;justify-content:center">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  Scan Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE: DISCOVER ── -->
+      <div class="page" id="page-discover">
+        <div class="section-heading">Discover Jobs</div>
+        <div class="section-sub">47 new opportunities from 45+ portals · sorted by AI match score</div>
+
+        <div class="discover-toolbar">
+          <button class="filter-chip active">All</button>
+          <button class="filter-chip">Remote</button>
+          <button class="filter-chip">≥ 4.0 score</button>
+          <button class="filter-chip">AI / ML</button>
+          <button class="filter-chip">Senior+</button>
+          <button class="filter-chip">$150k+</button>
+          <span class="jobs-count">47 roles</span>
+        </div>
+
+        <div class="discover-grid">
+          <div class="job-card-big hot-card">
+            <div class="jcb-header">
+              <div class="jcb-logo" style="color:#6366F1">S</div>
+              <div class="jcb-meta">
+                <div class="jcb-company">Stripe</div>
+                <div class="jcb-role">Senior AI Engineer — Payments</div>
+              </div>
+              <span class="score score-sm score-hot score-star">4.7</span>
+            </div>
+            <div class="jcb-body">
+              <div class="jcb-tags">
+                <span class="tag">Remote</span>
+                <span class="tag">$180–230k</span>
+                <span class="tag">Python</span>
+                <span class="tag">LLMs</span>
+              </div>
+              <div class="jcb-desc">Build the next generation of AI-powered fraud detection and payment intelligence systems using cutting-edge LLM orchestration.</div>
+            </div>
+            <div class="jcb-footer">
+              <span class="pill pill-evaluated">Evaluated</span>
+              <div class="jcb-actions">
+                <button class="btn btn-ghost btn-sm">Research</button>
+                <button class="btn btn-primary btn-sm">Tailor CV</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-card-big">
+            <div class="jcb-header">
+              <div class="jcb-logo" style="color:#10B981">A</div>
+              <div class="jcb-meta">
+                <div class="jcb-company">Anthropic</div>
+                <div class="jcb-role">AI Research Engineer</div>
+              </div>
+              <span class="score score-sm score-hot score-star">4.6</span>
+            </div>
+            <div class="jcb-body">
+              <div class="jcb-tags">
+                <span class="tag">SF / Remote</span>
+                <span class="tag">$200k+</span>
+                <span class="tag">Safety</span>
+                <span class="tag">Python</span>
+              </div>
+              <div class="jcb-desc">Work directly on Claude's capabilities and safety research. Requires deep understanding of transformer architectures and RLHF.</div>
+            </div>
+            <div class="jcb-footer">
+              <span class="pill pill-applied">Applied</span>
+              <div class="jcb-actions">
+                <button class="btn btn-ghost btn-sm">Interview Prep</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-card-big">
+            <div class="jcb-header">
+              <div class="jcb-logo" style="color:#F59E0B">L</div>
+              <div class="jcb-meta">
+                <div class="jcb-company">Linear</div>
+                <div class="jcb-role">Staff Engineer — AI Features</div>
+              </div>
+              <span class="score score-sm score-hot score-star">4.5</span>
+            </div>
+            <div class="jcb-body">
+              <div class="jcb-tags">
+                <span class="tag">Remote</span>
+                <span class="tag">$170–210k</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Product</span>
+              </div>
+              <div class="jcb-desc">Lead AI product features at one of the most loved dev tools. Own the AI integration roadmap and work with a tiny, exceptional team.</div>
+            </div>
+            <div class="jcb-footer">
+              <span class="pill pill-interview">Interview</span>
+              <div class="jcb-actions">
+                <button class="btn btn-primary btn-sm">Prep Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-card-big">
+            <div class="jcb-header">
+              <div class="jcb-logo" style="color:#8B5CF6">V</div>
+              <div class="jcb-meta">
+                <div class="jcb-company">Vercel</div>
+                <div class="jcb-role">Senior Engineer — AI Infrastructure</div>
+              </div>
+              <span class="score score-sm score-good score-star">4.2</span>
+            </div>
+            <div class="jcb-body">
+              <div class="jcb-tags">
+                <span class="tag">Remote</span>
+                <span class="tag">$160–190k</span>
+                <span class="tag">Go</span>
+                <span class="tag">TypeScript</span>
+              </div>
+              <div class="jcb-desc">Build the AI infrastructure that powers millions of developers. Work on edge AI, streaming, and the Next.js AI SDK.</div>
+            </div>
+            <div class="jcb-footer">
+              <span class="pill pill-evaluated">Evaluated</span>
+              <div class="jcb-actions">
+                <button class="btn btn-ghost btn-sm">Research</button>
+                <button class="btn btn-primary btn-sm">Apply</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-card-big">
+            <div class="jcb-header">
+              <div class="jcb-logo" style="color:#EC4899">N</div>
+              <div class="jcb-meta">
+                <div class="jcb-company">Notion</div>
+                <div class="jcb-role">AI Product Engineer</div>
+              </div>
+              <span class="score score-sm score-good score-star">4.0</span>
+            </div>
+            <div class="jcb-body">
+              <div class="jcb-tags">
+                <span class="tag">SF / NYC</span>
+                <span class="tag">$150–180k</span>
+                <span class="tag">React</span>
+                <span class="tag">Product</span>
+              </div>
+              <div class="jcb-desc">Shape the AI features used by 30M users. Work at the intersection of product and engineering to embed AI deeply into Notion's core.</div>
+            </div>
+            <div class="jcb-footer">
+              <span class="pill pill-skip">Not Evaluated</span>
+              <div class="jcb-actions">
+                <button class="btn btn-ghost btn-sm">Skip</button>
+                <button class="btn btn-primary btn-sm">Evaluate</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="job-card-big">
+            <div class="jcb-header">
+              <div class="jcb-logo" style="color:#06B6D4">F</div>
+              <div class="jcb-meta">
+                <div class="jcb-company">Figma</div>
+                <div class="jcb-role">ML Engineer — Design AI</div>
+              </div>
+              <span class="score score-sm score-meh score-star">3.8</span>
+            </div>
+            <div class="jcb-body">
+              <div class="jcb-tags">
+                <span class="tag">SF</span>
+                <span class="tag">$140–170k</span>
+                <span class="tag">Python</span>
+                <span class="tag">CV</span>
+              </div>
+              <div class="jcb-desc">Apply computer vision and generative AI to design tools. Build features like auto-layout suggestions and design critique AI.</div>
+            </div>
+            <div class="jcb-footer">
+              <span class="pill pill-skip">Low Match</span>
+              <div class="jcb-actions">
+                <button class="btn btn-ghost btn-sm">View Report</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE: PIPELINE ── -->
+      <div class="page" id="page-pipeline">
+        <div class="section-heading">Pipeline</div>
+        <div class="section-sub">12 active applications across all stages</div>
+
+        <div class="pipeline-grid">
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title" style="color:var(--text-2)">To Evaluate</span>
+              <span class="pipeline-count">2</span>
+            </div>
+            <div class="pipeline-items">
+              <div class="pipeline-item">
+                <div class="pi-company">Stripe</div>
+                <div class="pi-role">Sr. AI Engineer</div>
+                <div class="pi-bottom">
+                  <span class="score score-sm score-hot">★ 4.7</span>
+                  <span class="pi-date">Today</span>
+                </div>
+              </div>
+              <div class="pipeline-item">
+                <div class="pi-company">Anthropic</div>
+                <div class="pi-role">AI Research Eng</div>
+                <div class="pi-bottom">
+                  <span class="score score-sm score-hot">★ 4.6</span>
+                  <span class="pi-date">Yesterday</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title" style="color:var(--primary)">Evaluated</span>
+              <span class="pipeline-count">5</span>
+            </div>
+            <div class="pipeline-items">
+              <div class="pipeline-item">
+                <div class="pi-company">Linear</div>
+                <div class="pi-role">Staff Engineer AI</div>
+                <div class="pi-bottom"><span class="score score-sm score-hot">★ 4.5</span><span class="pi-date">Jul 5</span></div>
+              </div>
+              <div class="pipeline-item">
+                <div class="pi-company">Vercel</div>
+                <div class="pi-role">Sr. Eng AI Infra</div>
+                <div class="pi-bottom"><span class="score score-sm score-good">★ 4.2</span><span class="pi-date">Jul 3</span></div>
+              </div>
+              <div class="pipeline-item">
+                <div class="pi-company">Notion</div>
+                <div class="pi-role">AI Product Eng</div>
+                <div class="pi-bottom"><span class="score score-sm score-good">★ 4.0</span><span class="pi-date">Jul 1</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title" style="color:#60A5FA">Applied</span>
+              <span class="pipeline-count">3</span>
+            </div>
+            <div class="pipeline-items">
+              <div class="pipeline-item">
+                <div class="pi-company">Anthropic</div>
+                <div class="pi-role">Research Eng</div>
+                <div class="pi-bottom"><span class="score score-sm score-hot">★ 4.6</span><span class="pi-date">Jun 28</span></div>
+              </div>
+              <div class="pipeline-item">
+                <div class="pi-company">OpenAI</div>
+                <div class="pi-role">ML Engineer</div>
+                <div class="pi-bottom"><span class="score score-sm score-good">★ 4.1</span><span class="pi-date">Jun 25</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title" style="color:var(--success)">Interview</span>
+              <span class="pipeline-count">1</span>
+            </div>
+            <div class="pipeline-items">
+              <div class="pipeline-item" style="border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.05)">
+                <div class="pi-company">Linear</div>
+                <div class="pi-role">Staff Engineer AI</div>
+                <div class="pi-bottom"><span class="pill pill-interview" style="font-size:10px">Thu 10am</span><span class="pi-date">Jul 10</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-col">
+            <div class="pipeline-col-header">
+              <span class="pipeline-col-title" style="color:var(--accent)">Offer</span>
+              <span class="pipeline-count">0</span>
+            </div>
+            <div class="pipeline-items">
+              <div style="text-align:center;padding:20px;color:var(--text-3);font-size:12px">
+                Next one is coming
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<div class="sample-badge">
+  <strong>Design Sample</strong> — Meridian Concept · Jobops
+</div>
+
+<script>
+// Navigation
+function navigate(page, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'))
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'))
+  document.getElementById('page-' + page).classList.add('active')
+  if (el) el.classList.add('active')
+}
+
+// Sidebar toggle
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('collapsed')
+}
+
+// Momentum bars
+function buildMomentum() {
+  const track = document.getElementById('momentumTrack')
+  const data = [2, 4, 3, 7, 5, 8, 6]
+  const max = Math.max(...data)
+  data.forEach((v, i) => {
+    const col = document.createElement('div')
+    col.className = 'momentum-col' + (i === data.length-1 ? ' active' : '')
+    col.style.height = Math.round((v/max)*100) + '%'
+    track.appendChild(col)
+  })
+}
+
+// Filter chips
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'))
+    chip.classList.add('active')
+  })
+})
+
+buildMomentum()
+</script>
+</body>
+</html>

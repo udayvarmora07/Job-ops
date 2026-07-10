@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept A — The Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ——— Design language: editorial, typographic, no sidebar, no cards ——— */
+/* Ref: FT Weekend, The Economist, Linear's homepage                       */
+/* Conviction: the job IS the page. everything else earns its place.       */
+
+:root{
+  --bg:#080808;
+  --paper:#EDE8D8;       /* warm off-white — not cold blue-gray           */
+  --paper-2:#A09880;     /* mid tone                                      */
+  --paper-3:#4A4437;     /* dim                                           */
+  --amber:#C8920A;       /* single accent — warm golden, not Tailwind     */
+  --amber-glow:rgba(200,146,10,.07);
+  --rule:rgba(237,232,216,.09);
+  --rule-strong:rgba(237,232,216,.18);
+  --font-h:'Outfit','Helvetica Neue',system-ui,sans-serif;
+  --font-b:'Inter',system-ui,sans-serif;
+}
+
+body{
+  font-family:var(--font-b);
+  background:var(--bg);
+  color:var(--paper);
+  min-height:100vh;
+  font-size:14px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ——— NAV ——— */
+nav{
+  display:flex;
+  align-items:center;
+  gap:0;
+  padding:0 36px;
+  height:50px;
+  border-bottom:1px solid var(--rule-strong);
+  flex-shrink:0;
+}
+.logo{
+  font-family:var(--font-h);
+  font-weight:800;
+  font-size:15px;
+  letter-spacing:-.02em;
+  color:var(--paper);
+  margin-right:48px;
+}
+.nav-links{
+  display:flex;
+  gap:0;
+  flex:1;
+}
+.nav-links a{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--paper-3);
+  text-decoration:none;
+  padding:0 16px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border-bottom:1px solid transparent;
+  margin-bottom:-1px;
+  cursor:pointer;
+  transition:color .15s,border-color .15s;
+}
+.nav-links a:hover{color:var(--paper-2)}
+.nav-links a.active{
+  color:var(--paper);
+  border-bottom-color:var(--paper);
+}
+.nav-links a em{
+  font-style:normal;
+  font-size:10px;
+  background:var(--amber-glow);
+  color:var(--amber);
+  padding:1px 5px;
+  border-radius:3px;
+}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:auto;
+}
+.btn-scan{
+  font-family:var(--font-b);
+  font-size:12px;
+  color:var(--paper-2);
+  background:transparent;
+  border:1px solid var(--rule-strong);
+  border-radius:4px;
+  padding:5px 12px;
+  cursor:pointer;
+  transition:color .15s,border-color .15s;
+}
+.btn-scan:hover{color:var(--paper);border-color:rgba(237,232,216,.35)}
+.btn-eval{
+  font-family:var(--font-b);
+  font-size:12px;
+  font-weight:600;
+  color:var(--bg);
+  background:var(--amber);
+  border:none;
+  border-radius:4px;
+  padding:5px 14px;
+  cursor:pointer;
+}
+
+/* ——— DATE BAR ——— */
+.datebar{
+  padding:8px 36px;
+  border-bottom:1px solid var(--rule);
+  font-size:11px;
+  letter-spacing:.05em;
+  color:var(--paper-3);
+  display:flex;
+  gap:24px;
+}
+.datebar span{color:var(--paper-2)}
+
+/* ——— LAYOUT ——— */
+.layout{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  flex:1;
+  overflow:hidden;
+}
+.col-left{
+  padding:44px 36px 44px 36px;
+  border-right:1px solid var(--rule);
+  overflow-y:auto;
+}
+.col-right{
+  padding:32px 28px;
+  overflow-y:auto;
+}
+
+/* ——— LEFT COL ——— */
+.job-kicker{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--paper-3);
+  margin-bottom:20px;
+}
+.job-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:10px;
+}
+/* The company name is the biggest thing on screen.                          */
+/* Most designers wouldn't do this. It creates editorial hierarchy.         */
+.company{
+  font-family:var(--font-h);
+  font-size:70px;
+  font-weight:800;
+  line-height:.95;
+  letter-spacing:-.03em;
+  color:var(--amber);
+}
+/* Score as a floating grade — not a badge, not a card. Just a number.      */
+.score-block{
+  text-align:right;
+  flex-shrink:0;
+  margin-top:8px;
+}
+.score-n{
+  font-family:var(--font-h);
+  font-size:52px;
+  font-weight:300;
+  letter-spacing:-.03em;
+  color:var(--paper);
+  line-height:1;
+}
+.score-den{
+  font-size:18px;
+  color:var(--paper-3);
+}
+.score-label{
+  font-size:10px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--paper-3);
+  margin-top:4px;
+}
+
+.job-title{
+  font-family:var(--font-h);
+  font-size:26px;
+  font-weight:400;   /* size does the work, not weight */
+  line-height:1.25;
+  color:var(--paper);
+  margin-bottom:18px;
+}
+.job-specs{
+  display:flex;
+  gap:20px;
+  font-size:12px;
+  color:var(--paper-3);
+  letter-spacing:.03em;
+  margin-bottom:28px;
+}
+.job-specs span{color:var(--paper-2)}
+
+.rule{
+  border:none;
+  border-top:1px solid var(--rule);
+  margin:28px 0;
+}
+
+.insight{
+  font-size:15px;
+  line-height:1.7;
+  color:var(--paper-2);
+  max-width:520px;
+  margin-bottom:28px;
+}
+/* highlight only the critical word */
+.insight strong{color:var(--paper);font-weight:500}
+
+.actions{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  margin-bottom:36px;
+}
+/* No button chrome. Just text with arrows. Earned by the context.         */
+.action-link{
+  font-size:14px;
+  font-weight:500;
+  color:var(--paper-2);
+  padding:10px 0;
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  transition:color .15s;
+}
+.action-link:first-child{border-top:1px solid var(--rule)}
+.action-link:hover{color:var(--paper)}
+.action-link span{
+  font-size:11px;
+  color:var(--paper-3);
+}
+.action-arrow{
+  font-size:12px;
+  color:var(--paper-3);
+}
+
+.verification{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  color:var(--paper-3);
+}
+.verify-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#4ADE80;
+  flex-shrink:0;
+}
+.verify-text{color:var(--paper-2)}
+
+/* ——— RIGHT COL ——— */
+.brief-title{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--paper-3);
+  margin-bottom:20px;
+}
+.action-list{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  margin-bottom:32px;
+}
+.al-item{
+  display:grid;
+  grid-template-columns:20px 1fr;
+  gap:10px;
+  padding:14px 0;
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;
+}
+.al-item:first-child{border-top:1px solid var(--rule)}
+.al-num{
+  font-family:var(--font-h);
+  font-size:11px;
+  font-weight:700;
+  color:var(--paper-3);
+  padding-top:2px;
+}
+.al-title{
+  font-size:13px;
+  font-weight:500;
+  color:var(--paper);
+  margin-bottom:2px;
+}
+.al-sub{
+  font-size:11px;
+  color:var(--paper-3);
+}
+.overdue .al-num{color:var(--amber)}
+.overdue .al-title{color:var(--amber)}
+
+.section-title{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--paper-3);
+  margin-bottom:14px;
+}
+.pipeline-rows{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  margin-bottom:28px;
+}
+.pl-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:8px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:13px;
+}
+.pl-row:first-child{border-top:1px solid var(--rule)}
+.pl-state{color:var(--paper-2)}
+.pl-n{
+  font-family:var(--font-h);
+  font-size:18px;
+  font-weight:700;
+  color:var(--paper);
+}
+.pl-n.zero{color:var(--paper-3)}
+
+.stats-row{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:28px;
+}
+.stat-line{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  color:var(--paper-2);
+}
+.stat-val{color:var(--paper);font-weight:500}
+.stat-change{font-size:11px;color:var(--paper-3)}
+.stat-change.up{color:#4ADE80}
+.stat-change.dn{color:#F87171}
+
+.scan-block{
+  padding-top:20px;
+  border-top:1px solid var(--rule);
+}
+.scan-status{
+  font-size:12px;
+  color:var(--paper-3);
+  margin-bottom:10px;
+  line-height:1.5;
+}
+.scan-status strong{color:var(--paper-2)}
+.scan-link{
+  font-size:12px;
+  font-weight:500;
+  color:var(--amber);
+  cursor:pointer;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .15s;
+}
+.scan-link:hover{border-bottom-color:var(--amber)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Jobops</div>
+  <div class="nav-links">
+    <a class="active">Today</a>
+    <a>Discover <em>47</em></a>
+    <a>Pipeline <em>12</em></a>
+    <a>Reports</a>
+  </div>
+  <div class="nav-right">
+    <button class="btn-scan">↺ Scan portals</button>
+    <button class="btn-eval">+ Evaluate job</button>
+  </div>
+</nav>
+
+<div class="datebar">
+  <span>Tuesday, July 8, 2026</span>
+  <span>Good morning, Uday</span>
+  <span>3 actions waiting</span>
+</div>
+
+<div class="layout">
+
+  <!-- LEFT — the featured opportunity owns this space -->
+  <div class="col-left">
+    <div class="job-kicker">Top pick · AI Engineering</div>
+
+    <div class="job-header">
+      <div class="company">Stripe</div>
+      <div class="score-block">
+        <div class="score-n">4.7<span class="score-den">/5</span></div>
+        <div class="score-label">Exceptional match</div>
+      </div>
+    </div>
+
+    <h1 class="job-title">Senior AI Engineer<br>Payments Intelligence</h1>
+
+    <div class="job-specs">
+      <span>Remote — USA</span>
+      <span>$180,000 – $230,000</span>
+      <span>Python · LLMs · MLOps</span>
+    </div>
+
+    <hr class="rule">
+
+    <p class="insight">
+      Your LLM orchestration background is a <strong>direct match</strong>
+      for what Stripe is building. The fintech experience gap is real but
+      manageable — your negotiation playbook addresses it. Stripe's AI
+      team grew 40% in 2024 and is still actively hiring senior IC engineers.
+      This is <strong>worth the investment</strong> of a tailored application.
+    </p>
+
+    <div class="actions">
+      <div class="action-link">
+        Evaluate this role
+        <span class="action-arrow">→</span>
+      </div>
+      <div class="action-link">
+        Tailor CV for this position
+        <span>Last tailored: 6 days ago</span>
+        <span class="action-arrow">→</span>
+      </div>
+      <div class="action-link">
+        Deep company research
+        <span class="action-arrow">→</span>
+      </div>
+      <div class="action-link">
+        Generate cover letter
+        <span class="action-arrow">→</span>
+      </div>
+    </div>
+
+    <div class="verification">
+      <div class="verify-dot"></div>
+      <span>Ghost Shield:</span>
+      <span class="verify-text">Playwright-verified active posting · checked 2h ago</span>
+    </div>
+  </div>
+
+  <!-- RIGHT — everything else, compact -->
+  <div class="col-right">
+    <div class="brief-title">Today's brief</div>
+
+    <div class="action-list">
+      <div class="al-item overdue">
+        <div class="al-num">1</div>
+        <div>
+          <div class="al-title">Follow up with Vercel</div>
+          <div class="al-sub">Day 5 · no response · overdue</div>
+        </div>
+      </div>
+      <div class="al-item">
+        <div class="al-num">2</div>
+        <div>
+          <div class="al-title">Interview prep: Google SWE</div>
+          <div class="al-sub">Thursday · 2 days · system design</div>
+        </div>
+      </div>
+      <div class="al-item">
+        <div class="al-num">3</div>
+        <div>
+          <div class="al-title">Evaluate 2 new arrivals</div>
+          <div class="al-sub">Linear · Anthropic · added yesterday</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Pipeline</div>
+    <div class="pipeline-rows">
+      <div class="pl-row">
+        <span class="pl-state">To evaluate</span>
+        <span class="pl-n">2</span>
+      </div>
+      <div class="pl-row">
+        <span class="pl-state">Applied</span>
+        <span class="pl-n">3</span>
+      </div>
+      <div class="pl-row">
+        <span class="pl-state">Interviewing</span>
+        <span class="pl-n">1</span>
+      </div>
+      <div class="pl-row">
+        <span class="pl-state">Offers</span>
+        <span class="pl-n zero">0</span>
+      </div>
+    </div>
+
+    <div class="section-title">30-day numbers</div>
+    <div class="stats-row">
+      <div class="stat-line">
+        <span>Offers evaluated</span>
+        <span class="stat-val">23 <span class="stat-change up">↑5</span></span>
+      </div>
+      <div class="stat-line">
+        <span>Applications sent</span>
+        <span class="stat-val">8 <span class="stat-change up">↑2</span></span>
+      </div>
+      <div class="stat-line">
+        <span>Average score</span>
+        <span class="stat-val">4.3 <span class="stat-change up">↑</span></span>
+      </div>
+      <div class="stat-line">
+        <span>Response rate</span>
+        <span class="stat-val">35% <span class="stat-change dn">↓5%</span></span>
+      </div>
+    </div>
+
+    <div class="scan-block">
+      <div class="scan-status">
+        Portals last scanned <strong>3 hours ago</strong> ·
+        45 portals · <strong>2 new matches</strong> waiting
+      </div>
+      <a class="scan-link">Run scan now →</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
