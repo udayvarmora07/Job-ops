@@ -67,7 +67,9 @@ export async function DELETE(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
+  const numId = parseInt(id, 10);
+  if (isNaN(numId)) return NextResponse.json({ error: "id must be a number" }, { status: 400 });
 
-  await prisma.referral.deleteMany({ where: { id: parseInt(id, 10), userId: uid } });
+  await prisma.referral.deleteMany({ where: { id: numId, userId: uid } });
   return NextResponse.json({ ok: true });
 }

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUserId } from "@/lib/auth";
+import { withErrorJson } from "@/lib/api-error";
 
 export const dynamic = "force-dynamic";
 
@@ -15,7 +16,7 @@ const REACHED: Record<string, number> = {
   rejected: 2,
 };
 
-export async function GET(req: Request) {
+async function summaryHandler(req: Request) {
   const uid = await requireUserId(req);
   if (uid instanceof NextResponse) return uid;
 
@@ -77,3 +78,5 @@ export async function GET(req: Request) {
     refByStatus,
   });
 }
+
+export const GET = withErrorJson(summaryHandler);

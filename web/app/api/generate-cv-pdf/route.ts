@@ -4,6 +4,7 @@ import path from "path";
 import { projectRoot } from "@/lib/paths";
 import { requireUserId } from "@/lib/auth";
 import { loadProfileForUser } from "@/lib/profile";
+import { withErrorJson } from "@/lib/api-error";
 import { prisma } from "@/lib/prisma";
 import { runNode } from "@/lib/run-node";
 import { getJd } from "@/lib/jd-store";
@@ -86,7 +87,7 @@ function buildFilenameSuffix(company?: string, role?: string): string {
   return cPart || rPart;
 }
 
-export async function POST(req: Request) {
+async function cvPdfHandler(req: Request) {
   const uid = await requireUserId(req);
   if (uid instanceof NextResponse) return uid;
 
@@ -239,3 +240,5 @@ export async function POST(req: Request) {
     },
   });
 }
+
+export const POST = withErrorJson(cvPdfHandler);

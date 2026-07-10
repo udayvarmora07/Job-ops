@@ -126,15 +126,18 @@ export async function POST(req: Request) {
     if (hit) return NextResponse.json({ cached: true, ...(hit.payload as object) });
   }
 
-  // Build the actor input from the persona. searchQuery carries the AI keywords;
-  // structured filters sharpen it (current company + optional past company / school).
+  // Build the actor input. Only pass structured URL filters when the value
+  // looks like a LinkedIn URL (e.g. linkedin.com/company/vercel). Plain company
+  // names are already covered by searchQuery so they don't need a URL filter.
+  const looksLikeLinkedInUrl = (s: string) => s.includes("/");
+
   const input: Record<string, unknown> = {
     profileScraperMode: "Short",
     searchQuery: (body.keywords || `${company} ${body.role || ""}`).trim(),
-    currentCompanyUrls: [company],
     takePages: 1,
     preferBuiltinSearch: false,
   };
+  if (looksLikeLinkedInUrl(company)) input.currentCompanyUrls = [company];
   if (body.currentTitles?.length) input.currentJobTitles = body.currentTitles;
 
   // Apply the user's warm-path background based on the persona of this target:
@@ -147,11 +150,11 @@ export async function POST(req: Request) {
     body.school || (/alumn|universit|college|school|grad/.test(persona) ? bg.school : null);
   const applied: string[] = [];
   if (pastCompany) {
-    input.pastCompanyUrls = [pastCompany];
+    if (looksLikeLinkedInUrl(pastCompany)) input.pastCompanyUrls = [pastCompany];
     applied.push(`past: ${pastCompany}`);
   }
   if (school) {
-    input.schoolUrls = [school];
+    if (looksLikeLinkedInUrl(school)) input.schoolUrls = [school];
     applied.push(`school: ${school}`);
   }
 

@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
-import os from "os";
 import { projectRoot } from "@/lib/paths";
 import { runNode } from "@/lib/run-node";
+import { withErrorJson } from "@/lib/api-error";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -89,7 +89,7 @@ function buildCoverHtml(text: string): string {
 </html>`;
 }
 
-export async function POST(req: Request) {
+async function coverPdfHandler(req: Request) {
   let body: { text?: string } = {};
   try {
     body = await req.json();
@@ -101,8 +101,12 @@ export async function POST(req: Request) {
 
   const root = projectRoot();
   const ts = Date.now();
-  const tmpHtml = path.join(os.tmpdir(), `cover-${ts}.html`);
-  const tmpPdf = path.join(os.tmpdir(), `cover-${ts}.pdf`);
+  // Write temp files inside the project (gitignored output/) — generate-pdf.mjs
+  // refuses to write a PDF outside the project root, so OS temp dirs (/tmp) fail.
+  const tmpDir = path.join(root, "output", "tmp");
+  fs.mkdirSync(tmpDir, { recursive: true });
+  const tmpHtml = path.join(tmpDir, `cover-${ts}.html`);
+  const tmpPdf = path.join(tmpDir, `cover-${ts}.pdf`);
 
   try {
     fs.writeFileSync(tmpHtml, buildCoverHtml(text), "utf8");
@@ -138,3 +142,5 @@ export async function POST(req: Request) {
     try { fs.unlinkSync(tmpPdf); } catch { /* */ }
   }
 }
+
+export const POST = withErrorJson(coverPdfHandler);

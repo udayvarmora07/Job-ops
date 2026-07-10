@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireUserId } from "@/lib/auth";
+import { withErrorJson } from "@/lib/api-error";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(req: Request) {
+async function reportsHandler(req: Request) {
   const uid = await requireUserId(req);
   if (uid instanceof NextResponse) return uid;
 
@@ -29,3 +30,5 @@ export async function GET(req: Request) {
     })),
   });
 }
+
+export const GET = withErrorJson(reportsHandler);

@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { suggestReferrals } from "@/lib/suggest";
+import { withErrorJson } from "@/lib/api-error";
 
 export const dynamic = "force-dynamic";
 
-export async function POST(req: NextRequest) {
+export const POST = withErrorJson(async (req: NextRequest) => {
   const body = await req.json().catch(() => ({}));
   const company = String(body.company || "").trim();
   if (!company) {
@@ -16,4 +17,4 @@ export async function POST(req: NextRequest) {
     jobUrl: body.jobUrl ? String(body.jobUrl).trim() : undefined,
   });
   return NextResponse.json({ result });
-}
+});
