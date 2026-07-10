@@ -1,28 +1,28 @@
 {
-  "filenameSuffix": "Recro_DevOps_Engineer",
-  "title": "Uday Varmora - DevOps Engineer Resume",
+  "filenameSuffix": "Vercel_Senior_DevOps_Engineer",
+  "title": "Uday Varmora - Senior DevOps Engineer Resume",
   "colorScheme": "teal",
-  "summary": "DevOps Engineer with **1+ year** in **cloud infrastructure, CI/CD, and production support** across 20+ Dockerised microservices — sustaining **~8-minute automated deploys**, **99.9% uptime**, and cutting operational toil **70%**. Hands-on with **AWS (EC2, EKS, IAM, VPC, CloudWatch), Docker, Kubernetes, Jenkins, GitLab CI/CD, GitHub Actions, Terraform, Prometheus, Grafana, Datadog, ELK, Python/Bash**.",
+  "summary": "DevOps Engineer with **1+ year** building and maintaining **cloud infrastructure** on **Kubernetes (EKS), Docker, Terraform, and AWS** — sustaining **99.9% uptime** and **~8-minute automated deploys** across 20+ microservices. Hands-on with **GitHub Actions, Jenkins, GitLab CI/CD, ArgoCD, Helm, Prometheus, Grafana, HashiCorp Vault, Python/Bash**.",
   "skills": [
     [
-      "Cloud Platforms",
-      "AWS — EC2, EKS, Lambda, S3, ECR, RDS, VPC, IAM, CloudWatch, CloudFront"
-    ],
-    [
       "Containers & Orchestration",
-      "Docker, Kubernetes (EKS), Helm, Karpenter, KEDA, Ingress-NGINX"
-    ],
-    [
-      "CI/CD & GitOps",
-      "GitHub Actions, GitLab CI/CD, Jenkins, AWS CodePipeline, AWS CodeBuild, ArgoCD"
-    ],
-    [
-      "Observability & Monitoring",
-      "CloudWatch, Prometheus, Grafana, Loki, Grafana Alloy, Datadog, ELK Stack"
+      "Docker, Kubernetes (EKS), Helm, ArgoCD, Karpenter, KEDA, Ingress-NGINX"
     ],
     [
       "Infrastructure as Code",
-      "Terraform, AWS CloudFormation, AWS SAM, Ansible"
+      "Terraform (34 modules, S3 remote state, DynamoDB locking), AWS CloudFormation, AWS SAM, Ansible"
+    ],
+    [
+      "CI/CD & GitOps",
+      "GitHub Actions, Jenkins, GitLab CI/CD, AWS CodePipeline, AWS CodeBuild, ArgoCD"
+    ],
+    [
+      "Cloud Platforms",
+      "AWS — EKS, EC2, Lambda, S3, ECR, RDS, VPC, IAM, CloudWatch, KMS"
+    ],
+    [
+      "Observability & Monitoring",
+      "Prometheus, Grafana, Loki, Grafana Alloy, CloudWatch"
     ],
     [
       "Scripting & OS",
@@ -30,7 +30,7 @@
     ],
     [
       "Security & Secrets",
-      "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM, KMS, TLS/SSL"
+      "HashiCorp Vault, AWS Secrets Manager, Sealed Secrets, Trivy Operator, IAM (IRSA, Pod Identity), KMS"
     ],
     [
       "Version Control & Code Review",
@@ -43,11 +43,11 @@
       "org": "eSparkBiz · Ahmedabad, India",
       "dates": "Jun 2025 – Apr 2026",
       "bullets": [
-        "Built and maintained **40+ CI/CD pipelines** using **GitHub Actions, GitLab CI/CD, Jenkins, AWS CodePipeline, and AWS CodeBuild** — automating build-test-deploy across **20+ Dockerised microservices**, including pipelines for new services, sustaining fast automated **(~8-minute)** deployments.",
-        "Deployed and supported **containerized applications** on **Kubernetes (EKS)** with **ArgoCD GitOps, Helm, and Ingress-NGINX** — managing zero-downtime rollouts, Karpenter node autoscaling, and KEDA event-driven scaling; executed a zero-downtime **EKS upgrade (v1.33 → v1.34)**; sustained **99.9% uptime** across multi-AZ clusters.",
-        "Managed and maintained multi-environment **AWS** infrastructure (EC2, EKS, VPC, IAM, S3, CloudWatch) on **Linux (Ubuntu, Amazon Linux, RHEL)** using **Terraform IaC** (34 reusable modules, S3 remote state, DynamoDB locking) — delivering reproducible provisioning across Dev, Staging, and Production.",
-        "Monitored systems and analyzed logs with **Prometheus, Grafana, Loki, Datadog, and ELK Stack**; drove **root-cause analysis** for **Linux-based production incidents** across CPU, memory, network, and container runtime; authored runbooks and post-incident reviews.",
-        "Automated operational tasks with **Python and Bash** to eliminate **~70% of recurring operational toil** — cluster operations, log triage, secret rotation, scheduled scaling, and pipeline scripting."
+        "Operated **Kubernetes (EKS)** clusters with **ArgoCD GitOps, Helm, and Ingress-NGINX** — managing zero-downtime rollouts, Karpenter node autoscaling, and KEDA event-driven scaling; executed a zero-downtime **EKS upgrade (v1.33 → v1.34)** and sustained **99.9% uptime** across multi-AZ clusters.",
+        "Built and maintained **40+ CI/CD pipelines** using **GitHub Actions, Jenkins, GitLab CI/CD, AWS CodePipeline, and AWS CodeBuild** — automating build-test-deploy across **20+ Dockerised microservices** and sustaining fast, automated **~8-minute deployments**.",
+        "Maintained and extended multi-environment AWS infrastructure (**EKS, EC2, S3, RDS, VPC, IAM**) on **Linux (Ubuntu, Amazon Linux, RHEL)** using **Terraform IaC** (34 reusable modules, S3 remote state, DynamoDB locking) — delivering consistent, reproducible provisioning across Dev, Staging, and Production.",
+        "Drove **root-cause analysis** for **Linux-based production incidents** across CPU, memory, network, and container runtime; built observability with **Prometheus, Grafana, and Loki**; authored runbooks and post-incident reviews.",
+        "Developed **Python and Bash** automation to eliminate **~70% of recurring operational toil** — cluster operations, log triage, secret rotation, scheduled scaling (non-prod CronJob), and pipeline scripting; strengthened security with **HashiCorp Vault** and AWS Secrets Manager."
       ]
     },
     {
@@ -63,10 +63,10 @@
   "projects": [
     {
       "title": "Cloud-Native SaaS CRM Platform — Multi-Tenant AWS / EKS Build & Deploy Infrastructure",
-      "tech": "Terraform · AWS EKS · Docker · Jenkins · GitLab CI/CD · GitHub Actions · AWS CodePipeline · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
+      "tech": "Terraform · AWS EKS · Docker · GitHub Actions · Jenkins · GitLab CI/CD · ArgoCD · Ingress-NGINX · Prometheus · Grafana",
       "bullets": [
-        "Operated and extended a multi-environment build/deploy architecture with per-environment **VPC isolation and S3/DynamoDB remote state** — enabling reproducible Dev/Production infrastructure on Linux-based EKS nodes with **Ingress-NGINX Controller**; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation.",
-        "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification, KEDA off-hours scale-down, and a **Kubernetes CronJob** that scales dev/non-prod down overnight; migrated deprecated loki-stack to Loki + Grafana Alloy, improving log pipeline reliability.",
+        "Operated and extended a multi-environment build/deploy architecture with per-environment **VPC isolation and S3/DynamoDB remote state** — reproducible Dev/Production infrastructure on Linux-based EKS nodes with **Ingress-NGINX Controller**; executed zero-downtime **EKS cluster upgrade (v1.33 → v1.34)** managing node group rollouts, add-on compatibility, and API deprecation remediation.",
+        "Reduced compute costs by **30% ($500+/month)** via Karpenter Spot/On-Demand diversification, KEDA off-hours scale-down, and a Kubernetes CronJob that scales dev/non-prod down overnight; migrated deprecated loki-stack to Loki + Grafana Alloy for reliable log pipelines.",
         "Built multi-region **disaster recovery strategy** using Velero (with EBS snapshot Data Mover), S3/ECR cross-region replication, and AWS Backup with cross-region vaults — achieving **RPO < 1 hour** for production workloads."
       ]
     },

@@ -353,7 +353,7 @@ You can also paste URLs manually under that heading.
 - [ ] https://www.adzuna.in/land/ad/5765771411?se=gAOkSAZu8RGJe8gKxAvXaw&utm_medium=api&utm_source=091434ce&v=92D5C1F4982876F9F9B34FF76A80CE527549ADFA | Snapmint | Site Reliability Engineer
 - [ ] https://www.adzuna.in/land/ad/5763490530?se=gAOkSAZu8RGJe8gKxAvXaw&utm_medium=api&utm_source=091434ce&v=85EDB8013D75F08BB337D645D1F3F17F0843B37A | Penta Consulting | Site Reliability Engineer
 - [ ] https://www.adzuna.in/land/ad/5769649845?se=gAOkSAZu8RGJe8gKxAvXaw&utm_medium=api&utm_source=091434ce&v=4E753CC51D146D86EEF10FC191E14A2DA44729D8 | Avenue Code | Site Reliability Engineering
-- [ ] https://www.naukri.com/job-listings-associate-devops-engineer-bain-gurugram-1-to-4-years-230426010947 | Associate Devops Engineer Bain Gurugram 1 To 4 Years
+- [ ] https://www.naukri.com/job-listings-associate-devops-engineer-bain-gurugram-1-to-4-years-230426010947 | Bain | Associate Devops Engineer Bain Gurugram 1 To 4 Years
 
 - [ ] https://www.okta.com/company/careers/opportunity/7994928?gh_jid=7994928 | Okta | Staff Site Reliability Engineer
 - [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Site-Reliability-Engineer-Database-Admin--MongoDB-Postgres-Mysql-Vector---AI--Exp--7-12-Yrs_2015404-1 | Cisco | Site Reliability Engineer-Database Admin (MongoDB/Postgres/Mysql/Vector), AI, Exp: 7-12 Yrs
@@ -677,3 +677,278 @@ You can also paste URLs manually under that heading.
 - [ ] https://msphere.io/careers/devops-engineer/ | Metasphere | DevOps Engineer
 - [ ] https://www.linkedin.com/jobs/view/4434435615/ | Lucidity | DevOps Engineer
 - [ ] https://www.linkedin.com/jobs/view/4432320161/ | Recro | DevOps Engineer
+
+- [ ] https://job-boards.greenhouse.io/zscaler/jobs/5177398007 | Zscaler | Software Development Engineer (DevSecOps) | Bangalore, IND
+- [ ] https://job-boards.greenhouse.io/zscaler/jobs/5177391007 | Zscaler | Sr. Staff Site Reliability Engineer (Linux/Network troubleshooting/Scripting) | Hyderabad, IND
+- [ ] https://www.okta.com/company/careers/opportunity/8034975?gh_jid=8034975 | Okta | Senior Site Reliability Engineer | Bengaluru, India
+- [ ] https://www.okta.com/company/careers/opportunity/7653045?gh_jid=7653045 | Okta | Senior Site Reliability Engineer- Observability | Bengaluru, India
+- [ ] https://jobs.ashbyhq.com/sarvam/fcb15601-6440-41f7-aa79-b9992057a4b2 | Sarvam AI | Platform Engineer - AI Infrastructure | Bengaluru
+- [ ] https://jobs.lever.co/zeta/31a75866-6674-4aa5-9af4-8202507d83a7 | Zeta | Principal Site Reliability Engineer I | Hyderabad
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Software-Engineer---Kubernetes-Platform_2017812-1 | Cisco | Software Engineer – Kubernetes Platform | Bangalore, India
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Platform-Engineer---OpenShift--AI-ML-SRE---4--years_2017939 | Cisco | Platform Engineer – OpenShift+ AI-ML SRE / 4+ years | Bangalore, India
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Site-Reliability-Engineer_2016042-1 | Cisco | Site Reliability Engineer | Bangalore, India
+- [ ] https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Bangalore-India/Software-Engineer---Backend-Engineer----Python-Go---kubernetes--Database---5-to-8-years_2014498 | Cisco | Software Engineer - Backend Engineer , Python/Go , kubernetes, Database - 5 to 8 years | Bangalore, India
+- [ ] https://micron.wd1.myworkdayjobs.com/External/job/Sanand---303A---ATSSDMOD-India/DEMQRA-Quality-and-Reliability-Engineer_JR97449 | Micron | DEMQRA Quality and Reliability Engineer | Sanand - 303A - AT/SSD/MOD, India
+- [ ] https://vanguard.wd5.myworkdayjobs.com/vanguard_external/job/Hyderabad-India/Cloud-Engineer--Specialist_179410 | Vanguard | Cloud Engineer, Specialist | Hyderabad, India
+- [ ] https://vanguard.wd5.myworkdayjobs.com/vanguard_external/job/Hyderabad-India/Site-Reliability-Champion--Specialist_179093 | Vanguard | Site Reliability Champion, Specialist | Hyderabad, India
+- [ ] https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site/job/Brazil-So-Paulo-So-Paulo/Tech-Lead-DevOps_JREQ194474 | Thomson Reuters | Tech Lead DevOps
+- [ ] https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site/job/United-States-of-America-Eagan-Minnesota/Senior-Cloud-and-DevOps-Engineer_JREQ201808 | Thomson Reuters | Senior Cloud and DevOps Engineer
+- [ ] https://jobs.smartrecruiters.com/Freshworks/postings/744000136437154 | Freshworks | Lead Software Engineer - Site Reliability | Chennai, , India
+- [ ] https://jobs.smartrecruiters.com/Experian/postings/744000136489560 | Experian | Lead DevOps Engineer | Hyderabad, , India
+- [ ] https://jobs.smartrecruiters.com/Experian/postings/744000135914471 | Experian | Lead Data Platform Engineer | Hyderabad, , India
+- [ ] https://jobs.smartrecruiters.com/Experian/postings/744000135060907 | Experian | DevOps Senior Engineer | Heredia, Heredia, Costa Rica, Remote
+- [ ] https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Noida/Senior-DevOps-Platform-Engineer_R170207-1 | Adobe | Senior DevOps Platform Engineer | Noida
+- [ ] https://visa.wd5.myworkdayjobs.com/Visa/job/IN---Bengaluru-India/Senior-Systems-Engineer_REF083121W-1 | Visa | Senior Systems Engineer | IN - Bengaluru, India
+- [ ] https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/India-Bengaluru/DevOps-Engineer--DFX-Software_JR2016127 | NVIDIA | DevOps Engineer, DFX Software | India, Bengaluru
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Navi-Mumbai-India-Finicity/Senior-Site-Reliability-Engineer_R-281227 | Mastercard | Senior Site Reliability Engineer | Navi Mumbai, India (Finicity)
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Senior-Platform-Engineer_R-275263 | Mastercard | Senior Platform Engineer | Pune, India
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Platform-Engineer-II_R-279214-1 | Mastercard | Platform Engineer II | Pune, India
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Remote---Mexico/Site-Reliability-Engineer-II_R-275688 | Mastercard | Site Reliability Engineer II | Remote - Mexico
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/BizOps-Engineer-I_R-274230 | Mastercard | Site Reliability Engineer I | Pune, India
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Lead-BizOps-Engineer_R-272983 | Mastercard | Lead Site Reliability Engineer | Pune, India
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Principal-BizOps-Engineer_R-275045 | Mastercard | Principal Site Reliability Engineer | Pune, India
+
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Biz-Ops-Engineer-II_R-268675 | Mastercard | Site Reliability Engineer II | Pune, India
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/Senior-BizOps-Engineer_R-268249 | Mastercard | Senior Site Reliability Engineer | Pune, India
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Vendor---Pune-India-Fulcrum/Site-Reliability-Engineer-I_R-271674 | Mastercard | Site Reliability Engineer I | Vendor - Pune, India (Fulcrum)
+- [ ] https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/Pune-India/lead-bizops-engineer_R-266042 | Mastercard | Lead Site Reliability Engineer | Pune, India
+
+- [ ] https://www.instahyre.com/job-431053-devops-engineer-at-commotion-work-from-home/ | Commotion | DevOps Engineer | Work From Home
+- [ ] https://www.instahyre.com/job-432232-devops-engineer-at-erelego-technologies-bangalore/ | eReleGo Technologies | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-432321-devops-engineer-at-persistence-bangalore/ | Persistence | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-431070-devops-engineer-at-huru-delhi/ | Huru | DevOps Engineer | Delhi
+- [ ] https://www.instahyre.com/job-432181-devops-engineer-at-confido-health-bangalore/ | Confido Health | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-431829-devsecops-engineer-at-improving-work-from-home/ | Improving | DevSecOps Engineer | Work From Home
+- [ ] https://www.instahyre.com/job-357121-devops-engineer-at-scope-retail-systems-indore-pune/ | Scope Retail Systems | DevOps Engineer | Indore,Pune
+- [ ] https://www.instahyre.com/job-431126-devops-engineer-at-american-airlines-hyderabad/ | American Airlines | DevOps Engineer | Hyderabad
+- [ ] https://www.instahyre.com/job-312559-devops-engineer-at-big-oh-tech-gurgaon/ | Big Oh Tech | DevOps Engineer | Gurgaon
+- [ ] https://www.instahyre.com/job-431192-devops-engineer-ii-at-miq-bangalore/ | MiQ | DevOps Engineer II | Bangalore
+- [ ] https://www.instahyre.com/job-432568-site-reliability-engineer-at-pocketfm-bangalore/ | PocketFM | Site Reliability Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-427245-devops-engineer-at-nurix-bangalore/ | Nurix | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-432092-devops-engineer-at-helpshift-pune/ | Helpshift | DevOps Engineer | Pune
+- [ ] https://www.instahyre.com/job-246776-devops-engineer-at-planview-bangalore/ | Planview | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-426056-devops-engineer-at-hackerrank-bangalore/ | HackerRank | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-413481-devops-engineer-3-at-amazon-bangalore/ | Amazon | DevOps Engineer 3 | Bangalore
+- [ ] https://www.instahyre.com/job-432226-devops-engineer-at-knowl-bangalore/ | Knowl | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-432023-devops-engineer-at-amazon-bangalore/ | Amazon | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-432178-devops-engineer-at-zero-to-1-work-from-home/ | Zero to 1 | DevOps Engineer | Work From Home
+- [ ] https://www.instahyre.com/job-430956-site-reliability-engineer-at-hbk-work-from-home/ | HBK | Site Reliability Engineer | Work From Home
+- [ ] https://www.instahyre.com/job-417451-site-reliability-engineer-at-drizz-bangalore/ | Drizz | Site Reliability Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-431942-sre-1-at-pocketfm-bangalore/ | PocketFM | SRE - 1 | Bangalore
+- [ ] https://www.instahyre.com/job-430488-site-reliability-engineer-at-shuru-bangalore/ | Shuru | Site Reliability Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-423329-devops-engineer-at-8byte-bangalore/ | 8byte | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-421007-devops-automation-developer-at-nihilent-2-chennai-delhi-kolkata/ | Nihilent | DevOps Automation Developer | Chennai,Delhi,Kolkata
+- [ ] https://www.instahyre.com/job-431355-devops-engineer-azure-at-wissen-technology-bangalore/ | Wissen Technology | DevOps Engineer (Azure) | Bangalore
+- [ ] https://www.instahyre.com/job-431780-site-reliability-engineer-at-dexcare-bangalore/ | DexCare | Site Reliability Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-425549-devops-engineer-at-acl-digital-bangalore/ | ACL Digital | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-420013-devops-engineer-at-waayupay-work-from-home/ | WaayuPay | DevOps Engineer | Work From Home
+- [ ] https://www.instahyre.com/job-401745-site-reliability-engineer-devops-at-datahub-bangalore/ | DataHub | Site Reliability Engineer - DevOps | Bangalore
+- [ ] https://www.instahyre.com/job-424256-cloud-engineer-azure-at-northern-arc-capital-bangalore/ | Northern Arc Capital | Cloud Engineer (Azure) | Bangalore
+- [ ] https://www.instahyre.com/job-431083-devops-engineer-at-epsilon-bangalore/ | Epsilon | DevOps Engineer | Bangalore
+
+- [ ] https://www.ivpn.net | IVPN | Infrastructure Engineer | Remote
+- [ ] https://devitjobs.uk/jobs/Assura-Protect-Azure-Data-DevOps-E | Assura Protect | DevOps Engineer | Remote
+- [ ] https://news.ycombinator.com/item?id=48818183 | Tech Mahindra | DevOps / Infrastructure role | India / Remote
+- [ ] https://news.ycombinator.com/item?id=48792793 | Acme | DevOps / Infrastructure role | Remote
+- [ ] https://drive.google.com/file/d/1-lA94zLI6XEusexLPIQvRTq-dLL | Opportunity looking for AI Engineer role Globaly Location : | DevOps / Infrastructure role | India / Remote
+- [ ] https://www.ashbyhq.com/blog/engineering/ai-ashby-engineerin | Ashby | DevOps / Infrastructure role | Remote
+- [ ] https://news.ycombinator.com/item?id=48760900 | Tower (tower.dev) | Platform Engineer | Remote
+- [ ] https://jobs.ashbyhq.com/oneleet | Oneleet (YC S22) | DevOps / Infrastructure role | Remote
+- [ ] https://vistulo.com/roles/hn0607/ | Vistulo | Infrastructure Engineer | Remote
+- [ ] https://news.ycombinator.com/item?id=48749845 | Sequent Tech | DevOps / Infrastructure role | Remote
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=WATvnCB88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=WATvnCB88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=WATvnCB88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=WATvnCB88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=WATvnCB88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=WATvnCB88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=WATvnCB88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=WATvnCB88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5785773071?se=gpUTnyB88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=9E3C60DE98F9AEF0B357BB25E40E5F4595A701DF | eBay | MTS-1, Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5794189646?utm_medium=api&utm_source=091434ce | Arbor Education | Site Reliability Engineer | India
+- [ ] https://www.adzuna.in/details/5794938989?utm_medium=api&utm_source=091434ce | Aliqan Services | Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5793290003?utm_medium=api&utm_source=091434ce | Plume | Site Reliability Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/details/5794688872?utm_medium=api&utm_source=091434ce | Cisco Systems | Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5784282089?utm_medium=api&utm_source=091434ce | Redwood Software | Site Reliability Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/details/5782686163?utm_medium=api&utm_source=091434ce | Workday inc | Site Reliability Engineer | Chennai, Tamil Nadu
+- [ ] https://www.adzuna.in/details/5782884395?utm_medium=api&utm_source=091434ce | Cisco | Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5791618253?utm_medium=api&utm_source=091434ce | Wayfair Inc | Site Reliability Engineer 3 | India
+- [ ] https://www.adzuna.in/details/5779828829?utm_medium=api&utm_source=091434ce | Mastercard | Site Reliability Engineer I | Pune, Maharashtra
+- [ ] https://www.adzuna.in/details/5789400437?utm_medium=api&utm_source=091434ce | Accenture | Site Reliability Engineer Specialist | India
+- [ ] https://www.adzuna.in/details/5789393830?utm_medium=api&utm_source=091434ce | 66degrees | Site Reliability Engineer (On-Prem) | India
+- [ ] https://www.adzuna.in/details/5792256542?utm_medium=api&utm_source=091434ce | Priceline | Site Reliability Engineer - Observability | Mumbai, Maharashtra
+- [ ] https://www.adzuna.in/details/5789379047?utm_medium=api&utm_source=091434ce | Shell | Associate Site Reliability Engineer | India
+- [ ] https://www.adzuna.in/details/5789387224?utm_medium=api&utm_source=091434ce | Synechron | Site Reliability Engineer (SRE) | India
+- [ ] https://www.adzuna.in/land/ad/5785772427?se=gpUTnyB88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=52FD11FE139233534634B125AAA27DE95B4DFDA0 | eBay | Technical Duty Officer (SRE) | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5789810788?utm_medium=api&utm_source=091434ce | Dayal Group | Cloud Engineer | Meerut, Uttar Pradesh
+- [ ] https://www.adzuna.in/details/5784728777?utm_medium=api&utm_source=091434ce | Tech Smcsquared Gcc | Cloud Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/details/5784332317?utm_medium=api&utm_source=091434ce | Zensar Technologies | Associate Cloud Engineer | India
+- [ ] https://www.adzuna.in/land/ad/5786419225?se=nuaZoSB88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=1FAA6BA6E205F106764900A9A95FE8E05CCF4C9E | Capco | GCP Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/details/5792798998?utm_medium=api&utm_source=091434ce | Beyond Key | Azure Cloud Engineer | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/details/5785959416?utm_medium=api&utm_source=091434ce | The Vanguard Group | Cloud Engineer, Specialist | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/details/5794214968?utm_medium=api&utm_source=091434ce | Eurofins GSC IT DC | IT Infrastructure Cloud Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5784728976?utm_medium=api&utm_source=091434ce | Solugenix | Python Terraform Cloud Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/details/5791424219?utm_medium=api&utm_source=091434ce | Rackspace India | Azure Cloud Engineer II | India
+- [ ] https://www.adzuna.in/land/ad/5790410179?se=XCOZoiB88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=66BFF3852BB0D57D83489919E1049ABD645A2CAC | Kyndryl | Platform Engineering - Middleware | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785771775?se=XCOZoiB88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=1629976FE1CFD502ECCD757030F43BF8731F3061 | eBay | AI Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410825?se=XCOZoiB88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=E7484FF89BDACF366DF8A83B2C16897787A0D307 | Kyndryl | Azure Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410168?se=XCOZoiB88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=83C8D953EC112B138EE4BF132B4F70BB282248D0 | Kyndryl | API Mavericks Platform Engineer | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5794154057?se=XCOZoiB88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=333A198E509B874593B9E20FDC41A54E6A9CC859 | MSD | Specialist, Data Streaming Platform Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/land/ad/5790410620?se=XCOZoiB88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=23D562B729D2D166A87B7F0D135949551D792037 | eBay | MTS 1, Platform Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5787269539?utm_medium=api&utm_source=091434ce | Evolent Health | Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/details/5786029823?utm_medium=api&utm_source=091434ce | Mondelēz International | Platform Engineer | India
+- [ ] https://www.adzuna.in/details/5786019136?utm_medium=api&utm_source=091434ce | Barclays | Platform Engineering | India
+- [ ] https://www.adzuna.in/details/5791139699?utm_medium=api&utm_source=091434ce | Showtime Consulting | Platform Engineer (GCP) | India
+- [ ] https://www.adzuna.in/details/5784307629?utm_medium=api&utm_source=091434ce | Accenture | Cloud Platform Engineer | India
+- [ ] https://www.adzuna.in/details/5790876912?utm_medium=api&utm_source=091434ce | Recrew AI | Backend & Platform Engineer | Mumbai, Maharashtra
+- [ ] https://www.adzuna.in/details/5778186442?utm_medium=api&utm_source=091434ce | Accenture | Technology Platform Engineer | India
+- [ ] https://www.adzuna.in/details/5780512619?utm_medium=api&utm_source=091434ce | Accenture | Data Platform Engineer | India
+
+- [ ] https://www.instahyre.com/job-432190-devops-engineer-at-confido-health-bangalore/ | Confido Health | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-432017-devops-engineer-at-amazon-bangalore/ | Amazon | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-245695-devops-engineer-at-planview-bangalore/ | Planview | DevOps Engineer | Bangalore
+- [ ] https://www.instahyre.com/job-350881-devops-engineer-at-scope-retail-systems-pune/ | Scope Retail Systems | DevOps Engineer | Pune
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=GMygPiJ88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=GMygPiJ88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=GMygPiJ88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=GMygPiJ88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=GMygPiJ88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=GMygPiJ88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=GMygPiJ88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=GMygPiJ88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5785773071?se=DCABQSJ88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=9E3C60DE98F9AEF0B357BB25E40E5F4595A701DF | eBay | MTS-1, Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5782513538?utm_medium=api&utm_source=091434ce | Cisco Systems | Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772427?se=DCABQSJ88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=52FD11FE139233534634B125AAA27DE95B4DFDA0 | eBay | Technical Duty Officer (SRE) | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5784728825?utm_medium=api&utm_source=091434ce | Tech Smcsquared Gcc | Cloud Engineer | Thiruvananthapuram, Kerala
+- [ ] https://www.adzuna.in/land/ad/5786419225?se=eLLtQSJ88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=1FAA6BA6E205F106764900A9A95FE8E05CCF4C9E | Capco | GCP Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5790410179?se=gNrVQiJ88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=66BFF3852BB0D57D83489919E1049ABD645A2CAC | Kyndryl | Platform Engineering - Middleware | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785771775?se=gNrVQiJ88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=1629976FE1CFD502ECCD757030F43BF8731F3061 | eBay | AI Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410825?se=gNrVQiJ88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=E7484FF89BDACF366DF8A83B2C16897787A0D307 | Kyndryl | Azure Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410168?se=gNrVQiJ88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=83C8D953EC112B138EE4BF132B4F70BB282248D0 | Kyndryl | API Mavericks Platform Engineer | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5794154057?se=gNrVQiJ88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=333A198E509B874593B9E20FDC41A54E6A9CC859 | MSD | Specialist, Data Streaming Platform Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/land/ad/5790410620?se=gNrVQiJ88RGR0aJR3Ghp5g&utm_medium=api&utm_source=091434ce&v=23D562B729D2D166A87B7F0D135949551D792037 | eBay | MTS 1, Platform Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5786030570?utm_medium=api&utm_source=091434ce | Accenture | Data Platform Engineer | India
+- [ ] https://www.adzuna.in/details/5786009566?utm_medium=api&utm_source=091434ce | Accenture | Technology Platform Engineer | India
+
+- [ ] https://www.instahyre.com/job-432867-sse-devops-at-deutsche-telekom-digital-labs-gurgaon/ | Deutsche Telekom Digital Labs | SSE - DevOps | Gurgaon
+- [ ] https://www.instahyre.com/job-417343-devops-engineer-at-scope-retail-systems-indore-pune/ | Scope Retail Systems | DevOps Engineer | Indore,Pune
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=jNZ4zSN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=jNZ4zSN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=jNZ4zSN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=jNZ4zSN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=jNZ4zSN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=jNZ4zSN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=jNZ4zSN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=jNZ4zSN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5785773071?se=4NsS0CN88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=9E3C60DE98F9AEF0B357BB25E40E5F4595A701DF | eBay | MTS-1, Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772427?se=4NsS0CN88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=52FD11FE139233534634B125AAA27DE95B4DFDA0 | eBay | Technical Duty Officer (SRE) | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/details/5784728817?utm_medium=api&utm_source=091434ce | Tech Smcsquared Gcc | Cloud Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5786419225?se=BrUr0SN88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=1FAA6BA6E205F106764900A9A95FE8E05CCF4C9E | Capco | GCP Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5790410179?se=cIMV0iN88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=66BFF3852BB0D57D83489919E1049ABD645A2CAC | Kyndryl | Platform Engineering - Middleware | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785771775?se=cIMV0iN88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=1629976FE1CFD502ECCD757030F43BF8731F3061 | eBay | AI Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410825?se=cIMV0iN88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=E7484FF89BDACF366DF8A83B2C16897787A0D307 | Kyndryl | Azure Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410168?se=cIMV0iN88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=83C8D953EC112B138EE4BF132B4F70BB282248D0 | Kyndryl | API Mavericks Platform Engineer | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5794154057?se=cIMV0iN88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=333A198E509B874593B9E20FDC41A54E6A9CC859 | MSD | Specialist, Data Streaming Platform Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/land/ad/5790410620?se=cIMV0iN88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=23D562B729D2D166A87B7F0D135949551D792037 | eBay | MTS 1, Platform Reliability Engineer | Bangalore, Karnataka
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=0s9XlSR88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=0s9XlSR88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=0s9XlSR88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=0s9XlSR88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=0s9XlSR88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=0s9XlSR88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=0s9XlSR88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=0s9XlSR88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=nF2N6yd88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=nF2N6yd88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=nF2N6yd88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=nF2N6yd88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=nF2N6yd88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=nF2N6yd88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=nF2N6yd88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=nF2N6yd88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5785773071?se=VLCy7Sd88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=9E3C60DE98F9AEF0B357BB25E40E5F4595A701DF | eBay | MTS-1, Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772427?se=VLCy7Sd88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=52FD11FE139233534634B125AAA27DE95B4DFDA0 | eBay | Technical Duty Officer (SRE) | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5786419225?se=tEqU7id88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=1FAA6BA6E205F106764900A9A95FE8E05CCF4C9E | Capco | GCP Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5790410179?se=lLgs7yd88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=66BFF3852BB0D57D83489919E1049ABD645A2CAC | Kyndryl | Platform Engineering - Middleware | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785771775?se=lLgs7yd88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=1629976FE1CFD502ECCD757030F43BF8731F3061 | eBay | AI Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410825?se=lLgs7yd88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=E7484FF89BDACF366DF8A83B2C16897787A0D307 | Kyndryl | Azure Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410168?se=lLgs7yd88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=83C8D953EC112B138EE4BF132B4F70BB282248D0 | Kyndryl | API Mavericks Platform Engineer | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5794154057?se=lLgs7yd88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=333A198E509B874593B9E20FDC41A54E6A9CC859 | MSD | Specialist, Data Streaming Platform Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/land/ad/5790410620?se=lLgs7yd88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=23D562B729D2D166A87B7F0D135949551D792037 | eBay | MTS 1, Platform Reliability Engineer | Bangalore, Karnataka
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=MnL2aCh88RGhBrPIECzlbQ&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=MnL2aCh88RGhBrPIECzlbQ&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=MnL2aCh88RGhBrPIECzlbQ&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=MnL2aCh88RGhBrPIECzlbQ&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=MnL2aCh88RGhBrPIECzlbQ&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=MnL2aCh88RGhBrPIECzlbQ&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=MnL2aCh88RGhBrPIECzlbQ&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=MnL2aCh88RGhBrPIECzlbQ&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5785773071?se=9p31aih88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=9E3C60DE98F9AEF0B357BB25E40E5F4595A701DF | eBay | MTS-1, Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772427?se=9p31aih88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=52FD11FE139233534634B125AAA27DE95B4DFDA0 | eBay | Technical Duty Officer (SRE) | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5786419225?se=FgK3ayh88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=1FAA6BA6E205F106764900A9A95FE8E05CCF4C9E | Capco | GCP Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5790410179?se=iDpSbCh88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=66BFF3852BB0D57D83489919E1049ABD645A2CAC | Kyndryl | Platform Engineering - Middleware | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785771775?se=iDpSbCh88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=1629976FE1CFD502ECCD757030F43BF8731F3061 | eBay | AI Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410825?se=iDpSbCh88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=E7484FF89BDACF366DF8A83B2C16897787A0D307 | Kyndryl | Azure Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410168?se=iDpSbCh88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=83C8D953EC112B138EE4BF132B4F70BB282248D0 | Kyndryl | API Mavericks Platform Engineer | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5794154057?se=iDpSbCh88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=333A198E509B874593B9E20FDC41A54E6A9CC859 | MSD | Specialist, Data Streaming Platform Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/land/ad/5790410620?se=iDpSbCh88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=23D562B729D2D166A87B7F0D135949551D792037 | eBay | MTS 1, Platform Reliability Engineer | Bangalore, Karnataka
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=CCHPACl88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=CCHPACl88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=CCHPACl88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=CCHPACl88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=CCHPACl88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=CCHPACl88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=CCHPACl88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=CCHPACl88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5785773071?se=jDgxAyl88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=9E3C60DE98F9AEF0B357BB25E40E5F4595A701DF | eBay | MTS-1, Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772427?se=jDgxAyl88RGT9KdMukCbjQ&utm_medium=api&utm_source=091434ce&v=52FD11FE139233534634B125AAA27DE95B4DFDA0 | eBay | Technical Duty Officer (SRE) | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5786419225?se=8FE6BCl88RGTkpniCbOKdQ&utm_medium=api&utm_source=091434ce&v=1FAA6BA6E205F106764900A9A95FE8E05CCF4C9E | Capco | GCP Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5790410179?se=-oYJBSl88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=66BFF3852BB0D57D83489919E1049ABD645A2CAC | Kyndryl | Platform Engineering - Middleware | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785771775?se=-oYJBSl88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=1629976FE1CFD502ECCD757030F43BF8731F3061 | eBay | AI Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410825?se=-oYJBSl88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=E7484FF89BDACF366DF8A83B2C16897787A0D307 | Kyndryl | Azure Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410168?se=-oYJBSl88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=83C8D953EC112B138EE4BF132B4F70BB282248D0 | Kyndryl | API Mavericks Platform Engineer | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5794154057?se=-oYJBSl88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=333A198E509B874593B9E20FDC41A54E6A9CC859 | MSD | Specialist, Data Streaming Platform Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/land/ad/5790410620?se=-oYJBSl88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=23D562B729D2D166A87B7F0D135949551D792037 | eBay | MTS 1, Platform Reliability Engineer | Bangalore, Karnataka
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=LFgEGip88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=LFgEGip88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=LFgEGip88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=LFgEGip88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=LFgEGip88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=LFgEGip88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=LFgEGip88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=LFgEGip88RG3e5u7ZxGBMQ&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5785773071?se=yIyaHCp88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=9E3C60DE98F9AEF0B357BB25E40E5F4595A701DF | eBay | MTS-1, Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772427?se=yIyaHCp88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=52FD11FE139233534634B125AAA27DE95B4DFDA0 | eBay | Technical Duty Officer (SRE) | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5786419225?se=2umdHSp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=1FAA6BA6E205F106764900A9A95FE8E05CCF4C9E | Capco | GCP Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5790410179?se=mGBoHip88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=66BFF3852BB0D57D83489919E1049ABD645A2CAC | Kyndryl | Platform Engineering - Middleware | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785771775?se=mGBoHip88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=1629976FE1CFD502ECCD757030F43BF8731F3061 | eBay | AI Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410825?se=mGBoHip88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=E7484FF89BDACF366DF8A83B2C16897787A0D307 | Kyndryl | Azure Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410168?se=mGBoHip88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=83C8D953EC112B138EE4BF132B4F70BB282248D0 | Kyndryl | API Mavericks Platform Engineer | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5794154057?se=mGBoHip88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=333A198E509B874593B9E20FDC41A54E6A9CC859 | MSD | Specialist, Data Streaming Platform Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/land/ad/5790410620?se=mGBoHip88RGD_JySugrbTQ&utm_medium=api&utm_source=091434ce&v=23D562B729D2D166A87B7F0D135949551D792037 | eBay | MTS 1, Platform Reliability Engineer | Bangalore, Karnataka
+
+- [ ] https://www.adzuna.in/land/ad/5790410552?se=7nMzNDp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=92490FB2183666B8C905224075EA9C9028724228 | Kyndryl | DevOps SME | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410525?se=7nMzNDp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=4DBDC52679B075F83637247834F9E7C9D0B27E1D | Kyndryl | DevOps Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410373?se=7nMzNDp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=6E2FA83111ED3E16B5BAEA5061D42D96AB1E22B5 | Allianz Commercial | DevOps Engineer_1917 | India
+- [ ] https://www.adzuna.in/land/ad/5790410564?se=7nMzNDp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=C2D4B028FD79B899C50F6AE1AE976BA91538AECB | Kyndryl | DevOps Engineer - SQLAutomation | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5790410144?se=7nMzNDp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=3DCCB88E3C5FA2977081BB057B6A4E8604E36976 | RWS | DevOps Engineer (Azure) | Indore, Madhya Pradesh
+- [ ] https://www.adzuna.in/land/ad/5785772423?se=7nMzNDp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=31AD54AEFE4CB036A492208FED4C7BE5ACCC6F28 | Kyndryl | DevOps / Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772438?se=7nMzNDp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=75BD2A47D33804C24960FB9C967EED71CEE013F3 | Capco | DevOps / Observability Engineer (CI/CD & SecOps) | India
+- [ ] https://www.adzuna.in/land/ad/5785772802?se=7nMzNDp88RGSpc2JeqBnow&utm_medium=api&utm_source=091434ce&v=808BD3A0ACCA721328CA78FB0C7AD64F3FA01960 | Deutsche Bank | DevOps Automation Engineer with Google Cloud Exposure | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5785773071?se=htxxNjp88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=9E3C60DE98F9AEF0B357BB25E40E5F4595A701DF | eBay | MTS-1, Site Reliability Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785772427?se=htxxNjp88RGm9YHvQ8XokQ&utm_medium=api&utm_source=091434ce&v=52FD11FE139233534634B125AAA27DE95B4DFDA0 | eBay | Technical Duty Officer (SRE) | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5786419225?se=vCuMNzp88RGnRYBMXpa7hA&utm_medium=api&utm_source=091434ce&v=1FAA6BA6E205F106764900A9A95FE8E05CCF4C9E | Capco | GCP Platform Engineer | Pune, Maharashtra
+- [ ] https://www.adzuna.in/land/ad/5790410179?se=yN1FODp88RGWX_cipTfXog&utm_medium=api&utm_source=091434ce&v=66BFF3852BB0D57D83489919E1049ABD645A2CAC | Kyndryl | Platform Engineering - Middleware | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5785771775?se=yN1FODp88RGWX_cipTfXog&utm_medium=api&utm_source=091434ce&v=1629976FE1CFD502ECCD757030F43BF8731F3061 | eBay | AI Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410825?se=yN1FODp88RGWX_cipTfXog&utm_medium=api&utm_source=091434ce&v=E7484FF89BDACF366DF8A83B2C16897787A0D307 | Kyndryl | Azure Platform Engineer | Bangalore, Karnataka
+- [ ] https://www.adzuna.in/land/ad/5790410168?se=yN1FODp88RGWX_cipTfXog&utm_medium=api&utm_source=091434ce&v=83C8D953EC112B138EE4BF132B4F70BB282248D0 | Kyndryl | API Mavericks Platform Engineer | Noida, Gautam Buddha Nagar
+- [ ] https://www.adzuna.in/land/ad/5794154057?se=yN1FODp88RGWX_cipTfXog&utm_medium=api&utm_source=091434ce&v=333A198E509B874593B9E20FDC41A54E6A9CC859 | MSD | Specialist, Data Streaming Platform Engineer | Hyderabad, Telangana
+- [ ] https://www.adzuna.in/land/ad/5790410620?se=yN1FODp88RGWX_cipTfXog&utm_medium=api&utm_source=091434ce&v=23D562B729D2D166A87B7F0D135949551D792037 | eBay | MTS 1, Platform Reliability Engineer | Bangalore, Karnataka
