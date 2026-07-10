@@ -62,6 +62,8 @@ export default {
         method: 'POST',
         body,
         headers: { 'content-type': 'application/json', accept: 'application/json' },
+        // redirect:'error' prevents SSRF via server-side redirects.
+        redirect: 'error',
       });
       const postings = Array.isArray(json?.jobPostings) ? json.jobPostings : [];
       for (const j of postings) {

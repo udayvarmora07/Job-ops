@@ -80,13 +80,16 @@ export function parseRecruiteeResponse(json, companyName) {
     const remote = j.remote ? 'Remote' : '';
     const location = j.location || [city, country, remote].filter(Boolean).join(', ');
 
-    // Validate offer URL: must parse as https://<safe-slug>.recruitee.com/...
+    // Per-offer URL is display-only (not used to derive an API endpoint), so it
+    // is NOT host-locked to *.recruitee.com — tenants legitimately serve
+    // postings on their own custom domain (e.g. careers.hostaway.com). We only
+    // require https; non-https, malformed, or missing URLs are dropped.
     let url = '';
     const rawUrl = j.careers_url || j.url || '';
     if (typeof rawUrl === 'string' && rawUrl) {
       try {
         const parsed = new URL(rawUrl);
-        if (parsed.protocol === 'https:' && RECRUITEE_HOST_RE.test(parsed.hostname)) {
+        if (parsed.protocol === 'https:') {
           url = parsed.href;
         }
       } catch {

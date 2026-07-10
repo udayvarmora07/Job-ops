@@ -23,7 +23,8 @@ export default {
   async fetch(entry, ctx) {
     const apiUrl = resolveApiUrl(entry);
     if (!apiUrl) throw new Error(`lever: cannot derive API URL for ${entry.name}`);
-    const json = await ctx.fetchJson(apiUrl);
+    // redirect:'error' prevents SSRF via server-side redirects.
+    const json = await ctx.fetchJson(apiUrl, { redirect: 'error' });
     if (!Array.isArray(json)) return [];
     return json.map(j => ({
       title: j.text || '',
