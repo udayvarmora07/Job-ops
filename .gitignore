@@ -30,3 +30,24 @@ output/
 # Python bytecode
 **/__pycache__/
 **/*.pyc
+
+# User-layer data (personalization) — never commit; examples/templates are
+# tracked instead (config/profile.example.yml, templates/portals.example.yml,
+# modes/_profile.template.md). See DATA_CONTRACT.md.
+config/profile.yml
+modes/_profile.md
+portals.yml
+
+# TypeScript incremental build info (build artifact)
+*.tsbuildinfo
+
+# Script-generated caches, indexes and runtime records (never commit)
+data/jd-cache/
+data/pdf-index.tsv
+data/outreach/
+
+# QA / e2e test output (reports, screenshots, run JSON)
+reports/e2e-*
+
+# Transient batch tracker-addition staging (merged into data/applications.md)
+batch/tracker-additions/
